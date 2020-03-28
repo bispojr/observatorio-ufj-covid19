@@ -17,6 +17,63 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+	      google.charts.load('current', {'packages':['corechart']});
+	      google.charts.setOnLoadCallback(drawChart);
+
+	      function drawChart() {
+	        /*var data = google.visualization.arrayToDataTable([
+	          ['Data','Confirmados','Descartados','Investigados','Notificados','Isolados','Internados','Monitorados'],
+				[18,1,1,,2,,,5],
+				[19,1,1,2,4,,,35],
+				[20,1,1,5,7,,,47],
+				[21,1,1,5,7,,,47],
+				[22,1,1,5,7,,,47],
+				[23,1,1,8,10,7,2,47],
+				[24,1,1,8,10,8,1,67],
+				[25,1,1,8,10,8,1,77],
+				[26,2,2,6,11,9,0,77]
+	        ]);*/
+
+	        var data = google.visualization.arrayToDataTable([
+	          ['Data','Confirmados','Investigados','Notificados','Isolados','Internados'],
+				[18,1,,2,,0],
+				[19,1,2,4,,0],
+				[20,1,5,7,,0],
+				[21,1,5,7,,0],
+				[22,1,5,7,,0],
+				[23,1,8,10,7,2],
+				[24,1,8,10,8,1],
+				[25,1,8,10,8,1],
+				[26,2,6,11,9,0],
+				[27,2,3,11,7,0]
+	        ]);
+
+	        var options = {
+	          curveType: 'function',
+	          legend: { position: 'top' , maxLines: 2},
+	          isStacked: true,
+	          colors: ['red', 'yellow', 'green', 'black', 'blue'],
+	          vAxis: {	title: 'Número de casos',
+	      				viewWindow: {
+					        min: 0,
+					        max: 12
+					    },
+					    ticks: [0, 2, 4, 6, 8, 10, 12] 
+					},
+	          hAxis: {
+	          		title: 'Dia (Março)',
+	          		ticks: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+	          	}
+	        };
+
+	        var chart = new google.visualization.LineChart(document.getElementById('jatai-grafico'));
+
+	        chart.draw(data, options);
+	      }
+	    </script>
 	</head>
 	<body class="index is-preload">
 		<div id="page-wrapper">
@@ -83,11 +140,10 @@
 									<header>
 										<h2><strong>Evolução</strong> do Covid-19 em Jataí (GO)</h2>
 									</header>
-									<img src="images/jatai-grafico-20-03-27.svg" alt="Gráfico do dia 26 de março sobre a evolução do Covid-19 em Jataí, Goiás." class="image featured" style="width: 85%; margin-left: 5%;"/>
-									<p>
-										Dados atualizados em 27 de março de 2020.<br>
-										<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">Secretária de Saúde de Jataí</a>.
-									</p>
+									<div id="jatai-grafico" style="width: 80%; height: 90%; margin-botom: 0.0;"></div>
+									
+										
+									
 								</div>
 								<div class="col-4 col-12-narrower imp-narrower">
 
@@ -101,6 +157,14 @@
 									</ul>
 
 								</div>
+							</div>
+							<div class="row gtr-50">
+								<span>
+											Dados atualizados em 27 de março de 2020.<br>
+											<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">
+												Secretária de Saúde de Jataí
+												</a>.
+										</span>
 							</div>
 						</section>
 
