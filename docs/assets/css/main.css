@@ -1961,6 +1961,15 @@ input, select, textarea {
 					background: #df7b77;
 				}
 
+			.icon.circle.fa-instagram {
+				background: #a669ce;
+				color: #fff;
+			}
+
+				.icon.circle.fa-instagram:hover {
+					background: #af78d3;
+				}
+
 			.icon.circle.fa-github {
 				background: #dcad8b;
 				color: #fff;
