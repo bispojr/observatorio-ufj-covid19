@@ -109,8 +109,30 @@
 
 	        drawJatai();
 	        drawMineiros();
+	        coletaNoticias();
 
 	      }
+
+	      function coletaNoticias() {
+		      var queryString = encodeURIComponent('SELECT A, B, C, D, E, F');
+
+		      var query = new google.visualization.Query(
+		          'https://docs.google.com/spreadsheets/d/178wCqYRbSXRQui2l3pLOI3Yz5OktNzNvWr_AE2GWPEg/gviz/tq?sheet=Dados&headers=1&tq=' + queryString);
+		      query.send(coletaNoticiasPasso2);
+		    }
+
+		    function coletaNoticiasPasso2(response) {
+		      if (response.isError()) {
+		        alert('Erro na consulta: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+		        return;
+		      }
+
+		      //var data = JSON.parse(response.getDataTable().toJSON());
+		      var data = response.getDataTable();
+		      console.log(data.getValue(0,2));
+		      
+		    }
+
 	    </script>
 	</head>
 	<body class="index is-preload">
@@ -191,14 +213,7 @@
 								</div>
 								<div class="col-4 col-12-narrower imp-narrower">
 
-									<ul class="featured-icons">
-										<li><span class="icon solid fa-laptop-medical"><span class="label">Feature 1</span></span></li>
-										<li><span class="icon solid fa-stethoscope"><span class="label">Feature 2</span></span></li>
-										<li><span class="icon solid fa-thermometer-full"><span class="label">Feature 3</span></span></li>
-										<li><span class="icon solid fa-procedures"><span class="label">Feature 4</span></span></li>
-										<li><span class="icon solid fa-hospital"><span class="label">Feature 5</span></span></li>
-										<li><span class="icon solid fa-file-medical"><span class="label">Feature 6</span></span></li>
-									</ul>
+									<img src="images/mapa-site-jatai.svg" alt="Mapa da Cidade de Jataí" style="width: 30em; margin-left: -6em; margin-top: 6em;" />
 
 								</div>
 							</div>
@@ -206,7 +221,7 @@
 								<span>
 											Dados atualizados em 27 de março de 2020.<br>
 											<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">
-												Secretária de Saúde de Jataí
+												Secretária de SLogo da Plataforma Lattesaúde de Jataí
 												</a>.
 										</span>
 							</div>
@@ -226,14 +241,7 @@
 								</div>
 								<div class="col-4 col-12-narrower imp-narrower">
 
-									<ul class="featured-icons">
-										<li><span class="icon solid fa-laptop-medical"><span class="label">Feature 1</span></span></li>
-										<li><span class="icon solid fa-stethoscope"><span class="label">Feature 2</span></span></li>
-										<li><span class="icon solid fa-thermometer-full"><span class="label">Feature 3</span></span></li>
-										<li><span class="icon solid fa-procedures"><span class="label">Feature 4</span></span></li>
-										<li><span class="icon solid fa-hospital"><span class="label">Feature 5</span></span></li>
-										<li><span class="icon solid fa-file-medical"><span class="label">Feature 6</span></span></li>
-									</ul>
+									<img src="images/mapa-site-mineiros.svg" alt="Mapa da Cidade de Mineiros" style="width: 30em; margin-left: -6em; margin-top: 6em;" />
 
 								</div>
 							</div>
@@ -247,6 +255,51 @@
 							</div>
 						</section>
 
+						<!--
+						<header class="special container" id="equipe">
+							<span class="icon solid fa-newspaper"></span>
+							<h2>Notícias</h2>
+						</header>
+
+					<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>This is Something</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>Also Something</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>Probably Something</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+							</div>
+						</section>
+						-->
+						
 					<!-- Two -->
 					<header class="special container" id="equipe">
 						<span class="icon solid fa-chart-bar"></span>
