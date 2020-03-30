@@ -40,8 +40,8 @@
 		      var data = response.getDataTable();
 
 		      var options = {
-		        	width: 600,
-	        		height: 400,
+		        	//width: 600,
+	        		//height: 400,
 		          curveType: 'function',
 		          legend: { position: 'top' , maxLines: 2},
 		          isStacked: true,
@@ -55,7 +55,7 @@
 						},
 		          hAxis: {
 		          		title: 'Dia (Março)',
-		          		ticks: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+		          		ticks: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 		          	}
 		        };
 
@@ -81,8 +81,6 @@
 		      var dataMineiros = response.getDataTable();
 
 		      var optionsMineiros = {
-	        	width: 600,
-        		height: 400,
 	          curveType: 'function',
 	          legend: { position: 'top' , maxLines: 2},
 	          isStacked: true,
@@ -96,7 +94,7 @@
 					},
 	          hAxis: {
 	          		title: 'Dia (Março)',
-	          		ticks: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+	          		ticks: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 	          	}
 	        };
 
@@ -210,9 +208,13 @@
 								<div class="col-7 col-12-narrower" style="margin-left: 5%">
 
 									<header>
-										<h2><strong>Evolução</strong> do Covid-19: Jataí (GO)</h2>
+										<h2>Covid-19: <strong>Jataí (GO)</strong></h2>
 									</header>
-									<div id="jatai-grafico"></div>
+									<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
+										min-width: 300px; 
+										max-width: 110%;
+										max-height: 90%;" 
+										id="jatai-grafico"></div>
 								</div>
 							</div>
 							<div class="row gtr-50">
@@ -233,13 +235,16 @@
 									<img class="image img-fit" src="images/mapa-mineiros.svg" alt="Mapa da Cidade de Mineiros" style="width: 160%; margin-left: -30%; margin-top: 30%;"/>
 
 								</div>
-
 								<div class="col-7 col-12-narrower" style="margin-left: 5%">
 
 									<header>
-										<h2><strong>Evolução</strong> do Covid-19: Mineiros (GO)</h2>
+										<h2>Covid-19: <strong>Mineiros (GO)</strong></h2>
 									</header>
-									<div id="mineiros-grafico"></div>
+									<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
+										min-width: 300px; 
+										max-width: 110%;
+										max-height: 90%;" 
+										id="mineiros-grafico"></div>
 									
 										
 									
