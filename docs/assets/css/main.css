@@ -3348,3 +3348,7 @@ input, select, textarea {
 			}
 
 	}
+
+	.noticia:hover{
+		background-color: white;
+	}
