@@ -27,9 +27,9 @@ function drawJatai() {
           vAxis: {	title: 'Número de casos',
       				viewWindow: {
 				        min: 0,
-				        max: 12
+				        max: 16
 				    },
-				    ticks: [0, 2, 4, 6, 8, 10, 12] 
+				    ticks: [0, 2, 4, 6, 8, 10, 12, 14, 16] 
 				},
           hAxis: {
           		title: 'Dia (Março)',
