@@ -18,22 +18,28 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Observatório UFJ Covid-19
+email: bispojr@ufg.br
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  O Observatório UFJ Covid-19 tem como propósito de ser uma ferramenta de
+  acompanhamento dos dados oficiais epidemiológicos em relação à pandemia do 
+  Covid-19 para a cidade de Jataí e Mineiros (e potencialmente toda a 
+  região do sudoeste goiano). Esta é uma iniciativa do Bacharelado em 
+  Ciências da Computação da Universidade Federal de Jataí (UFJ). Nosso 
+  público-alvo é a comunidade em geral. Entretanto, estamos fortemente 
+  interessados em fornecer informações importantes (como gráficos e projeções) 
+  para auxiliar gestores públicos e privados na tomada de decisões neste 
+  momento delicado vivido em nossa sociedade. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.deolhonocorona.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  bispojr
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
 destination: ./../docs
+include: ['_pages']
 
 
 # Exclude from processing.
