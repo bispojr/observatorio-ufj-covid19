@@ -2,7 +2,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawJatai() {
-      var queryString = encodeURIComponent('SELECT A, D, E, F, G');
+      var queryString = encodeURIComponent('SELECT A, B, D, E, F, G');
 
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ/gviz/tq?sheet=Dados&headers=1&tq=' + queryString);
