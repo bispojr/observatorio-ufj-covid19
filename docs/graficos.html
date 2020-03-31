@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>Observatório UFJ Covid-19 - Gráficos</title>
+		<title>Observatório UFJ Covid-19 - Projeções</title>
 		<meta property="og:image" content="images/thumbnail.png" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.deolhonocorona.com" />
@@ -11,23 +11,23 @@
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="/images/faviconapple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
+		<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/images/favicon/manifest.json">
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
@@ -59,13 +59,15 @@
 					
 				"
 			><a href="/sobre">Sobre</a></li>
-			<li 
-				class="
-					
-					  current
-					
-				"
-			><a href="/graficos">Gráficos</a></li>
+			
+				<li class="current submenu">
+					<a href="/graficos">Gráficos</a>
+					<ul>
+						<li><a href="/graficos/jatai">Jataí</a></li>
+						<li><a href="/graficos/mineiros">Mineiros</a></li>
+					</ul>
+				</li>
+			
 			<li 
 				class="
 					
@@ -95,7 +97,7 @@
 
 			<!--<object data="images/mapa-jatai.svg" type="image/svg+xml" id="mapa-jatai" alt="Mapa da Cidade de Jataí" width= "160%" style="margin-left: -30%; margin-top: 30%;"></object>-->
 
-			<img src="images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 30%;" />
+			<img src="/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 30%;" />
 		</div>
 
 		<div class="col-7 col-12-narrower" style="margin-left: 5%">
@@ -125,7 +127,7 @@
 
 		<div class="col-4 col-10-narrower off-1-narrower imp-narrower col-8-mobile off-2-mobile">
 
-			<img class="image img-fit" src="images/mapa-mineiros.svg" alt="Mapa da Cidade de Mineiros" style="width: 160%; margin-left: -30%; margin-top: 30%;"/>
+			<img class="image img-fit" src="/images/mapa-mineiros.svg" alt="Mapa da Cidade de Mineiros" style="width: 160%; margin-left: -30%; margin-top: 30%;"/>
 
 		</div>
 		<div class="col-7 col-12-narrower" style="margin-left: 5%">
@@ -146,7 +148,7 @@
 	</div>
 	<div class="row gtr-50">
 		<span>
-					Dados atualizados em 30 de março de 2020.<br>
+					Dados atualizados em 31 de março de 2020.<br>
 					<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="http://mineiros.go.gov.br/covid-19.php" target="_blank">
 						Secretária de Saúde de Mineiros
 						</a>.
@@ -177,17 +179,17 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
 			<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			<script src="assets/js/noticias.js"></script>
-			<script src="assets/js/graficos.js"></script>
+			<script src="/assets/js/noticias.js"></script>
+			<script src="/assets/js/graficos.js"></script>
 
 
 	</body>

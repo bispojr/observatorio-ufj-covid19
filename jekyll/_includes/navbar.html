@@ -25,13 +25,17 @@
 					{% endif %}
 				"
 			><a href="/sobre">Sobre</a></li>
-			<li 
-				class="
-					{% if page.permalink == "/graficos" %}
-					  current
-					{% endif %}
-				"
-			><a href="/graficos">Gráficos</a></li>
+			{% if page.permalink == "/graficos" %}
+				<li class="current submenu">
+					<a href="/graficos">Gráficos</a>
+					<ul>
+						<li><a href="/graficos/jatai">Jataí</a></li>
+						<li><a href="/graficos/mineiros">Mineiros</a></li>
+					</ul>
+				</li>
+			{% else %}
+				<li><a href="/graficos">Gráficos</a></li>
+			{% endif %}
 			<li 
 				class="
 					{% if page.permalink == "/noticias" %}
