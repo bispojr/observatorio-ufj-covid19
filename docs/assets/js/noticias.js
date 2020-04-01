@@ -1,3 +1,6 @@
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(coletaNoticias);
+
 function coletaNoticias() {
   var queryString = encodeURIComponent('SELECT A, B, C, D, E, F');
 
