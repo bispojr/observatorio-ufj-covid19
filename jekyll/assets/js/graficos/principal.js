@@ -1,29 +1,28 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+var parametros = [];
+
+parametros["jatai"] = {};
+parametros["jatai"].query = 'SELECT A, B, D, E, F, G';
+parametros["jatai"].googleSheet = 'https://docs.google.com/spreadsheets/d/1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ/gviz/tq?sheet=Dados&headers=1&tq=';
+parametros["jatai"].colors = ['red', 'yellow', 'green', 'black', 'blue'];
+parametros["jatai"].xTitle = 'Dia/Mês';
+parametros["jatai"].yTitle = 'Número de casos';
+parametros["jatai"].idDiv = 'jatai-grafico';
+
+parametros["mineiros"] = {};
+parametros["mineiros"].query = 'SELECT A, B, C';
+parametros["mineiros"].googleSheet = 'https://docs.google.com/spreadsheets/d/1MPFPI6nZvoPjSanXFcVqh3TrWDRJ7J5SXbhKkW6p5NY/gviz/tq?sheet=Dados&headers=1&tq=';
+parametros["mineiros"].colors = ['green', 'brown'];
+parametros["mineiros"].xTitle = 'Dia/Mês';
+parametros["mineiros"].yTitle = 'Número de casos';
+parametros["mineiros"].idDiv = 'mineiros-grafico';
+
 function drawChart() {
 
-  var jatai = {};
-  
-  jatai.query = 'SELECT A, B, D, E, F, G';
-  jatai.googleSheet = 'https://docs.google.com/spreadsheets/d/1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ/gviz/tq?sheet=Dados&headers=1&tq=';
-  jatai.colors = ['red', 'yellow', 'green', 'black', 'blue'];
-  jatai.xTitle = 'Dia (Março)';
-  jatai.yTitle = 'Número de casos';
-  jatai.idDiv = 'jatai-grafico';
-  
-  buildChart(jatai);
-
-  var mineiros = {};
-
-  mineiros.query = 'SELECT A, B, C';
-  mineiros.googleSheet = 'https://docs.google.com/spreadsheets/d/1MPFPI6nZvoPjSanXFcVqh3TrWDRJ7J5SXbhKkW6p5NY/gviz/tq?sheet=Dados&headers=1&tq=';
-  mineiros.colors = ['green', 'brown'];
-  mineiros.xTitle = 'Dia (Março)';
-  mineiros.yTitle = 'Número de casos';
-  mineiros.idDiv = 'mineiros-grafico';
-  
-  buildChart(mineiros);
+  buildChart("jatai");
+  buildChart("mineiros");
 
   coletaNoticias();
 }
