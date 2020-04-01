@@ -1,38 +1,13 @@
-function buildChart(cidade) {
+function buildChart(param) {
 
-  var queryString = encodeURIComponent(parametros[cidade].query);
-  var query = new google.visualization.Query(parametros[cidade].googleSheet + queryString);
-
-  switch(cidade){
-    case "jatai":
-        query.send(buildChartResponseJatai);
-        break;
-    case "mineiros":
-        query.send(buildChartResponseMineiros);      
-        break;
-  }  
-}
-
-function buildChartResponseJatai(response) {
+  var queryString = encodeURIComponent(param.query);
+  var query = new google.visualization.Query(param.googleSheet + queryString);
+    
+  query.send(function(response){
     if (response.isError()) {
       alert('Erro in consulta: ' + response.getMessage() + ' ' + response.getDetailedMessage());
       return ;
     }
-
-    buildEffectivellyChart(parametros["jatai"], response);
-}
-
-function buildChartResponseMineiros(response) {
-    if (response.isError()) {
-      alert('Erro in consulta: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-      return ;
-    }
-
-    buildEffectivellyChart(parametros["mineiros"], response);
-}
-
-function buildEffectivellyChart(param, response){
-
     var data = response.getDataTable();
 
     //Criação do ticks X
@@ -111,4 +86,5 @@ function buildEffectivellyChart(param, response){
 
       var chart = new google.visualization.LineChart(document.getElementById(param.idDiv));
       chart.draw(data, options);
+  });
 }
