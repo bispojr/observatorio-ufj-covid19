@@ -17,6 +17,7 @@ function drawChart() {
   parametros.jatai.resumo.xTitle = 'Dia/Mês';
   parametros.jatai.resumo.yTitle = 'Número de casos';
   parametros.jatai.resumo.idDiv = 'jatai-grafico-resumo';
+  parametros.jatai.resumo.data_atualizacao = "#data-atualizacao-jatai";
 
   parametros.mineiros ={};
 
@@ -29,6 +30,7 @@ function drawChart() {
   parametros.mineiros.resumo.xTitle = 'Dia/Mês';
   parametros.mineiros.resumo.yTitle = 'Número de casos';
   parametros.mineiros.resumo.idDiv = 'mineiros-grafico';
+  parametros.mineiros.resumo.data_atualizacao = "#data-atualizacao-mineiros";
 
   buildChart(parametros.jatai.resumo);
   buildChart(parametros.mineiros.resumo);

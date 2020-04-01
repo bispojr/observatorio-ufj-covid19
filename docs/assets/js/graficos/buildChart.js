@@ -86,5 +86,17 @@ function buildChart(param) {
 
       var chart = new google.visualization.LineChart(document.getElementById(param.idDiv));
       chart.draw(data, options);
+
+
+      //Data de atualização informada em cada página
+      if(param.data_atualizacao != false){
+          var mes = [
+            "janeiro", "fevereiro", "março", 
+            "abril", "maio", "junho", 
+            "julho", "agosto", "setembro", 
+            "outubro", "novembro", "dezembro"];
+
+          $(param.data_atualizacao).text(maxX.getDate() + " de " + mes[maxX.getMonth()] + " de " + maxX.getFullYear());
+      }
   });
 }

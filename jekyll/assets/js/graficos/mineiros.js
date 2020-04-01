@@ -16,6 +16,7 @@ function drawChart() {
   parametros.mineiros.resumo.xTitle = 'Dia/Mês';
   parametros.mineiros.resumo.yTitle = 'Número de casos';
   parametros.mineiros.resumo.idDiv = 'mineiros-grafico';
+  parametros.mineiros.resumo.data_atualizacao = "#data-atualizacao-mineiros";
 
   parametros.mineiros.todas = {};
   parametros.mineiros.todas.query = 'SELECT A, B, C, D, E, F, G, H';
@@ -26,6 +27,7 @@ function drawChart() {
   parametros.mineiros.todas.xTitle = 'Dia/Mês';
   parametros.mineiros.todas.yTitle = 'Número de casos';
   parametros.mineiros.todas.idDiv = 'mineiros-grafico-todas';
+  parametros.mineiros.todas.data_atualizacao = false;
 
   parametros.mineiros.monitorados = {};
   parametros.mineiros.monitorados.query = 'SELECT A, B, C';
@@ -36,6 +38,7 @@ function drawChart() {
   parametros.mineiros.monitorados.xTitle = 'Dia/Mês';
   parametros.mineiros.monitorados.yTitle = 'Número de casos';
   parametros.mineiros.monitorados.idDiv = 'mineiros-grafico-monitorados';
+  parametros.mineiros.monitorados.data_atualizacao = false;
 
   buildChart(parametros.mineiros.resumo);
   buildChart(parametros.mineiros.todas);

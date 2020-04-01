@@ -17,6 +17,7 @@ function drawChart() {
   parametros.jatai.resumo.xTitle = 'Dia/Mês';
   parametros.jatai.resumo.yTitle = 'Número de casos';
   parametros.jatai.resumo.idDiv = 'jatai-grafico-resumo';
+  parametros.jatai.resumo.data_atualizacao = "#data-atualizacao-jatai";
 
   parametros.jatai.monitorados = {};
   parametros.jatai.monitorados = {};
@@ -28,6 +29,7 @@ function drawChart() {
   parametros.jatai.monitorados.xTitle = 'Dia/Mês';
   parametros.jatai.monitorados.yTitle = 'Número de casos';
   parametros.jatai.monitorados.idDiv = 'jatai-grafico-monitorados';
+  parametros.jatai.monitorados.data_atualizacao = false;
 
   parametros.jatai.todas = {};
   parametros.jatai.todas.query = 'SELECT A, B, C, D, E, F, G, H';
@@ -38,6 +40,7 @@ function drawChart() {
   parametros.jatai.todas.xTitle = 'Dia/Mês';
   parametros.jatai.todas.yTitle = 'Número de casos';
   parametros.jatai.todas.idDiv = 'jatai-grafico-todas';
+  parametros.jatai.todas.data_atualizacao = false;
 
   buildChart(parametros.jatai.resumo);
   buildChart(parametros.jatai.todas);
