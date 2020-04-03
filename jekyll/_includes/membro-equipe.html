@@ -2,8 +2,27 @@
 	 <img src="{{ site.baseurl}}/assets/images/equipe-{{ include.short }}.jpg" alt="Rosto - {{ include.nome }}" class="image featured" style="width: 70%; margin-left: 15%;"/>
 	<header>
 		<h3>
-			<a href="{{include.lattes}}" target="_blank">
-				<img src="{{ site.baseurl}}/assets/images/lattes.png" alt="Logo da Plataforma Lattes" style="width: 1em; display: inline;" /> 
+			<a href="{{include.url}}" target="_blank">
+				{% case include.plataforma %}
+					{% when "Lattes" %}
+						<img 
+							src="{{ site.baseurl}}/assets/images/lattes.png" 
+							alt="Logo da Plataforma Lattes" 
+							style="width: 1em; display: inline;" 
+						/> 
+					{% when "LinkedIn" %}
+						<img 
+							src="{{ site.baseurl}}/assets/images/linkedin.svg" 
+							alt="Logo do LinkedIn" 
+							style="width: 1em; display: inline;" 
+						/>
+					{% when "Facebook" %}
+						<img 
+							src="{{ site.baseurl}}/assets/images/facebook.svg" 
+							alt="Logo do Facebook" 
+							style="width: 1em; display: inline;" 
+						/> 
+				{% endcase %}
 				{{ include.nome }}
 			</a>
 		</h3>
