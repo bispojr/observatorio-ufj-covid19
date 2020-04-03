@@ -3,7 +3,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
-  buildChart(getParametros("jatai","resumo"));
-  buildChart(getParametros("mineiros","resumo"));
+  buildChart(getParametros("rioverde","todas"));
+  buildChart(getParametros("rioverde","monitorados"));
   buildChart(getParametros("rioverde","resumo"));
 }

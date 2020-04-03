@@ -25,17 +25,19 @@
 					{% endif %}
 				"
 			><a href="/sobre">Sobre</a></li>
-			{% if page.grupo == "graficos" %}
-				<li class="current submenu">
-					<a href="/graficos">Gráficos</a>
-					<ul>
-						<li><a href="/graficos/jatai">Jataí</a></li>
-						<li><a href="/graficos/mineiros">Mineiros</a></li>
-					</ul>
-				</li>
-			{% else %}
-				<li><a href="/graficos">Gráficos</a></li>
-			{% endif %}
+			<li 
+				class="
+					{% if page.grupo == "graficos" %}
+					  current
+					{% endif %}					
+			submenu"><a href="/graficos">Gráficos</a>
+				<ul>
+					<li><a href="/graficos/jatai">Jataí</a></li>
+					<li><a href="/graficos/mineiros">Mineiros</a></li>
+					<li><a href="/graficos/rio-verde">Rio Verde</a></li>
+				</ul>
+			</li>
+			
 			<li 
 				class="
 					{% if page.permalink == "/noticias" %}
