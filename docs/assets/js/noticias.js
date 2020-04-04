@@ -37,5 +37,4 @@ function coletaNoticiasPasso2(response) {
       $(selector).css("background-color", "transparent");
     });*/
   }
-
 }
