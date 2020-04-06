@@ -18,7 +18,7 @@ function coletaNoticiasPasso2(response) {
   //var data = JSON.parse(response.getDataTable().toJSON());
   var data = response.getDataTable();
 
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < data.eg.length; i++) {
 
     var chamadaCurta = data.getValue(i,0);
     var descricao = data.getValue(i,2);
@@ -37,5 +37,4 @@ function coletaNoticiasPasso2(response) {
       $(selector).css("background-color", "transparent");
     });*/
   }
-
 }
