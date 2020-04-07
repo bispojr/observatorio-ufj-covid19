@@ -22,6 +22,12 @@
 							alt="Logo do Facebook" 
 							style="width: 1em; display: inline;" 
 						/> 
+					{% when "Link" %}
+						<img 
+							src="{{ site.baseurl}}/assets/images/link.svg" 
+							alt="Link de uma página" 
+							style="width: 1em; display: inline;" 
+						/>
 				{% endcase %}
 				{{ include.nome }}
 			</a>
