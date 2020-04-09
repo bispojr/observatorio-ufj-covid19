@@ -3,24 +3,33 @@ title: Observatório UFJ Covid-19
 permalink: /
 script: geral
 ---
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 	{% include head.html %}
 
-	<body class="index is-preload">
-		<div id="page-wrapper">
+	<body 
+		style="
+			padding-top: 7%; 
+			background-image: url('{{ site.baseurl}}/assets/images/banner.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"
+	>
+		
+		{% include navbar.html %}
 
-			{% include navbar.html %}
-			{% include capa.html %}
-
-			<!-- Main -->
-				<article id="main">
-
-				</article>	
-			{% include footer.html %}
-
+		<div class="container">
+  			<div class="row">
+    			<div class="col"></div>
+    			<div class="col-8">
+      				{% include capa.html %}
+    			</div>
+			    <div class="col"></div>
+  			</div>
 		</div>
+
+		{% include footer.html %}
 
 		{% include scripts.html %}
 

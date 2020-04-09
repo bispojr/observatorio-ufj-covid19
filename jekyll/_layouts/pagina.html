@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 	{% include head.html %}
 
-	<body class="index is-preload">
-		<div id="page-wrapper">
+	<body>
+		
+		{% include navbar.html %}
 
-			{% include navbar.html %}
-
-			<!-- Main -->
-				<article id="main">
-
-					{{ content }}
-
-				</article>
-			
-			{% include footer.html %}
-
+		<div class="container">
+  			<div class="row">
+    			<div class="col-sm"></div>
+    			<div class="col-sm">
+      				{{ content }}
+    			</div>
+			    <div class="col-sm"></div>
+  			</div>
 		</div>
+
+		{% include footer.html %}
 
 		{% include scripts.html %}
 
