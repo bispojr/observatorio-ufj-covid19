@@ -13,7 +13,7 @@
 		</script>
 
 
-		<title>Observatório UFJ Covid-19 - Projeções (Jataí)</title>
+		<title>Observatório UFJ Covid-19 - Tendências</title>
 		<meta property="og:image" content="/assets/images/thumbnail.png" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.deolhonocorona.com" />
@@ -72,8 +72,6 @@
 			><a href="/sobre">Sobre</a></li>
 			<li 
 				class="
-					
-					  current
 										
 			submenu"><a href="/graficos">Gráficos</a>
 				<ul>
@@ -84,6 +82,8 @@
 			</li>
 			<li 
 				class="
+					
+					  current
 					
 				"
 			><a href="/tendencias">Tendências</a></li>
@@ -112,59 +112,69 @@
 					<!-- One -->
 <section class="wrapper style2 container special-alt">
 	<div class="row gtr-50">
+
+		<header>
+			<h2>Tendência dos Confirmados: <strong>Jataí (GO)</strong></h2>
+		</header>
+
 		<div class="col-4 col-10-narrower off-1-narrower imp-narrower col-8-mobile off-2-mobile">
 
 			<!--<object data="images/mapa-jatai.svg" type="image/svg+xml" id="mapa-jatai" alt="Mapa da Cidade de Jataí" width= "160%" style="margin-left: -30%; margin-top: 30%;"></object>-->
 
-			<img src="/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 30%;" />
+			<img src="/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 10%;" />
 		</div>
 
 		<div class="col-7 col-12-narrower" style="margin-left: 5%">
 
-			<header>
-				<h2>Resumo: <strong>Jataí (GO)</strong></h2>
-			</header>
+			
 			<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
 				min-width: 300px; 
 				max-width: 110%;
 				max-height: 90%;" 
-				id="jatai-grafico-resumo"></div>
+				id="jatai-tendencias"></div>
 		</div>
 	</div>
 	<div class="row gtr-50">
 		<span>
-					Dados atualizados em <span id="data-atualizacao-jatai">30 de março de 2020</span>.<br>
-					<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">
-						Secretária de Saúde de Jataí
-						</a>.
+					Projeção realizada em <span id="data-atualizacao-jatai">30 de março de 2020</span>.<br>
+					<strong>Fonte: Prof. Luiz Balmann</strong> (Modelagem e Análises Espaciais do <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://covidgoias.ufg.br/" target="_blank">
+						Covid-Goias
+						</a>).
 				</span>
 	</div>
 </section>
 
 <section class="wrapper style2 container special-alt">
 	<div class="row gtr-50">
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
-			<header>
-				<h2>Todas as categorias</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; 
-				min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-todas"></div>
-		</div>
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
 
-			<header>
-				<h2>Monitorados</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; min-height: 300px;
+		<header>
+			<h2>Tendência dos Confirmados: <strong>Rio Verde (GO)</strong></h2>
+		</header>
+
+		<div class="col-4 col-10-narrower off-1-narrower imp-narrower col-8-mobile off-2-mobile">
+
+			<img class="image img-fit" src="/assets/images/mapa-rioverde.svg" alt="Mapa da Cidade de Mineiros" style="width: 160%; margin-left: -30%; margin-top: 10%;"/>
+
+		</div>
+		<div class="col-7 col-12-narrower" style="margin-left: 5%">
+			<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
 				min-width: 300px; 
 				max-width: 110%;
 				max-height: 90%;" 
-				id="jatai-grafico-monitorados"></div>
+				id="rioverde-tendencias"></div>
+			
+				
+			
 		</div>
+		
+	</div>
+	<div class="row gtr-50">
+		<span>
+					Projeção realizada em <span id="data-atualizacao-rioverde">30 de março de 2020</span>.<br>
+					<strong>Fonte: Prof. Luiz Balmann</strong> (Modelagem e Análises Espaciais do <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://covidgoias.ufg.br/" target="_blank">
+						Covid-Goias
+						</a>).
+				</span>
 	</div>
 </section>
 
@@ -205,8 +215,8 @@
 
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="/assets/js/graficos/buildChart.js"></script>
-	<script src="/assets/js/graficos/jatai.js"></script>
+    <script src="/assets/js/tendencias/buildProjection.js"></script>
+    <script src="/assets/js/tendencias/geral.js"></script>
   
 
 
