@@ -91,16 +91,15 @@ script: noticias
 	  </ul>
 
 	  <div class="text-right">
-		<button id="mostrarMais" type="button" class="btn btn-link">Todas as notícias >></button>
+		<button id="mostrarMais" type="button" class="btn btn-link" onclick="mostrarNoticias()">Todas as notícias >></button>
 	  </div>
 
 </div>
 
 <script>
-	document.getElementById("MostrarMais").onclick = function() {mostrarNoticias()};
 
 	function mostrarNoticias(){
-		// criar pagina com todas as noticias
+		location.href = "https://deolhonocorona.com/noticias/todasnoticias"
 	}
 
 </script>
