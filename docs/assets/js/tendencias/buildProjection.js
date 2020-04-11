@@ -13,7 +13,7 @@ corGrafico.excluidos = "orange";
 
 function buildProjection(param) {
 
-  var url = "https://covidgoias.ufg.br/service/indicators/projections?cd_geocmu=" + param.cd_geocmu + "&lang=pt-br";
+  var url = "https://cors-anywhere.herokuapp.com/https://covidgoias.ufg.br/service/indicators/projections?cd_geocmu=" + param.cd_geocmu + "&lang=pt-br";
 
   $.getJSON(url, function(dataJson) {
 
