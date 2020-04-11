@@ -115,7 +115,7 @@ function buildProjection(param) {
         colors: param.colors,
         pointSize: 5,
         animation:{
-          duration: 3000,
+          duration: 1000,
           startup: true,
         },
         series: {
