@@ -37,7 +37,13 @@
 					<li><a href="/graficos/rio-verde">Rio Verde</a></li>
 				</ul>
 			</li>
-			
+			<li 
+				class="
+					{% if page.permalink == "/tendencias" %}
+					  current
+					{% endif %}
+				"
+			><a href="/tendencias">Tendências</a></li>
 			<li 
 				class="
 					{% if page.permalink == "/noticias" %}
