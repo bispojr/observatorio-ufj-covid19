@@ -6,42 +6,10 @@ script: graficos-jatai
 layout: pagina
 ---
 
-<!-- One -->
-<div class="container graficos-bg p-5">
-	
-	<h1>Resumo: <strong>Jataí (GO)</strong></h1>
-	
+{% include grafico-completo.html 
+	cidade 		= 	"Jataí."
+	nome-base	= 	"jatai"
+	url-fonte	=	"https://www.jatai.go.gov.br/"
+	nome-fonte	= 	"Secretária de Saúde de Jataí"
+%}
 
-	<div class="row">
-		<div class="col-lg-5 col-12">
-
-			<img src="{{ site.baseurl }}/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 120%;" />
-		</div>
-
-		<div class="col-lg-7 col-12 px-5">
-
-			<div class="grafico" id="jatai-grafico-resumo"></div>
-		</div>
-	</div>
-	<div class="row pt-2 pt-lg-0">
-		<span>
-					Dados atualizados em <span id="data-atualizacao-jatai">30 de março de 2020</span>.<br>
-					<strong>Fonte:</strong> <a href="https://www.jatai.go.gov.br/" target="_blank">
-						Secretária de Saúde de Jataí
-						</a>.
-				</span>
-	</div>
-</div>
-
-<div class="container graficos-bg p-5 mt-2">
-	<div class="row">
-		<div class="col-lg-6 col-12">
-			<h2>Todas as categorias</h2>
-			<div class="grafico-mini" id="jatai-grafico-todas"></div>
-		</div>
-		<div class="col-lg-6 col-12 pt-4 pt-lg-0">
-			<h2>Monitorados</h2>
-			<div class="grafico-mini" id="jatai-grafico-monitorados"></div>
-		</div>
-	</div>
-</div>
