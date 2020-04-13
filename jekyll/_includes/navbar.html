@@ -9,11 +9,11 @@
 
   	<div class="collapse navbar-collapse" id="navbarColor01">
     	<ul class="navbar-nav ml-5">
-      		<li class="nav-item {% if page.permalink == "/" %} active {% endif %}">
+      		<li class="nav-item mr-2 {% if page.permalink == "/" %} active {% endif %}">
         		<a class="nav-link" href="/">Principal</a>
       		</li>
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle {% if page.grupo == "graficos" %} active {% endif %}" href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        <a class="nav-link dropdown-toggle mr-2 {% if page.grupo == "graficos" %} active {% endif %}" href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Gráficos
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownGraficos">
@@ -25,21 +25,21 @@
 		        </div>
       		</li>
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        <a class="nav-link dropdown-toggle mr-2 {% if page.grupo == "tendencias" %} active {% endif %}" href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Tendências
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownTendencias">
 		        	<a class="dropdown-item" href="/tendencias/jatai">Jataí</a>
-		          	<a class="dropdown-item" href="/tendencias/rioverde">Rio Verde</a>
+		          	<a class="dropdown-item" href="/tendencias/rio-verde">Rio Verde</a>
 		          	<div class="dropdown-divider"></div>
 		          	<a class="dropdown-item" href="/tendencias/como-sao-feitas">Como são criadas?</a>
 		        </div>
       		</li>
-      		<li class="nav-item {% if page.permalink == "/noticias" %} active {% endif %}">
+      		<li class="nav-item mr-2 {% if page.permalink == "/noticias" %} active {% endif %}">
         		<a class="nav-link" href="/noticias">Notícias</a>
       		</li>
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        <a class="nav-link dropdown-toggle mr-2 " href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Sobre
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownConhecaMais">
