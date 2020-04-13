@@ -1,8 +1,11 @@
 @media (min-width: 576px) {
     .col-cards {
-      -ms-flex: 0 0 23% !important;
-      flex: 0 0 23% !important;
-      max-width: 23% !important;
+      -ms-flex: 0 0 22% !important;
+      flex: 0 0 22% !important;
+      max-width: 22% !important;
+    }
+    .card{
+      height: 125px!important;
     }
   }
 @media (min-width: 620px) {
@@ -25,6 +28,9 @@
       flex: 0 0 21% !important;
       max-width: 21% !important;
     }
+    .card{
+      height: 150px!important;
+    }
 
   }
 @media (min-width: 1024px) {
@@ -32,6 +38,9 @@
       -ms-flex: 0 0 12.7% !important;
       flex: 0 0 12.7% !important;
       max-width: 12.7% !important;
+    }
+    .card{
+      height: 160px!important;
     }
 }
 .col-cards{
@@ -63,6 +72,7 @@
     cursor: pointer;
 }
 .fonte-card-text{
+    font-size: 1.6vw;
     margin: 0 0 0 0!important; 
     padding: 0 0 0 0!important; 
     border: 0 0 0 0!important;        
