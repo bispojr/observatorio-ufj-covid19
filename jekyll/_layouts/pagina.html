@@ -16,7 +16,12 @@
 		<div class="container pt-4">
   			<div class="row">
     			<div class="col-lg col-sm"></div>
-    			<div class="col-lg-8 col-sm-10">
+    			{% case page.grupo %}
+  					{% when "geral" %}
+    					<div class="col-lg-8 col-sm-10">
+  					{% when "graficos" %}
+    					<div class="col-lg-12 col-sm-12 col-md-10">
+    			{% endcase %}
       				
       				{{ content }}
 

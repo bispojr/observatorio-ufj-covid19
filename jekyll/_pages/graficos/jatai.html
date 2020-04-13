@@ -7,60 +7,41 @@ layout: pagina
 ---
 
 <!-- One -->
-<section class="wrapper style2 container special-alt">
-	<div class="row gtr-50">
-		<div class="col-4 col-10-narrower off-1-narrower imp-narrower col-8-mobile off-2-mobile">
+<div class="container graficos-bg p-5">
+	
+	<h1>Resumo: <strong>Jataí (GO)</strong></h1>
+	
 
-			<!--<object data="images/mapa-jatai.svg" type="image/svg+xml" id="mapa-jatai" alt="Mapa da Cidade de Jataí" width= "160%" style="margin-left: -30%; margin-top: 30%;"></object>-->
+	<div class="row">
+		<div class="col-lg-5 col-12">
 
-			<img src="{{ site.baseurl }}/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 30%;" />
+			<img src="{{ site.baseurl }}/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 120%;" />
 		</div>
 
-		<div class="col-7 col-12-narrower" style="margin-left: 5%">
+		<div class="col-lg-7 col-12 px-5">
 
-			<header>
-				<h2>Resumo: <strong>Jataí (GO)</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-resumo"></div>
+			<div class="grafico" id="jatai-grafico-resumo"></div>
 		</div>
 	</div>
-	<div class="row gtr-50">
+	<div class="row pt-2 pt-lg-0">
 		<span>
 					Dados atualizados em <span id="data-atualizacao-jatai">30 de março de 2020</span>.<br>
-					<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">
+					<strong>Fonte:</strong> <a href="https://www.jatai.go.gov.br/" target="_blank">
 						Secretária de Saúde de Jataí
 						</a>.
 				</span>
 	</div>
-</section>
+</div>
 
-<section class="wrapper style2 container special-alt">
-	<div class="row gtr-50">
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
-			<header>
-				<h2>Todas as categorias</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; 
-				min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-todas"></div>
+<div class="container graficos-bg p-5 mt-2">
+	<div class="row">
+		<div class="col-lg-6 col-12">
+			<h2>Todas as categorias</h2>
+			<div class="grafico-mini" id="jatai-grafico-todas"></div>
 		</div>
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
-
-			<header>
-				<h2>Monitorados</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-monitorados"></div>
+		<div class="col-lg-6 col-12 pt-4 pt-lg-0">
+			<h2>Monitorados</h2>
+			<div class="grafico-mini" id="jatai-grafico-monitorados"></div>
 		</div>
 	</div>
-</section>
+</div>
