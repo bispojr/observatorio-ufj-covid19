@@ -1,0 +1,90 @@
+@media (min-width: 576px) {
+    .col-cards {
+      -ms-flex: 0 0 22% !important;
+      flex: 0 0 22% !important;
+      max-width: 22% !important;
+    }
+    .card{
+      height: 125px!important;
+    }
+  }
+@media (min-width: 620px) {
+    .col-cards {
+      -ms-flex: 0 0 23% !important;
+      flex: 0 0 23% !important;
+      max-width: 23% !important;
+    }
+  }
+@media (min-width: 768px) {
+    .col-cards {
+      -ms-flex: 0 0 23% !important;
+      flex: 0 0 23% !important;
+      max-width: 23% !important;
+    }
+  }
+@media (min-width: 992px) {
+    .col-cards {
+      -ms-flex: 0 0 21% !important;
+      flex: 0 0 21% !important;
+      max-width: 21% !important;
+    }
+    .card{
+      height: 150px!important;
+    }
+
+  }
+@media (min-width: 1024px) {
+    .col-cards{
+      -ms-flex: 0 0 12.7% !important;
+      flex: 0 0 12.7% !important;
+      max-width: 12.7% !important;
+    }
+    .card{
+      height: 160px!important;
+    }
+}
+.col-cards{
+    margin: 0 0 0 0; 
+    margin-left: 0.5%; 
+    margin-right: 0.5%; 
+    padding: 1%; 
+    padding-bottom: 0.5%; 
+    border: 0 0 0 0;
+
+}
+.card {
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    transition: all linear 200ms;
+    margin: 0 auto!important;
+}
+.card:hover {
+    transform: scale(1.1);
+    transition: all linear 200ms;
+    z-index: 1;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.fonte-card-text{
+    font-size: 1.6vw;
+    margin: 0 0 0 0!important; 
+    padding: 0 0 0 0!important; 
+    border: 0 0 0 0!important;        
+    text-align: center!important; 
+    font-family: 'Lato', sans-serif!important;
+}
+.fonte-card-numeral{
+    margin: 0 0 0 0!important; 
+    padding: 10% 0 10% 0!important; 
+    border: 0 0 0 0!important; 
+    font-size: 4vw!important; 
+    text-align: center!important; 
+    font-family: 'Lato', sans-serif!important;
+}
+
