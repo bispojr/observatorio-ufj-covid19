@@ -3,17 +3,26 @@
 
 	{% include head.html %}
 
-	<body>
+	<body 
+		style="
+			padding-top: 7%; 
+			background-image: url('{{ site.baseurl}}/assets/images/banner.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"
+	>
 		
 		{% include navbar.html %}
 
 		<div class="container">
   			<div class="row">
-    			<div class="col-sm"></div>
-    			<div class="col-sm">
+    			<div class="col"></div>
+    			<div class="col-8">
+      				
       				{{ content }}
+
     			</div>
-			    <div class="col-sm"></div>
+			    <div class="col"></div>
   			</div>
 		</div>
 
