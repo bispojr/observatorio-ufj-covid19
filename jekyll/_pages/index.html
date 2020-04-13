@@ -1,37 +1,25 @@
 ---
-title: Observatório UFJ Covid-19
+title: Observatório UFJ Covid-19 - Principal
 permalink: /
+layout: pagina
 script: geral
 ---
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-	{% include head.html %}
-
-	<body 
-		style="
-			padding-top: 7%; 
-			background-image: url('{{ site.baseurl}}/assets/images/banner.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;"
+<div class="container text-center">
+	<!--<h1 class="display-4 text-center">Observatório <br>UFJ COVID-19</h1>-->
+	
+	<img 
+		src="{{ site.baseurl }}/assets/images/logomarca-observatorio.svg" 
+		width="100%" alt="Logomarca do Observatório UFJ Covid-19"
+		style="background-color: rgba(0, 0, 0, 0.7);"
 	>
-		
-		{% include navbar.html %}
-
-		<div class="container">
-  			<div class="row">
-    			<div class="col"></div>
-    			<div class="col-8">
-      				{% include capa.html %}
-    			</div>
-			    <div class="col"></div>
-  			</div>
-		</div>
-
-		{% include footer.html %}
-
-		{% include scripts.html %}
-
-	</body>
-</html>
+	
+	<div 
+		class="capa-text lead text-center pb-2 pl-2 pr-2 pt-2 ml-5 mr-5" 
+		style="background-color: rgba(0, 0, 0, 0.6); color: white;"
+	>
+		Este <strong>observatório</strong> é uma iniciativa do <br>
+		Bacharelado em Ciência da Computação (BCC) 
+		da Universidade Federal de Jataí (UFJ).
+	</div>
+</div>
