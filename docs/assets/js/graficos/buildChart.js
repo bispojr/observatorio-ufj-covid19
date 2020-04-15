@@ -4,11 +4,11 @@ corGrafico.confirmados = "red";
 corGrafico.descartados = "pink";
 corGrafico.investigados = "yellow";
 corGrafico.notificados = "green";
-corGrafico.isolados = "black";
+corGrafico.isolados = "gray";
 corGrafico.internados = "blue";
 corGrafico.monitorados = "brown";
 corGrafico.recuperados = "purple";
-corGrafico.obitos = "gray";
+corGrafico.obitos = "black";
 corGrafico.excluidos = "orange";
 
 function buildChart(param) {
@@ -192,6 +192,7 @@ function getParametrosRioverde(tipo){
   D = Investigados  E= Notificados 
   F = Isolados      G = Internados  
   H = Monitorados   I = Recuperados
+  J = Óbitos
 */
 
   var parametros ={};
@@ -205,10 +206,9 @@ function getParametrosRioverde(tipo){
   switch (tipo){
     case "resumo":
       parametros.idDiv = 'rioverde-grafico-resumo';
-      parametros.query = 'SELECT A, D, F, G, I, B';
-      parametros.colors = [
-        corGrafico.investigados, corGrafico.isolados, 
-        corGrafico.internados, corGrafico.recuperados, corGrafico.confirmados
+      parametros.query = 'SELECT A, G, I, B, J';
+      parametros.colors = [ 
+        corGrafico.internados, corGrafico.recuperados, corGrafico.confirmados, corGrafico.obitos
       ];
       parametros.data_atualizacao = "#data-atualizacao-rioverde";
       break;
