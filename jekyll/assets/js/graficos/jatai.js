@@ -9,11 +9,11 @@ function drawChart() {
 
   parametros.jatai.resumo = {};
   parametros.jatai.resumo = {};
-  parametros.jatai.resumo.query = 'SELECT A, B, D, E, F, G';
+  parametros.jatai.resumo.query = 'SELECT A, B, G, I';
   parametros.jatai.resumo.googleSheet = 'https://docs.google.com/spreadsheets/d/'
   parametros.jatai.resumo.googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ';
   parametros.jatai.resumo.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.jatai.resumo.colors = ['red', 'yellow', 'green', 'black', 'blue'];
+  parametros.jatai.resumo.colors = ['red', 'blue', 'purple'];
   parametros.jatai.resumo.xTitle = 'Dia/Mês';
   parametros.jatai.resumo.yTitle = 'Número de casos';
   parametros.jatai.resumo.idDiv = 'jatai-grafico-resumo';
