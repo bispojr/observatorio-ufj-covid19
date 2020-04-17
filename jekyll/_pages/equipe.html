@@ -3,18 +3,16 @@ title: Observatório UFJ Covid-19 - Equipe
 permalink: /equipe
 script: geral
 layout: pagina
+navbar: sobre
+grupo: equipe
 ---
 
-<!-- Two -->
-<header class="special container" id="equipe">
-<span class="icon solid fa-users"></span>
-<h2><strong>Equipe</strong> do Observatório</h2>
-</header>
+<div class="container pt-4 px-5 pb-4 geral-bg">
+	<h1 class="pb-4">Equipe do Observatório</h1>
 
-<section class="wrapper style1 container special">							
+	<div class="container">							
 
-	<div class="row">
-		<div class="col-4 col-12-narrower">
+		<div class="row">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Esdras L. Bispo Jr."
@@ -24,9 +22,6 @@ layout: pagina
 				content		= "Idealizador do Observatório. Pesquisador na área de Educação e Inteligência Artificial"
 			%}
 
-		</div>
-		<div class="col-4 col-12-narrower">
-
 			{% include membro-equipe.html 
 				nome 		= 	"Profa. Joslaine Jeske"
 				short 		= 	"joslaine"
@@ -35,22 +30,13 @@ layout: pagina
 				content		= "Responsável pelos dados da cidade de Rio Verde. Pesquisadora na área de Inteligência Artificial."
 			%}
 
-		</div>
-
-		<div class="col-4 col-12-narrower">
-
 			{% include membro-equipe.html 
 				nome 		= 	"Profa. Franciny Medeiros"
 				short 		= 	"franciny"
 				url			=	"http://lattes.cnpq.br/2821748091466181"
 				plataforma	= 	"Lattes"
-				content		= 	"Responsável pelos dados da cidade de Jataí e pela comunicação. Pesquisadora na área de Engenharia de Software."
+				content		= 	"Responsável pelos dados de Jataí e pela comunicação. Pesquisadora na área de Engenharia de Software."
 			%}
-
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-4 col-12-narrower">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Márcio Lopes"
@@ -60,35 +46,21 @@ layout: pagina
 				content		= 	"Responsável pelos dados da cidade de Mineiros. Pesquisador na área de Computação em Névoa."
 			%}
 
-		</div>
-
-		<div class="col-4 col-12-narrower">
-
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Marcelo Freitas"
 				short 		= 	"marcelo"
 				url			=	"http://lattes.cnpq.br/0972390630476077"
 				plataforma	= 	"Lattes"
-				content		= 	"Responsável pelas notícias dos avanços científicos em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais."
+				content		= 	"Responsável pelas notícias em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais."
 			%}
-
-		</div>
-
-		<div class="col-4 col-12-narrower">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Zaqueu Souza"
 				short 		= 	"zaqueu"
 				url			=	"http://lattes.cnpq.br/8132493439297747"
 				plataforma	= 	"Lattes"
-				content		= 	"Colaborador-parceiro do #TodosContraoCorona. Professor de Engenharia Ambiental e Sanitária na Unifimes."
+				content		= 	"Colaborador-parceiro do Todos Contra o Corona. Professor de Engenharia Ambiental na Unifimes."
 			%}
-
-		</div>
-	</div>
-	<div class="row">
-
-		<div class="col-4 col-12-narrower">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Profa. Edlaine Vilela"
@@ -98,10 +70,6 @@ layout: pagina
 				content		= 	"Consultora sobre questões epidemiológicas. Professora de Medicina na UFJ."
 			%}
 
-		</div>
-
-		<div class="col-4 col-12-narrower">
-
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Manuel Ferreira"
 				short 		= 	"manuel"
@@ -110,10 +78,7 @@ layout: pagina
 				content		= 	"Colaborador-parceiro do Covid-Goiás. Professor da área de Geoprocessamento na UFG."
 			%}
 
-		</div>
-
-		<div class="col-4 col-12-narrower">
-
+		
 			{% include membro-equipe.html 
 				nome 		= 	"Prof. Luiz Pascoal"
 				short 		= 	"luiz"
@@ -121,12 +86,7 @@ layout: pagina
 				plataforma	= 	"Lattes"
 				content		= 	"Colaborador-parceiro do Covid-Goiás. Professor da área de Sistemas Distribuídos no SENAI."
 			%}
-
-		</div>
-	</div>
-	<div class="row">
-
-		<div class="col-4 col-12-narrower">
+			
 
 			{% include membro-equipe.html 
 				nome 		= 	"Diego Barbosa"
@@ -136,64 +96,48 @@ layout: pagina
 				content		= 	"Colaborador no desenvolvimento da página. Analista Programador na Unimed na cidade de Rio Verde."
 			%}
 
-		</div>
-
-		<div class="col-4 col-12-narrower">
-
 			{% include membro-equipe.html 
 				nome 		= 	"Felipe Nedopetalski"
 				short 		= 	"felipe"
 				url			=	"https://www.linkedin.com/in/felipe-nedopetalski-91b93b154/"
 				plataforma	= 	"LinkedIn"
-				content		= 	"Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na Universidade Federal de Jataí (UFJ)."
+				content		= 	"Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ."
 			%}
-
-		</div>
-		
-		<div class="col-4 col-12-narrower">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Gabriel Santos"
 				short 		= 	"gabriel"
 				url			=	"https://www.linkedin.com/in/dev-gabriel-santos/"
 				plataforma	= 	"LinkedIn"
-				content		= 	"Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na Universidade Federal de Jataí (UFJ)."
+				content		= 	"Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ."
 			%}
-
 		</div>
+
 	</div>
-</section>
 
-<header class="special container">
-<span class="icon solid fa-handshake"></span>
-<h2><strong>Parceiros</strong> do Observatório</h2>
-</header>
 
-<section class="wrapper style1 container special">							
+	<h1 class="pb-4">Parceiros do Observatório</h1>
 
-	<div class="row">
-		<div class="col-4 col-12-narrower">
+	<div class="container">							
+
+		<div class="row">
 
 			{% include membro-equipe.html 
 				nome 		= 	"#TodosContraoCorona"
 				short 		= 	"todoscontraocorona"
 				url			=	"https://www.facebook.com/centrouniversitariodemineiros"
 				plataforma	= 	"Facebook"
-				content		= "Projeto de conscientização diária em relação ao combate ao Covid-19 promovido pelo Centro Universitário de Mineiros (Unifimes)."
+				content		= "Projeto de conscientização diária em relação ao combate ao Covid-19 promovido pela Unifimes."
 			%}
-
-		</div>
-
-		<div class="col-4 col-12-narrower">
 
 			{% include membro-equipe.html 
 				nome 		= 	"Covid Goiás"
 				short 		= 	"covid-goias"
 				url			=	"https://covidgoias.ufg.br/"
 				plataforma	= 	"Link"
-				content		= "Observatório digital conduzido pelo LAPIG-UFG com dados sobre o Covid-19 em relação ao estado de Goiás."
+				content		= "Observatório estadual conduzido pelo LAPIG-UFG com dados sobre o Covid-19 do estado de Goiás."
 			%}
-
 		</div>
 	</div>
-</section>
+
+</div>
