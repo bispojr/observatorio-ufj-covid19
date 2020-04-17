@@ -82,6 +82,10 @@ function buildChart(param) {
         isStacked: true,
         colors: param.colors,
         pointSize: 5,
+        animation:{
+          duration: 1000,
+          startup: true,
+        },
         hAxis: {
             title: param.xTitle,
             format: 'd/M',

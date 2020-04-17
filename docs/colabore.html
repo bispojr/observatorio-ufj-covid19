@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 	<head>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -20,10 +20,12 @@
 		<meta property="og:title" content="Observatório UFJ Covid-19" />
 		<meta property="og:description" content="Este observatório é uma iniciativa do Bacharelado em Ciência da Computação (BCC) da Universidade Federal de Jataí (UFJ)." />
 
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<link rel="stylesheet" href="/assets/css/bootstrap-cosmo.css" />		
+		<link rel="stylesheet" href="/assets/css/fontawesome-5.13.0-all.min.css" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
@@ -46,126 +48,249 @@
 	    </script>
 	</head>
 
-	<body class="index is-preload">
-		<div id="page-wrapper">
-
-			<!-- Header -->
-<header id="header" 
-	class="
+	<body class = "pt-5"
+		style=" 
+			background-image: url('/assets/images/banner.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"
+	>
 		
-		  reveal
-		
-	"
->
-	<h1 id="logo"><a href="/">observatório<span> UFJ Covid-19</span></a></h1>
-	<nav id="nav">
-		<ul>
-			<li 
-				class="
-					
-				"
-			><a href="/">Principal</a></li>
-			<li 
-				class="
-					
-				"
-			><a href="/sobre">Sobre</a></li>
-			<li 
-				class="
-										
-			submenu"><a href="/graficos">Gráficos</a>
-				<ul>
-					<li><a href="/graficos/jatai">Jataí</a></li>
-					<li><a href="/graficos/mineiros">Mineiros</a></li>
-					<li><a href="/graficos/rio-verde">Rio Verde</a></li>
-				</ul>
-			</li>
-			<li 
-				class="
-					
-				"
-			><a href="/tendencias">Tendências</a></li>
-			<li 
-				class="
-					
-				"
-			><a href="/noticias">Notícias</a></li>
-			<li 
-				class="
-					
-				"
-			><a href="/equipe">Equipe</a></li>
-			<li 
-				class="
-					
-					  current
-					
-				"
-			><a href="/colabore">Colabore</a></li>
-		</ul>
-	</nav>
-</header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+	<a class="navbar-brand" href="/">
+		<img src="/assets/images/logo-navbar.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+		Observatório UFJ Covid-19
+	</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
 
-			<!-- Main -->
-				<article id="main">
+  	<div class="collapse navbar-collapse" id="navbarColor01">
+    	<ul class="navbar-nav ml-5">
+      		<li class="nav-item mr-2 ">
+        		<a class="nav-link" href="/">Principal</a>
+      		</li>
+      		<li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle mr-2 " href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Gráficos
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownGraficos">
+		        	<a class="dropdown-item" href="/graficos/jatai">Jataí</a>
+		          	<a class="dropdown-item" href="/graficos/mineiros">Mineiros</a>
+		          	<a class="dropdown-item" href="/graficos/rio-verde">Rio Verde</a>
+		          	<div class="dropdown-divider"></div>
+		          	<a class="dropdown-item" href="/graficos/como-sao-criados">Como são criados?</a>
+		        </div>
+      		</li>
+      		<li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle mr-2 " href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Tendências
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownTendencias">
+		        	<a class="dropdown-item" href="/tendencias/jatai">Jataí</a>
+		          	<a class="dropdown-item" href="/tendencias/rio-verde">Rio Verde</a>
+		          	<!--<div class="dropdown-divider"></div>
+		          	<a class="dropdown-item" href="/tendencias/como-sao-feitas">Como são criadas?</a>-->
+		        </div>
+      		</li>
+      		<!--<li class="nav-item mr-2 ">
+        		<a class="nav-link" href="/noticias">Notícias</a>
+      		</li>-->
+      		<li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle mr-2  active " href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Saiba mais
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownConhecaMais">
+		        	<a class="dropdown-item" href="/sobre">Sobre</a>
+		          	<a class="dropdown-item" href="/equipe">Equipe</a>
+		          	<a class="dropdown-item" href="/na-midia">Na mídia</a>
+		          	<a class="dropdown-item" href="/colabore">Colabore</a>
+		          	<!--<a class="dropdown-item" href="/creditos">Créditos</a>-->
+		        </div>
+      		</li>
+      	</ul>
+	</div>
+</nav>
 
-					<!-- CTA -->
-<section id="cta">
+		<div class="container pt-4">
+  			<div class="row">
+    			<div class="col-lg col-sm"></div>
+    			
+    					<div class="col-lg-8 col-sm-10">
+  					
+      				
+      				<div class="container pt-4 px-5 pb-4 geral-bg">
+	<h1 class="pb-4">Disposto em ajudar de alguma forma?</h1>
 
-	<header style="background-color: rgba(0, 0, 0, 0.5); width: 80%; margin-left: 10%;">
-		<h2>Disposto em ajudar de <strong>alguma forma</strong>?</h2>
-		<p style="width: 80%; margin-left: 10%;">
-			Junte-se a nós! Conheça as formas como você pode colaborar com o Observatório. Se você é da área de Computação, conheça o <a href="https://github.com/bispojr/observatorio-ufj-covid19" target="_blank">nosso repositório no GitHub</a>. Se você é um gestor, envie um email para nós (<strong>bispojr@ufg.br</strong>) informando as suas necessidades reais de informação. 
-			<br>Quem sabe nós não podemos ajudá-lo?
-		</p>
-	</header>
-	<footer>
-		<ul class="buttons">
-			<li>
-				<a href="https://github.com/bispojr/observatorio-ufj-covid19" class="button primary" target="_blank">
-					GitHub Repo
-				</a>
-			</li>
-			<li><a href="mailto:bispojr@ufg.br?subject=Observatório%20UFJ%20Covid-19" class="button">bispojr@ufg.br</a></li>
-		</ul>
-	</footer>
+	<p class="lead">
+		Junte-se a nós! Conheça as formas como você pode colaborar com o Observatório. Se você é da área de Computação, conheça o <a href="https://github.com/bispojr/observatorio-ufj-covid19" target="_blank">nosso repositório no GitHub</a>. Se você é um gestor, envie um email para nós (<strong>bispojr@ufg.br</strong>) informando as suas necessidades reais de informação. 
+	</p>
+	<p class="lead text-center">
+		Quem sabe nós não podemos ajudá-lo?
+	</p>
+	<div class="container text-center">
+		<a class="btn btn-primary" href="https://github.com/bispojr/observatorio-ufj-covid19" target="_blank">
+			<span class="fab fa-github pr-1"></span> GitHub Repo
+		</a>
+		<a class="btn btn-primary" href="mailto:bispojr@ufg.br?subject=Observatório%20UFJ%20Covid-19">
+			<span class="fas fa-envelope pr-1"></span> bispojr@ufg.br
+		</a>
+	</div>
 
-</section>
+</div>
 
-				</article>
-			
-			<!-- Footer -->
-				<footer id="footer">
-
-					<ul class="icons">
-						<li><a href="https://www.instagram.com/computacaoufj/" class="icon brands circle fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-						<li><a href="https://www.facebook.com/groups/bccufg" class="icon brands circle fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
-						<li><a href="https://github.com/bispojr/observatorio-ufj-covid19" class="icon brands circle fa-github" target="_blank"><span class="label">Github</span></a></li>
-					</ul>
-
-					<ul class="copyright">
-						<li>Observatório UFJ Covid-19</li>
-						<li>Creative Commons</li>
-					</ul>
-					<ul class="copyright">
-						<li>Template: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
-						<li>Ícones: <a href="https://www.flaticon.com/br/" title="Flaticon">Flaticon</a> (<a href="https://www.flaticon.com/br/autores/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a>, <a href="https://www.flaticon.com/br/autores/freepik" title="Freepik">Freepik</a>), <a href="https://iconscout.com">Iconscout</a> (<a href="https://iconscout.com/contributors/icon-mafia">Icon Mafia</a>)
-					</ul>
-
-				</footer>
-
+    			</div>
+			    <div class="col-lg col-sm"></div>
+  			</div>
 		</div>
 
-		<!-- Scripts -->
+		<!-- Footer -->
+<footer class="page-footer font-small blue pt-4 mt-4" style="background-color: white; border-top: 0.3em solid #2780E3;">
 
-<script src="/assets/js/jquery/jquery.min.js"></script>
-<script src="/assets/js/jquery/jquery.dropotron.min.js"></script>
-<script src="/assets/js/jquery/jquery.scrolly.min.js"></script>
-<script src="/assets/js/jquery/jquery.scrollex.min.js"></script>
-<script src="/assets/js/browser.min.js"></script>
-<script src="/assets/js/breakpoints.min.js"></script>
-<script src="/assets/js/util.js"></script>
-<script src="/assets/js/main.js"></script>
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Observatório UFJ Covid-19</h5>
+        Licença Creative Commons <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a> <br>
+        Redes Socias: <a href="https://www.instagram.com/computacaoufj/" class="fab fa-instagram" target="_blank"></a> | 
+        <a href="https://www.facebook.com/deolhonocorona" class="fab fa-facebook-f" target="_blank"></a> |
+        <a href="https://github.com/bispojr/observatorio-ufj-covid19" class="fab fa-github" target="_blank"></a>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-6 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Principal</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/graficos/como-sao-criados">Gráficos</a>
+          </li>
+          <!--<li>
+            <a href="/tendencias/como-sao-criadas">Tendências</a>
+          </li>
+          <li>
+            <a href="/noticias">Notícias</a>
+          </li>-->
+          <li>
+            <a href="/sobre">Sobre</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-6 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Gráficos</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/graficos/jatai">Jataí</a>
+          </li>
+          <li>
+            <a href="/graficos/mineiros">Mineiros</a>
+          </li>
+          <li>
+            <a href="/graficos/rio-verde">Rio Verde</a>
+          </li>
+          <li>
+            <a href="/graficos/como-sao-criados">Como são criados?</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-6 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Tendências</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/tendencias/jatai">Jataí</a>
+          </li>
+          <!--<li>
+            <a href="/tendencias/mineiros">Mineiros</a>
+          </li>-->
+          <li>
+            <a href="/tendencias/rio-verde">Rio Verde</a>
+          </li>
+          <!--<li>
+            <a href="/tendencias/como-sao-criadas">Como são criadas?</a>
+          </li>-->
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-6 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Saiba mais</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="/sobre">Sobre</a>
+          </li>
+          <li>
+            <a href="/equipe">Equipe</a>
+          </li>
+          <li>
+            <a href="/na-midia">Na mídia</a>
+          </li>
+          <li>
+            <a href="/colabore">Colabore</a>
+          </li>
+          <!--<li>
+            <a href="/creditos">Créditos</a>
+          </li>-->
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+</footer>
+<!-- Footer -->
+
+		<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script 
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+  crossorigin="anonymous">  
+</script>
+<script 
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+  crossorigin="anonymous">
+</script>
 
 
 

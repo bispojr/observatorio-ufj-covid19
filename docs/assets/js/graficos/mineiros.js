@@ -15,7 +15,7 @@ function drawChart() {
   parametros.mineiros.resumo.colors = ['green', 'brown', 'orange'];
   parametros.mineiros.resumo.xTitle = 'Dia/Mês';
   parametros.mineiros.resumo.yTitle = 'Número de casos';
-  parametros.mineiros.resumo.idDiv = 'mineiros-grafico';
+  parametros.mineiros.resumo.idDiv = 'mineiros-grafico-resumo';
   parametros.mineiros.resumo.data_atualizacao = "#data-atualizacao-mineiros";
 
   parametros.mineiros.todas = {};
