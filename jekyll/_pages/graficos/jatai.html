@@ -2,65 +2,59 @@
 title: Observatório UFJ Covid-19 - Projeções (Jataí)
 permalink: /graficos/jatai/
 grupo: graficos
+navbar: graficos
 script: graficos-jatai
 layout: pagina
 ---
+<!--<div class="wrapper style2 container-fluid special-alt">
+	<div class="row">
+		{% include card-estatistica.html 
+			categoria	=	"Monitorados"
+			numero 		= 	"108"
+			cor			= 	"brown"
+		%}
 
-<!-- One -->
-<section class="wrapper style2 container special-alt">
-	<div class="row gtr-50">
-		<div class="col-4 col-10-narrower off-1-narrower imp-narrower col-8-mobile off-2-mobile">
+		{% include card-estatistica.html 
+			categoria	=	"Notificados"
+			numero 		= 	"16"
+			cor			= 	"green"
+		%}
 
-			<!--<object data="images/mapa-jatai.svg" type="image/svg+xml" id="mapa-jatai" alt="Mapa da Cidade de Jataí" width= "160%" style="margin-left: -30%; margin-top: 30%;"></object>-->
+		{% include card-estatistica.html 
+			categoria	=	"Descartados"
+			numero 		= 	"8"
+			cor			= 	"pink"
+		%}
 
-			<img src="{{ site.baseurl }}/assets/images/mapa-jatai.svg" id="mapa-jatai" alt="Mapa da Cidade de Jataí"  style="width: 160%; margin-left: -30%; margin-top: 30%;" />
-		</div>
+		{% include card-estatistica.html 
+			categoria	=	"Isolados"
+			numero 		= 	"6"
+			cor			= 	"black"
+		%}
 
-		<div class="col-7 col-12-narrower" style="margin-left: 5%">
+		{% include card-estatistica.html 
+			categoria	=	"Investigados"
+			numero 		= 	"5"
+			cor			= 	"gold"
+		%}
 
-			<header>
-				<h2>Resumo: <strong>Jataí (GO)</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-resumo"></div>
-		</div>
+		{% include card-estatistica.html 
+			categoria	=	"Internados"
+			numero 		= 	"4"
+			cor			= 	"blue"
+		%}
+
+		{% include card-estatistica.html 
+			categoria	=	"Confirmados"
+			numero 		= 	"2"
+			cor			= 	"red"
+		%}
 	</div>
-	<div class="row gtr-50">
-		<span>
-					Dados atualizados em <span id="data-atualizacao-jatai">30 de março de 2020</span>.<br>
-					<strong>Fonte:</strong> <a style="background-color: rgba(255, 255, 255, 0.5);" href="https://www.jatai.go.gov.br/" target="_blank">
-						Secretária de Saúde de Jataí
-						</a>.
-				</span>
-	</div>
-</section>
+</div>-->
+{% include grafico-completo.html 
+	cidade 		= 	"Jataí"
+	nome-base	= 	"jatai"
+	url-fonte	=	"https://www.jatai.go.gov.br/"
+	nome-fonte	= 	"Secretária de Saúde de Jataí"
+%}
 
-<section class="wrapper style2 container special-alt">
-	<div class="row gtr-50">
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
-			<header>
-				<h2>Todas as categorias</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; 
-				min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-todas"></div>
-		</div>
-		<div class="col-6 col-10-narrower off-1-narrower imp-narrower col-10-mobile">
-
-			<header>
-				<h2>Monitorados</strong></h2>
-			</header>
-			<div class="col-1-mobile" style="height: 80%; width: 100%; min-height: 300px;
-				min-width: 300px; 
-				max-width: 110%;
-				max-height: 90%;" 
-				id="jatai-grafico-monitorados"></div>
-		</div>
-	</div>
-</section>
