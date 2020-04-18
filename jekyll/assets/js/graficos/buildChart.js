@@ -119,121 +119,78 @@ function buildChart(param) {
   });
 }
 
-function getParametros(cidade, tipo){
+function buildComparison() {
 
-  switch(cidade){
-    case "jatai":
-      return getParametrosJatai(tipo);
-      break;
-    case "mineiros":
-      return getParametrosMineiros(tipo);
-      break;
-    case "rioverde":
-      return getParametrosRioverde(tipo);
-      break;
-  }
-}
+  var dados = {};
 
-function getParametrosJatai(tipo){
-  
-  var parametros = {};
-  
-  parametros.query = 'SELECT A, B, D, E, F, G';
-  parametros.colors = [
-    corGrafico.confirmados, corGrafico.investigados, corGrafico.notificados, 
-    corGrafico.isolados, corGrafico.internados];
-  parametros.googleSheet = 'https://docs.google.com/spreadsheets/d/'
-  parametros.googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ';
-  parametros.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.xTitle = 'Dia/Mês';
-  parametros.yTitle = 'Número de casos';
-  parametros.idDiv = 'jatai-grafico-resumo';
-  parametros.data_atualizacao = "#data-atualizacao-jatai";
+  dados.jatai = {};
+  dados.jatai.casos = 6;
+  dados.jatai.populacao = 98128;  //População estimada: https://www.jatai.go.gov.br/cidade-jatai/
 
-  switch (tipo){
-    case "resumo":
-    break;
-    case "monitorados":
-    break;
-    case "todas":
-    break;
-  }
+  dados.rioverde = {};
+  dados.rioverde.casos = 13;
+  dados.rioverde.populacao = 235647; //População estimada: https://www.rioverde.go.gov.br/historia-cidade/
 
-  return parametros;
+  dados.goias = {};
+  dados.goias.casos = 335;
+  dados.goias.populacao = 6003788; //População estimada: https://cidades.ibge.gov.br/brasil/go/panorama
 
-}
+  dados.brasil = {};
+  dados.brasil.casos = 33682;
+  dados.brasil.populacao = 210147125; //População estimada: https://cidades.ibge.gov.br/brasil/panorama
 
-function getParametrosMineiros(tipo){
-  
-  var parametros = {};
 
-  parametros.query = 'SELECT A, B, C, D';
-  parametros.googleSheet = 'https://docs.google.com/spreadsheets/d/'
-  parametros.googleSheet += '1MPFPI6nZvoPjSanXFcVqh3TrWDRJ7J5SXbhKkW6p5NY';
-  parametros.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.colors = ['green', 'brown', 'orange'];
-  parametros.xTitle = 'Dia/Mês';
-  parametros.yTitle = 'Número de casos';
-  parametros.idDiv = 'mineiros-grafico-resumo';
-  parametros.data_atualizacao = "#data-atualizacao-mineiros";
+  var valJatai = (dados.jatai.casos/dados.jatai.populacao)*1000000;
+  var valRioverde = (dados.rioverde.casos/dados.rioverde.populacao)*1000000;
+  var valGoias = (dados.goias.casos/dados.goias.populacao)*1000000;
+  var valBrasil = (dados.brasil.casos/dados.brasil.populacao)*1000000;
 
-  switch (tipo){
-    case "resumo":
-    break;
-    case "monitorados":
-    break;
-    case "todas":
-    break;
-  }
+  var data = google.visualization.arrayToDataTable([
+    ['Contexto', 'Casos por milhão de habitantes', { role: 'style' } ],
+    ['Jataí', valJatai, 'blue'],
+    ['Rio Verde', valRioverde, 'green'],
+    ['Goiás', valGoias, 'yellow'],
+    ['Brasil', valBrasil, 'red'],
+ ]);
 
-  return parametros;
-}
+  //Option
 
-function getParametrosRioverde(tipo){
+  var options = {
+      curveType: 'function',
+      legend: { position: 'none'},
+      isStacked: true,
+      pointSize: 5,
+      animation:{
+        duration: 1000,
+        startup: true,
+      },
+      series: {
+        0: { lineDashStyle: [4, 4], pointShape: { type: 'square' }, pointSize: 10 }
+      },
+      hAxis: {
+          title: "Contexto Geográfico"
+      },
+      vAxis: {    
+        title: "Casos por milhão de habitantes",
+        viewWindow: { min: 0 }
+      }      
+    };
 
-/*
-  B = Confirmados,  C = Descartados 
-  D = Investigados  E= Notificados 
-  F = Isolados      G = Internados  
-  H = Monitorados   I = Recuperados
-  J = Óbitos
-*/
+    var chart = new google.visualization.ColumnChart(document.getElementById("comparacao-grafico"));
+    chart.draw(data, options);
 
-  var parametros ={};
+    //Data de atualização informada em cada página
+    /*if(param.data_atualizacao != false){
+        var mes = [
+          "janeiro", "fevereiro", "março", 
+          "abril", "maio", "junho", 
+          "julho", "agosto", "setembro", 
+          "outubro", "novembro", "dezembro"];
 
-  parametros.googleSheet = 'https://docs.google.com/spreadsheets/d/'
-  parametros.googleSheet += '1jrhI1EjA8KJNJ5CKEDe-oREPjeRnYviVKp9AJPPMlLE';
-  parametros.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.xTitle = 'Dia/Mês';
-  parametros.yTitle = 'Número de casos';
-
-  switch (tipo){
-    case "resumo":
-      parametros.idDiv = 'rioverde-grafico-resumo';
-      parametros.query = 'SELECT A, G, I, B, J';
-      parametros.colors = [ 
-        corGrafico.internados, corGrafico.recuperados, corGrafico.confirmados, corGrafico.obitos
-      ];
-      parametros.data_atualizacao = "#data-atualizacao-rioverde";
-      break;
-    case "monitorados":
-      parametros.idDiv = 'rioverde-grafico-monitorados';
-      parametros.query = 'SELECT A, C, H';
-      parametros.colors = [
-        corGrafico.descartados, corGrafico.monitorados 
-      ];
-      parametros.data_atualizacao = false;
-      break;
-    case "todas":
-      parametros.idDiv = 'rioverde-grafico-todas';
-      parametros.query = 'SELECT A, C, D, F, G, H, I, B';
-      parametros.colors = [
-        corGrafico.descartados, corGrafico.investigados, corGrafico.isolados, corGrafico.internados, 
-        corGrafico.monitorados, corGrafico.recuperados, corGrafico.confirmados
-      ];
-      parametros.data_atualizacao = false;
-      break;
-  }
-
-  return parametros;
+        $(param.data_atualizacao).text(
+          dataUltimoModelo.getDate() + " de " + 
+          mes[dataUltimoModelo.getMonth()] + " de " + 
+          dataUltimoModelo.getFullYear()
+        );
+    }*/
 }
