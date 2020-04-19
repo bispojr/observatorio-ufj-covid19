@@ -1,0 +1,41 @@
+<div class="container graficos-bg mb-2">
+	<div class="row px-4 px-lg-0">
+		<div class="
+			col-lg-2 mb-lg-0 mx-lg-0
+			col-md-12 
+			col-12 mb-1 mx-1
+			text-center">
+			<strong class="h1 py-0">{{ include.cidade }}</strong><br>
+			<span>{{ include.data }}</span>
+		</div>
+
+		{% include card-estatistica.html 
+			categoria	=	"Confirmados"
+			numero 		= 	include.conf-num
+			cor			= 	"red"
+			icone		= 	"fas fa-user-injured"
+		%}
+
+		{% include card-estatistica.html 
+			categoria	=	"Recuperados"
+			numero 		= 	include.rec-num
+			cor			= 	"purple"
+			icone		= 	"fas fa-virus-slash"
+		%}			
+
+		{% include card-estatistica.html 
+			categoria	=	"Internados"
+			numero 		= 	include.int-num
+			cor			= 	"blue"
+			icone		= 	"fas fa-procedures"
+		%}
+
+		{% include card-estatistica.html 
+			categoria	=	"Óbitos"
+			numero 		= 	include.obt-num
+			cor			= 	"black"
+			icone		= 	"fas fa-skull-crossbones"
+		%}
+
+	</div>
+</div>
