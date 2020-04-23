@@ -127,27 +127,39 @@ function buildComparison() {
   dados.jatai.casos = 6;
   dados.jatai.populacao = 98128;  //População estimada: https://www.jatai.go.gov.br/cidade-jatai/
 
+  dados.mineiros = {};
+  dados.mineiros.casos = 4;
+  dados.mineiros.populacao = 66801;  //População estimada: https://cidades.ibge.gov.br/brasil/go/mineiros/panorama
+
   dados.rioverde = {};
   dados.rioverde.casos = 13;
   dados.rioverde.populacao = 235647; //População estimada: https://www.rioverde.go.gov.br/historia-cidade/
 
   dados.goias = {};
-  dados.goias.casos = 335;
+  dados.goias.casos = 438;
   dados.goias.populacao = 6003788; //População estimada: https://cidades.ibge.gov.br/brasil/go/panorama
 
   dados.brasil = {};
-  dados.brasil.casos = 33682;
+  dados.brasil.casos = 45757;
   dados.brasil.populacao = 210147125; //População estimada: https://cidades.ibge.gov.br/brasil/panorama
 
 
   var valJatai = (dados.jatai.casos/dados.jatai.populacao)*1000000;
+  var valMineiros = (dados.mineiros.casos/dados.mineiros.populacao)*1000000;
   var valRioverde = (dados.rioverde.casos/dados.rioverde.populacao)*1000000;
   var valGoias = (dados.goias.casos/dados.goias.populacao)*1000000;
   var valBrasil = (dados.brasil.casos/dados.brasil.populacao)*1000000;
 
+  valJatai = parseFloat(valJatai.toFixed(2));
+  valMineiros = parseFloat(valMineiros.toFixed(2));
+  valRioverde = parseFloat(valRioverde.toFixed(2));
+  valGoias = parseFloat(valGoias.toFixed(2));
+  valBrasil = parseFloat(valBrasil.toFixed(2));
+
   var data = google.visualization.arrayToDataTable([
     ['Contexto', 'Casos por milhão de habitantes', { role: 'style' } ],
     ['Jataí', valJatai, 'blue'],
+    ['Mineiros', valMineiros, 'brown'],
     ['Rio Verde', valRioverde, 'green'],
     ['Goiás', valGoias, 'yellow'],
     ['Brasil', valBrasil, 'red'],
