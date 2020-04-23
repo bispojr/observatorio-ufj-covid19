@@ -119,6 +119,82 @@ function buildChart(param) {
   });
 }
 
+function buildComparison() {
+
+  var dados = {};
+
+  dados.jatai = {};
+  dados.jatai.casos = 6;
+  dados.jatai.populacao = 98128;  //População estimada: https://www.jatai.go.gov.br/cidade-jatai/
+
+  dados.rioverde = {};
+  dados.rioverde.casos = 13;
+  dados.rioverde.populacao = 235647; //População estimada: https://www.rioverde.go.gov.br/historia-cidade/
+
+  dados.goias = {};
+  dados.goias.casos = 335;
+  dados.goias.populacao = 6003788; //População estimada: https://cidades.ibge.gov.br/brasil/go/panorama
+
+  dados.brasil = {};
+  dados.brasil.casos = 33682;
+  dados.brasil.populacao = 210147125; //População estimada: https://cidades.ibge.gov.br/brasil/panorama
+
+
+  var valJatai = (dados.jatai.casos/dados.jatai.populacao)*1000000;
+  var valRioverde = (dados.rioverde.casos/dados.rioverde.populacao)*1000000;
+  var valGoias = (dados.goias.casos/dados.goias.populacao)*1000000;
+  var valBrasil = (dados.brasil.casos/dados.brasil.populacao)*1000000;
+
+  var data = google.visualization.arrayToDataTable([
+    ['Contexto', 'Casos por milhão de habitantes', { role: 'style' } ],
+    ['Jataí', valJatai, 'blue'],
+    ['Rio Verde', valRioverde, 'green'],
+    ['Goiás', valGoias, 'yellow'],
+    ['Brasil', valBrasil, 'red'],
+ ]);
+
+  //Option
+
+  var options = {
+      curveType: 'function',
+      legend: { position: 'none'},
+      isStacked: true,
+      pointSize: 5,
+      animation:{
+        duration: 1000,
+        startup: true,
+      },
+      series: {
+        0: { lineDashStyle: [4, 4], pointShape: { type: 'square' }, pointSize: 10 }
+      },
+      hAxis: {
+          title: "Contexto Geográfico"
+      },
+      vAxis: {    
+        title: "Casos por milhão de habitantes",
+        viewWindow: { min: 0 }
+      }      
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById("comparacao-grafico"));
+    chart.draw(data, options);
+
+    //Data de atualização informada em cada página
+    /*if(param.data_atualizacao != false){
+        var mes = [
+          "janeiro", "fevereiro", "março", 
+          "abril", "maio", "junho", 
+          "julho", "agosto", "setembro", 
+          "outubro", "novembro", "dezembro"];
+
+        $(param.data_atualizacao).text(
+          dataUltimoModelo.getDate() + " de " + 
+          mes[dataUltimoModelo.getMonth()] + " de " + 
+          dataUltimoModelo.getFullYear()
+        );
+    }*/
+}
+
 function getParametros(cidade, tipo){
 
   switch(cidade){
