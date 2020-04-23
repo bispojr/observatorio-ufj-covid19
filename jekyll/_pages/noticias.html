@@ -5,51 +5,96 @@ layout: pagina
 script: noticias
 ---
 
-<header class="special container" id="noticias">
-	<span class="icon solid fa-newspaper"></span>
-	<h2>Notícias</h2>
-</header>
-
-<section class="wrapper style1 container special">
-	<div class="row">
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia01" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
-			</section>	
-		
-		</div>
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia02" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
+<div class="container pt-4 px-5 pb-4 geral-bg">
+	<header class="special container" id="noticias">
+		<span class="fas fa-newspaper"></span>	
+		<h2>Notícias</h2>
+	</header>
+	<div id="carousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		<li data-target="#carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#carousel" data-slide-to="1"></li>
+		<li data-target="#carousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+		<div class="carousel-item active">
+			<section class="wrapper style1 container special">
+				<section id="noticia01"  class="noticia">
+					<a href="http://www.google.com" target="_blank">
+						<span class="fas"></span>
+						<header>
+							<h3>Also Something</h3>
+						</header>
+						<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+					</a>
+				</section>
 			</section>
-
 		</div>
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia03" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
-			</section>
-
+		<div class="carousel-item">
+			<section class="wrapper style1 container special">
+				<section id="noticia02"  class="noticia">
+					<a href="http://www.google.com" target="_blank">
+						<span class="fas"></span>
+						<header>
+							<h3>Also Something</h3>
+						</header>
+						<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+					</a>
+				</section>
+			</section>	  
 		</div>
+		<div class="carousel-item">
+			<section class="wrapper style1 container special">
+				<section id="noticia03"  class="noticia">
+					<a href="http://www.google.com" target="_blank">
+						<span class="fas"></span>
+						<header>
+							<h3>Also Something</h3>
+						</header>
+						<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+					</a>
+				</section>
+			</section>	  
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Próximo</span>
+		</a>
 	</div>
-</section>
+
+	<div class="container">
+		<ul class="list-unstyled">
+			{% for i in (4..11) %}
+			<li id="noticia0{{ i }}" class="media">
+				<a href="http://www.google.com" target="_blank">
+					<span class="align-self-center fas"></span>
+					<div class="media-body">
+						<header>
+							<h3>Also Something</h3>
+						</header>
+					</a>
+						<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+					</div>
+			</li>
+			{% endfor %}
+		</ul>
+
+		<div class="text-right">
+			<button id="mostrarMais" type="button" class="btn btn-link" onclick="mostrarNoticias()">Todas as notícias >></button>
+		</div>
+
+	</div>
+
+	<script>
+
+		function mostrarNoticias(){
+			location.href = "https://deolhonocorona.com/noticias/todasnoticias"
+		}
+
+	</script>
+</div>
