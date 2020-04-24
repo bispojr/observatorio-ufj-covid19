@@ -13,6 +13,7 @@ dj-static = "*"
 gunicorn = "*"
 psycopg2 = "*"
 freeze = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"

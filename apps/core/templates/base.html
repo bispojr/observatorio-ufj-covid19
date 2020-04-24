@@ -1,11 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 	{% include "partials/head.html" %}
 	<body class = "pt-5"
 		style=" 
-			background-image: url('{{ site.baseurl}}/assets/images/banner.jpg');
+			background-image: url('{% static 'images/banner.jpg' %}');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;"
