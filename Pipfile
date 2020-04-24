@@ -12,7 +12,7 @@ dj-database-url = "*"
 dj-static = "*"
 gunicorn = "*"
 psycopg2 = "*"
-
+freeze = "*"
 
 [requires]
 python_version = "3.8"

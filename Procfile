@@ -1,1 +1,1 @@
-python-3.8.0
+web: gunicorn observatorio.wsgi --log-file -
