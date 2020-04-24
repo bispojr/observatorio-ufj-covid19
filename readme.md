@@ -41,6 +41,11 @@ Crie o ambiente virtual e instale os pacotes.
 python manage.py makemigrations
 python manage.py migrate
 ```
+* Start do projeto:
+
+```
+python manage.py runserver
+```
 
 <!-- ## Executando Testes
 
