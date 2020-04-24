@@ -1,11 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    teste
-</body>
+<html lang="pt-BR">
+
+	{% include "partials/head.html" %}
+	<body class = "pt-5"
+		style=" 
+			background-image: url('{{ site.baseurl}}/assets/images/banner.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"
+	>
+		
+		{% include "partials/navbar.html" %}
+
+		<div class="container pt-4">
+  			<div class="row">
+    			<div class="col-lg col-sm"></div>
+                    {% block content %}
+                    {% endblock %}
+    			</div>
+			    <div class="col-lg col-sm"></div>
+  			</div>
+		</div>
+
+		{% include "partials/footer.html" %}
+		{% include "partials/scripts.html" %}
+
+	</body>
 </html>

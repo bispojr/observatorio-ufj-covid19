@@ -1,0 +1,21 @@
+
+
+{% include grafico-resumo.html 
+	cidade 		= 	include.cidade
+	nome-base	= 	include.nome-base
+	url-fonte	=	include.url-fonte
+	nome-fonte	= 	include.nome-fonte
+%}
+
+<div class="container graficos-bg p-5 mt-2">
+	<div class="row">
+		<div class="col-lg-6 col-12">
+			<h2>Todas as categorias</h2>
+			<div class="grafico-mini" id="{{ include.nome-base }}-grafico-todas"></div>
+		</div>
+		<div class="col-lg-6 col-12 pt-4 pt-lg-0">
+			<h2>Monitorados</h2>
+			<div class="grafico-mini" id="{{ include.nome-base }}-grafico-monitorados"></div>
+		</div>
+	</div>
+</div>
