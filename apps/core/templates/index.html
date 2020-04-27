@@ -1,14 +1,7 @@
----
-title: Observatório UFJ Covid-19 - Principal
-permalink: /
-grupo: geral
-layout: pagina
-script: geral
----
-
+{% load static %}
 <div class="container text-center">
 	<img 
-		src="{{ site.baseurl }}/assets/images/logomarca-observatorio.svg" 
+		src="{% static  'images/logomarca-observatorio.svg' %}" 
 		width="100%" alt="Logomarca do Observatório UFJ Covid-19"
 		style="background-color: rgba(0, 0, 0, 0.7);"
 	>

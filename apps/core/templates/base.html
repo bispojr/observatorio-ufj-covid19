@@ -15,7 +15,8 @@
 		<div class="container pt-4">
   			<div class="row">
     			<div class="col-lg col-sm"></div>
-                    {% block content %}
+					{% block content %}
+						{% include 'index.html' %}
                     {% endblock %}
     			</div>
 			    <div class="col-lg col-sm"></div>
@@ -24,6 +25,5 @@
 
 		{% include "partials/footer.html" %}
 		{% include "partials/scripts.html" %}
-
 	</body>
 </html>
