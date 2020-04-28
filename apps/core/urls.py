@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import ( home, grafico, comparacao, 
-                     como_sao_criados, equipe
+                     como_sao_criados, tendencias,
+                     sobre, equipe, na_midia, colabore
                     )
 
 app_name = "core"
@@ -13,10 +14,11 @@ urlpatterns = [
     path("como_sao_criados/", como_sao_criados, name="como-sao-criados"),
 
     # tendencias
+    path("tendencias/<str:cidade>/", tendencias, name="tendencias"),
 
     # saiba mais
-    path("equipe/", equipe, name="equipe")
-
-
-
+    path("sobre/", sobre, name="sobre"),
+    path("equipe/", equipe, name="equipe"),
+    path("na_midia/", na_midia, name="na-midia"),
+    path("colabore/", colabore, name="colabore")
 ]

@@ -30,7 +30,7 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="/graficos/como-sao-criados">Gráficos</a>
+            <a href="{% url 'core:como-sao-criados' %}">Gráficos</a>
           </li>
           <!--<li>
             <a href="/tendencias/como-sao-criadas">Tendências</a>
@@ -39,7 +39,7 @@
             <a href="/noticias">Notícias</a>
           </li>-->
           <li>
-            <a href="/sobre">Sobre</a>
+            <a href="{% url 'core:sobre' %}">Sobre</a>
           </li>
         </ul>
 
@@ -54,19 +54,19 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="/graficos/jatai">Jataí</a>
+            <a href="{% url 'core:grafico' cidade="jatai" %}">Jataí</a>
           </li>
           <li>
-            <a href="/graficos/mineiros">Mineiros</a>
+            <a href="{% url 'core:grafico' cidade="mineiros" %}">Mineiros</a>
           </li>
           <li>
-            <a href="/graficos/rio-verde">Rio Verde</a>
+            <a href="{% url 'core:grafico' cidade="rioverde" %}">Rio Verde</a>
           </li>
           <li>
-            <a href="/graficos/comparacao">Comparação Contextual</a>
+            <a href="{% url 'core:comparacao' %}">Comparação Contextual</a>
           </li>
           <li>
-            <a href="/graficos/como-sao-criados">Como são criados?</a>
+            <a href="{% url 'core:como-sao-criados' %}">Como são criados?</a>
           </li>
         </ul>
 
@@ -81,13 +81,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="/tendencias/jatai">Jataí</a>
+            <a href="{% url 'core:tendencias' cidade="jatai" %}">Jataí</a>
           </li>
           <!--<li>
             <a href="/tendencias/mineiros">Mineiros</a>
           </li>-->
           <li>
-            <a href="/tendencias/rio-verde">Rio Verde</a>
+            <a href="{% url 'core:tendencias' cidade="rioverde" %}">Rio Verde</a>
           </li>
           <!--<li>
             <a href="/tendencias/como-sao-criadas">Como são criadas?</a>

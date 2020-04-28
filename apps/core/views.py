@@ -4,6 +4,7 @@ from django.views.decorators.http import require_GET
 def home(request):
     return render(request, "base.html", {})
 
+
 @require_GET
 def grafico(request, cidade):
     if cidade == "jatai":
@@ -35,7 +36,7 @@ def grafico(request, cidade):
     else:
         informacoes = {
             "cidade": "Rio Verde",
-	        "nome_base": "mineiros",
+	        "nome_base": "rioverde",
 	        "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
 	        "nome_fonte": "Secretária de Saúde de Rio Verde",
 
@@ -202,3 +203,38 @@ def equipe(request):
     }
     template = "saiba_mais/equipe.html"
     return render(request, template, context)
+
+
+@require_GET
+def sobre(request):
+    url = "saiba_mais/sobre.html"
+    return render(request, url, {})
+
+
+@require_GET
+def na_midia(request):
+    url = "saiba_mais/na-midia.html"
+    return render(request, url, {})
+
+
+@require_GET
+def colabore(request):
+    url = "saiba_mais/colabore.html"
+    return render(request, url, {})
+
+
+@require_GET
+def tendencias(request, cidade):
+    if cidade == "jatai":
+        informacoes = {
+            "cidade": "Jataí (GO)",
+	        "nome_base": "jatai"
+        }
+    else:
+        informacoes = {
+            "cidade": "Rio Verde (GO)",
+	        "nome_base": "rioverde"
+        }
+    url = "tendencias/cidade.html"
+
+    return render(request, url, informacoes)
