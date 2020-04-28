@@ -1,0 +1,31 @@
+---
+title: Observatório UFJ Covid-19 - Comparação entre as cidades
+permalink: /graficos/comparacao
+grupo: graficos
+navbar: graficos
+script: graficos-comparacao
+layout: pagina
+---
+
+<div class="container graficos-bg p-5">
+	
+	<h1>Comparação Contextual</h1>
+
+	<div class="row">
+		<div class="col-lg-5 col-12">
+
+			<img src="{{ site.baseurl }}/assets/images/mapa-comparacao.svg" id="mapa-comparacao" alt="Mapa do Sudoeste Goiano"  style="width: 120%;" />
+		</div>
+
+		<div class="col-lg-7 col-12 px-5">
+
+			<div class="grafico" id="comparacao-grafico"></div>
+		</div>
+	</div>
+	<div class="row pt-2 pt-lg-0">
+		<span>
+					Dados atualizados em <span id="data-atualizacao-{{ include.nome-base }}">23 de abril de 2020</span>.<br>
+					<strong>Fonte:</strong> IBGE, Ministério da Saúde e Secretarias Municipais.
+				</span>
+	</div>
+</div>
