@@ -83,7 +83,11 @@ def grafico(request, cidade):
 @require_GET
 def comparacao(request):
     context = {
-	        "nome_base": "jatai"
+			"titulo": "",
+	        "nome_base": "jatai",
+			"goias": 1000,
+			"brasil": 3000,
+			"script": "comparacao"
         }
     template = "grafico/comparacao.html"
     return render(request, template, context)

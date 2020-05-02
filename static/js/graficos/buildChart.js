@@ -136,11 +136,11 @@ function buildComparison() {
   dados.rioverde.populacao = 235647; //População estimada: https://www.rioverde.go.gov.br/historia-cidade/
 
   dados.goias = {};
-  dados.goias.casos = 438;
+  dados.goias.casos = 438; //diego
   dados.goias.populacao = 6003788; //População estimada: https://cidades.ibge.gov.br/brasil/go/panorama
 
   dados.brasil = {};
-  dados.brasil.casos = 45757;
+  dados.brasil.casos = 45757; //diego
   dados.brasil.populacao = 210147125; //População estimada: https://cidades.ibge.gov.br/brasil/panorama
 
 
