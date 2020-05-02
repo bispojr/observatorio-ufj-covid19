@@ -2,13 +2,21 @@ from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
 def home(request):
-    return render(request, "base.html", {})
+	context = {
+		"grupo": "geral",
+		"script": "geral",
+		"titulo": "Observatório UFJ Covid-19 - Principal"
+	}
+	return render(request, "base.html", context)
 
 
 @require_GET
 def grafico(request, cidade):
     if cidade == "jatai":
         informacoes = {
+			"titulo": "Observatório UFJ Covid-19 - Projeções (Jataí)",
+			"script": "graficos-jatai",
+			"grupo": "graficos",
             "cidade": "Jataí",
 	        "nome_base": "jatai",
 	        "url_fonte": "https://www.jatai.go.gov.br/",
@@ -22,6 +30,9 @@ def grafico(request, cidade):
         }
     elif cidade == "mineiros":
         informacoes = {
+			"titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
+			"script": "graficos-mineiros",
+			"grupo": "graficos",
             "cidade": "Mineiros",
 	        "nome_base": "mineiros",
 	        "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
@@ -35,6 +46,9 @@ def grafico(request, cidade):
         }
     else:
         informacoes = {
+			"titulo": "Observatório UFJ Covid-19 - Projeções (Rio Verde)",
+			"script": "graficos-rioverde",
+			"grupo": "graficos",
             "cidade": "Rio Verde",
 	        "nome_base": "rioverde",
 	        "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
@@ -83,11 +97,12 @@ def grafico(request, cidade):
 @require_GET
 def comparacao(request):
     context = {
-			"titulo": "",
+			"grupo": "graficos",
+			"script": "graficos-comparacao",
+			"titulo": "Observatório UFJ Covid-19 - Comparação entre as cidades",
 	        "nome_base": "jatai",
 			"goias": 1000,
-			"brasil": 3000,
-			"script": "comparacao"
+			"brasil": 3000
         }
     template = "grafico/comparacao.html"
     return render(request, template, context)
@@ -95,13 +110,20 @@ def comparacao(request):
 
 @require_GET
 def como_sao_criados(request):
-    template = "grafico/como-sao-criados.html"
-    return render(request, template, {})
+	context = {
+		"grupo": "geral",
+		"script": "geral",
+		"titulo": "Observatório UFJ Covid-19 - Créditos"
+	}
+	return render(request, "grafico/como-sao-criados.html", context)
 
 
 @require_GET
 def equipe(request):
     context = {
+		"script": "geral",
+		"grupo": "equipe",
+		"titulo": "Observatório UFJ Covid-19 - Equipe",
         "parceiros": [
             {  
 				"nome": "#TodosContraoCorona",
@@ -211,31 +233,58 @@ def equipe(request):
 
 @require_GET
 def sobre(request):
-    url = "saiba_mais/sobre.html"
-    return render(request, url, {})
+    context = {
+		"grupo": "geral",
+		"script": "geral",
+		"titulo": "Observatório UFJ Covid-19 - Sobre"
+		}
+    return render(request, "saiba_mais/sobre.html", context)
 
 
 @require_GET
 def na_midia(request):
-    url = "saiba_mais/na-midia.html"
-    return render(request, url, {})
+	context = {
+		"grupo": "geral", 
+		"script": "na-midia",
+		"titulo": "Observatório UFJ Covid-19 - Na Mídia"
+		}
+	return render(request, "saiba_mais/na-midia.html", context)
 
 
 @require_GET
 def colabore(request):
-    url = "saiba_mais/colabore.html"
-    return render(request, url, {})
+	context = {
+		"grupo": "geral",
+		"script": "Observatório UFJ Covid-19 - Colabore"
+		}
+	return render(request, "saiba_mais/colabore.html", context)
+
+
+@require_GET
+def noticias(request):
+	context = {
+		"grupo": "", 
+		"script": "noticias",
+		"titulo": "Observatório UFJ Covid-19 - Notícias"
+		}
+	return render(request, "saiba_mais/noticias.html", context)
 
 
 @require_GET
 def tendencias(request, cidade):
     if cidade == "jatai":
         informacoes = {
+			"grupo": "tendencias",
+			"script": "tendencias-jatai",
+			"titulo": "Observatório UFJ Covid-19 - Tendências (Jataí)",
             "cidade": "Jataí (GO)",
 	        "nome_base": "jatai"
         }
     else:
         informacoes = {
+			"grupo": "tendencias",
+			"script": "tendencias-rioverde",
+			"titulo": "Observatório UFJ Covid-19 - Tendência (Rio Verde)",
             "cidade": "Rio Verde (GO)",
 	        "nome_base": "rioverde"
         }

@@ -14,28 +14,45 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
   crossorigin="anonymous">
 </script>
-
-<!-- <script src="{% static 'js/graficos/buildChart.js' %}"></script> -->
-<!-- <script src="{% static 'js/graficos/geral.js' %}"></script>
+  
+{% if script == "graficos-jatai" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
   <script src="{% static 'js/graficos/jatai.js' %}"></script>
+{% elif  script == "graficos-mineiros" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
   <script src="{% static 'js/graficos/mineiros.js' %}"></script>
-  <script src="{% static 'js/graficos/rioverde.js' %}"></script> -->
-{% if script == "comparacao" %}
+{% elif script == "graficos-rioverde" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
+  <script src="{% static 'js/graficos/rioverde.js' %}"></script>
+{% elif script == "graficos-comparacao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
   <script src="{% static 'js/graficos/comparacao.js' %}"></script>
+{% elif script == "tendencias" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
+  <script src="{% static 'js/tendencias/geral.js' %}"></script>
+{% elif script == "noticias" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/noticias.js' %}"></script>
+{% elif script == "tendencias-jatai" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
+  <script src="{% static 'js/tendencias/jatai.js' %}"></script>
+{% elif script == "tendencias-rioverde" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
+  <script src="{% static 'js/tendencias/rioverde.js' %}"></script>
+{% elif script == "na-midia" %}
+  <script src="{% static 'js/main.js' %}"></script>
+{% else %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{% static 'js/graficos/geral.js' %}"></script>
+  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
 {% endif %}
-
-<!-- <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
-<script src="{% static 'js/tendencias/geral.js' %}"></script>
-<script src="{% static 'js/tendencias/jatai.js' %}"></script>
-<script src="{% static 'js/tendencias/rioverde.js' %}"></script> -->
-
-<!-- <script src="{% static 'js/noticias.js' %}"></script> -->
-
-
-<script src="{% static 'js/main.js' %}"></script>
-
 
 
 

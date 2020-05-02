@@ -1,7 +1,8 @@
 from django.urls import path, include
 from .views import ( home, grafico, comparacao, 
                      como_sao_criados, tendencias,
-                     sobre, equipe, na_midia, colabore
+                     sobre, equipe, na_midia, colabore,
+                     noticias
                     )
 
 app_name = "core"
@@ -20,5 +21,6 @@ urlpatterns = [
     path("sobre/", sobre, name="sobre"),
     path("equipe/", equipe, name="equipe"),
     path("na_midia/", na_midia, name="na-midia"),
-    path("colabore/", colabore, name="colabore")
+    path("colabore/", colabore, name="colabore"),
+    path("noticias/", noticias, name="noticia")
 ]
