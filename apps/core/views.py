@@ -1,5 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.views.decorators.http import require_GET
+from django.http import JsonResponse
+
+import requests
+import datetime
+import json
+from collections import Counter
 
 def home(request):
 	context = {
@@ -96,16 +102,75 @@ def grafico(request, cidade):
 
 @require_GET
 def comparacao(request):
-    context = {
-			"grupo": "graficos",
-			"script": "graficos-comparacao",
-			"titulo": "Observatório UFJ Covid-19 - Comparação entre as cidades",
-	        "nome_base": "jatai",
-			"goias": 1000,
-			"brasil": 3000
-        }
-    template = "grafico/comparacao.html"
-    return render(request, template, context)
+	quantidade_goias = quantidade_estado_goias(request)
+	quantidade_brasil = quantidade_geral_brasil(request)
+	print(quantidade_goias, quantidade_brasil)
+	context = {
+		"grupo": "graficos",
+		"script": "graficos-comparacao",
+		"titulo": "Observatório UFJ Covid-19 - Comparação entre as cidades",
+		"nome_base": "jatai",
+		"goias": quantidade_goias,
+		"brasil": quantidade_brasil
+	}
+	return render(request, "grafico/comparacao.html", context)
+
+
+@require_GET
+def obtem_ultimo_dia(request): 
+	# a API do brasil.io so exibe os dados do ultimo dia
+	hoje = datetime.date.today() 
+	um_dia = datetime.timedelta(days=1) 
+	ontem = hoje - um_dia  
+	return ontem
+
+
+@require_GET
+def quantidade_estado_goias(request):
+	# obtem massa de dados
+	results = api_brasil_estado(request)
+
+	# cada estado possui um informativo geral
+	# na ultima linha do dataset, facilitando as consultas
+	quantidade = results["results"][0]["confirmed"]
+	return int(quantidade)
+
+
+@require_GET
+def api_brasil_estado(request):
+	data = obtem_ultimo_dia(request)
+
+	payload = {"state": "GO", "date": data, "city": "None"}
+	headers = {'content-type': 'application/json'}
+	url = "https://brasil.io/api/dataset/covid19/caso/data/"
+	results = requests.get(url, params=payload, headers=headers).json()
+	return results
+
+
+def quantidade_geral_brasil(request):
+	# obtem massa de dados
+	results = api_brasil_geral(request)
+
+	# obtem o subtotal por estado
+	quantidade = 0
+	for r in results["results"]:
+		quantidade += r["confirmed"]
+	return quantidade
+    		
+
+@require_GET
+def api_brasil_geral(request):
+	data = obtem_ultimo_dia(request)
+
+	payload = {"date": data, "city": "None"}
+	headers = {'content-type': 'application/json'}
+	url = "https://brasil.io/api/dataset/covid19/caso/data/"
+	results = requests.get(url, params=payload, headers=headers).json()
+	return results
+	
+
+# def api_covid_brasil(request):
+# 	pass
 
 
 @require_GET
