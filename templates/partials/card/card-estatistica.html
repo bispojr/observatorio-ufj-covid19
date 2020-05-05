@@ -1,0 +1,29 @@
+<div class="container graficos-bg mb-2">
+	<div class="row px-4 px-lg-0">
+		<div class="
+			col-lg-2 mb-lg-0 mx-lg-0
+			col-md-12 
+			col-12 mb-1 mx-1
+			text-center">
+			<strong class="h1 py-0">{{ informacoes.cidade }}</strong><br>
+			<span>{{ informacoes.data }}</span>
+		</div>
+		{% for queryset in querysets %}
+			<div 
+				class="mx-lg-2 my-lg-2	mb-lg-0	mx-2 mb-3" 
+				style="background-color: {{ queryset.cor }}; width: 180px; height: 72px; padding-left: 20px; padding-top: 10px;">
+				<div class="row">
+					<div class="col text-center d-inline">
+						<i class="{{ queryset.icone }}" style="font-size: 30px;"></i>
+						<div style="">
+							{{ queryset.categoria }}
+						</div>
+					</div>
+					<div class="col text-center d-inline" style="font-size: 40px; margin-left: -35px; margin-top: -3px;">
+						{{ queryset.numero }}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="container pt-4 px-5 pb-4 geral-bg">
+        <h1 class="pb-4">Como são criados os gráficos?</h1>
+        <p class="lead">
+            Todos os gráficos são criados a partir de dados oficiais publicados pelas secretarias de saúde de cada município. Estes dados oficiais são emitidos normalmente por meio de documentos formais chamados de <strong>boletins epidemiológicos</strong>. Alguns municípios preferem publicar os seus dados oficiais por meio de vídeos ou posts nas redes sociais.		
+        </p>
+        <p class="lead">
+            Diariamente, um membro de nossa <a href="{% url 'core:equipe' %}">equipe</a> monitora a atualização destes dados oficiais. Sempre que possível, este dado é atualizado imediatamente após a sua publicação. A nossa base de dados automaticamente atualiza o gráfico na página, de forma que o gráfico que você visualiza são com as informações mais atualizadas possíveis. Em cada página, é possível você saber o dia da última atualização do gráfico que você está visualizando.
+        </p>
+    </div>
+{% endblock %}
