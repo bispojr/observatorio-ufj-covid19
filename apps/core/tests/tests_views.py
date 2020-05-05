@@ -7,5 +7,5 @@ class AcessosViewTestCase(TestCase):
 
     def test_status_code_200(self):
         c = Client()
-        response = c.post('/')
-        self.assertEquals(response.status_code, 200)
+        response = c.get('/')
+        self.assertTrue("uma iniciativa do Bacharelado em" in str(response.content))
