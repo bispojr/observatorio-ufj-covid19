@@ -6,6 +6,7 @@ import requests
 import datetime
 import json
 from collections import Counter
+from observatorio import settings
 
 def home(request):
 	context = {
@@ -142,7 +143,7 @@ def api_brasil_estado(request):
 
 	payload = {"state": "GO", "date": data, "city": "None"}
 	headers = {'content-type': 'application/json'}
-	url = "https://brasil.io/api/dataset/covid19/caso/data/"
+	url = settings.URL_BRASIL_IO
 	results = requests.get(url, params=payload, headers=headers).json()
 	return results
 
@@ -154,6 +155,7 @@ def quantidade_geral_brasil(request):
 	# obtem o subtotal por estado
 	quantidade = 0
 	for r in results["results"]:
+		print(r)
 		quantidade += r["confirmed"]
 	return quantidade
     		
@@ -164,7 +166,7 @@ def api_brasil_geral(request):
 
 	payload = {"date": data, "city": "None"}
 	headers = {'content-type': 'application/json'}
-	url = "https://brasil.io/api/dataset/covid19/caso/data/"
+	url = settings.URL_BRASIL_IO
 	results = requests.get(url, params=payload, headers=headers).json()
 	return results
 	
