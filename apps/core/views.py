@@ -7,6 +7,8 @@ import datetime
 import json
 from collections import Counter
 from observatorio import settings
+from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
+							api_brasil_estado, api_brasil_geral)
 
 def home(request):
 	context = {
@@ -117,59 +119,6 @@ def comparacao(request):
 	return render(request, "grafico/comparacao.html", context)
 
 
-@require_GET
-def obtem_ultimo_dia(request): 
-	# a API do brasil.io so exibe os dados do ultimo dia
-	hoje = datetime.date.today() 
-	um_dia = datetime.timedelta(days=1) 
-	ontem = hoje - um_dia  
-	return ontem
-
-
-@require_GET
-def quantidade_estado_goias(request):
-	# obtem massa de dados
-	results = api_brasil_estado(request)
-
-	# cada estado possui um informativo geral
-	# na ultima linha do dataset, facilitando as consultas
-	quantidade = results["results"][0]["confirmed"]
-	return int(quantidade)
-
-
-@require_GET
-def api_brasil_estado(request):
-	data = obtem_ultimo_dia(request)
-
-	payload = {"state": "GO", "date": data, "city": "None"}
-	headers = {'content-type': 'application/json'}
-	url = settings.URL_BRASIL_IO
-	results = requests.get(url, params=payload, headers=headers).json()
-	return results
-
-
-def quantidade_geral_brasil(request):
-	# obtem massa de dados
-	results = api_brasil_geral(request)
-
-	# obtem o subtotal por estado
-	quantidade = 0
-	for r in results["results"]:
-		print(r)
-		quantidade += r["confirmed"]
-	return quantidade
-    		
-
-@require_GET
-def api_brasil_geral(request):
-	data = obtem_ultimo_dia(request)
-
-	payload = {"date": data, "city": "None"}
-	headers = {'content-type': 'application/json'}
-	url = settings.URL_BRASIL_IO
-	results = requests.get(url, params=payload, headers=headers).json()
-	return results
-	
 
 # def api_covid_brasil(request):
 # 	pass
