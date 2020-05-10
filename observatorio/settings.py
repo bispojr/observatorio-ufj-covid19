@@ -19,7 +19,7 @@ URL_BRASIL_IO = "https://brasil.io/api/dataset/covid19/caso_full/data/"
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = ["deolhonocorona.herokuapp.com", "127.0.0.1", "www.deolhonocorona.com"]
+ALLOWED_HOSTS = ["deolhonocorona.herokuapp.com", "127.0.0.1", "www.deolhonocorona.com", "deolhonocorona.com"]
 
 
 # Application definition
