@@ -20,7 +20,7 @@ def quantidade_estado_goias(request):
 	print(results)
 	# cada estado possui um informativo geral
 	# na ultima linha do dataset, facilitando as consultas
-	quantidade = results["results"][0]["confirmed"]
+	quantidade = results["results"][0]["last_available_confirmed"]
 	return int(quantidade)
 
 
@@ -43,8 +43,7 @@ def quantidade_geral_brasil(request):
 	# obtem o subtotal por estado
 	quantidade = 0
 	for r in results["results"]:
-		print(r)
-		quantidade += r["confirmed"]
+		quantidade += r["last_available_confirmed"]
 	return quantidade
     		
 

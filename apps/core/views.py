@@ -108,11 +108,8 @@ def grafico(request, cidade):
 
 @require_GET
 def comparacao(request):
-	#quantidade_goias = quantidade_estado_goias(request)
-	quantidade_goias = 1069
-	#quantidade_brasil = quantidade_geral_brasil(request)
-	quantidade_brasil = 155939
-
+	quantidade_goias = quantidade_estado_goias(request)
+	quantidade_brasil = quantidade_geral_brasil(request)
 	context = {
 		"grupo": "graficos",
 		"grupo_link": "graficos",
@@ -123,11 +120,6 @@ def comparacao(request):
 		"brasil": quantidade_brasil
 	}
 	return render(request, "grafico/comparacao.html", context)
-
-
-
-# def api_covid_brasil(request):
-# 	pass
 
 
 @require_GET
