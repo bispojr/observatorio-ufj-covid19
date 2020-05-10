@@ -22,26 +22,30 @@ def home(request):
 
 @require_GET
 def grafico(request, cidade):
-    if cidade == "jatai":
-        informacoes = {
-			"titulo": "Observatório UFJ Covid-19 - Projeções (Jataí)",
-			"script": "graficos-jatai",
-			"grupo": "graficos",
-            "cidade": "Jataí",
-	        "nome_base": "jatai",
-	        "url_fonte": "https://www.jatai.go.gov.br/",
-	        "nome_fonte": "Secretária de Saúde de Jataí",
-
-            "data": "22 de abril",
-            "conf_num": "6",
-            "rec_num": "6",
-            "int_num": "0",
-            "obt_num": "0"
-        }
-    elif cidade == "mineiros":
-        informacoes = {
+	context = {
+		"grupo": "graficos",
+		"grupo_link": "graficos",
+		"goias": 10,
+		"brasil": 100
+	}
+	if cidade == "jatai":
+		context["script"] = "graficos-jatai"
+		informacoes = {
+			"titulo": "Observatório UFJ Covid-19 - Projeções (Jataí)",			
+			"cidade": "Jataí",
+			"nome_base": "jatai",
+			"url_fonte": "https://www.jatai.go.gov.br/",
+			"nome_fonte": "Secretária de Saúde de Jataí",
+			"data": "08 de maio",
+			"conf_num": "31",
+			"rec_num": "12",
+			"int_num": "2",
+			"obt_num": "0"
+		}
+	elif cidade == "mineiros":
+		context["script"] = "graficos-mineiros"
+		informacoes = {
 			"titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
-			"script": "graficos-mineiros",
 			"grupo": "graficos",
             "cidade": "Mineiros",
 	        "nome_base": "mineiros",
@@ -54,55 +58,52 @@ def grafico(request, cidade):
             "int_num": "1",
             "obt_num": "0"
         }
-    else:
-        informacoes = {
+	else:
+		context["script"] = "graficos-rioverde"
+		informacoes = {
 			"titulo": "Observatório UFJ Covid-19 - Projeções (Rio Verde)",
-			"script": "graficos-rioverde",
 			"grupo": "graficos",
             "cidade": "Rio Verde",
 	        "nome_base": "rioverde",
 	        "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
 	        "nome_fonte": "Secretária de Saúde de Rio Verde",
 
-            "data": "22 de abril",
-            "conf_num": "13",
-            "rec_num": "9",
-            "int_num": "1",
+            "data": "09 de maio",
+            "conf_num": "23",
+            "rec_num": "14",
+            "int_num": "0",
             "obt_num": "1"
         }
 
-    url = "grafico/cidade.html"
-    context = {
-        "informacoes": informacoes,
-		"grupo_link": "graficos",
-        "querysets": [
-            {
-                "categoria": "Confirmados",
-                "numero": informacoes["conf_num"],
-                "cor": "red",
-                "icone": "fas fa-user-injured"
-            },
-            {
-                "categoria": "Recuperados",
-                "numero": informacoes["rec_num"],
-                "cor": "purple",
-                "icone": "fas fa-virus-slash"
-            },
-            {
-                "categoria": "Internados",
-                "numero": informacoes["int_num"],
-                "cor": "blue",
-                "icone": "fas fa-procedures"
-            },
-            {
-                "categoria": "Óbitos",
-                "numero": informacoes["obt_num"],
-                "cor": "black",
-                "icone": "fas fa-skull-crossbones"
-            }
-        ]
-    }
-    return render(request, url, context)
+	url = "grafico/cidade.html"
+	context["informacoes"] = informacoes
+	context["querysets"] = [
+		{
+			"categoria": "Confirmados",
+			"numero": informacoes["conf_num"],
+			"cor": "red",
+			"icone": "fas fa-user-injured"
+		},
+		{
+			"categoria": "Recuperados",
+			"numero": informacoes["rec_num"],
+			"cor": "purple",
+			"icone": "fas fa-virus-slash"
+		},
+		{
+			"categoria": "Internados",
+			"numero": informacoes["int_num"],
+			"cor": "blue",
+			"icone": "fas fa-procedures"
+		},
+		{
+			"categoria": "Óbitos",
+			"numero": informacoes["obt_num"],
+			"cor": "black",
+			"icone": "fas fa-skull-crossbones"
+		}
+	]
+	return render(request, url, context)
 
 
 @require_GET

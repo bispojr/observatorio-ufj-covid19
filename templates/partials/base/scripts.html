@@ -17,38 +17,56 @@
   
 {% if script == "graficos-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
+  {% include "grafico/buildChart.html" %}
   <script src="{% static 'js/graficos/jatai.js' %}"></script>
-{% elif  script == "graficos-mineiros" %}
+{% endif %}
+
+{% if  script == "graficos-mineiros" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/graficos/buildChart.js' %}"></script>
   <script src="{% static 'js/graficos/mineiros.js' %}"></script>
-{% elif script == "graficos-rioverde" %}
+{% endif %}
+
+{% if script == "graficos-rioverde" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/graficos/buildChart.js' %}"></script>
   <script src="{% static 'js/graficos/rioverde.js' %}"></script>
-{% elif script == "graficos-comparacao" %}
+{% endif %}
+
+{% if script == "graficos-comparacao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
   <script src="{% static 'js/graficos/comparacao.js' %}"></script>
-{% elif script == "tendencias" %}
+{% endif %}
+
+{% if script == "tendencias" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
   <script src="{% static 'js/tendencias/geral.js' %}"></script>
-{% elif script == "noticias" %}
+{% endif %}
+
+{% if script == "noticias" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/noticias.js' %}"></script>
-{% elif script == "tendencias-jatai" %}
+{% endif %}
+
+{% if script == "tendencias-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
   <script src="{% static 'js/tendencias/jatai.js' %}"></script>
-{% elif script == "tendencias-rioverde" %}
+{% endif %}
+
+{% if script == "tendencias-rioverde" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>
   <script src="{% static 'js/tendencias/rioverde.js' %}"></script>
-{% elif script == "na-midia" %}
+{% endif %}
+
+{% if script == "na-midia" %}
   <script src="{% static 'js/main.js' %}"></script>
-{% else %}
+{% endif %}
+
+{% if script == "geral" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/graficos/geral.js' %}"></script>
   <script src="{% static 'js/graficos/buildChart.js' %}"></script>
