@@ -107,7 +107,6 @@ def grafico(request, cidade):
 def comparacao(request):
 	quantidade_goias = quantidade_estado_goias(request)
 	quantidade_brasil = quantidade_geral_brasil(request)
-	print(quantidade_goias, quantidade_brasil)
 	context = {
 		"grupo": "graficos",
 		"script": "graficos-comparacao",
@@ -117,11 +116,6 @@ def comparacao(request):
 		"brasil": quantidade_brasil
 	}
 	return render(request, "grafico/comparacao.html", context)
-
-
-
-# def api_covid_brasil(request):
-# 	pass
 
 
 @require_GET

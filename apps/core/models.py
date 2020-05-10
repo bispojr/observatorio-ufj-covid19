@@ -2,24 +2,6 @@ from django.db import models
 import uuid
 
 class BoletimEpidemiologico(models.Model):
-    # Cidade: string 
-    # Data da atualização: datetime
-    # Fonte oficial (link): url	
-    # Confirmados: int
-    # Recuperados/Curados: int
-    # Óbitos: int
-
-    # Suspeitos: int
-    # Investigados/Análise Laboratorial: int
-    # Descartados/Excluídos/Negativos: int	
-
-    # Monitorados: int	
-    # Notificados: int	
-    # Isolados: int
-        
-    # Internados: int	
-    # - Enfermaria: int
-    # - UTI: int
 
     cidade = models.CharField(max_length=256, verbose_name="Cidade")
     data_atualizacao = models.DateTimeField(auto_now_add=True, verbose_name="Data de atualização")
