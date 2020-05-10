@@ -14,6 +14,7 @@ def home(request):
 	context = {
 		"grupo": "geral",
 		"script": "geral",
+		"grupo_link": "principal",
 		"titulo": "Observatório UFJ Covid-19 - Principal"
 	}
 	return render(request, "base.html", context)
@@ -47,10 +48,10 @@ def grafico(request, cidade):
 	        "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
 	        "nome_fonte": "Secretária de Saúde de Mineiros",
 
-            "data": "22 de abril",
-            "conf_num": "4",
+            "data": "08 de maio",
+            "conf_num": "10",
             "rec_num": "0",
-            "int_num": "4",
+            "int_num": "1",
             "obt_num": "0"
         }
     else:
@@ -73,6 +74,7 @@ def grafico(request, cidade):
     url = "grafico/cidade.html"
     context = {
         "informacoes": informacoes,
+		"grupo_link": "graficos",
         "querysets": [
             {
                 "categoria": "Confirmados",
@@ -105,11 +107,14 @@ def grafico(request, cidade):
 
 @require_GET
 def comparacao(request):
-	quantidade_goias = quantidade_estado_goias(request)
-	quantidade_brasil = quantidade_geral_brasil(request)
-	print(quantidade_goias, quantidade_brasil)
+	#quantidade_goias = quantidade_estado_goias(request)
+	quantidade_goias = 1069
+	#quantidade_brasil = quantidade_geral_brasil(request)
+	quantidade_brasil = 155939
+
 	context = {
 		"grupo": "graficos",
+		"grupo_link": "graficos",
 		"script": "graficos-comparacao",
 		"titulo": "Observatório UFJ Covid-19 - Comparação entre as cidades",
 		"nome_base": "jatai",
@@ -128,6 +133,7 @@ def comparacao(request):
 def como_sao_criados(request):
 	context = {
 		"grupo": "geral",
+		"grupo_link": "graficos",
 		"script": "geral",
 		"titulo": "Observatório UFJ Covid-19 - Créditos"
 	}
@@ -139,6 +145,7 @@ def equipe(request):
     context = {
 		"script": "geral",
 		"grupo": "equipe",
+		"grupo_link": "saiba_mais",
 		"titulo": "Observatório UFJ Covid-19 - Equipe",
         "parceiros": [
             {  
@@ -251,6 +258,7 @@ def equipe(request):
 def sobre(request):
     context = {
 		"grupo": "geral",
+		"grupo_link": "saiba_mais",
 		"script": "geral",
 		"titulo": "Observatório UFJ Covid-19 - Sobre"
 		}
@@ -261,6 +269,7 @@ def sobre(request):
 def na_midia(request):
 	context = {
 		"grupo": "geral", 
+		"grupo_link": "saiba_mais",
 		"script": "na-midia",
 		"titulo": "Observatório UFJ Covid-19 - Na Mídia"
 		}
@@ -271,6 +280,7 @@ def na_midia(request):
 def colabore(request):
 	context = {
 		"grupo": "geral",
+		"grupo_link": "saiba_mais",
 		"script": "Observatório UFJ Covid-19 - Colabore"
 		}
 	return render(request, "saiba_mais/colabore.html", context)
@@ -280,6 +290,7 @@ def colabore(request):
 def noticias(request):
 	context = {
 		"grupo": "", 
+		"grupo_link": "noticias",
 		"script": "noticias",
 		"titulo": "Observatório UFJ Covid-19 - Notícias"
 		}
@@ -291,6 +302,7 @@ def tendencias(request, cidade):
     if cidade == "jatai":
         informacoes = {
 			"grupo": "tendencias",
+			"grupo_link": "tendencias",
 			"script": "tendencias-jatai",
 			"titulo": "Observatório UFJ Covid-19 - Tendências (Jataí)",
             "cidade": "Jataí (GO)",
@@ -299,6 +311,7 @@ def tendencias(request, cidade):
     else:
         informacoes = {
 			"grupo": "tendencias",
+			"grupo_link": "tendencias",
 			"script": "tendencias-rioverde",
 			"titulo": "Observatório UFJ Covid-19 - Tendência (Rio Verde)",
             "cidade": "Rio Verde (GO)",

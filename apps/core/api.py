@@ -17,7 +17,7 @@ def obtem_ultimo_dia(request):
 def quantidade_estado_goias(request):
 	# obtem massa de dados
 	results = api_brasil_estado(request)
-
+	print(results)
 	# cada estado possui um informativo geral
 	# na ultima linha do dataset, facilitando as consultas
 	quantidade = results["results"][0]["confirmed"]
@@ -32,6 +32,7 @@ def api_brasil_estado(request):
 	headers = {'content-type': 'application/json'}
 	url = settings.URL_BRASIL_IO
 	results = requests.get(url, params=payload, headers=headers).json()
+
 	return results
 
 

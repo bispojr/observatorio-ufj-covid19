@@ -10,11 +10,18 @@
 
   	<div class="collapse navbar-collapse" id="navbarColor01">
     	<ul class="navbar-nav ml-5">
-      		<li class="nav-item mr-2 active">
-        		<a class="nav-link" href="/">Principal</a>
+			<li class="nav-item mr-2 
+			{% if grupo_link == "principal" %}
+      			 active
+			{% endif %}
+				"><a class="nav-link" href="/">Principal</a>
       		</li>
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle mr-2 active " href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle mr-2 
+				{% if grupo_link == "graficos" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Gráficos
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownGraficos">
@@ -27,7 +34,11 @@
 		        </div>
       		</li>
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle mr-2 {% if page.navbar == "tendencias" %} active {% endif %}" href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle mr-2 
+				{% if grupo_link == "tendencias" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Tendências
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownTendencias">
@@ -41,7 +52,11 @@
         		<a class="nav-link" href="/noticias">Notícias</a>
       		</li>-->
       		<li class="nav-item dropdown">
-		        <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle mr-2
+				{% if grupo_link == "saiba_mais" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		        	Saiba mais
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownConhecaMais">
