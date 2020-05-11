@@ -11,7 +11,7 @@ urlpatterns = [
     path("", home, name="home"),
 
     # graficos
-    path("grafico/<str:cidade>/", grafico, name="grafico"),
+    path("graficos/<str:cidade>/", grafico, name="grafico"),
     path("comparacao/", comparacao, name="comparacao"),
     path("como-sao-criados/", como_sao_criados, name="como-sao-criados"),
 

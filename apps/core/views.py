@@ -36,7 +36,7 @@ def grafico(request, cidade):
 			"nome_base": "jatai",
 			"url_fonte": "https://www.jatai.go.gov.br/",
 			"nome_fonte": "Secretária de Saúde de Jataí",
-			"data": "08 de maio",
+			"data": "10 de maio",
 			"conf_num": "31",
 			"rec_num": "12",
 			"int_num": "2",
@@ -52,9 +52,9 @@ def grafico(request, cidade):
 	        "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
 	        "nome_fonte": "Secretária de Saúde de Mineiros",
 
-            "data": "08 de maio",
+            "data": "11 de maio",
             "conf_num": "10",
-            "rec_num": "0",
+            "rec_num": "1",
             "int_num": "1",
             "obt_num": "0"
         }
@@ -68,7 +68,7 @@ def grafico(request, cidade):
 	        "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
 	        "nome_fonte": "Secretária de Saúde de Rio Verde",
 
-            "data": "09 de maio",
+            "data": "10 de maio",
             "conf_num": "23",
             "rec_num": "14",
             "int_num": "0",
