@@ -36,8 +36,8 @@ def grafico(request, cidade):
 			"nome_base": "jatai",
 			"url_fonte": "https://www.jatai.go.gov.br/",
 			"nome_fonte": "Secretária de Saúde de Jataí",
-			"data": "10 de maio",
-			"conf_num": "31",
+			"data": "11 de maio",
+			"conf_num": "32",
 			"rec_num": "12",
 			"int_num": "2",
 			"obt_num": "0"
