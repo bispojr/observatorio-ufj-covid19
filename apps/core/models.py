@@ -92,7 +92,7 @@ class Graficos(models.Model):
         context = {
             "script": "graficos-jatai",
             "informacoes": {
-                "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí) ",
+                "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí)",
                 "cidade": "Jataí",
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
