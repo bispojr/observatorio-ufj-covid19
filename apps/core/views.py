@@ -9,6 +9,7 @@ from collections import Counter
 from observatorio import settings
 from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
 							api_brasil_estado, api_brasil_geral)
+from .models import Graficos
 
 def home(request):
 	context = {
@@ -22,87 +23,9 @@ def home(request):
 
 @require_GET
 def grafico(request, cidade):
-	context = {
-		"grupo": "graficos",
-		"grupo_link": "graficos",
-		"goias": 10,
-		"brasil": 100
-	}
-	if cidade == "jatai":
-		context["script"] = "graficos-jatai"
-		informacoes = {
-			"titulo": "Observatório UFJ Covid-19 - Projeções (Jataí)",			
-			"cidade": "Jataí",
-			"nome_base": "jatai",
-			"url_fonte": "https://www.jatai.go.gov.br/",
-			"nome_fonte": "Secretária de Saúde de Jataí",
-			"data": "11 de maio",
-			"conf_num": "32",
-			"rec_num": "12",
-			"int_num": "2",
-			"obt_num": "0"
-		}
-	elif cidade == "mineiros":
-		context["script"] = "graficos-mineiros"
-		informacoes = {
-			"titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
-			"grupo": "graficos",
-            "cidade": "Mineiros",
-	        "nome_base": "mineiros",
-	        "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
-	        "nome_fonte": "Secretária de Saúde de Mineiros",
-
-            "data": "11 de maio",
-            "conf_num": "10",
-            "rec_num": "1",
-            "int_num": "1",
-            "obt_num": "0"
-        }
-	else:
-		context["script"] = "graficos-rioverde"
-		informacoes = {
-			"titulo": "Observatório UFJ Covid-19 - Projeções (Rio Verde)",
-			"grupo": "graficos",
-            "cidade": "Rio Verde",
-	        "nome_base": "rioverde",
-	        "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
-	        "nome_fonte": "Secretária de Saúde de Rio Verde",
-
-            "data": "10 de maio",
-            "conf_num": "23",
-            "rec_num": "14",
-            "int_num": "0",
-            "obt_num": "1"
-        }
-
 	url = "grafico/cidade.html"
-	context["informacoes"] = informacoes
-	context["querysets"] = [
-		{
-			"categoria": "Confirmados",
-			"numero": informacoes["conf_num"],
-			"cor": "red",
-			"icone": "fas fa-user-injured"
-		},
-		{
-			"categoria": "Recuperados",
-			"numero": informacoes["rec_num"],
-			"cor": "purple",
-			"icone": "fas fa-virus-slash"
-		},
-		{
-			"categoria": "Internados",
-			"numero": informacoes["int_num"],
-			"cor": "blue",
-			"icone": "fas fa-procedures"
-		},
-		{
-			"categoria": "Óbitos",
-			"numero": informacoes["obt_num"],
-			"cor": "black",
-			"icone": "fas fa-skull-crossbones"
-		}
-	]
+	context = Graficos.getContext(Graficos, cidade)
+
 	return render(request, url, context)
 
 
