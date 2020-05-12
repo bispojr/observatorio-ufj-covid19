@@ -1,0 +1,1 @@
+web: gunicorn observatorio.wsgi --log-file -

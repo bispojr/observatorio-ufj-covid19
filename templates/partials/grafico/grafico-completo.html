@@ -1,0 +1,32 @@
+{% load static %}
+<div class="container graficos-bg p-5">
+	<h1>Resumo</h1>
+	<div class="row">
+		<div class="col-lg-5 col-12">
+			<img src="{% static 'images/mapa-' %}{{ informacoes.nome_base }}.svg" id="mapa-{{ informacoes.nome_base }}" alt="Mapa da Cidade de {{ informacoes.cidade }}"  style="width: 120%;" />
+		</div>
+		<div class="col-lg-7 col-12 px-5">
+			<div class="grafico" id="{{ informacoes.nome_base }}-grafico-resumo"></div>
+		</div>
+	</div>
+	<div class="row pt-2 pt-lg-0">
+		<span>
+			Dados atualizados em <span id="data-atualizacao-{{ informacoes.nome_base }}">30 de março de 2020</span>.<br>
+			<strong>Fonte:</strong> <a href="{{ informacoes.url_fonte }}" target="_blank">
+				{{ informacoes.nome_fonte }}
+				</a>.
+		</span>
+	</div>
+</div>
+<div class="container graficos-bg p-5 mt-2">
+	<div class="row">
+		<div class="col-lg-6 col-12">
+			<h2>Todas as categorias</h2>
+			<div class="grafico-mini" id="{{ informacoes.nome_base }}-grafico-todas"></div>
+		</div>
+		<div class="col-lg-6 col-12 pt-4 pt-lg-0">
+			<h2>Monitorados</h2>
+			<div class="grafico-mini" id="{{ informacoes.nome_base }}-grafico-monitorados"></div>
+		</div>
+	</div>
+</div>
