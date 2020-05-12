@@ -1,0 +1,72 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+	<a class="navbar-brand" href="/">
+		<img src="{% static 'images/logo-navbar.svg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+		Observatório UFJ Covid-19
+	</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+
+  	<div class="collapse navbar-collapse" id="navbarColor01">
+    	<ul class="navbar-nav ml-5">
+			<li class="nav-item mr-2 
+			{% if grupo_link == "principal" %}
+      			 active
+			{% endif %}
+				"><a class="nav-link" href="/">Principal</a>
+      		</li>
+      		<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle mr-2 
+				{% if grupo_link == "graficos" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Gráficos
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownGraficos">
+		        	<a class="dropdown-item" href="{% url 'core:grafico' cidade="jatai" %}">Jataí</a>
+		          	<a class="dropdown-item" href="{% url 'core:grafico' cidade="mineiros" %}">Mineiros</a>
+		          	<a class="dropdown-item" href="{% url 'core:grafico' cidade="rioverde" %}">Rio Verde</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{% url 'core:comparacao' %}">Comparação Contextual</a>
+		          	<a class="dropdown-item" href="{% url 'core:como-sao-criados' %}">Como são criados?</a>
+		        </div>
+      		</li>
+      		<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle mr-2 
+				{% if grupo_link == "tendencias" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownTendencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Tendências
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownTendencias">
+		        	<a class="dropdown-item" href="{% url 'core:tendencias' cidade="jatai" %}">Jataí</a>
+		          	<a class="dropdown-item" href="{% url 'core:tendencias' cidade="rioverde" %}">Rio Verde</a>
+		          	<!--<div class="dropdown-divider"></div>
+		          	<a class="dropdown-item" href="/tendencias/como-sao-feitas">Como são criadas?</a>-->
+		        </div>
+      		</li>
+      		<!--<li class="nav-item mr-2 {% if page.permalink == "/noticias" %} active {% endif %}">
+        		<a class="nav-link" href="/noticias">Notícias</a>
+      		</li>-->
+      		<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle mr-2
+				{% if grupo_link == "saiba_mais" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownConhecaMais" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Saiba mais
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownConhecaMais">
+		        	<a class="dropdown-item" href="{% url 'core:sobre' %}">Sobre</a>
+		          	<a class="dropdown-item" href="{% url 'core:equipe' %}">Equipe</a>
+		          	<a class="dropdown-item" href="{% url 'core:na-midia' %}">Na mídia</a>
+		          	<a class="dropdown-item" href="{% url 'core:colabore' %}">Colabore</a>
+		          	<!--<a class="dropdown-item" href="/creditos">Créditos</a>-->
+		        </div>
+      		</li>
+      	</ul>
+	</div>
+</nav>

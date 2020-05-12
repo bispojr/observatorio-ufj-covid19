@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+	{% include "partials/base/head.html" %}
+	<body class = "pt-5"
+		style=" 
+			background-image: url('{% static 'images/banner.jpg' %}');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;"
+	>
+		
+		{% include "partials/base/navbar.html" %}
+		<div class="container pt-4">
+			<div class="row">
+				<div class="col-lg col-sm"></div>
+			  	{% if grupo == "geral" %}
+					<div class="col-lg-8 col-sm-10">
+				{% elif grupo == "graficos" %}
+					<div class="col-lg-12 col-sm-12 col-md-10">
+				{% else %}
+					  <div class="col-lg-12 col-sm-12 col-md-12">
+			  	{% endif %} 
+					{% block content %}
+				  		{% include 'index.html' %}
+					{% endblock %}
+			</div>
+			  <div class="col-lg col-sm"></div>
+			</div>
+		  </div>
+
+		{% block script %}
+		
+		{% endblock %}
+
+		{% include "partials/base/footer.html" %}
+		{% include "partials/base/scripts.html" %}
+	</body>
+</html>

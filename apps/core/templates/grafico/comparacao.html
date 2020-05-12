@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<div class="container graficos-bg p-5">
+		<h1>Comparação Contextual</h1>
+		<div class="row">
+			<div class="col-lg-5 col-12">
+				<img src="{% static 'images/mapa-comparacao.svg' %}" id="mapa-comparacao" alt="Mapa do Sudoeste Goiano"  style="width: 120%;" />
+			</div>
+			<div class="col-lg-7 col-12 px-5">
+				<div class="grafico" id="comparacao-grafico" v_goias="{{ goias }}" v_brasil="{{ brasil }}"></div>
+			</div>
+		</div>
+		<div class="row pt-2 pt-lg-0">
+			<span>
+				Dados atualizados em <span id="data-atualizacao-{{ nome_base }}">10 de maio de 2020</span>.<br>
+				<strong>Fonte:</strong> IBGE, Ministério da Saúde e Secretarias Municipais.
+			</span>
+		</div>
+	</div>
+{% endblock %}

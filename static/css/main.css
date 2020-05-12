@@ -1,0 +1,62 @@
+.capa-text{
+	font-size: 25px;
+}
+
+.geral-bg{
+	background-color: rgb(255,255,255,0.9);
+}
+
+.graficos-bg{
+	background-color: rgb(0,0,0,0.7)!important;
+	color: white !important;
+}
+
+.grafico{
+	height: 90%; 
+	width: 110%; 
+	min-height: 300px;
+	min-width: 300px; 
+	max-width: 110%;
+	max-height: 90%;" 
+}
+
+.grafico-mini{
+	height: 80%; 
+	width: 100%; 
+	min-height: 300px;
+	min-width: 300px; 
+	max-width: 110%;
+	max-height: 90%;
+}
+
+#navbarColor01{
+	font-size: 16px;
+}
+
+/* estilos cards estatisticos */
+@media (min-width: 1900px) {
+	.col-md{
+		-webkit-box-flex: 0!important;
+			-ms-flex: 0 0 20%!important;
+				flex: 0 0 20%!important;
+		max-width: 20%!important;
+	}
+}
+
+.card {
+    border-radius: 4px;
+    /* border: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; */
+    transition: all linear 200ms; 
+    
+}
+.card:hover {
+    transform: scale(1.1);
+    transition: all linear 200ms;
+    z-index: 1;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}

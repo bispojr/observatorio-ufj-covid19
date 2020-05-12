@@ -1,0 +1,47 @@
+{% load static %}
+<div class="container">							
+    <div class="row">
+        {% for parceiro in parceiros %}
+            <div class="col-lg-4 col-md-6 pb-4">
+                <div class="card h-100">
+                    <img src="{% static 'images/equipe-' %}{{ parceiro.short }}.jpg" class="card-img-top rounded-circle w-75 mx-auto py-2" alt="Rosto - {{ parceiro.nome }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            <a href="{{ parceiro.url }}" target="_blank" class="text-uppercase">
+                                    {% if parceiro.plataforma == "Lattes" %}
+                                        <img 
+                                            src="{% static 'images/lattes.png' %}" 
+                                            alt="Logo da Plataforma Lattes" 
+                                            style="width: 1em; display: inline;" 
+                                        /> 
+                                    {% elif parceiro.plataforma == "LinkedIn" %}
+                                        <img 
+                                            src="{% static 'images/linkedin.svg' %}" 
+                                            alt="Logo do LinkedIn" 
+                                            style="width: 1em; display: inline;" 
+                                        />
+                                    {% elif parceiro.plataforma == "Facebook" %}
+                                        <img 
+                                            src="{% static 'images/facebook.svg' %}" 
+                                            alt="Logo do Facebook" 
+                                            style="width: 1em; display: inline;" 
+                                        /> 
+                                    {% else %}
+                                        <img 
+                                            src="{% static 'images/link.svg' %}" 
+                                            alt="Link de uma página" 
+                                            style="width: 1em; display: inline;" 
+                                        />
+                                {% endif %}
+                                {{ parceiro.nome }}
+                            </a>
+                        </h5>
+                    <p class="card-text lead text-center">
+                        {{ parceiro.content }}
+                    </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container graficos-bg p-5">
+        <h1>Tendência dos Confirmados: <strong>{{ cidade }}</strong></h1>
+        <div class="row">
+            <div class="col-lg-5 col-12">
+                <img src="{% static 'images/mapa-'%}{{nome_base}}.svg" id="mapa-{{ nome_base }}" alt="Mapa da Cidade de {{ cidade }}"  style="width: 120%;" />
+            </div>
+            <!-- <div class="col-lg-7 col-12 px-5">
+                <div class="grafico" id="jatai-tendencias"></div>
+            </div> -->
+            <div class="col-lg-7 col-12 px-5">
+                <div class="col-1-mobile" style="height: 90%; width: 110%; min-height: 300px;
+                    min-width: 300px; 
+                    max-width: 110%;
+                    max-height: 90%;" 
+                    id="{{ nome_base }}-tendencias"></div>
+            </div>
+        </div>
+        <div class="row pt-2 pt-lg-0">
+            <span>
+                Projeção realizada em <span id="data-atualizacao-{{ nome_base }}">30 de março de 2020</span>.<br>
+                <strong>Fonte: Prof. Luiz Balmann</strong> (Modelagem e Análises Espaciais do <a href="https://covidgoias.ufg.br/" target="_blank">
+                    Covid-Goias
+                    </a>).
+            </span>
+        </div>
+    </div>
+{% endblock %}
