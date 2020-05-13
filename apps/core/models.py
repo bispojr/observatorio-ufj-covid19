@@ -121,9 +121,9 @@ class Graficos(models.Model):
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretária de Saúde de Mineiros",
 
-                "data": "11 de maio",
+                "data": "13 de maio",
                 "conf_num": "10",
-                "rec_num": "1",
+                "rec_num": "5",
                 "int_num": "1",
                 "obt_num": "0"
             },
@@ -138,7 +138,7 @@ class Graficos(models.Model):
                 },
                 {
                     "categoria": "Recuperados",
-                    "numero": "1",
+                    "numero": "5",
                     "cor": "purple",
                     "icone": "fas fa-virus-slash"
                 },
