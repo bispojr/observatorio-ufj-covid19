@@ -1,10 +1,13 @@
 language: python
-python: 3.8.2
+python: 
+  - "3.8"
 
 install:
-  - pip install -r requirements.txt
+  - 'pip install pipenv'
+  - 'pipenv sync'
+  - "pip install -r requirements.txt"
 
 # command to run tests
 script:
-  - python manage.py makemigrations
-  - python manage.py test apps/core/tests
+  - "python manage.py makemigrations"
+  - "python manage.py test apps/core/tests"
