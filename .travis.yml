@@ -2,11 +2,14 @@ language: python
 python: 
   - "3.8"
 
+addons:
+  firefox: "76.0"
+
 install:
   - 'pip install pipenv'
   - 'pipenv sync'
   - "pip install -r requirements.txt"
-
+  
 # command to run tests
 script:
   - "python manage.py makemigrations"
