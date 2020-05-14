@@ -44,9 +44,9 @@ class Graficos(models.Model):
         if cidade == "jatai":
             return self.__jatai(self)
         if cidade == "mineiros":
-            return self.__mineiros()
+            return self.__mineiros(self)
         if cidade == "rioverde":
-            return self.__rioverde()
+            return self.__rioverde(self)
     
     def __commonValues():
         context = {            
@@ -92,7 +92,7 @@ class Graficos(models.Model):
         context = {
             "script": "graficos-jatai",
             "informacoes": {
-                "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí)",
+                "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí) ",
                 "cidade": "Jataí",
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
@@ -108,10 +108,8 @@ class Graficos(models.Model):
 
         return {**self.__commonValues(), **context}
 
-    def __mineiros():
+    def __mineiros(self):
         context = {
-            "grupo": "graficos",
-            "grupo_link": "graficos",
             "script": "graficos-mineiros",
 		    "informacoes": {
                 "titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
@@ -121,48 +119,19 @@ class Graficos(models.Model):
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretária de Saúde de Mineiros",
 
-                "data": "13 de maio",
-                "conf_num": "10",
-                "rec_num": "5",
+                "data": "14 de maio",
+                "conf_num": "11",
+                "rec_num": "6",
                 "int_num": "1",
                 "obt_num": "0"
             },
-            "goias": 10,
-		    "brasil": 100,
-            "querysets": [
-                {
-                    "categoria": "Confirmados",
-                    "numero": "10",
-                    "cor": "red",
-                    "icone": "fas fa-user-injured"
-                },
-                {
-                    "categoria": "Recuperados",
-                    "numero": "5",
-                    "cor": "purple",
-                    "icone": "fas fa-virus-slash"
-                },
-                {
-                    "categoria": "Internados",
-                    "numero": "1",
-                    "cor": "blue",
-                    "icone": "fas fa-procedures"
-                },
-                {
-                    "categoria": "Óbitos",
-                    "numero": "0",
-                    "cor": "black",
-                    "icone": "fas fa-skull-crossbones"
-                }
-            ]
+            "querysets": self.__cardDict(11, 6, 1, 0),
         }
 
-        return context
+        return {**self.__commonValues(), **context}
 
-    def __rioverde():
+    def __rioverde(self):
         context = {
-            "grupo": "graficos",
-            "grupo_link": "graficos",
             "script": "graficos-rioverde",
 		    "informacoes": {
                 "titulo": "Observatório UFJ Covid-19 - Gráficos (Rio Verde)",
@@ -172,40 +141,13 @@ class Graficos(models.Model):
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretária de Saúde de Rio Verde",
 
-                "data": "10 de maio",
+                "data": "13 de maio",
                 "conf_num": "23",
-                "rec_num": "14",
-                "int_num": "0",
+                "rec_num": "17",
+                "int_num": "2",
                 "obt_num": "1"
             },
-            "goias": 10,
-		    "brasil": 100,
-            "querysets": [
-                {
-                    "categoria": "Confirmados",
-                    "numero": "23",
-                    "cor": "red",
-                    "icone": "fas fa-user-injured"
-                },
-                {
-                    "categoria": "Recuperados",
-                    "numero": "14",
-                    "cor": "purple",
-                    "icone": "fas fa-virus-slash"
-                },
-                {
-                    "categoria": "Internados",
-                    "numero": "0",
-                    "cor": "blue",
-                    "icone": "fas fa-procedures"
-                },
-                {
-                    "categoria": "Óbitos",
-                    "numero": "1",
-                    "cor": "black",
-                    "icone": "fas fa-skull-crossbones"
-                }
-            ]
+            "querysets": self.__cardDict(23, 17, 2, 1),
         }
 
         return context
