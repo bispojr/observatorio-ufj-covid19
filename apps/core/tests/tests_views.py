@@ -11,7 +11,7 @@ class AcessosViewTestCase(TestCase):
 
     def test_home_acesso(self):
 
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        driver = webdriver.Firefox()
         
         driver.get('http://127.0.0.1:8000/')
         assert "Observatório UFJ Covid-19 - Principal" in driver.title
