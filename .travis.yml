@@ -18,5 +18,7 @@ install:
   
 # command to run tests
 script:
+  - pipenv shell
   - "python manage.py makemigrations"
+  - python manager.py runserver &
   - "python manage.py test apps/core/tests"
