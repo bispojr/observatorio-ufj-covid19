@@ -3,7 +3,7 @@ python:
   - "3.8"
 
 addons:
-  firefox: "76.0"
+  firefox: latest
 
 install:
   - 'pip install pipenv'
