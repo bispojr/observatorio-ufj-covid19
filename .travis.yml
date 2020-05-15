@@ -18,6 +18,7 @@ before_install:
 install:
   - 'pip install pipenv'
   - 'pipenv sync'
+  - 'pipenv shell'
   - "pip install -r requirements.txt"
   
 # command to run tests
