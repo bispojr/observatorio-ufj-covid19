@@ -14,6 +14,7 @@ from .models import Comparacao
 from .models import Home
 from .models import ComoSaoCriados
 from .models import Sobre
+from .models import NaMidia
 
 def home(request):
 	url = "base.html"
@@ -170,13 +171,10 @@ def sobre(request):
 
 @require_GET
 def na_midia(request):
-	context = {
-		"grupo": "geral", 
-		"grupo_link": "saiba_mais",
-		"script": "na-midia",
-		"titulo": "Observatório UFJ Covid-19 - Na Mídia"
-		}
-	return render(request, "saiba_mais/na-midia.html", context)
+	url = "saiba_mais/na-midia.html"
+	context = NaMidia.getContext(NaMidia)
+
+	return render(request, url, context)
 
 
 @require_GET

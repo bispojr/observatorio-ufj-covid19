@@ -4,3 +4,4 @@ from .home import Home
 from .comparacao import Comparacao
 from .como_sao_criados import ComoSaoCriados
 from .sobre import Sobre
+from .na_midia import NaMidia
