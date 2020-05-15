@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "apps.core",
+    "django_nose"
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
 )
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
