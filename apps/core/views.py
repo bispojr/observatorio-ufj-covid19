@@ -16,6 +16,7 @@ from .models import ComoSaoCriados
 from .models import Sobre
 from .models import NaMidia
 from .models import Colabore
+from .models import Tendencias
 
 def home(request):
 	url = "base.html"
@@ -199,24 +200,7 @@ def noticias(request):
 
 @require_GET
 def tendencias(request, cidade):
-    if cidade == "jatai":
-        informacoes = {
-			"grupo": "tendencias",
-			"grupo_link": "tendencias",
-			"script": "tendencias-jatai",
-			"titulo": "Observatório UFJ Covid-19 - Tendências (Jataí)",
-            "cidade": "Jataí (GO)",
-	        "nome_base": "jatai"
-        }
-    else:
-        informacoes = {
-			"grupo": "tendencias",
-			"grupo_link": "tendencias",
-			"script": "tendencias-rioverde",
-			"titulo": "Observatório UFJ Covid-19 - Tendência (Rio Verde)",
-            "cidade": "Rio Verde (GO)",
-	        "nome_base": "rioverde"
-        }
+    informacoes = Tendencias.get_informações(Tendencias, cidade)
     url = "tendencias/cidade.html"
 
     return render(request, url, informacoes)
