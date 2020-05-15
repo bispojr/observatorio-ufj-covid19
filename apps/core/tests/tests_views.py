@@ -13,7 +13,7 @@ class AcessosViewTestCase(TestCase):
 
         driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         
-        driver.get('http://www.deolhonocorona.com/')
+        driver.get('http://127.0.0.1:8000/')
         assert "Observatório UFJ Covid-19 - Principal" in driver.title
         assert "Este observatório é uma iniciativa do" in driver.page_source
 
