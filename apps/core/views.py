@@ -18,6 +18,7 @@ from .models import NaMidia
 from .models import Colabore
 from .models import Tendencias
 from .models import Equipe
+from .models import Noticias
 
 def home(request):
 	url = "base.html"
@@ -54,7 +55,7 @@ def como_sao_criados(request):
 def equipe(request):
     context = Equipe.getContext(Equipe)
     url = "saiba_mais/equipe.html"
-	
+
     return render(request, url, context)
 
 
@@ -84,13 +85,10 @@ def colabore(request):
 
 @require_GET
 def noticias(request):
-	context = {
-		"grupo": "", 
-		"grupo_link": "noticias",
-		"script": "noticias",
-		"titulo": "Observatório UFJ Covid-19 - Notícias"
-		}
-	return render(request, "saiba_mais/noticias.html", context)
+	url = "saiba_mais/noticias.html"
+	context = Noticias.getContext(Equipe)
+
+	return render(request, url, context)
 
 
 @require_GET

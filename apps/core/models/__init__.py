@@ -8,3 +8,4 @@ from .na_midia import NaMidia
 from .colabore import Colabore
 from .tendencias import Tendencias
 from .equipe import Equipe
+from .noticias import Noticias
