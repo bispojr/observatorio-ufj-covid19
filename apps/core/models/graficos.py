@@ -53,8 +53,8 @@ class Graficos(models.Model):
     def __jatai(self):
         context = {
             "script": "graficos-jatai",
-            "informacoes": {
-                "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí) ",
+            "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí)",
+            "informacoes": {                
                 "cidade": "Jataí",
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
@@ -73,8 +73,8 @@ class Graficos(models.Model):
     def __mineiros(self):
         context = {
             "script": "graficos-mineiros",
+            "titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
 		    "informacoes": {
-                "titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
                 "grupo": "graficos",
                 "cidade": "Mineiros",
                 "nome_base": "mineiros",
@@ -95,8 +95,8 @@ class Graficos(models.Model):
     def __rioverde(self):
         context = {
             "script": "graficos-rioverde",
-		    "informacoes": {
-                "titulo": "Observatório UFJ Covid-19 - Gráficos (Rio Verde)",
+            "titulo": "Observatório UFJ Covid-19 - Gráficos (Rio Verde)",
+		    "informacoes": {                
                 "grupo": "graficos",
                 "cidade": "Rio Verde",
                 "nome_base": "rioverde",
