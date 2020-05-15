@@ -2,12 +2,19 @@ language: python
 python: 
   - "3.8"
 
+env:
+  global:
+    - MOZ_HEADLESS=1
+
+addons:
+  firefox: latest
+
 install:
   - 'pip install pipenv'
   - 'pipenv sync'
   - "pip install -r requirements.txt"
-
+  
 # command to run tests
 script:
-  - "python manage.py makemigrations"
+  - python manage.py runserver &
   - "python manage.py test apps/core/tests"
