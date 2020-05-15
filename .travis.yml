@@ -23,5 +23,5 @@ install:
 # command to run tests
 script:
   - "python manage.py makemigrations"
-  - python manager.py runserver &
+  - travis_wait 1 python manager.py runserver &
   - "python manage.py test apps/core/tests"
