@@ -8,6 +8,6 @@ class Colabore():
         context = {
 		"grupo": "geral",
 		"grupo_link": "saiba_mais",
-		"script": "Observatório UFJ Covid-19 - Colabore"
+		"titulo": "Observatório UFJ Covid-19 - Colabore"
 		}
         return context
