@@ -24,5 +24,5 @@ install:
 script:
   - "python manage.py makemigrations"
   - python manager.py runserver &
-  - "travis_wait 1 ls"
+  - "travis_wait 1 sleep 60"
   - "python manage.py test apps/core/tests"
