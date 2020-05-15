@@ -1,6 +1,7 @@
 # Observatorio COVID-19 UFJ
 
 Este observatório é uma iniciativa do Bacharelado em Ciência da Computação (BCC) da Universidade Federal de Jataí (UFJ).
+ [![Build Status](https://travis-ci.org/bispojr/observatorio-ufj-covid19.svg?branch=master)](https://travis-ci.org/bispojr/observatorio-ufj-covid19)
 
 ## Início - Principais características
 
