@@ -11,15 +11,13 @@ from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil,
 							api_brasil_estado, api_brasil_geral)
 from .models import Graficos
 from .models import Comparacao
+from .models import Home
 
 def home(request):
-	context = {
-		"grupo": "geral",
-		"script": "geral",
-		"grupo_link": "principal",
-		"titulo": "Observatório UFJ Covid-19 - Principal"
-	}
-	return render(request, "base.html", context)
+	url = "base.html"
+	context = Home.getContext(Home)
+	
+	return render(request, url, context)
 
 
 @require_GET
