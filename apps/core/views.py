@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.http import require_GET
 
+from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
+			api_brasil_estado, api_brasil_geral)
 from .models import Graficos
 from .models import Comparacao
 from .models import Home
