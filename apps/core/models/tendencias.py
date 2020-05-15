@@ -19,7 +19,7 @@ class Tendencias():
                 "grupo": "tendencias",
                 "grupo_link": "tendencias",
                 "script": "tendencias-rioverde",
-                "titulo": "Observatório UFJ Covid-19 - Tendência (Rio Verde)",
+                "titulo": "Observatório UFJ Covid-19 - Tendências (Rio Verde)",
                 "cidade": "Rio Verde (GO)",
                 "nome_base": "rioverde"
             }

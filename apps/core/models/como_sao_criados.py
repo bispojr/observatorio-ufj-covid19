@@ -9,6 +9,6 @@ class ComoSaoCriados():
             "grupo": "geral",
             "grupo_link": "graficos",
             "script": "geral",
-            "titulo": "Observatório UFJ Covid-19 - Créditos"
+            "titulo": "Observatório UFJ Covid-19 - Como são criados?"
         }  
         return context
