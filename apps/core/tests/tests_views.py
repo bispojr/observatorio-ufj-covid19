@@ -21,3 +21,15 @@ class AcessosViewTestCase(TestCase):
         assert "Este observatório é uma iniciativa do" in driver.page_source
 
         driver.close()
+
+    def test_reportagem_tv_sudoeste(self):
+
+        options = Options()
+        options.headless = True
+        driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
+        
+        driver.get('http://127.0.0.1:8000/na-midia')
+        manchete = "Projeto de extensão da UFJ traz informações atualizadas sobre casos de coronavírus"
+        assert manchete in driver.page_source
+        
+        driver.close()
