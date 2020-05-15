@@ -10,6 +10,7 @@ from observatorio import settings
 from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
 							api_brasil_estado, api_brasil_geral)
 from .models import Graficos
+from .models import Comparacao
 
 def home(request):
 	context = {
@@ -31,18 +32,10 @@ def grafico(request, cidade):
 
 @require_GET
 def comparacao(request):
-	quantidade_goias = quantidade_estado_goias(request)
-	quantidade_brasil = quantidade_geral_brasil(request)
-	context = {
-		"grupo": "graficos",
-		"grupo_link": "graficos",
-		"script": "graficos-comparacao",
-		"titulo": "Observatório UFJ Covid-19 - Comparação entre as cidades",
-		"nome_base": "jatai",
-		"goias": quantidade_goias,
-		"brasil": quantidade_brasil
-	}
-	return render(request, "grafico/comparacao.html", context)
+	url = "grafico/comparacao.html"
+	context = Comparacao.getContext(Comparacao, request)
+
+	return render(request, url, context)
 
 
 @require_GET
