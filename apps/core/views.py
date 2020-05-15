@@ -13,6 +13,7 @@ from .models import Graficos
 from .models import Comparacao
 from .models import Home
 from .models import ComoSaoCriados
+from .models import Sobre
 
 def home(request):
 	url = "base.html"
@@ -161,13 +162,10 @@ def equipe(request):
 
 @require_GET
 def sobre(request):
-    context = {
-		"grupo": "geral",
-		"grupo_link": "saiba_mais",
-		"script": "geral",
-		"titulo": "Observatório UFJ Covid-19 - Sobre"
-		}
-    return render(request, "saiba_mais/sobre.html", context)
+	url = "saiba_mais/sobre.html"
+	context = Sobre.getContext(Sobre)
+
+	return render(request, url, context)
 
 
 @require_GET
