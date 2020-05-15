@@ -59,13 +59,13 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretária de Saúde de Jataí",
-                "data": "12 de maio",
-                "conf_num": "32",
-                "rec_num": "13",
+                "data": "14 de maio",
+                "conf_num": "34",
+                "rec_num": "14",
                 "int_num": "1",
                 "obt_num": "0"
             },
-            "querysets": self.__cardDict(32, 13, 1, 0),
+            "querysets": self.__cardDict(34, 14, 1, 0),
         }
 
         return {**self.__commonValues(), **context}
@@ -103,13 +103,13 @@ class Graficos(models.Model):
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretária de Saúde de Rio Verde",
 
-                "data": "13 de maio",
+                "data": "14 de maio",
                 "conf_num": "23",
-                "rec_num": "17",
+                "rec_num": "18",
                 "int_num": "2",
                 "obt_num": "1"
             },
-            "querysets": self.__cardDict(23, 17, 2, 1),
+            "querysets": self.__cardDict(23, 18, 2, 1),
         }
 
         return context
