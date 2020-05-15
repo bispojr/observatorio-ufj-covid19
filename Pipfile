@@ -16,6 +16,7 @@ psycopg2 = "*"
 freeze = "*"
 psycopg2-binary = "*"
 requests = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.8"
