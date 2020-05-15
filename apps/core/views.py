@@ -15,6 +15,7 @@ from .models import Home
 from .models import ComoSaoCriados
 from .models import Sobre
 from .models import NaMidia
+from .models import Colabore
 
 def home(request):
 	url = "base.html"
@@ -179,12 +180,10 @@ def na_midia(request):
 
 @require_GET
 def colabore(request):
-	context = {
-		"grupo": "geral",
-		"grupo_link": "saiba_mais",
-		"script": "Observatório UFJ Covid-19 - Colabore"
-		}
-	return render(request, "saiba_mais/colabore.html", context)
+	url = "saiba_mais/colabore.html"
+	context = Colabore.getContext(Colabore)
+
+	return render(request, url, context)
 
 
 @require_GET

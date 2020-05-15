@@ -5,3 +5,4 @@ from .comparacao import Comparacao
 from .como_sao_criados import ComoSaoCriados
 from .sobre import Sobre
 from .na_midia import NaMidia
+from .colabore import Colabore
