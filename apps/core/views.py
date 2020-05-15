@@ -12,11 +12,12 @@ from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil,
 from .models import Graficos
 from .models import Comparacao
 from .models import Home
+from .models import ComoSaoCriados
 
 def home(request):
 	url = "base.html"
 	context = Home.getContext(Home)
-	
+
 	return render(request, url, context)
 
 
@@ -38,13 +39,10 @@ def comparacao(request):
 
 @require_GET
 def como_sao_criados(request):
-	context = {
-		"grupo": "geral",
-		"grupo_link": "graficos",
-		"script": "geral",
-		"titulo": "Observatório UFJ Covid-19 - Créditos"
-	}
-	return render(request, "grafico/como-sao-criados.html", context)
+	url = "grafico/como-sao-criados.html"
+	context = ComoSaoCriados.getContext(ComoSaoCriados)
+
+	return render(request, url, context)
 
 
 @require_GET
