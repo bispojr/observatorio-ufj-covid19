@@ -17,7 +17,6 @@ def obtem_ultimo_dia(request):
 def quantidade_estado_goias(request):
 	# obtem massa de dados
 	results = api_brasil_estado(request)
-	print(results)
 	# cada estado possui um informativo geral
 	# na ultima linha do dataset, facilitando as consultas
 	quantidade = results["results"][0]["last_available_confirmed"]
