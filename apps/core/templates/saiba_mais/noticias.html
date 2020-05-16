@@ -1,55 +1,10 @@
----
-title: Observatório UFJ Covid-19 - Notícias
-permalink: /noticias
-layout: pagina
-script: noticias
----
+{%extends "base.html" %}
 
-<header class="special container" id="noticias">
-	<span class="icon solid fa-newspaper"></span>
-	<h2>Notícias</h2>
-</header>
-
-<section class="wrapper style1 container special">
-	<div class="row">
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia01" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
-			</section>	
-		
-		</div>
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia02" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
-			</section>
-
-		</div>
-		<div class="col-4 col-12-narrower">
-
-			<section id="noticia03" class="noticia">
-				<a href="http://www.google.com" target="_blank">
-					<span class="icon solid featured"></span>
-					<header>
-						<h3>Also Something</h3>
-					</header>
-					<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-				</a>
-			</section>
-
-		</div>
-	</div>
-</section>
+{% block content %}
+    <div class="container geral-bg">
+		<h1 class="pb-4 text-center font-weight-bold">Principais notícias</h1>
+    {% include "partials/noticias/carousel.html" %}
+    <h1 class="pb-4 text-center font-weight-bold">Todas as notícias</h1>
+    {% include "partials/noticias/lista.html" %}
+    </div>
+{% endblock %}
