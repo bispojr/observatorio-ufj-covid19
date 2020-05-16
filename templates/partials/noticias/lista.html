@@ -1,0 +1,16 @@
+{% load static %}
+{% block content %}
+<div class="container">
+    <ul class="list-unstyled">
+        {% for i,j in lista.items %}
+        <li class="media">
+          <img id = "imagem" class="mr-3" src= {{ j.image }} >
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">{{ j.title }}</h5>
+          </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

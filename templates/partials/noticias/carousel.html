@@ -1,0 +1,43 @@
+{% load static %}
+{% block content %}
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="container media ">		
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://ogimg.infoglobo.com.br/in/24318666-79d-b94/FT1086A/652/87558106_Ventilators-are-seen-in-a-climate-room-of-Hamilton-Medical-AG-a-plant-in-Domat-Ems-Swit.jpg" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Ford, GE e 3M se unem para produzir ventiladores mecânicos e respiradores</h5>
+                    <p>...</p>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <img src="https://files.cercomp.ufg.br/weby/up/462/o/tipo_ufj_preto2.png?1585844408" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>UFJ produz solução antisséptica que substitui álcool em gel | Portal UFJ</h5>
+                    <p>Solução é feita de acordo com protocolo da OMS</p>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <img src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/179E8/production/_111444769_gettyimages-481684769.jpg" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Coronavírus: como funcionam os respiradores e por que eles são chave na luta contra a covid-19</h5>
+                    <p>Eles são 'última esperança' para pacientes em estado grave, mas nem os países mais ricos têm a quantidade necessária projetada; por isso, montadoras e outras empresas foram cooptadas em esforço de produção.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+          </a>
+    </div>
+</div>
+{% endblock %}

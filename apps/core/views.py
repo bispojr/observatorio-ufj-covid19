@@ -80,7 +80,7 @@ def colabore(request):
 @require_GET
 def noticias(request):
 	url = "saiba_mais/noticias.html"
-	context = Noticias.getContext(Equipe)
+	context = Noticias.getContext(Noticias)
 
 	return render(request, url, context)
 
