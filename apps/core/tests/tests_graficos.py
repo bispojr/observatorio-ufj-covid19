@@ -33,12 +33,12 @@ class GraficosTestCase(TestCase):
         titulo = "Observatório UFJ Covid-19 - Gráficos (Rio Verde)"
         assert titulo in self.driver.title
 
-    # def test_titulo_comparacao(self):        
-    #     self.driver.get('http://127.0.0.1:8000/graficos/comparacao')
-    #     titulo = "Observatório UFJ Covid-19 - Comparação entre as cidades"
-    #     assert titulo in self.driver.title
+    def test_titulo_comparacao(self):        
+        self.driver.get('http://127.0.0.1:8000/comparacao')
+        titulo = "Observatório UFJ Covid-19 - Comparação entre as cidades"
+        assert titulo in self.driver.title
 
-    # def test_titulo_comoSaoCriados(self):        
-    #     self.driver.get('http://127.0.0.1:8000/graficos/como-sao-criados')
-    #     titulo = "Observatório UFJ Covid-19 - Como são criados?"
-    #     assert titulo in self.driver.title
+    def test_titulo_comoSaoCriados(self):        
+        self.driver.get('http://127.0.0.1:8000/como-sao-criados')
+        titulo = "Observatório UFJ Covid-19 - Como são criados?"
+        assert titulo in self.driver.title
