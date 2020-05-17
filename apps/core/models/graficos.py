@@ -59,7 +59,7 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretária de Saúde de Jataí",
-                "data": "14 de maio",
+                "data": "15 de maio",
                 "conf_num": "34",
                 "rec_num": "14",
                 "int_num": "1",
@@ -81,13 +81,13 @@ class Graficos(models.Model):
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretária de Saúde de Mineiros",
 
-                "data": "15 de maio",
-                "conf_num": "14",
+                "data": "16 de maio",
+                "conf_num": "15",
                 "rec_num": "6",
                 "int_num": "1",
                 "obt_num": "0"
             },
-            "querysets": self.__cardDict(14, 6, 1, 0),
+            "querysets": self.__cardDict(15, 6, 1, 0),
         }
 
         return {**self.__commonValues(), **context}
@@ -103,13 +103,13 @@ class Graficos(models.Model):
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretária de Saúde de Rio Verde",
 
-                "data": "14 de maio",
-                "conf_num": "23",
+                "data": "16 de maio",
+                "conf_num": "25",
                 "rec_num": "18",
-                "int_num": "2",
-                "obt_num": "1"
+                "int_num": "4",
+                "obt_num": "2"
             },
-            "querysets": self.__cardDict(23, 18, 2, 1),
+            "querysets": self.__cardDict(25, 18, 4, 2),
         }
 
         return context
