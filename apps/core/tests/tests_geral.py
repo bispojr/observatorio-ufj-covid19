@@ -23,29 +23,29 @@ class GeralTestCase(TestCase):
         assert "Observatório UFJ Covid-19 - Principal" in self.driver.title
         assert "Este observatório é uma iniciativa do" in self.driver.page_source
 
-    # def test_titulo_sobre(self):        
-    #     self.driver.get('http://127.0.0.1:8000/sobre')
-    #     titulo = "Observatório UFJ Covid-19 - Sobre"
-    #     assert titulo in self.driver.titulo
+    def test_titulo_sobre(self):        
+        self.driver.get('http://127.0.0.1:8000/sobre')
+        titulo = "Observatório UFJ Covid-19 - Sobre"
+        assert titulo in self.driver.title
 
-    # def test_titulo_equipe(self):        
-    #     self.driver.get('http://127.0.0.1:8000/equipe')
-    #     titulo = "Observatório UFJ Covid-19 - Equipe"
-    #     assert titulo in self.driver.titulo
+    def test_titulo_equipe(self):        
+        self.driver.get('http://127.0.0.1:8000/equipe')
+        titulo = "Observatório UFJ Covid-19 - Equipe"
+        assert titulo in self.driver.title
 
-    # def test_titulo_naMidia(self):        
-    #     self.driver.get('http://127.0.0.1:8000/na-midia')
-    #     titulo = "Observatório UFJ Covid-19 - Na Mídia"
-    #     assert titulo in self.driver.titulo
+    def test_titulo_naMidia(self):        
+        self.driver.get('http://127.0.0.1:8000/na-midia')
+        titulo = "Observatório UFJ Covid-19 - Na Mídia"
+        assert titulo in self.driver.title
     
     def test_reportagem_tv_sudoeste(self):        
         self.driver.get('http://127.0.0.1:8000/na-midia')
         manchete = "Projeto de extensão da UFJ traz informações atualizadas sobre casos de coronavírus"
         assert manchete in self.driver.page_source
 
-    # def test_titulo_colabore(self):        
-    #     self.driver.get('http://127.0.0.1:8000/sobre')
-    #     titulo = "Observatório UFJ Covid-19 - Colabore"
-    #     assert titulo in self.driver.titulo
+    def test_titulo_colabore(self):        
+        self.driver.get('http://127.0.0.1:8000/colabore')
+        titulo = "Observatório UFJ Covid-19 - Colabore"
+        assert titulo in self.driver.title
 
     
