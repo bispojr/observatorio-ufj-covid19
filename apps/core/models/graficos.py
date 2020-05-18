@@ -95,7 +95,7 @@ class Graficos(models.Model):
                 "nome_fonte": "Secretária de Saúde de Rio Verde",
                 "data": "17 de maio"
             },
-            "querysets": self.__cardDict(26, 18, 4, 2),
+            "querysets": self.__cardDict(27, 18, 4, 2),
         }
 
         return {**self.__commonValues(), **context}
