@@ -59,9 +59,9 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretária de Saúde de Jataí",
-                "data": "15 de maio"
+                "data": "18 de maio"
             },
-            "querysets": self.__cardDict(34, 14, 1, 0),
+            "querysets": self.__cardDict(34, 14, 1, 1),
         }
 
         return {**self.__commonValues(), **context}
