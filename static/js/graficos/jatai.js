@@ -9,11 +9,11 @@ function drawChart() {
 
   parametros.jatai.resumo = {};
   parametros.jatai.resumo = {};
-  parametros.jatai.resumo.query = 'SELECT A, B, G, I';
+  parametros.jatai.resumo.query = 'SELECT A, B, G, I, J';
   parametros.jatai.resumo.googleSheet = 'https://docs.google.com/spreadsheets/d/'
   parametros.jatai.resumo.googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ';
   parametros.jatai.resumo.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.jatai.resumo.colors = ['red', 'blue', 'purple'];
+  parametros.jatai.resumo.colors = ['red', 'blue', 'purple', 'black'];
   parametros.jatai.resumo.xTitle = 'Dia/Mês';
   parametros.jatai.resumo.yTitle = 'Número de casos';
   parametros.jatai.resumo.idDiv = 'jatai-grafico-resumo';
@@ -32,11 +32,11 @@ function drawChart() {
   parametros.jatai.monitorados.data_atualizacao = false;
 
   parametros.jatai.todas = {};
-  parametros.jatai.todas.query = 'SELECT A, B, C, D, E, F, G, H';
+  parametros.jatai.todas.query = 'SELECT A, B, C, D, E, F, G, H, I, J';
   parametros.jatai.todas.googleSheet = 'https://docs.google.com/spreadsheets/d/'
   parametros.jatai.todas.googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ';
   parametros.jatai.todas.googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq=';
-  parametros.jatai.todas.colors = ['red', 'pink', 'yellow', 'green', 'black', 'blue', 'brown'];
+  parametros.jatai.todas.colors = ['red', 'pink', 'yellow', 'green', 'gray', 'blue', 'brown', 'purple', 'black'];
   parametros.jatai.todas.xTitle = 'Dia/Mês';
   parametros.jatai.todas.yTitle = 'Número de casos';
   parametros.jatai.todas.idDiv = 'jatai-grafico-todas';
