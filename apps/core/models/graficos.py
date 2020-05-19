@@ -76,9 +76,9 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretária de Saúde de Mineiros",
-                "data": "18 de maio"
+                "data": "19 de maio"
             },
-            "querysets": self.__cardDict(15, 6, 1, 0),
+            "querysets": self.__cardDict(17, 7, 1, 0),
         }
 
         return {**self.__commonValues(), **context}
