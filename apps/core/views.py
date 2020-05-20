@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.http import require_GET
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
 			api_brasil_estado, api_brasil_geral)
@@ -13,6 +14,7 @@ from .models import Colabore
 from .models import Tendencias
 from .models import Equipe
 from .models import Noticias
+from .models import Simulacao
 
 def home(request):
 	url = "base.html"
@@ -91,3 +93,11 @@ def tendencias(request, cidade):
     url = "tendencias/cidade.html"
 
     return render(request, url, informacoes)
+
+@require_GET
+@xframe_options_exempt
+def simulacao(request):
+	simulacao = Simulacao.getContext(Simulacao)
+	url = "sim/index.html"
+	
+	return render(request, url, simulacao)

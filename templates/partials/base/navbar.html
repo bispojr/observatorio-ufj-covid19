@@ -51,6 +51,12 @@
 		          	<a class="dropdown-item" href="/tendencias/como-sao-feitas">Como são criadas?</a>-->
 		        </div>
       		</li>
+			<li class="nav-item mr-2 
+				{% if grupo_link == "simulacao" %}
+						active
+				{% endif %}
+					"><a class="nav-link" href="/simulacao?stage=int-5&format=lines">Simulação</a>
+				</li>
       		<!--<li class="nav-item mr-2 {% if page.permalink == "/noticias" %} active {% endif %}">
         		<a class="nav-link" href="/noticias">Notícias</a>
       		</li>-->

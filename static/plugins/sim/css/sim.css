@@ -1,0 +1,334 @@
+body{
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	background: #ddd;
+	line-height: 15px;
+}
+div{
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */ 
+}
+
+#sandbox{
+	width: 800px;
+	height: 540px;
+	overflow: hidden;
+	background: #fff;
+	position: absolute;
+	margin:auto;
+	top:0; left:0; right:0; bottom:0;
+}
+
+#controls{
+	position: absolute;
+	left:15px;
+	top:20px;
+	width:270px;
+	/*height:500px;*/
+	float:left;
+	position: relative;
+	padding-bottom: 40px;
+}
+
+#label_s{
+	position: relative;
+	display: inline-block;
+}
+#label_s > .herd{
+	display: block;
+    position: absolute;
+    border-right: 2px dotted black;
+    width: 0;
+    height: 16px;
+    bottom: 3px;
+    left: 159px;
+    pointer-events: none;
+}
+
+#sim_controls{
+	width: 250px;
+	position: relative;
+}
+
+.big_button{
+	font-weight: 100;
+	background: #ff4040;
+	color: #fff;
+	padding:10px;
+	border-radius: 10px;
+	border-bottom: 4px solid rgba(0,0,0,0.2);
+	font-size: 30px;
+	cursor: pointer;
+}
+.big_button:hover{
+	background: #ff6060;
+}
+.big_button > div{
+	display: none;
+	position: relative;
+	top: -6px;
+}
+.big_button[label='start'] > #bb_start{
+	display: block;
+}
+.big_button:not([label='start']){
+	background: #dddddd;
+	color: #555;
+}
+.big_button:not([label='start']):hover{
+	background: #dddddd;
+}
+.big_button[label='continue'] > #bb_continue{
+	display: block;
+}
+.big_button[label='pause'] > #bb_pause{
+	display: block;
+}
+.big_button[label='reset'] > #bb_reset{
+	display: block;
+}
+
+#sb_reset, #sb_replay{
+	position: absolute;
+    color: #999;
+    font-size: 15px;
+    font-weight: 100;
+    cursor: pointer;
+    bottom: -22px;
+
+    display: none;
+}
+#sb_reset:hover, #sb_replay:hover{
+	color: #bbb;
+}
+#sb_reset{
+	right: 0px;
+}
+
+hr{
+	border:none;
+	border-bottom: 2px dashed #ddd;
+	margin: 15px 0;
+	width: 250px;
+}
+
+
+/*
+#controls > div{
+	overflow: hidden;
+	margin-bottom: 1em;
+	position: relative;
+
+	border-left: 5px solid #ffffff;
+	padding-left: 10px;
+}
+#controls > div > div{
+	width: 150px;
+	float: left;
+	position: relative;
+}
+#controls > div > div.bar{
+	height:10px;
+	background: #eeeeee;
+	position: absolute;
+	bottom:0; left:150px;
+	overflow: hidden;
+}
+#controls > div > div.bar > div{
+	height: 100%;
+	float: left;
+}
+#controls > div > div.bar > div:nth-child(1){
+	background: #ff4040;
+}
+#controls > div > div.bar > div:nth-child(2){
+	background: #cc4040;
+}
+#controls > div > div.bar > div:nth-child(3){
+	background: #994040;
+}
+#controls > div > div.bar > div:nth-child(4){
+	background: #664040;
+}
+#controls > div > #r_end{
+	height: 30px;
+}
+#controls > #containment_line{
+	display: block;
+	width:1px;
+	height: 100%;
+	background: #000;
+	position: absolute;
+	top: 0;
+}
+#controls .cap{
+    background: #fff;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 20px;
+}*/
+
+#controls input[type=range]{
+	/*width: 100%;*/
+	width: 250px;
+}
+#controls div[strikethrough]{
+	text-decoration: line-through;
+}
+#controls div[strikethrough] > input[type=range]{
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+/*
+#controls > div[locked]{
+	opacity: 0.2;
+	pointer-events: none;
+}*/
+
+
+#graph{
+	position: absolute;
+	right:15px;
+	top:8px;
+	width: 500px;
+	pointer-events: none;
+}
+#graphCanvas{
+	width:500px;
+	height:500px;
+	border: 1px solid #ccc;
+}
+
+#graph > #month_ticks{
+    width: 500px;
+    height: 15px;
+    position: absolute;
+    left: 0;
+    top: 501px;
+    color: #bbb;
+    font-size: 14px;
+    font-weight: 100;
+}
+#graph > #month_ticks > div{
+	width: 100px;
+	height: 100%;
+    border-left: 1px solid #bbb;
+    position: absolute;
+}
+#graph > #month_ticks > div > span{
+	position: absolute;
+	left:7px;
+	top:5px;
+}
+
+icon{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	position: relative;
+	top:0.1em;
+	background-size: 100% 100%;
+}
+icon[s]{
+	background-image: url(../../icons/s.png);
+}
+icon[e]{
+	background-image: url(../../icons/e.png);
+}
+icon[i]{
+	background-image: url(../../icons/i.png);
+}
+icon[r]{
+	background-image: url(../../icons/r.png);
+}
+
+#legend{
+	position: absolute;
+    top: 10px;
+    left: 10px;
+    /* font-size: 17px; */
+    font-weight: 100;
+    line-height: 1.4em;
+}
+
+#hide_on_first_playthrough{
+	transition: height 0.5s ease-in-out;
+	overflow: hidden;
+	height:0px;
+	/*padding-right: 2px;*/
+}
+
+#month_names{
+	display:none;
+}
+
+#pointer{
+	position: absolute;
+    display: none;
+}
+#hand_container{
+	position: absolute;
+	width:80px; height:80px;
+	transform-origin: 50% 50%;
+}
+#hand{
+	position: absolute;
+	background: url(../../icons/hand.png);
+	background-size: 100% 100%;
+	width:80px; height:80px;
+
+	animation: aniFrames linear 0.75s;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+}
+#pointer_words{
+	position: absolute;
+    font-size: 20px;
+    width: 250px;
+    line-height: 1.3em;
+}
+
+@keyframes aniFrames{
+	0% {
+		transform: translate(0px,0px);
+	}
+	50% {
+		transform: translate(0px,-5px);
+	}
+	100% {
+		transform: translate(0px,0px);
+	}
+}
+
+
+.control_icon{
+	width:36px;
+	height:36px;
+	background: url(../../icons/controls.png);
+	background-size: auto 100%;
+	display: inline-block;
+
+	position: relative;
+	top: 6px;
+}
+.control_icon[continue]{
+	background-position: -100% 0;
+}
+.control_icon[pause]{
+	background-position: -200% 0;
+}
+.control_icon[reset]{
+	background-position: -300% 0;
+}
+
+.simplebar-wrapper{
+	height: 450px !important;
+}

@@ -74,5 +74,14 @@
 {% endif %}
 
 
+{% if script == "simulacao" %}
+	<script src="{% static 'plugins/sim/js/helpers.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/Model.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/Controls.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/Stages.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/Params.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/main.js' %}"></script>
+	<script src="{% static 'plugins/sim/js/simplebar.min.js' %}"></script>
+{% endif %}
 
 
