@@ -1,4 +1,5 @@
 from django.db import models
+from .chartbuilder import ChartBuilder
 
 class Graficos(models.Model): 
     
@@ -62,6 +63,7 @@ class Graficos(models.Model):
                 "data": "18 de maio"
             },
             "querysets": self.__cardDict(37, 31, 1, 1),
+            "google_charts": ChartBuilder.getValoresJatai(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}
