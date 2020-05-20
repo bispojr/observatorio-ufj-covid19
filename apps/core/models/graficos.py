@@ -59,7 +59,7 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretária de Saúde de Jataí",
-                "data": "18 de maio"
+                "data": "19 de maio"
             },
             "querysets": self.__cardDict(37, 31, 1, 1),
         }
@@ -76,9 +76,9 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretária de Saúde de Mineiros",
-                "data": "19 de maio"
+                "data": "20 de maio"
             },
-            "querysets": self.__cardDict(17, 7, 1, 0),
+            "querysets": self.__cardDict(17, 11, 1, 0),
         }
 
         return {**self.__commonValues(), **context}
@@ -93,9 +93,9 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretária de Saúde de Rio Verde",
-                "data": "18 de maio"
+                "data": "19 de maio"
             },
-            "querysets": self.__cardDict(27, 18, 4, 2),
+            "querysets": self.__cardDict(30, 18, 4, 2),
         }
 
         return {**self.__commonValues(), **context}
