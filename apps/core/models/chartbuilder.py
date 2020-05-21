@@ -41,6 +41,19 @@ class ChartBuilder(models.Model):
         }
 
         return geral
+
+    def __rioverde_geral():
+        googleSheet = 'https://docs.google.com/spreadsheets/d/'
+        googleSheet += '1jrhI1EjA8KJNJ5CKEDe-oREPjeRnYviVKp9AJPPMlLE'
+        googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq='
+
+        geral = {
+            "googleSheet": googleSheet,
+            "xTitle": 'Dia/Mês',
+            "yTitle": 'Número de casos'            
+        }
+
+        return geral
     
     def __jatai_resumo(self):
         
@@ -74,6 +87,22 @@ class ChartBuilder(models.Model):
 
         return {**self.__mineiros_geral(), **resumo}
 
+    def __rioverde_resumo(self):
+        
+        resumo = {
+            "query": 'SELECT A, G, I, B, J',
+            "colors": [ 
+                self.__corGrafico["internados"],
+                self.__corGrafico["recuperados"],
+                self.__corGrafico["confirmados"],
+                self.__corGrafico["obitos"]
+            ],
+            "idDiv": 'rioverde-grafico-resumo',
+            "data_atualizacao": "#data-atualizacao-rioverde"
+        }
+
+        return {**self.__rioverde_geral(), **resumo}
+
     def __jatai_monitorados(self):
 
         monitorados = {
@@ -101,6 +130,21 @@ class ChartBuilder(models.Model):
         }
 
         return {**self.__mineiros_geral(), **monitorados}
+
+    def __rioverde_monitorados(self):
+
+        monitorados = {
+            "query": 'SELECT A, C, H',
+            "colors": [
+                self.__corGrafico["descartados"],
+                self.__corGrafico["monitorados"] 
+                
+            ],
+            "idDiv": 'rioverde-grafico-monitorados',
+            "data_atualizacao": False
+        }
+
+        return {**self.__rioverde_geral(), **monitorados}
 
     def __jatai_todas(self):
 
@@ -144,6 +188,26 @@ class ChartBuilder(models.Model):
 
         return {**self.__mineiros_geral(), **todas}
 
+    def __rioverde_todas(self):
+
+        todas = {
+            "query": 'SELECT A, C, D, F, G, H, I, B, J',
+            "colors": [
+                self.__corGrafico["descartados"],
+                self.__corGrafico["investigados"],
+                self.__corGrafico["isolados"],
+                self.__corGrafico["internados"],
+                self.__corGrafico["monitorados"],
+                self.__corGrafico["recuperados"],
+                self.__corGrafico["confirmados"],
+                self.__corGrafico["obitos"]
+            ],
+            "idDiv": 'rioverde-grafico-todas',
+            "data_atualizacao": False
+        }
+
+        return {**self.__rioverde_geral(), **todas}
+
     def getValoresJatai(self):
         parametros = {
             'resumo': self.__jatai_resumo(self),
@@ -160,6 +224,17 @@ class ChartBuilder(models.Model):
             'resumo': self.__mineiros_resumo(self),
             "monitorados": self.__mineiros_monitorados(self),
             "todas": self.__mineiros_todas(self)
+        }
+
+        parametros = json.dumps(parametros)
+
+        return parametros
+
+    def getValoresRioVerde(self):
+        parametros = {
+            'resumo': self.__rioverde_resumo(self),
+            "monitorados": self.__rioverde_monitorados(self),
+            "todas": self.__rioverde_todas(self)
         }
 
         parametros = json.dumps(parametros)

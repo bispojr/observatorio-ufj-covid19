@@ -99,6 +99,7 @@ class Graficos(models.Model):
                 "data": "20 de maio"
             },
             "querysets": self.__cardDict(33, 18, 2, 2),
+            "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}
