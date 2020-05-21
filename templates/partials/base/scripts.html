@@ -18,25 +18,21 @@
 {% if script == "graficos-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
-  <script src="{% static 'js/graficos/jatai.js' %}"></script>
 {% endif %}
 
 {% if  script == "graficos-mineiros" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
-  <script src="{% static 'js/graficos/mineiros.js' %}"></script>
+  {% include "grafico/buildChart.html" %}
 {% endif %}
 
 {% if script == "graficos-rioverde" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
-  <script src="{% static 'js/graficos/rioverde.js' %}"></script>
+  {% include "grafico/buildChart.html" %}
 {% endif %}
 
 {% if script == "graficos-comparacao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  {% include "grafico/buildChart.html" %}
-  <script src="{% static 'js/graficos/comparacao.js' %}"></script>
+  {% include "grafico/buildComparison.html" %}
 {% endif %}
 
 {% if script == "tendencias" %}

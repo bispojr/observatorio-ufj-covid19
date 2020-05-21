@@ -1,4 +1,5 @@
 from django.db import models
+from .chartbuilder import ChartBuilder
 
 class Graficos(models.Model): 
     
@@ -58,10 +59,11 @@ class Graficos(models.Model):
                 "cidade": "Jataí",
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
-                "nome_fonte": "Secretária de Saúde de Jataí",
+                "nome_fonte": "Secretaria de Saúde de Jataí",
                 "data": "20 de maio"
             },
             "querysets": self.__cardDict(39, 31, 1, 1),
+            "google_charts": ChartBuilder.getValoresJatai(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}
@@ -75,10 +77,11 @@ class Graficos(models.Model):
                 "cidade": "Mineiros",
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
-                "nome_fonte": "Secretária de Saúde de Mineiros",
+                "nome_fonte": "Secretaria de Saúde de Mineiros",
                 "data": "20 de maio"
             },
             "querysets": self.__cardDict(17, 11, 1, 0),
+            "google_charts": ChartBuilder.getValoresMineiros(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}
@@ -92,10 +95,11 @@ class Graficos(models.Model):
                 "cidade": "Rio Verde",
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
-                "nome_fonte": "Secretária de Saúde de Rio Verde",
+                "nome_fonte": "Secretaria de Saúde de Rio Verde",
                 "data": "20 de maio"
             },
             "querysets": self.__cardDict(33, 18, 2, 2),
+            "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}
