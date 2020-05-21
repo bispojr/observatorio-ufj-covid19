@@ -1,21 +1,6 @@
-body{
-	margin: 0;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 15px;
-	font-weight: normal;
-	background: #ddd;
-	line-height: 15px;
-}
-div{
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	user-select: none;          /* Likely future */ 
-}
-
 #sandbox{
 	width: 800px;
-	height: 540px;
+	height: 580px;
 	overflow: hidden;
 	background: #fff;
 	position: absolute;
@@ -58,7 +43,7 @@ div{
 	font-weight: 100;
 	background: #ff4040;
 	color: #fff;
-	padding:10px;
+	padding:5px;
 	border-radius: 10px;
 	border-bottom: 4px solid rgba(0,0,0,0.2);
 	font-size: 30px;
@@ -73,7 +58,7 @@ div{
 	top: -6px;
 }
 .big_button[label='start'] > #bb_start{
-	display: block;
+	display: contents;
 }
 .big_button:not([label='start']){
 	background: #dddddd;
