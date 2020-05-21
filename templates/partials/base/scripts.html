@@ -17,13 +17,12 @@
   
 {% if script == "graficos-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  {% include "grafico/buildChartJatai.html" %}
+  {% include "grafico/buildChartNovo.html" %}
 {% endif %}
 
 {% if  script == "graficos-mineiros" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="{% static 'js/graficos/buildChart.js' %}"></script>
-  <script src="{% static 'js/graficos/mineiros.js' %}"></script>
+  {% include "grafico/buildChartNovo.html" %}
 {% endif %}
 
 {% if script == "graficos-rioverde" %}
