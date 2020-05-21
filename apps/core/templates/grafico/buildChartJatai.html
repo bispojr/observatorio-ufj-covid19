@@ -5,10 +5,8 @@
     function drawChart() {
         var parametros = '{{ google_charts }}';
         parametros = decodeURI(parametros);
-        parametros = String(parametros).replace(/&quot;/g, '"');
+        parametros = String(parametros).replace(/&quot;/g, '"').replace(/&amp;/g, '&');
         parametros = JSON.parse(parametros);
-
-        console.log(parametros.resumo);
         
         buildChart(parametros.resumo);
         buildChart(parametros.todas);
@@ -16,7 +14,6 @@
     }
     
     function buildChart(param) {
-
         var queryString = encodeURIComponent(param.query);
         var query = new google.visualization.Query(param.googleSheet + queryString);
             
@@ -105,6 +102,8 @@
                     }
                 
             };
+
+            console.log("id: " + param.idDiv);
 
             var chart = new google.visualization.LineChart(document.getElementById(param.idDiv));
             chart.draw(data, options);
