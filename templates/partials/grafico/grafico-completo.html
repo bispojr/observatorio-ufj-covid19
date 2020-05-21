@@ -3,7 +3,7 @@
 	<h1>Resumo</h1>
 	<div class="row">
 		<div class="col-lg-5 col-12">
-			<img src="{% static 'images/mapa-' %}{{ informacoes.nome_base }}.svg" id="mapa-{{ informacoes.nome_base }}" alt="Mapa da Cidade de {{ informacoes.cidade }}"  style="width: 120%;" />
+			<img src="{% static 'images/mapas/' %}{{ informacoes.nome_base }}.svg" id="mapa-{{ informacoes.nome_base }}" alt="Mapa da Cidade de {{ informacoes.cidade }}"  style="width: 120%;" />
 		</div>
 		<div class="col-lg-7 col-12 px-5">
 			<div class="grafico" id="{{ informacoes.nome_base }}-grafico-resumo"></div>
