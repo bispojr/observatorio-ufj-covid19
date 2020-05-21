@@ -22,7 +22,9 @@ class FailsTestCase(TestCase):
     #Teste com chrome retornando OK deste modo
     def test_menu_ativo(self):
         self.driver.get('http://127.0.0.1:8000/graficos/jatai')
-        elements = self.driver.find_elements_by_id("navbarDropdownGraficos")
-        assert len(elements) > 0 
+        elements = self.driver.find_element_by_id("navbarDropdownGraficos")
+        is_active = elements.is_enabled()
+        assert is_active == True
+        
 
     
