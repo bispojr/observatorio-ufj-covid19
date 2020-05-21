@@ -43,7 +43,7 @@ class GraficosTestCase(TestCase):
         assert "Resumo" in self.driver.page_source
         assert "Todas as categorias" in self.driver.page_source
         assert "Monitorados" in self.driver.page_source
-        assert "Secretária de Saúde de Rio Verde" in self.driver.page_source
+        assert "Secretaria de Saúde de Rio Verde" in self.driver.page_source
 
     def test_titulo_comparacao(self):        
         self.driver.get('http://127.0.0.1:8000/comparacao')
