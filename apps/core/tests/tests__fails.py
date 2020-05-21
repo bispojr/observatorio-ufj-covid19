@@ -23,7 +23,7 @@ class FailsTestCase(TestCase):
     def test_menu_ativo(self):
         self.driver.get('http://127.0.0.1:8000/graficos/jatai')
         elements = self.driver.find_element_by_id("navbarDropdownGraficos")
-        is_active = elements.is_enabled()
+        is_active = "active" in elements.get_attribute("class")
         assert is_active == True
         
 
