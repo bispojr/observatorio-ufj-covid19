@@ -4,7 +4,7 @@ from django.test import Client
 # from selenium import webdriver
 # from webdriver_manager.firefox import GeckoDriverManager
 # from selenium.webdriver.common.keys import Keys
-# from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 
 # Create your tests here.
@@ -12,9 +12,9 @@ from selenium.webdriver import Chrome
 class FailsTestCase(TestCase):
     
     def setUp(self):
-        # options = Options()
-        # options.headless = True
-        self.driver = Chrome() # executable_path=GeckoDriverManager().install()
+        options = Options()
+        options.headless = True
+        self.driver = Chrome(options=options) # executable_path=GeckoDriverManager().install()
 
     def tearDown(self):
         self.driver.close()
