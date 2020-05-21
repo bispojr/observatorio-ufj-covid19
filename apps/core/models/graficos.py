@@ -10,6 +10,8 @@ class Graficos(models.Model):
             return self.__mineiros(self)
         if cidade == "rioverde":
             return self.__rioverde(self)
+        if cidade == "chapadao":
+            return self.__chapadao(self)
     
     def __commonValues():
         context = {            
@@ -100,6 +102,24 @@ class Graficos(models.Model):
             },
             "querysets": self.__cardDict(33, 18, 2, 2),
             "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
+        }
+
+        return {**self.__commonValues(), **context}
+
+    def __chapadao(self):
+        context = {
+            "script": "graficos-chapadao",
+            "titulo": "Observatório UFJ Covid-19 - Gráficos (Chapadão do Céu)",
+		    "informacoes": {                
+                "grupo": "graficos",
+                "cidade": "Chapadão do Céu",
+                "nome_base": "chapadao",
+                "url_fonte": "http://www.chapadaodoceu.go.gov.br/",
+                "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
+                "data": "19 de maio"
+            },
+            "querysets": self.__cardDict(6, 0, 0, 0),
+            "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
         }
 
         return {**self.__commonValues(), **context}

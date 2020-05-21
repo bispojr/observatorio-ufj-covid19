@@ -30,7 +30,13 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="{% url 'core:como-sao-criados' %}">Gráficos</a>
+            <a href="{% url 'core:home' %}">Página principal</a>
+          </li>
+          <li>
+            <a href="{% url 'core:como-sao-criados' %}">Como são criados os gráficos?</a>
+          </li>
+          <li>
+            <a href="{% url 'core:comparacao' %}">Comparação Contextual</a>
           </li>
           <!--<li>
             <a href="/tendencias/como-sao-criadas">Tendências</a>
@@ -54,6 +60,9 @@
 
         <ul class="list-unstyled">
           <li>
+            <a href="{% url 'core:grafico' cidade="chapadao" %}">Chapadão do Céu</a>
+          </li>
+          <li>
             <a href="{% url 'core:grafico' cidade="jatai" %}">Jataí</a>
           </li>
           <li>
@@ -61,12 +70,6 @@
           </li>
           <li>
             <a href="{% url 'core:grafico' cidade="rioverde" %}">Rio Verde</a>
-          </li>
-          <li>
-            <a href="{% url 'core:comparacao' %}">Comparação Contextual</a>
-          </li>
-          <li>
-            <a href="{% url 'core:como-sao-criados' %}">Como são criados?</a>
           </li>
         </ul>
 
