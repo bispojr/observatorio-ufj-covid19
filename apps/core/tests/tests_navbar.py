@@ -90,7 +90,7 @@ class NavbarTestCase(TestCase):
         assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
 
-    def test_pag_comparacao(self):
+    """ def test_pag_comparacao(self):
         self.driver.get('http://127.0.0.1:8000/comparacao/')
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
@@ -106,7 +106,7 @@ class NavbarTestCase(TestCase):
         assert is_active_main == False 
         assert is_active_grafico == True  
         assert  is_active_tendencias == False 
-        assert is_active_saiba_mais == False
+        assert is_active_saiba_mais == False """
 
     def test_pag_como_sao_criados(self):
         self.driver.get('http://127.0.0.1:8000/como-sao-criados/')
