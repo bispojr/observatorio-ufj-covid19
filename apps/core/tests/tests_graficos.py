@@ -54,10 +54,10 @@ class GraficosTestCase(TestCase):
         assert "Monitorados" in self.driver.page_source
         assert "Secretaria de Saúde de Rio Verde" in self.driver.page_source
 
-    def test_titulo_comparacao(self):        
+    """ def test_titulo_comparacao(self):        
         self.driver.get('http://127.0.0.1:8000/comparacao')
         titulo = "Observatório UFJ Covid-19 - Comparação entre as cidades"
-        assert titulo in self.driver.title
+        assert titulo in self.driver.title """
 
     def test_titulo_comoSaoCriados(self):        
         self.driver.get('http://127.0.0.1:8000/como-sao-criados')
