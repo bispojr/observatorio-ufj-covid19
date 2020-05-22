@@ -17,10 +17,6 @@ class FailsTestCase(TestCase):
 
     def tearDown(self):
         self.driver.close()
-
-    """ def test_menu_ativo(self):
-        self.driver.get('http://127.0.0.1:8000/graficos/jatai')
-        elements = self.driver.find_element_by_xpath('//div[@id="navbarDropdownGraficos" and @class="active"]')
-        assert len(elements) > 0 """
+        
 
     
