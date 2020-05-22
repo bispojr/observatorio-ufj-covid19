@@ -98,6 +98,6 @@ def tendencias(request, cidade):
 @xframe_options_exempt
 def simulacao(request):
 	simulacao = Simulacao.getContext(Simulacao)
-	url = "sim/index.html"
+	url = "simulacao/simulacao.html"
 	
 	return render(request, url, simulacao)

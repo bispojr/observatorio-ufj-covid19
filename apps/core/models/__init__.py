@@ -9,4 +9,5 @@ from .colabore import Colabore
 from .tendencias import Tendencias
 from .equipe import Equipe
 from .noticias import Noticias
-from .chartbuilder import ChartBuilderfrom .simulacao import Simulacao
+from .chartbuilder import ChartBuilder
+from .simulacao import Simulacao
