@@ -65,7 +65,7 @@ class Graficos(models.Model):
                 "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
                 "data": "23 de maio"
             },
-            "querysets": self.__cardDict(9, 0, 0, 0),
+            "querysets": self.__cardDict(8, 0, 0, 0),
             "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
         }
 
