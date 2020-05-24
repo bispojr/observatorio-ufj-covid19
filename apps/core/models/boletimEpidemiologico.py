@@ -4,11 +4,11 @@ import uuid
 class BoletimEpidemiologico(models.Model):
 
     cidade = models.CharField(max_length=256, verbose_name="Cidade")
-    data_atualizacao = models.DateTimeField(auto_now_add=True, verbose_name="Data de atualização")
+    data_atualizacao = models.DateTimeField(verbose_name="Data de atualização")
     fonte_oficial = models.URLField(verbose_name="Fonte Oficial (URL)")
 
     confirmados = models.PositiveIntegerField(verbose_name="Confirmados", null=True)
-    recupados = models.PositiveIntegerField(verbose_name="Recuperados", null=True)
+    recuperados = models.PositiveIntegerField(verbose_name="Recuperados", null=True)
     obitos = models.PositiveIntegerField(verbose_name="Óbitos", null=True)
     suspeitos = models.PositiveIntegerField(verbose_name="Suspeitos", null=True)
     investigados = models.PositiveIntegerField(
@@ -27,7 +27,6 @@ class BoletimEpidemiologico(models.Model):
     uuid = models.UUIDField(
         verbose_name="Uuid", default=uuid.uuid4, editable=False
     )
-
 
     def __str__(self):
         return self.cidade + ": " + self.data_atualizacao
