@@ -13,6 +13,7 @@ from .models import Colabore
 from .models import Tendencias
 from .models import Equipe
 from .models import Noticias
+from .models import Cidades
 
 def home(request):
 	url = "base.html"
@@ -90,4 +91,10 @@ def tendencias(request, cidade):
     informacoes = Tendencias.get_informações(Tendencias, cidade)
     url = "tendencias/cidade.html"
 
+    return render(request, url, informacoes)
+
+@require_GET
+def mapa_goias(request):
+    informacoes = Cidades.getContext(Cidades)
+    url = "mapa/mapa_goias.html"
     return render(request, url, informacoes)

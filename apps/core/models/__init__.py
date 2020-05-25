@@ -10,3 +10,4 @@ from .tendencias import Tendencias
 from .equipe import Equipe
 from .noticias import Noticias
 from .chartbuilder import ChartBuilder
+from .mapa import Cidades
