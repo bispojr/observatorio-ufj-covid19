@@ -25,7 +25,7 @@ def home(request):
 	context = Home.getContext(Home)
 
 	jatai = {"header": [], "data": []}
-	with open(settings.BASE_DIR + '/dados/jatai-dados-20-05-22.csv') as csv_file:
+	with open(settings.BASE_DIR + '/dados/mineiros-dados-20-05-25.csv') as csv_file:
 		csv_reader = csv.reader(csv_file, delimiter=',')
 		line_count = 0
 		for row in csv_reader:
@@ -46,6 +46,8 @@ def home(request):
 					i += 1
 				jatai["data"].append(data)
 				line_count += 1
+			
+		pprint(jatai)
 
 		for row in jatai["data"]:
 			str_date = row[0]
@@ -53,21 +55,21 @@ def home(request):
 			row[0] =  date
 
 			registro = {
-				"cidade": "jatai",
+				"cidade": "mineiros",
 				"data_atualizacao": row[0],
 				"fonte_oficial": "http://www.google.com",
-				"confirmados": row[1],
-				"recuperados": row[8],
-				"obitos": row[9],
-				"suspeitos": 0,
+				"confirmados": row[4],
+				"recuperados": row[7],
+				"obitos": row[6],
+				"suspeitos": None,
 				"investigados":  row[3],
-				"descartados": row[2],
-				"monitorados": row[7],
-				"notificados": row[4],
-				"isolados": row[5],
-				"internados": row[6],
-				"enfermaria": None,
-				"uti": None
+				"descartados": int(row[3]) + int(row[5]),
+				"monitorados": row[2],
+				"notificados": row[1],
+				"isolados": row[10],
+				"internados": int(row[9]) + int(row[8]),
+				"enfermaria": row[9],
+				"uti": row[8]
 			}
 
 			insercao = BoletimEpidemiologico(**registro)
