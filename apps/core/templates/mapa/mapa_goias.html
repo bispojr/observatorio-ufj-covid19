@@ -2,19 +2,26 @@
 
 {% block content %}
 
-{% include "mapa/mapa-goias.svg" %}
+        <div class="container graficos-bg">
+                {% include "mapa/mapa-sudoeste.svg" %}
+        </div>
 
-<div class="tooltip">Olá</div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-</script>
+        <div class="tooltip">Olá</div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous">
+        </script>
 
-<script type="text/javascript">
-        $('.fillTowns').click(function() {
-          document.location = "/graficos/" + this.id + "/";
-        });
-</script>
+        <script type="text/javascript">
+                $('.fillTowns').click(function() {
+                document.location = "/graficos/" + this.id + "/";
+                });
+                $("#mapa_mineiros, #mapa_jatai, #mapa_rioverde, #mapa_chapadao").hover(function(){
+                        $(this).css("fill", "rgb(26,95,95,1.0)");
+                        }, function(){
+                        $(this).css("fill", "rgb(23,153,153,1.0)");
+                });
+        </script>
 {% endblock %}
 
 

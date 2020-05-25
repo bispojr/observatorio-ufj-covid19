@@ -4,7 +4,7 @@ class Cidades():
 
     def __contextCidades(self):
         context = {
-            "grupo": "",
+            "grupo": "graficos",
             "grupo_link": "mapa",
             "script": "mapa",
             "titulo": "Mapa do estado de Goiás"
