@@ -63,9 +63,9 @@ class Graficos(models.Model):
                 "nome_base": "chapadao",
                 "url_fonte": "http://www.chapadaodoceu.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
-                "data": "23 de maio"
+                "data": "25 de maio"
             },
-            "querysets": self.__cardDict(8, 0, 0, 0),
+            "querysets": self.__cardDict(8, 2, 0, 0),
             "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
         }
 
