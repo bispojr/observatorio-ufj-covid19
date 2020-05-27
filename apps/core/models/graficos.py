@@ -116,9 +116,9 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "25 de maio"
+                "data": "26 de maio"
             },
-            "querysets": self.__cardDict(43, 22, 5, 2),
+            "querysets": self.__cardDict(50, 22, 2, 2),
             "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
         }
 
