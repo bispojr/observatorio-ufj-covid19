@@ -98,9 +98,9 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretaria de Saúde de Mineiros",
-                "data": "27 de maio"
+                "data": "28 de maio"
             },
-            "querysets": self.__cardDict(27, 17, 0, 0),
+            "querysets": self.__cardDict(30, 19, 0, 0),
             "google_charts": ChartBuilder.getValoresMineiros(ChartBuilder)
         }
 
@@ -116,9 +116,9 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "27 de maio"
+                "data": "28 de maio"
             },
-            "querysets": self.__cardDict(55, 22, 8, 2),
+            "querysets": self.__cardDict(72, 22, 7, 2),
             "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
         }
 
