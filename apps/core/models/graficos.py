@@ -63,7 +63,7 @@ class Graficos(models.Model):
                 "nome_base": "chapadao",
                 "url_fonte": "http://www.chapadaodoceu.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
-                "data": "25 de maio"
+                "data": "27 de maio"
             },
             "querysets": self.__cardDict(8, 2, 0, 0),
             "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
@@ -80,9 +80,9 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Jataí",
-                "data": "26 de maio"
+                "data": "27 de maio"
             },
-            "querysets": self.__cardDict(73, 38, 2, 1),
+            "querysets": self.__cardDict(74, 38, 1, 1),
             "google_charts": ChartBuilder.getValoresJatai(ChartBuilder)
         }
 
