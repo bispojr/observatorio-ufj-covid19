@@ -5,7 +5,7 @@ import json
 class ChartBuilder(models.Model): 
 
     def __init__(self):
-        __corGrafico = { 
+        self.__corGrafico = { 
             "confirmados": "red",
             "descartados": "pink",
             "investigados": "yellow",
@@ -16,7 +16,11 @@ class ChartBuilder(models.Model):
             "recuperados": "purple",
             "obitos": "black"
         }
+    
+    def getCores(self):
+        return self.__corGrafico
 
+'''
     def __chapadao_geral():
         googleSheet = 'https://docs.google.com/spreadsheets/d/'
         googleSheet += '1ZiLNQfPNrvY8kW18P-KsDiNvUtLoApyWPcUsf1kIiFg'
@@ -316,3 +320,4 @@ class ChartBuilder(models.Model):
         parametros = json.dumps(parametros)
 
         return parametros
+'''

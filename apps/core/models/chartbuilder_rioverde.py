@@ -2,14 +2,14 @@ from .chartbuilder import ChartBuilder
 
 import json
 
-class ChartBuilder_Jatai(ChartBuilder): 
+class ChartBuilder_Rio_Verde(ChartBuilder): 
 
     def __init__(self):
         super().__init__()
 
     def __geral():
         googleSheet = 'https://docs.google.com/spreadsheets/d/'
-        googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ'
+        googleSheet += '1jrhI1EjA8KJNJ5CKEDe-oREPjeRnYviVKp9AJPPMlLE'
         googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq='
 
         geral = {
@@ -21,53 +21,54 @@ class ChartBuilder_Jatai(ChartBuilder):
         return geral
 
     def __resumo(self):
-        cores = ChartBuilder_Jatai()
+        cores = ChartBuilder_Rio_Verde()
+        
         resumo = {
-            "query": 'SELECT A, B, G, I, J',
-            "colors": [
-                cores.getCores()["confirmados"], 
+            "query": 'SELECT A, G, I, B, J',
+            "colors": [ 
                 cores.getCores()["internados"],
                 cores.getCores()["recuperados"],
+                cores.getCores()["confirmados"],
                 cores.getCores()["obitos"]
             ],
-            "idDiv": 'jatai-grafico-resumo',
-            "data_atualizacao": "#data-atualizacao-jatai"
+            "idDiv": 'rioverde-grafico-resumo',
+            "data_atualizacao": "#data-atualizacao-rioverde"
         }
 
         return {**self.__geral(), **resumo}
 
     def __monitorados(self):
-        cores = ChartBuilder_Jatai()
+        cores = ChartBuilder_Rio_Verde()
 
         monitorados = {
-            "query": 'SELECT A, H, E',
+            "query": 'SELECT A, C, H',
             "colors": [
-                cores.getCores()["monitorados"], 
-                cores.getCores()["notificados"]
+                cores.getCores()["descartados"],
+                cores.getCores()["monitorados"] 
+                
             ],
-            "idDiv": 'jatai-grafico-monitorados',
+            "idDiv": 'rioverde-grafico-monitorados',
             "data_atualizacao": False
         }
 
         return {**self.__geral(), **monitorados}
-    
+
     def __todas(self):
-        cores = ChartBuilder_Jatai()
+        cores = ChartBuilder_Rio_Verde()
 
         todas = {
-            "query": 'SELECT A, B, C, D, E, F, G, H, I, J',
+            "query": 'SELECT A, C, D, F, G, H, I, B, J',
             "colors": [
-                cores.getCores()["confirmados"], 
                 cores.getCores()["descartados"],
                 cores.getCores()["investigados"],
-                cores.getCores()["notificados"],
                 cores.getCores()["isolados"],
                 cores.getCores()["internados"],
                 cores.getCores()["monitorados"],
                 cores.getCores()["recuperados"],
+                cores.getCores()["confirmados"],
                 cores.getCores()["obitos"]
             ],
-            "idDiv": 'jatai-grafico-todas',
+            "idDiv": 'rioverde-grafico-todas',
             "data_atualizacao": False
         }
 
@@ -75,7 +76,7 @@ class ChartBuilder_Jatai(ChartBuilder):
 
     def getValores(self):
         parametros = {
-            "resumo": self.__resumo(self),
+            'resumo': self.__resumo(self),
             "monitorados": self.__monitorados(self),
             "todas": self.__todas(self)
         }

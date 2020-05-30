@@ -12,3 +12,4 @@ from .noticias import Noticias
 from .chartbuilder import ChartBuilder
 from .chartbuilder_chapadao import ChartBuilder_Chapadao
 from .chartbuilder_jatai import ChartBuilder_Jatai
+from .chartbuilder_rioverde import ChartBuilder_Rio_Verde

@@ -4,6 +4,7 @@ from .chartbuilder import ChartBuilder
 from .chartbuilder_chapadao import ChartBuilder_Chapadao
 from .chartbuilder_jatai import ChartBuilder_Jatai
 from .chartbuilder_mineiros import ChartBuilder_Mineiros
+from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
 
 class Graficos(models.Model): 
     
@@ -123,7 +124,7 @@ class Graficos(models.Model):
                 "data": "30 de maio"
             },
             "querysets": self.__cardDict(87, 24, 6, 2),
-            "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
+            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde)
         }
 
         return {**self.__commonValues(), **context}
