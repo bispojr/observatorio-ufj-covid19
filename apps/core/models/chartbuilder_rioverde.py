@@ -21,15 +21,14 @@ class ChartBuilder_Rio_Verde(ChartBuilder):
         return geral
 
     def __resumo(self):
-        cores = ChartBuilder_Rio_Verde()
-        
+
         resumo = {
             "query": 'SELECT A, G, I, B, J',
             "colors": [ 
-                cores.getCores()["internados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["confirmados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["confirmados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'rioverde-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-rioverde"
@@ -38,13 +37,12 @@ class ChartBuilder_Rio_Verde(ChartBuilder):
         return {**self.__geral(), **resumo}
 
     def __monitorados(self):
-        cores = ChartBuilder_Rio_Verde()
 
         monitorados = {
             "query": 'SELECT A, C, H',
             "colors": [
-                cores.getCores()["descartados"],
-                cores.getCores()["monitorados"] 
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["descartados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["monitorados"] 
                 
             ],
             "idDiv": 'rioverde-grafico-monitorados',
@@ -54,19 +52,18 @@ class ChartBuilder_Rio_Verde(ChartBuilder):
         return {**self.__geral(), **monitorados}
 
     def __todas(self):
-        cores = ChartBuilder_Rio_Verde()
 
         todas = {
             "query": 'SELECT A, C, D, F, G, H, I, B, J',
             "colors": [
-                cores.getCores()["descartados"],
-                cores.getCores()["investigados"],
-                cores.getCores()["isolados"],
-                cores.getCores()["internados"],
-                cores.getCores()["monitorados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["confirmados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["descartados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["investigados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["isolados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["monitorados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["confirmados"],
+                ChartBuilder_Rio_Verde()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'rioverde-grafico-todas',
             "data_atualizacao": False

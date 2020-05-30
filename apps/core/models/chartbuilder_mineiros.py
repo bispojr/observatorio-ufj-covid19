@@ -21,15 +21,14 @@ class ChartBuilder_Mineiros(ChartBuilder):
         return geral
 
     def __resumo(self):
-        cores = ChartBuilder_Mineiros()
         
         resumo = {
             "query": 'SELECT A, E, I, H, G',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["internados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-mineiros"
@@ -38,13 +37,12 @@ class ChartBuilder_Mineiros(ChartBuilder):
         return {**self.__geral(), **resumo}
 
     def __monitorados(self):
-        cores = ChartBuilder_Mineiros()
 
         monitorados = {
             "query": 'SELECT A, C, B',
             "colors": [
-                cores.getCores()["monitorados"], 
-                cores.getCores()["notificados"]
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["monitorados"], 
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["notificados"]
             ],
             "idDiv": 'mineiros-grafico-monitorados',
             "data_atualizacao": False
@@ -53,20 +51,19 @@ class ChartBuilder_Mineiros(ChartBuilder):
         return {**self.__geral(), **monitorados}
 
     def __todas(self):
-        cores = ChartBuilder_Mineiros()
 
         todas = {
             "query": 'SELECT A, E, D, L, B, K, I, C, H, G',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["descartados"],
-                cores.getCores()["investigados"],
-                cores.getCores()["notificados"],
-                cores.getCores()["isolados"],
-                cores.getCores()["internados"],
-                cores.getCores()["monitorados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["descartados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["investigados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["notificados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["isolados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["monitorados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-todas',
             "data_atualizacao": False

@@ -21,15 +21,14 @@ class ChartBuilder_Chapadao(ChartBuilder):
         return geral
     
     def __resumo(self):
-        cores = ChartBuilder_Chapadao()
         
         resumo = {
             "query": 'SELECT A, B, H, J, K',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["internados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'chapadao-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-chapadao"
@@ -38,13 +37,12 @@ class ChartBuilder_Chapadao(ChartBuilder):
         return {**self.__geral(), **resumo}
     
     def __monitorados(self):
-        cores = ChartBuilder_Chapadao()
 
         monitorados = {
             "query": 'SELECT A, I, C',
             "colors": [
-                cores.getCores()["monitorados"], 
-                cores.getCores()["descartados"]
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["monitorados"], 
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["descartados"]
             ],
             "idDiv": 'chapadao-grafico-monitorados',
             "data_atualizacao": False
@@ -53,20 +51,19 @@ class ChartBuilder_Chapadao(ChartBuilder):
         return {**self.__geral(), **monitorados}
     
     def __todas(self):
-        cores = ChartBuilder_Chapadao()
 
         todas = {
             "query": 'SELECT A, B, C, D, F, G, H, I, J, K',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["descartados"],
-                cores.getCores()["investigados"],
-                cores.getCores()["notificados"],
-                cores.getCores()["isolados"],
-                cores.getCores()["internados"],
-                cores.getCores()["monitorados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["descartados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["investigados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["notificados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["isolados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["monitorados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Chapadao()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'chapadao-grafico-todas',
             "data_atualizacao": False

@@ -21,14 +21,13 @@ class ChartBuilder_Jatai(ChartBuilder):
         return geral
 
     def __resumo(self):
-        cores = ChartBuilder_Jatai()
         resumo = {
             "query": 'SELECT A, B, G, I, J',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["internados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-jatai"
@@ -37,13 +36,12 @@ class ChartBuilder_Jatai(ChartBuilder):
         return {**self.__geral(), **resumo}
 
     def __monitorados(self):
-        cores = ChartBuilder_Jatai()
 
         monitorados = {
             "query": 'SELECT A, H, E',
             "colors": [
-                cores.getCores()["monitorados"], 
-                cores.getCores()["notificados"]
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["monitorados"], 
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["notificados"]
             ],
             "idDiv": 'jatai-grafico-monitorados',
             "data_atualizacao": False
@@ -52,20 +50,19 @@ class ChartBuilder_Jatai(ChartBuilder):
         return {**self.__geral(), **monitorados}
     
     def __todas(self):
-        cores = ChartBuilder_Jatai()
 
         todas = {
             "query": 'SELECT A, B, C, D, E, F, G, H, I, J',
             "colors": [
-                cores.getCores()["confirmados"], 
-                cores.getCores()["descartados"],
-                cores.getCores()["investigados"],
-                cores.getCores()["notificados"],
-                cores.getCores()["isolados"],
-                cores.getCores()["internados"],
-                cores.getCores()["monitorados"],
-                cores.getCores()["recuperados"],
-                cores.getCores()["obitos"]
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["confirmados"], 
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["descartados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["investigados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["notificados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["isolados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["internados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["monitorados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["recuperados"],
+                ChartBuilder_Jatai()._ChartBuilder__corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-todas',
             "data_atualizacao": False
