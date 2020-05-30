@@ -1,11 +1,8 @@
-from .chartbuilder import ChartBuilder
+from .parameters_chartbuilder import ParametersChartBuilder
 
 import json
 
-class ChartBuilder_Jatai(ChartBuilder): 
-
-    def __init__(self):
-        super().__init__()
+class ChartBuilder_Jatai(): 
 
     def __geral():
         googleSheet = 'https://docs.google.com/spreadsheets/d/'
@@ -24,10 +21,10 @@ class ChartBuilder_Jatai(ChartBuilder):
         resumo = {
             "query": 'SELECT A, B, G, I, J',
             "colors": [
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["confirmados"], 
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["internados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["recuperados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["obitos"]
+                ParametersChartBuilder.corGrafico["confirmados"], 
+                ParametersChartBuilder.corGrafico["internados"],
+                ParametersChartBuilder.corGrafico["recuperados"],
+                ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-jatai"
@@ -40,8 +37,8 @@ class ChartBuilder_Jatai(ChartBuilder):
         monitorados = {
             "query": 'SELECT A, H, E',
             "colors": [
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["monitorados"], 
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["notificados"]
+                ParametersChartBuilder.corGrafico["monitorados"], 
+                ParametersChartBuilder.corGrafico["notificados"]
             ],
             "idDiv": 'jatai-grafico-monitorados',
             "data_atualizacao": False
@@ -54,15 +51,15 @@ class ChartBuilder_Jatai(ChartBuilder):
         todas = {
             "query": 'SELECT A, B, C, D, E, F, G, H, I, J',
             "colors": [
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["confirmados"], 
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["descartados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["investigados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["notificados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["isolados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["internados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["monitorados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["recuperados"],
-                ChartBuilder_Jatai()._ChartBuilder__corGrafico["obitos"]
+                ParametersChartBuilder.corGrafico["confirmados"], 
+                ParametersChartBuilder.corGrafico["descartados"],
+                ParametersChartBuilder.corGrafico["investigados"],
+                ParametersChartBuilder.corGrafico["notificados"],
+                ParametersChartBuilder.corGrafico["isolados"],
+                ParametersChartBuilder.corGrafico["internados"],
+                ParametersChartBuilder.corGrafico["monitorados"],
+                ParametersChartBuilder.corGrafico["recuperados"],
+                ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-todas',
             "data_atualizacao": False

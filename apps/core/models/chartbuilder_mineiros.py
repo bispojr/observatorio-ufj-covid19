@@ -1,11 +1,8 @@
-from .chartbuilder import ChartBuilder
+from .parameters_chartbuilder import ParametersChartBuilder
 
 import json
 
-class ChartBuilder_Mineiros(ChartBuilder): 
-
-    def __init__(self):
-        super().__init__()
+class ChartBuilder_Mineiros(): 
 
     def __geral():
         googleSheet = 'https://docs.google.com/spreadsheets/d/'
@@ -25,10 +22,10 @@ class ChartBuilder_Mineiros(ChartBuilder):
         resumo = {
             "query": 'SELECT A, E, I, H, G',
             "colors": [
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["confirmados"], 
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["internados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["recuperados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["obitos"]
+                ParametersChartBuilder.corGrafico["confirmados"], 
+                ParametersChartBuilder.corGrafico["internados"],
+                ParametersChartBuilder.corGrafico["recuperados"],
+                ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-resumo',
             "data_atualizacao": "#data-atualizacao-mineiros"
@@ -41,8 +38,8 @@ class ChartBuilder_Mineiros(ChartBuilder):
         monitorados = {
             "query": 'SELECT A, C, B',
             "colors": [
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["monitorados"], 
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["notificados"]
+                ParametersChartBuilder.corGrafico["monitorados"], 
+                ParametersChartBuilder.corGrafico["notificados"]
             ],
             "idDiv": 'mineiros-grafico-monitorados',
             "data_atualizacao": False
@@ -55,15 +52,15 @@ class ChartBuilder_Mineiros(ChartBuilder):
         todas = {
             "query": 'SELECT A, E, D, L, B, K, I, C, H, G',
             "colors": [
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["confirmados"], 
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["descartados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["investigados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["notificados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["isolados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["internados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["monitorados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["recuperados"],
-                ChartBuilder_Mineiros()._ChartBuilder__corGrafico["obitos"]
+                ParametersChartBuilder.corGrafico["confirmados"], 
+                ParametersChartBuilder.corGrafico["descartados"],
+                ParametersChartBuilder.corGrafico["investigados"],
+                ParametersChartBuilder.corGrafico["notificados"],
+                ParametersChartBuilder.corGrafico["isolados"],
+                ParametersChartBuilder.corGrafico["internados"],
+                ParametersChartBuilder.corGrafico["monitorados"],
+                ParametersChartBuilder.corGrafico["recuperados"],
+                ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-todas',
             "data_atualizacao": False

@@ -1,6 +1,5 @@
 from django.db import models
 
-from .chartbuilder import ChartBuilder
 from .chartbuilder_chapadao import ChartBuilder_Chapadao
 from .chartbuilder_jatai import ChartBuilder_Jatai
 from .chartbuilder_mineiros import ChartBuilder_Mineiros
