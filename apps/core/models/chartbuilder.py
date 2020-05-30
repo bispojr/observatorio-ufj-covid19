@@ -1,20 +1,21 @@
 from django.db import models
 
-import json, sys
+import json
 
 class ChartBuilder(models.Model): 
 
-    __corGrafico = { 
-        "confirmados": "red",
-        "descartados": "pink",
-        "investigados": "yellow",
-        "notificados": "green",
-        "isolados": "gray",
-        "internados": "blue",
-        "monitorados": "brown",
-        "recuperados": "purple",
-        "obitos": "black"
-    }
+    def __init__(self):
+        __corGrafico = { 
+            "confirmados": "red",
+            "descartados": "pink",
+            "investigados": "yellow",
+            "notificados": "green",
+            "isolados": "gray",
+            "internados": "blue",
+            "monitorados": "brown",
+            "recuperados": "purple",
+            "obitos": "black"
+        }
 
     def __chapadao_geral():
         googleSheet = 'https://docs.google.com/spreadsheets/d/'

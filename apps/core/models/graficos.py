@@ -1,5 +1,9 @@
 from django.db import models
+
 from .chartbuilder import ChartBuilder
+from .chartbuilder_chapadao import ChartBuilder_Chapadao
+from .chartbuilder_jatai import ChartBuilder_Jatai
+from .chartbuilder_mineiros import ChartBuilder_Mineiros
 
 class Graficos(models.Model): 
     
@@ -66,7 +70,7 @@ class Graficos(models.Model):
                 "data": "30 de maio"
             },
             "querysets": self.__cardDict(14, 5, 0, 0),
-            "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
+            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao)
         }
 
         return {**self.__commonValues(), **context}
@@ -83,7 +87,7 @@ class Graficos(models.Model):
                 "data": "29 de maio"
             },
             "querysets": self.__cardDict(80, 44, 3, 2),
-            "google_charts": ChartBuilder.getValoresJatai(ChartBuilder)
+            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai)
         }
 
         return {**self.__commonValues(), **context}
@@ -101,7 +105,7 @@ class Graficos(models.Model):
                 "data": "30 de maio"
             },
             "querysets": self.__cardDict(34, 22, 0, 0),
-            "google_charts": ChartBuilder.getValoresMineiros(ChartBuilder)
+            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros)
         }
 
         return {**self.__commonValues(), **context}
