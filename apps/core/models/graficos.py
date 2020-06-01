@@ -84,7 +84,7 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Jataí",
-                "data": "29 de maio"
+                "data": "31 de maio"
             },
             "querysets": self.__cardDict(80, 44, 3, 2),
             "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai)
@@ -102,9 +102,9 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretaria de Saúde de Mineiros",
-                "data": "30 de maio"
+                "data": "31 de maio"
             },
-            "querysets": self.__cardDict(34, 22, 0, 0),
+            "querysets": self.__cardDict(37, 23, 0, 0),
             "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros)
         }
 
@@ -120,9 +120,9 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "30 de maio"
+                "data": "31 de maio"
             },
-            "querysets": self.__cardDict(87, 24, 6, 2),
+            "querysets": self.__cardDict(102, 26, 10, 2),
             "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde)
         }
 
