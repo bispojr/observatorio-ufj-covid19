@@ -1,5 +1,9 @@
 from django.db import models
-from .chartbuilder import ChartBuilder
+
+from .chartbuilder_chapadao import ChartBuilder_Chapadao
+from .chartbuilder_jatai import ChartBuilder_Jatai
+from .chartbuilder_mineiros import ChartBuilder_Mineiros
+from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
 
 class Graficos(models.Model): 
     
@@ -66,7 +70,7 @@ class Graficos(models.Model):
                 "data": "30 de maio"
             },
             "querysets": self.__cardDict(14, 5, 0, 0),
-            "google_charts": ChartBuilder.getValoresChapadao(ChartBuilder)
+            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao)
         }
 
         return {**self.__commonValues(), **context}
@@ -80,10 +84,10 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Jataí",
-                "data": "29 de maio"
+                "data": "31 de maio"
             },
             "querysets": self.__cardDict(80, 44, 3, 2),
-            "google_charts": ChartBuilder.getValoresJatai(ChartBuilder)
+            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai)
         }
 
         return {**self.__commonValues(), **context}
@@ -98,10 +102,10 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretaria de Saúde de Mineiros",
-                "data": "30 de maio"
+                "data": "31 de maio"
             },
-            "querysets": self.__cardDict(34, 22, 0, 0),
-            "google_charts": ChartBuilder.getValoresMineiros(ChartBuilder)
+            "querysets": self.__cardDict(37, 23, 0, 0),
+            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros)
         }
 
         return {**self.__commonValues(), **context}
@@ -116,10 +120,10 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "30 de maio"
+                "data": "31 de maio"
             },
-            "querysets": self.__cardDict(87, 24, 6, 2),
-            "google_charts": ChartBuilder.getValoresRioVerde(ChartBuilder)
+            "querysets": self.__cardDict(102, 26, 10, 2),
+            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde)
         }
 
         return {**self.__commonValues(), **context}
