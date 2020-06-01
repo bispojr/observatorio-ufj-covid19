@@ -4,6 +4,7 @@ from .chartbuilder_chapadao import ChartBuilder_Chapadao
 from .chartbuilder_jatai import ChartBuilder_Jatai
 from .chartbuilder_mineiros import ChartBuilder_Mineiros
 from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
+from .datatable import DataTable
 
 class Graficos(models.Model): 
     
@@ -76,6 +77,7 @@ class Graficos(models.Model):
         return {**self.__commonValues(), **context}
 
     def __jatai(self):
+
         context = {
             "script": "graficos-jatai",
             "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí)",
@@ -87,7 +89,8 @@ class Graficos(models.Model):
                 "data": "31 de maio"
             },
             "querysets": self.__cardDict(80, 44, 3, 2),
-            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai)
+            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai),
+            "tableJson": DataTable.jatai()
         }
 
         return {**self.__commonValues(), **context}
