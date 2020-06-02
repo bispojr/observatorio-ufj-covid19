@@ -3,6 +3,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 import gviz_api
 from pprint import pprint
 from datetime import datetime
+from django.conf import settings
+import json
 
 class DataTable(): 
     
@@ -219,6 +221,7 @@ class DataTable():
         return tableJson
 
     def rioverde():
+        
         scope = [
             "https://spreadsheets.google.com/feeds",
             'https://www.googleapis.com/auth/spreadsheets',
@@ -226,7 +229,8 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
         client = gspread.authorize(creds)
         sheet = client.open("Rio Verde").sheet1  # Open the spreadhseet
 
@@ -235,7 +239,6 @@ class DataTable():
         #Convertendo para o formato de data do Python
         #Convertendo para Null os campos sem valor
         for row in data:
-            print(row["Data"])
             row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
             for val in row:
                 if row[val] == '-' or row[val] == '':
