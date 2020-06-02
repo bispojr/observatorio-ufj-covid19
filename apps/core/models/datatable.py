@@ -16,7 +16,8 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
         client = gspread.authorize(creds)
         sheet = client.open("Jataí").sheet1  # Open the spreadhseet
 
@@ -86,7 +87,8 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
         client = gspread.authorize(creds)
         sheet = client.open("Chapadão do Céu").sheet1  # Open the spreadhseet
 
@@ -157,7 +159,8 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
         client = gspread.authorize(creds)
         sheet = client.open("Mineiros").sheet1  # Open the spreadhseet
 
