@@ -71,7 +71,8 @@ class Graficos(models.Model):
                 "data": "30 de maio"
             },
             "querysets": self.__cardDict(14, 5, 0, 0),
-            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao)
+            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao),
+            "tableJson": DataTable.chapadao()
         }
 
         return {**self.__commonValues(), **context}
@@ -108,7 +109,8 @@ class Graficos(models.Model):
                 "data": "31 de maio"
             },
             "querysets": self.__cardDict(37, 23, 0, 0),
-            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros)
+            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros),
+            "tableJson": DataTable.mineiros()
         }
 
         return {**self.__commonValues(), **context}
@@ -126,7 +128,8 @@ class Graficos(models.Model):
                 "data": "31 de maio"
             },
             "querysets": self.__cardDict(102, 26, 10, 2),
-            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde)
+            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde),
+            "tableJson": DataTable.rioverde()
         }
 
         return {**self.__commonValues(), **context}

@@ -28,6 +28,7 @@ class ChartBuilder_Mineiros():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-resumo',
+            "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-mineiros"
         }
 
@@ -42,6 +43,7 @@ class ChartBuilder_Mineiros():
                 ParametersChartBuilder.corGrafico["notificados"]
             ],
             "idDiv": 'mineiros-grafico-monitorados',
+            "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
 
@@ -63,6 +65,7 @@ class ChartBuilder_Mineiros():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-todas',
+            "tipo_grafico": "todas",
             "data_atualizacao": False
         }
 

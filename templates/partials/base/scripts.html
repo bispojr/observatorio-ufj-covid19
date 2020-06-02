@@ -14,10 +14,15 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
   crossorigin="anonymous">
 </script>
-  
+
+{% if script == "graficos-chapadao" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  {% include "grafico/buildChart.html" %}
+{% endif %}
+
 {% if script == "graficos-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  {% include "grafico/buildChartJatai.html" %}
+  {% include "grafico/buildChart.html" %}
 {% endif %}
 
 {% if  script == "graficos-mineiros" %}
@@ -26,11 +31,6 @@
 {% endif %}
 
 {% if script == "graficos-rioverde" %}
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  {% include "grafico/buildChart.html" %}
-{% endif %}
-
-{% if script == "graficos-chapadao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
 {% endif %}
