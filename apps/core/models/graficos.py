@@ -67,7 +67,7 @@ class Graficos(models.Model):
                 "nome_base": "chapadao",
                 "url_fonte": "http://www.chapadaodoceu.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
-                "data": "04 de junho"
+                "data": "05 de junho"
             },
             "querysets": self.__cardDict(14, 7, 0, 0),
             "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao)
@@ -102,9 +102,9 @@ class Graficos(models.Model):
                 "nome_base": "mineiros",
                 "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
                 "nome_fonte": "Secretaria de Saúde de Mineiros",
-                "data": "04 de junho"
+                "data": "05 de junho"
             },
-            "querysets": self.__cardDict(52, 26, 0, 0),
+            "querysets": self.__cardDict(53, 30, 0, 0),
             "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros)
         }
 
