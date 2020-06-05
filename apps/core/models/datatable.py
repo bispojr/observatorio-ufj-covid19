@@ -8,7 +8,7 @@ import json
 
 class DataTable(): 
     
-    def jatai():
+    def credentials():
         scope = [
             "https://spreadsheets.google.com/feeds",
             'https://www.googleapis.com/auth/spreadsheets',
@@ -16,8 +16,15 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
-        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+        #dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        #creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+
+        return creds
+    
+    def jatai(self):
+        
+        creds = self.credentials()
         client = gspread.authorize(creds)
         sheet = client.open("Jataí").sheet1  # Open the spreadhseet
 
@@ -79,16 +86,8 @@ class DataTable():
         }
         return tableJson
 
-    def chapadao():
-        scope = [
-            "https://spreadsheets.google.com/feeds",
-            'https://www.googleapis.com/auth/spreadsheets',
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/drive"
-        ]
-
-        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
-        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+    def chapadao(self):
+        creds = self.credentials()
         client = gspread.authorize(creds)
         sheet = client.open("Chapadão do Céu").sheet1  # Open the spreadhseet
 
@@ -151,16 +150,8 @@ class DataTable():
         }
         return tableJson
 
-    def mineiros():
-        scope = [
-            "https://spreadsheets.google.com/feeds",
-            'https://www.googleapis.com/auth/spreadsheets',
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/drive"
-        ]
-
-        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
-        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+    def mineiros(self):
+        creds = self.credentials()
         client = gspread.authorize(creds)
         sheet = client.open("Mineiros").sheet1  # Open the spreadhseet
 
@@ -223,17 +214,8 @@ class DataTable():
         }
         return tableJson
 
-    def rioverde():
-        
-        scope = [
-            "https://spreadsheets.google.com/feeds",
-            'https://www.googleapis.com/auth/spreadsheets',
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/drive"
-        ]
-
-        dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
-        creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+    def rioverde(self):
+        creds = self.credentials()
         client = gspread.authorize(creds)
         sheet = client.open("Rio Verde").sheet1  # Open the spreadhseet
 
