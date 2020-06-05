@@ -28,6 +28,7 @@ class ChartBuilder_Rio_Verde():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'rioverde-grafico-resumo',
+            "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-rioverde"
         }
 
@@ -43,6 +44,7 @@ class ChartBuilder_Rio_Verde():
                 
             ],
             "idDiv": 'rioverde-grafico-monitorados',
+            "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
 
@@ -63,6 +65,7 @@ class ChartBuilder_Rio_Verde():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'rioverde-grafico-todas',
+            "tipo_grafico": "todas",
             "data_atualizacao": False
         }
 

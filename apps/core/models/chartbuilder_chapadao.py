@@ -28,6 +28,7 @@ class ChartBuilder_Chapadao():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'chapadao-grafico-resumo',
+            "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-chapadao"
         }
 
@@ -42,6 +43,7 @@ class ChartBuilder_Chapadao():
                 ParametersChartBuilder.corGrafico["descartados"]
             ],
             "idDiv": 'chapadao-grafico-monitorados',
+            "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
 
@@ -63,6 +65,7 @@ class ChartBuilder_Chapadao():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'chapadao-grafico-todas',
+            "tipo_grafico": "todas",
             "data_atualizacao": False
         }
 
