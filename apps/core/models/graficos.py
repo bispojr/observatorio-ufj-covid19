@@ -1,9 +1,9 @@
 from django.db import models
 
-from .chartbuilder_chapadao import ChartBuilder_Chapadao
-from .chartbuilder_jatai import ChartBuilder_Jatai
-from .chartbuilder_mineiros import ChartBuilder_Mineiros
-from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
+from .chartbuilder.chapadao import Chapadao
+from .chartbuilder.jatai import Jatai
+from .chartbuilder.mineiros import Mineiros
+from .chartbuilder.rioverde import RioVerde
 from .datatable import DataTable
 
 from unidecode import unidecode
@@ -80,7 +80,7 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "cards": self._cardDict(14, 7, 0, 0),
-            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao),
+            "google_charts": Chapadao.getValores(Chapadao),
             "tableJson": DataTable.chapadao(DataTable)
         }
 
@@ -95,7 +95,7 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "cards": self._cardDict(14, 7, 0, 0),
-            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai),
+            "google_charts": Jatai.getValores(Jatai),
             "tableJson": DataTable.jatai(DataTable)
         }
 
@@ -110,7 +110,7 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "cards": self._cardDict(14, 7, 0, 0),
-            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros),
+            "google_charts": Mineiros.getValores(Mineiros),
             "tableJson": DataTable.mineiros(DataTable)
         }
         
@@ -125,7 +125,7 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "cards": self._cardDict(283, 33, 39, 4),
-            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde),
+            "google_charts": RioVerde.getValores(RioVerde),
             "tableJson": DataTable.rioverde(DataTable)
         }
         

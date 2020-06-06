@@ -1,8 +1,8 @@
-from .parameters_chartbuilder import ParametersChartBuilder
+from .parameters import Parameters
 
 import json
 
-class ChartBuilder_Rio_Verde(): 
+class RioVerde(): 
     
     def __geral():
 
@@ -17,10 +17,10 @@ class ChartBuilder_Rio_Verde():
 
         resumo = {
             "colors": [ 
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["confirmados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["confirmados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'rio-verde-grafico-resumo',
             "tipo_grafico": "resumo",
@@ -33,8 +33,8 @@ class ChartBuilder_Rio_Verde():
 
         monitorados = {
             "colors": [
-                ParametersChartBuilder.corGrafico["descartados"],
-                ParametersChartBuilder.corGrafico["monitorados"] 
+                Parameters.corGrafico["descartados"],
+                Parameters.corGrafico["monitorados"] 
                 
             ],
             "idDiv": 'rio-verde-grafico-monitorados',
@@ -48,14 +48,14 @@ class ChartBuilder_Rio_Verde():
 
         todas = {
             "colors": [
-                ParametersChartBuilder.corGrafico["descartados"],
-                ParametersChartBuilder.corGrafico["investigados"],
-                ParametersChartBuilder.corGrafico["isolados"],
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["monitorados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["confirmados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["descartados"],
+                Parameters.corGrafico["investigados"],
+                Parameters.corGrafico["isolados"],
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["monitorados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["confirmados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'rio-verde-grafico-todas',
             "tipo_grafico": "todas",

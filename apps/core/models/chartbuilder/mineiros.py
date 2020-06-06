@@ -1,8 +1,8 @@
-from .parameters_chartbuilder import ParametersChartBuilder
+from .parameters import Parameters
 
 import json
 
-class ChartBuilder_Mineiros(): 
+class Mineiros(): 
 
     def __geral():
         geral = {
@@ -16,10 +16,10 @@ class ChartBuilder_Mineiros():
         
         resumo = {
             "colors": [
-                ParametersChartBuilder.corGrafico["confirmados"], 
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["confirmados"], 
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-resumo',
             "tipo_grafico": "resumo",
@@ -32,8 +32,8 @@ class ChartBuilder_Mineiros():
 
         monitorados = {
             "colors": [
-                ParametersChartBuilder.corGrafico["monitorados"], 
-                ParametersChartBuilder.corGrafico["notificados"]
+                Parameters.corGrafico["monitorados"], 
+                Parameters.corGrafico["notificados"]
             ],
             "idDiv": 'mineiros-grafico-monitorados',
             "tipo_grafico": "monitorados",
@@ -46,15 +46,15 @@ class ChartBuilder_Mineiros():
 
         todas = {
             "colors": [
-                ParametersChartBuilder.corGrafico["confirmados"], 
-                ParametersChartBuilder.corGrafico["descartados"],
-                ParametersChartBuilder.corGrafico["investigados"],
-                ParametersChartBuilder.corGrafico["notificados"],
-                ParametersChartBuilder.corGrafico["isolados"],
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["monitorados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["confirmados"], 
+                Parameters.corGrafico["descartados"],
+                Parameters.corGrafico["investigados"],
+                Parameters.corGrafico["notificados"],
+                Parameters.corGrafico["isolados"],
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["monitorados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'mineiros-grafico-todas',
             "tipo_grafico": "todas",

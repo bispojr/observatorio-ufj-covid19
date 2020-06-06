@@ -9,8 +9,4 @@ from .colabore import Colabore
 from .tendencias import Tendencias
 from .equipe import Equipe
 from .noticias import Noticias
-from .parameters_chartbuilder import ParametersChartBuilder
-from .chartbuilder_chapadao import ChartBuilder_Chapadao
-from .chartbuilder_jatai import ChartBuilder_Jatai
-from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
 from .datatable import DataTable

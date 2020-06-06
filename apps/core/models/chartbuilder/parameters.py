@@ -2,7 +2,7 @@ from django.db import models
 
 import json
 
-class ParametersChartBuilder(models.Model): 
+class Parameters(): 
 
     corGrafico = { 
         "confirmados": "red",
