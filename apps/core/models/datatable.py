@@ -18,7 +18,7 @@ class DataTable():
 
         #dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
         #creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
-        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name("google-credentials.json", scope)
 
         return creds
     
