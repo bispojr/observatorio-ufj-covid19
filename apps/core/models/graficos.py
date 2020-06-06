@@ -90,8 +90,8 @@ class Graficos(models.Model):
                 "data": "05 de junho"
             },
             "querysets": self.__cardDict(101, 45, 1, 2),
-            "tableJson": DataTable.jatai(DataTable)
             "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai),
+            "tableJson": DataTable.jatai(DataTable)
         }
 
         return {**self.__commonValues(), **context}
