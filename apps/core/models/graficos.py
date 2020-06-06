@@ -84,9 +84,9 @@ class Graficos(models.Model):
                 "nome_base": "jatai",
                 "url_fonte": "https://www.jatai.go.gov.br/",
                 "nome_fonte": "Secretaria de Saúde de Jataí",
-                "data": "04 de junho"
+                "data": "05 de junho"
             },
-            "querysets": self.__cardDict(99, 45, 2, 2),
+            "querysets": self.__cardDict(101, 45, 1, 2),
             "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai)
         }
 
@@ -120,9 +120,9 @@ class Graficos(models.Model):
                 "nome_base": "rioverde",
                 "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
                 "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "04 de junho"
+                "data": "05 de junho"
             },
-            "querysets": self.__cardDict(227, 33, 30, 4),
+            "querysets": self.__cardDict(283, 33, 39, 4),
             "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde)
         }
 
