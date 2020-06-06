@@ -6,6 +6,8 @@ from datetime import datetime
 from django.conf import settings
 import json
 
+from .card import Card
+
 class DataTable(): 
     
     def credentials():
@@ -22,70 +24,6 @@ class DataTable():
 
         return creds
     
-    def jatai(self):
-        
-        creds = self.credentials()
-        client = gspread.authorize(creds)
-        sheet = client.open("Jataí").sheet1  # Open the spreadhseet
-
-        data = sheet.get_all_records()  # Get a list of all records
-
-        #Convertendo para o formato de data do Python
-        #Convertendo para Null os campos sem valor
-        for row in data:
-            row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
-            for val in row:
-                if row[val] == '-' or row[val] == '':
-                    row[val] = None
-
-        description = {
-            'Data': ("date", "Data"),
-            'Confirmados': ("number", "Confirmados"),
-            'Descartados': ("number", "Descartados"),
-            'Investigados': ("number", "Investigados"),
-            'Notificados': ("number", "Notificados"),
-            'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados"),
-            'Monitorados': ("number", "Monitorados"),
-            'Recuperados': ("number", "Recuperados"),
-            'Óbitos': ("number", "Óbitos")
-        }
-        # Loading it into gviz_api.DataTable
-        data_table = gviz_api.DataTable(description)
-        data_table.LoadData(data)
-
-        resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
-            order_by="Data"
-        )
-
-        monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Notificados"
-            ),
-            order_by="Data"
-        )
-
-        todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
-            order_by="Data"
-        )
-
-        tableJson = {
-            "resumo": resumoJson,
-            "monitorados": monitoradosJson,
-            "todas": todasJson
-        }
-        return tableJson
-
     def chapadao(self):
         creds = self.credentials()
         client = gspread.authorize(creds)
@@ -148,7 +86,77 @@ class DataTable():
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
-        return tableJson
+
+        cards = Card.getCards(data)
+
+        return tableJson, cards
+
+    def jatai(self):
+        
+        creds = self.credentials()
+        client = gspread.authorize(creds)
+        sheet = client.open("Jataí").sheet1  # Open the spreadhseet
+
+        data = sheet.get_all_records()  # Get a list of all records
+
+        #Convertendo para o formato de data do Python
+        #Convertendo para Null os campos sem valor
+        for row in data:
+            row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
+            for val in row:
+                if row[val] == '-' or row[val] == '':
+                    row[val] = None
+
+        description = {
+            'Data': ("date", "Data"),
+            'Confirmados': ("number", "Confirmados"),
+            'Descartados': ("number", "Descartados"),
+            'Investigados': ("number", "Investigados"),
+            'Notificados': ("number", "Notificados"),
+            'Isolados': ("number", "Isolados"),
+            'Internados': ("number", "Internados"),
+            'Monitorados': ("number", "Monitorados"),
+            'Recuperados': ("number", "Recuperados"),
+            'Óbitos': ("number", "Óbitos")
+        }
+        # Loading it into gviz_api.DataTable
+        data_table = gviz_api.DataTable(description)
+        data_table.LoadData(data)
+
+        resumoJson = data_table.ToJSon(
+            columns_order=(
+                "Data", "Confirmados", "Internados",
+                "Recuperados", "Óbitos"
+            ),
+            order_by="Data"
+        )
+
+        monitoradosJson = data_table.ToJSon(
+            columns_order=(
+                "Data", "Monitorados", "Notificados"
+            ),
+            order_by="Data"
+        )
+
+        todasJson = data_table.ToJSon(
+            columns_order=(
+                "Data", "Confirmados", "Descartados",
+                "Investigados", "Notificados", "Isolados",
+                "Internados", "Monitorados", "Recuperados",
+                "Óbitos"
+            ),
+            order_by="Data"
+        )
+
+        tableJson = {
+            "resumo": resumoJson,
+            "monitorados": monitoradosJson,
+            "todas": todasJson
+        }
+
+        cards = Card.getCards(data)
+
+        return tableJson, cards
 
     def mineiros(self):
         creds = self.credentials()
@@ -212,7 +220,10 @@ class DataTable():
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
-        return tableJson
+
+        cards = Card.getCards(data)
+
+        return tableJson, cards
 
     def rioverde(self):
         creds = self.credentials()
@@ -274,4 +285,7 @@ class DataTable():
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
-        return tableJson
+        
+        cards = Card.getCards(data)
+
+        return tableJson, cards

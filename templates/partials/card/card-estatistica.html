@@ -5,22 +5,22 @@
 			col-md-12 
 			col-12 mb-1 mx-1
 			text-center">
-			<strong class="h1 py-0">{{ informacoes.cidade }}</strong><br>
-			<span>{{ informacoes.data }}</span>
+			<strong class="h1 py-0">{{ cidade }}</strong><br>
+			<span>{{ cards.data }}</span>
 		</div>
-		{% for queryset in querysets %}
+		{% for card in cards.valores %}
 			<div 
 				class="mx-lg-2 my-lg-2	mb-lg-0	mx-2 mb-3" 
-				style="background-color: {{ queryset.cor }}; width: 180px; height: 72px; padding-left: 20px; padding-top: 10px;">
+				style="background-color: {{ card.cor }}; width: 180px; height: 72px; padding-left: 20px; padding-top: 10px;">
 				<div class="row">
 					<div class="col text-center d-inline">
-						<i class="{{ queryset.icone }}" style="font-size: 30px;"></i>
+						<i class="{{ card.icone }}" style="font-size: 30px;"></i>
 						<div style="">
-							{{ queryset.categoria }}
+							{{ card.categoria }}
 						</div>
 					</div>
 					<div class="col text-center d-inline" style="font-size: 40px; margin-left: -35px; margin-top: -3px;">
-						{{ queryset.numero }}
+						{{ card.numero }}
 					</div>
 				</div>
 			</div>
