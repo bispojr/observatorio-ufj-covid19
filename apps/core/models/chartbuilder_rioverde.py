@@ -5,12 +5,8 @@ import json
 class ChartBuilder_Rio_Verde(): 
     
     def __geral():
-        googleSheet = 'https://docs.google.com/spreadsheets/d/'
-        googleSheet += '1jrhI1EjA8KJNJ5CKEDe-oREPjeRnYviVKp9AJPPMlLE'
-        googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq='
 
         geral = {
-            "googleSheet": googleSheet,
             "xTitle": 'Dia/Mês',
             "yTitle": 'Número de casos'            
         }
@@ -20,16 +16,15 @@ class ChartBuilder_Rio_Verde():
     def __resumo(self):
 
         resumo = {
-            "query": 'SELECT A, G, I, B, J',
             "colors": [ 
                 ParametersChartBuilder.corGrafico["internados"],
                 ParametersChartBuilder.corGrafico["recuperados"],
                 ParametersChartBuilder.corGrafico["confirmados"],
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
-            "idDiv": 'rioverde-grafico-resumo',
+            "idDiv": 'rio-verde-grafico-resumo',
             "tipo_grafico": "resumo",
-            "data_atualizacao": "#data-atualizacao-rioverde"
+            "data_atualizacao": "#data-atualizacao-rio-verde"
         }
 
         return {**self.__geral(), **resumo}
@@ -37,13 +32,12 @@ class ChartBuilder_Rio_Verde():
     def __monitorados(self):
 
         monitorados = {
-            "query": 'SELECT A, C, H',
             "colors": [
                 ParametersChartBuilder.corGrafico["descartados"],
                 ParametersChartBuilder.corGrafico["monitorados"] 
                 
             ],
-            "idDiv": 'rioverde-grafico-monitorados',
+            "idDiv": 'rio-verde-grafico-monitorados',
             "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
@@ -53,7 +47,6 @@ class ChartBuilder_Rio_Verde():
     def __todas(self):
 
         todas = {
-            "query": 'SELECT A, C, D, F, G, H, I, B, J',
             "colors": [
                 ParametersChartBuilder.corGrafico["descartados"],
                 ParametersChartBuilder.corGrafico["investigados"],
@@ -64,7 +57,7 @@ class ChartBuilder_Rio_Verde():
                 ParametersChartBuilder.corGrafico["confirmados"],
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
-            "idDiv": 'rioverde-grafico-todas',
+            "idDiv": 'rio-verde-grafico-todas',
             "tipo_grafico": "todas",
             "data_atualizacao": False
         }

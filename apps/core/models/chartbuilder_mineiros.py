@@ -5,12 +5,7 @@ import json
 class ChartBuilder_Mineiros(): 
 
     def __geral():
-        googleSheet = 'https://docs.google.com/spreadsheets/d/'
-        googleSheet += '1MPFPI6nZvoPjSanXFcVqh3TrWDRJ7J5SXbhKkW6p5NY'
-        googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq='
-
         geral = {
-            "googleSheet": googleSheet,
             "xTitle": 'Dia/Mês',
             "yTitle": 'Número de casos'            
         }
@@ -20,7 +15,6 @@ class ChartBuilder_Mineiros():
     def __resumo(self):
         
         resumo = {
-            "query": 'SELECT A, E, I, H, G',
             "colors": [
                 ParametersChartBuilder.corGrafico["confirmados"], 
                 ParametersChartBuilder.corGrafico["internados"],
@@ -37,7 +31,6 @@ class ChartBuilder_Mineiros():
     def __monitorados(self):
 
         monitorados = {
-            "query": 'SELECT A, C, B',
             "colors": [
                 ParametersChartBuilder.corGrafico["monitorados"], 
                 ParametersChartBuilder.corGrafico["notificados"]
@@ -52,7 +45,6 @@ class ChartBuilder_Mineiros():
     def __todas(self):
 
         todas = {
-            "query": 'SELECT A, E, D, L, B, K, I, C, H, G',
             "colors": [
                 ParametersChartBuilder.corGrafico["confirmados"], 
                 ParametersChartBuilder.corGrafico["descartados"],

@@ -20,16 +20,15 @@ class ChartBuilder_Chapadao():
     def __resumo(self):
 
         resumo = {
-            "query": 'SELECT A, B, H, J, K',
             "colors": [
                 ParametersChartBuilder.corGrafico["confirmados"], 
                 ParametersChartBuilder.corGrafico["internados"],
                 ParametersChartBuilder.corGrafico["recuperados"],
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
-            "idDiv": 'chapadao-grafico-resumo',
+            "idDiv": 'chapadao-do-ceu-grafico-resumo',
             "tipo_grafico": "resumo",
-            "data_atualizacao": "#data-atualizacao-chapadao"
+            "data_atualizacao": "#data-atualizacao-chapadao-do-ceu"
         }
 
         return {**self.__geral(), **resumo}
@@ -42,7 +41,7 @@ class ChartBuilder_Chapadao():
                 ParametersChartBuilder.corGrafico["monitorados"], 
                 ParametersChartBuilder.corGrafico["descartados"]
             ],
-            "idDiv": 'chapadao-grafico-monitorados',
+            "idDiv": 'chapadao-do-ceu-grafico-monitorados',
             "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
@@ -64,7 +63,7 @@ class ChartBuilder_Chapadao():
                 ParametersChartBuilder.corGrafico["recuperados"],
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
-            "idDiv": 'chapadao-grafico-todas',
+            "idDiv": 'chapadao-do-ceu-grafico-todas',
             "tipo_grafico": "todas",
             "data_atualizacao": False
         }
