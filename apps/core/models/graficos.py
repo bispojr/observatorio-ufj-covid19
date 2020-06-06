@@ -1,135 +1,102 @@
 from django.db import models
 
-from .chartbuilder_chapadao import ChartBuilder_Chapadao
-from .chartbuilder_jatai import ChartBuilder_Jatai
-from .chartbuilder_mineiros import ChartBuilder_Mineiros
-from .chartbuilder_rioverde import ChartBuilder_Rio_Verde
-from .datatable import DataTable
+from .chartbuilder.chapadao import Chapadao
+from .chartbuilder.jatai import Jatai
+from .chartbuilder.mineiros import Mineiros
+from .chartbuilder.rioverde import RioVerde
+from .chartbuilder.datatable import DataTable
+
+from unidecode import unidecode
 
 class Graficos(models.Model): 
     
     def getContext(self, cidade):
-        if cidade == "jatai":
-            return self.__jatai(self)
-        if cidade == "mineiros":
-            return self.__mineiros(self)
-        if cidade == "rioverde":
-            return self.__rioverde(self)
         if cidade == "chapadao":
-            return self.__chapadao(self)
-    
-    def __commonValues():
+            return {**self._geral("Chapadão do Céu"), **self._chapadao(self)}
+        if cidade == "jatai":
+            return {**self._geral("Jataí"), **self._jatai(self)}
+        if cidade == "mineiros":
+            return {**self._geral("Mineiros"), **self._mineiros(self)}
+        if cidade == "rioverde":
+            return {**self._geral("Rio Verde"), **self._rioverde(self)}
+        
+    def _geral(cidade):
+
+        #Normalização
+        basename = unidecode(cidade)  #remove acentos
+        basename = basename.lower().replace(" ", "-")
+
         context = {            
             "grupo": "graficos",
             "grupo_link": "graficos",
-            "goias": 10,
-		    "brasil": 100,
+            "script": "graficos-" + basename,
+            "titulo": "Observatório UFJ Covid-19 - Gráficos (" + cidade +")",
+            "cidade": cidade,
+            "nome_base": basename,
+        }
+
+        return context
+    
+    def _chapadao(self):
+        #Informações Específicas
+        nome_fonte = "Secretaria de Saúde de Chapadão do Céu"
+        url_fonte = "http://www.chapadaodoceu.go.gov.br/"
+        tableJson, cards = DataTable.chapadao(DataTable)
+
+        context = {
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": Chapadao.getValores(Chapadao),
+            "tableJson": tableJson,
+            "cards": cards
         }
 
         return context
 
-    def __cardDict(conf_num, rec_num, int_num, obt_num):
-        values = [
-            {
-                "categoria": "Confirmados",
-                "numero": conf_num,
-                "cor": "red",
-                "icone": "fas fa-user-injured"
-            },
-            {
-                "categoria": "Recuperados",
-                "numero": rec_num,
-                "cor": "purple",
-                "icone": "fas fa-virus-slash"
-            },
-            {
-                "categoria": "Internados",
-                "numero": int_num,
-                "cor": "blue",
-                "icone": "fas fa-procedures"
-            },
-            {
-                "categoria": "Óbitos",
-                "numero": obt_num,
-                "cor": "black",
-                "icone": "fas fa-skull-crossbones"
-            }
-        ]
-
-        return values
-
-    def __chapadao(self):
-        context = {
-            "script": "graficos-chapadao",
-            "titulo": "Observatório UFJ Covid-19 - Gráficos (Chapadão do Céu)",
-		    "informacoes": {                
-                "grupo": "graficos",
-                "cidade": "Chapadão do Céu",
-                "nome_base": "chapadao",
-                "url_fonte": "http://www.chapadaodoceu.go.gov.br/",
-                "nome_fonte": "Secretaria de Saúde de Chapadão do Céu",
-                "data": "05 de junho"
-            },
-            "querysets": self.__cardDict(14, 7, 0, 0),
-            "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao),
-            "tableJson": DataTable.chapadao(DataTable)
-        }
-
-        return {**self.__commonValues(), **context}
-
-    def __jatai(self):
+    def _jatai(self):
+        #Informações Específicas
+        nome_fonte = "Secretaria de Saúde de Jataí"
+        url_fonte = "https://www.jatai.go.gov.br/"
+        tableJson, cards = DataTable.jatai(DataTable)
 
         context = {
-            "script": "graficos-jatai",
-            "titulo": "Observatório UFJ Covid-19 - Gráficos (Jataí)",
-            "informacoes": {                
-                "cidade": "Jataí",
-                "nome_base": "jatai",
-                "url_fonte": "https://www.jatai.go.gov.br/",
-                "nome_fonte": "Secretaria de Saúde de Jataí",
-                "data": "05 de junho"
-            },
-            "querysets": self.__cardDict(101, 45, 1, 2),
-            "google_charts": ChartBuilder_Jatai.getValores(ChartBuilder_Jatai),
-            "tableJson": DataTable.jatai(DataTable)
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": Jatai.getValores(Jatai),
+            "tableJson": tableJson,
+            "cards": cards
         }
 
-        return {**self.__commonValues(), **context}
+        return context
 
-    def __mineiros(self):
+    def _mineiros(self):
+        #Informações Específicas
+        nome_fonte = "Secretaria de Saúde de Mineiros"
+        url_fonte = "http://mineiros.go.gov.br/covid-19.php"
+        tableJson, cards = DataTable.mineiros(DataTable)
+
         context = {
-            "script": "graficos-mineiros",
-            "titulo": "Observatório UFJ Covid-19 - Gráficos (Mineiros)",
-		    "informacoes": {
-                "grupo": "graficos",
-                "cidade": "Mineiros",
-                "nome_base": "mineiros",
-                "url_fonte": "http://mineiros.go.gov.br/covid-19.php",
-                "nome_fonte": "Secretaria de Saúde de Mineiros",
-                "data": "05 de junho"
-            },
-            "querysets": self.__cardDict(53, 30, 0, 0),
-            "google_charts": ChartBuilder_Mineiros.getValores(ChartBuilder_Mineiros),
-            "tableJson": DataTable.mineiros(DataTable)
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": Mineiros.getValores(Mineiros),
+            "tableJson": tableJson,
+            "cards": cards
         }
+        
+        return context
 
-        return {**self.__commonValues(), **context}
+    def _rioverde(self):
+        #Informações Específicas
+        nome_fonte = "Secretaria de Saúde de Rio Verde"
+        url_fonte = "https://www.rioverde.go.gov.br/covid19/"
+        tableJson, cards = DataTable.rioverde(DataTable)
 
-    def __rioverde(self):
         context = {
-            "script": "graficos-rioverde",
-            "titulo": "Observatório UFJ Covid-19 - Gráficos (Rio Verde)",
-		    "informacoes": {                
-                "grupo": "graficos",
-                "cidade": "Rio Verde",
-                "nome_base": "rioverde",
-                "url_fonte": "https://www.rioverde.go.gov.br/covid19/",
-                "nome_fonte": "Secretaria de Saúde de Rio Verde",
-                "data": "05 de junho"
-            },
-            "querysets": self.__cardDict(283, 33, 39, 4),
-            "google_charts": ChartBuilder_Rio_Verde.getValores(ChartBuilder_Rio_Verde),
-            "tableJson": DataTable.rioverde(DataTable)
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": RioVerde.getValores(RioVerde),
+            "tableJson": tableJson,
+            "cards": cards
         }
-
-        return {**self.__commonValues(), **context}
+        
+        return context

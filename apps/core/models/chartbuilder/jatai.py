@@ -1,8 +1,8 @@
-from .parameters_chartbuilder import ParametersChartBuilder
+from .parameters import Parameters
 
 import json
 
-class ChartBuilder_Jatai(): 
+class Jatai(): 
 
     def __geral():
 
@@ -16,10 +16,10 @@ class ChartBuilder_Jatai():
     def __resumo(self):
         resumo = {
             "colors": [
-                ParametersChartBuilder.corGrafico["confirmados"], 
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["confirmados"], 
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-resumo',
             "tipo_grafico": "resumo",
@@ -32,8 +32,8 @@ class ChartBuilder_Jatai():
 
         monitorados = {
             "colors": [
-                ParametersChartBuilder.corGrafico["monitorados"], 
-                ParametersChartBuilder.corGrafico["notificados"]
+                Parameters.corGrafico["monitorados"], 
+                Parameters.corGrafico["notificados"]
             ],
             "idDiv": 'jatai-grafico-monitorados',
             "tipo_grafico": "monitorados",
@@ -46,15 +46,15 @@ class ChartBuilder_Jatai():
 
         todas = {
             "colors": [
-                ParametersChartBuilder.corGrafico["confirmados"], 
-                ParametersChartBuilder.corGrafico["descartados"],
-                ParametersChartBuilder.corGrafico["investigados"],
-                ParametersChartBuilder.corGrafico["notificados"],
-                ParametersChartBuilder.corGrafico["isolados"],
-                ParametersChartBuilder.corGrafico["internados"],
-                ParametersChartBuilder.corGrafico["monitorados"],
-                ParametersChartBuilder.corGrafico["recuperados"],
-                ParametersChartBuilder.corGrafico["obitos"]
+                Parameters.corGrafico["confirmados"], 
+                Parameters.corGrafico["descartados"],
+                Parameters.corGrafico["investigados"],
+                Parameters.corGrafico["notificados"],
+                Parameters.corGrafico["isolados"],
+                Parameters.corGrafico["internados"],
+                Parameters.corGrafico["monitorados"],
+                Parameters.corGrafico["recuperados"],
+                Parameters.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-todas',
             "tipo_grafico": "todas",

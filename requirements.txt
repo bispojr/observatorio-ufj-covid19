@@ -46,6 +46,7 @@ pexpect==4.2.1
 Pillow==7.1.2
 pipenv==2018.11.26
 protobuf==3.12.2
+psycopg2-binary==2.8.5
 ptyprocess==0.6.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -72,6 +73,7 @@ six==1.14.0
 soupsieve==2.0.1
 sqlparse==0.3.1
 static3==0.7.0
+Unidecode==1.1.1
 uritemplate==3.0.1
 urllib3==1.25.9
 virtualenv==20.0.18
