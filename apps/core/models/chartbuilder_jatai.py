@@ -5,12 +5,8 @@ import json
 class ChartBuilder_Jatai(): 
 
     def __geral():
-        googleSheet = 'https://docs.google.com/spreadsheets/d/'
-        googleSheet += '1nCDjAvdEWVzwJjLhRkkVHiw2SK63SKcYXb7doIUI5VQ'
-        googleSheet += '/gviz/tq?sheet=Dados&headers=1&tq='
 
         geral = {
-            "googleSheet": googleSheet,
             "xTitle": 'Dia/Mês',
             "yTitle": 'Número de casos'            
         }
@@ -19,7 +15,6 @@ class ChartBuilder_Jatai():
 
     def __resumo(self):
         resumo = {
-            "query": 'SELECT A, B, G, I, J',
             "colors": [
                 ParametersChartBuilder.corGrafico["confirmados"], 
                 ParametersChartBuilder.corGrafico["internados"],
@@ -27,6 +22,7 @@ class ChartBuilder_Jatai():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-resumo',
+            "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-jatai"
         }
 
@@ -35,12 +31,12 @@ class ChartBuilder_Jatai():
     def __monitorados(self):
 
         monitorados = {
-            "query": 'SELECT A, H, E',
             "colors": [
                 ParametersChartBuilder.corGrafico["monitorados"], 
                 ParametersChartBuilder.corGrafico["notificados"]
             ],
             "idDiv": 'jatai-grafico-monitorados',
+            "tipo_grafico": "monitorados",
             "data_atualizacao": False
         }
 
@@ -49,7 +45,6 @@ class ChartBuilder_Jatai():
     def __todas(self):
 
         todas = {
-            "query": 'SELECT A, B, C, D, E, F, G, H, I, J',
             "colors": [
                 ParametersChartBuilder.corGrafico["confirmados"], 
                 ParametersChartBuilder.corGrafico["descartados"],
@@ -62,6 +57,7 @@ class ChartBuilder_Jatai():
                 ParametersChartBuilder.corGrafico["obitos"]
             ],
             "idDiv": 'jatai-grafico-todas',
+            "tipo_grafico": "todas",
             "data_atualizacao": False
         }
 
