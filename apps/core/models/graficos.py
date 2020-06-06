@@ -4,7 +4,7 @@ from .chartbuilder.chapadao import Chapadao
 from .chartbuilder.jatai import Jatai
 from .chartbuilder.mineiros import Mineiros
 from .chartbuilder.rioverde import RioVerde
-from .datatable import DataTable
+from .chartbuilder.datatable import DataTable
 
 from unidecode import unidecode
 
@@ -36,52 +36,19 @@ class Graficos(models.Model):
         }
 
         return context
-
-    def _cardDict(conf_num, rec_num, int_num, obt_num):
-        
-        cards = {
-            "data": "05 de junho",
-            "valores": [
-                {
-                    "categoria": "Confirmados",
-                    "numero": conf_num,
-                    "cor": "red",
-                    "icone": "fas fa-user-injured"
-                },
-                {
-                    "categoria": "Recuperados",
-                    "numero": rec_num,
-                    "cor": "purple",
-                    "icone": "fas fa-virus-slash"
-                },
-                {
-                    "categoria": "Internados",
-                    "numero": int_num,
-                    "cor": "blue",
-                    "icone": "fas fa-procedures"
-                },
-                {
-                    "categoria": "Óbitos",
-                    "numero": obt_num,
-                    "cor": "black",
-                    "icone": "fas fa-skull-crossbones"
-                }
-            ]
-        }
-
-        return cards
     
     def _chapadao(self):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Chapadão do Céu"
         url_fonte = "http://www.chapadaodoceu.go.gov.br/"
+        tableJson, cards = DataTable.chapadao(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
-            "cards": self._cardDict(14, 7, 0, 0),
             "google_charts": Chapadao.getValores(Chapadao),
-            "tableJson": DataTable.chapadao(DataTable)
+            "tableJson": tableJson,
+            "cards": cards
         }
 
         return context
@@ -90,13 +57,14 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Jataí"
         url_fonte = "https://www.jatai.go.gov.br/"
+        tableJson, cards = DataTable.jatai(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
-            "cards": self._cardDict(14, 7, 0, 0),
             "google_charts": Jatai.getValores(Jatai),
-            "tableJson": DataTable.jatai(DataTable)
+            "tableJson": tableJson,
+            "cards": cards
         }
 
         return context
@@ -105,13 +73,14 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Mineiros"
         url_fonte = "http://mineiros.go.gov.br/covid-19.php"
+        tableJson, cards = DataTable.mineiros(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
-            "cards": self._cardDict(14, 7, 0, 0),
             "google_charts": Mineiros.getValores(Mineiros),
-            "tableJson": DataTable.mineiros(DataTable)
+            "tableJson": tableJson,
+            "cards": cards
         }
         
         return context
@@ -120,13 +89,14 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Rio Verde"
         url_fonte = "https://www.rioverde.go.gov.br/covid19/"
+        tableJson, cards = DataTable.rioverde(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
-            "cards": self._cardDict(283, 33, 39, 4),
             "google_charts": RioVerde.getValores(RioVerde),
-            "tableJson": DataTable.rioverde(DataTable)
+            "tableJson": tableJson,
+            "cards": cards
         }
         
         return context
