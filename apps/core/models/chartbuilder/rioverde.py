@@ -17,12 +17,7 @@ class RioVerde():
     def __resumo(self):
 
         resumo = {
-            "colors": [ 
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["confirmados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "resumo"),
             "idDiv": 'rio-verde-grafico-resumo',
             "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-rio-verde"
@@ -33,11 +28,7 @@ class RioVerde():
     def __monitorados(self):
 
         monitorados = {
-            "colors": [
-                Parameters.corGrafico["descartados"],
-                Parameters.corGrafico["monitorados"] 
-                
-            ],
+            "colors": Parameters.cores(Parameters, "monitorados"),
             "idDiv": 'rio-verde-grafico-monitorados',
             "tipo_grafico": "monitorados",
             "data_atualizacao": False
@@ -48,16 +39,7 @@ class RioVerde():
     def __todas(self):
 
         todas = {
-            "colors": [
-                Parameters.corGrafico["descartados"],
-                Parameters.corGrafico["investigados"],
-                Parameters.corGrafico["isolados"],
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["monitorados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["confirmados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "todas"),
             "idDiv": 'rio-verde-grafico-todas',
             "tipo_grafico": "todas",
             "data_atualizacao": False

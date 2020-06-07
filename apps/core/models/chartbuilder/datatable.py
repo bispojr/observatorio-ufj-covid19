@@ -8,6 +8,7 @@ import json
 
 from .card import Card
 from .tick import Tick
+from .parameters import Parameters
 
 class DataTable(): 
     
@@ -58,45 +59,28 @@ class DataTable():
         data_table.LoadData(data)
 
         # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksResumo = Tick.getTicks(data, [
-            "Data", "Confirmados", "Internados",
-            "Recuperados", "Óbitos"
-        ])
+        ticksResumo = Tick.getTicks(data, categorias)
 
         # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Descartados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksMonitorados = Tick.getTicks(data, [
-            "Data", "Monitorados", "Descartados"
-        ])
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
         # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksTodas = Tick.getTicks(data, [
-            "Data", "Confirmados", "Descartados",
-            "Investigados", "Notificados", "Isolados",
-            "Internados", "Monitorados", "Recuperados",
-            "Óbitos"
-        ])
+        ticksTodas = Tick.getTicks(data, categorias)
 
         # Preparação da saída
         tableJson = {
@@ -148,45 +132,28 @@ class DataTable():
         data_table.LoadData(data)
 
         # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksResumo = Tick.getTicks(data, [
-            "Data", "Confirmados", "Internados",
-            "Recuperados", "Óbitos"
-        ])
+        ticksResumo = Tick.getTicks(data, categorias)
 
         # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Notificados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksMonitorados = Tick.getTicks(data, [
-            "Data", "Monitorados", "Notificados"
-        ])
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
         # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksTodas = Tick.getTicks(data, [
-            "Data", "Confirmados", "Descartados",
-            "Investigados", "Notificados", "Isolados",
-            "Internados", "Monitorados", "Recuperados",
-            "Óbitos"
-        ])
+        ticksTodas = Tick.getTicks(data, categorias)
 
         # Preparação da saída
         tableJson = {
@@ -228,7 +195,7 @@ class DataTable():
             'Suspeitos': ("number", "Suspeitos"),
             'Notificados': ("number", "Notificados"),
             'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados (UTI)"),
+            'Internados': ("number", "Internados"),
             'Monitorados': ("number", "Monitorados"),
             'Recuperados': ("number", "Recuperados"),
             'Óbitos': ("number", "Óbitos")
@@ -238,44 +205,28 @@ class DataTable():
         data_table.LoadData(data)
 
         # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksResumo = Tick.getTicks(data, [
-            "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-        ])
+        ticksResumo = Tick.getTicks(data, categorias)
 
         # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Descartados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksMonitorados = Tick.getTicks(data, [
-            "Data", "Monitorados", "Descartados"
-        ])
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
         # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Notificados", "Isolados", "Internados", 
-                "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksTodas = Tick.getTicks(data, [
-            "Data", "Confirmados", "Descartados", "Notificados", 
-            "Isolados", "Internados", "Monitorados", "Recuperados",
-            "Óbitos"
-        ])
+        ticksTodas = Tick.getTicks(data, categorias)
 
         # Preparação da saída
         tableJson = {
@@ -326,43 +277,28 @@ class DataTable():
         data_table.LoadData(data)
 
         # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Internados",
-                "Recuperados", "Confirmados",  "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksResumo = Tick.getTicks(data, [
-            "Data", "Internados",
-                "Recuperados", "Confirmados",  "Óbitos"
-        ])
+        ticksResumo = Tick.getTicks(data, categorias)
 
         # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Descartados", "Monitorados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksMonitorados = Tick.getTicks(data, [
-            "Data", "Descartados", "Monitorados"
-        ])
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
         # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Descartados", "Investigados", "Isolados", 
-                "Internados", "Monitorados", "Recuperados", "Confirmados", 
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksTodas = Tick.getTicks(data, [
-            "Data", "Descartados", "Investigados", "Isolados", 
-            "Internados", "Monitorados", "Recuperados", "Confirmados", 
-            "Óbitos"
-        ])
+        ticksTodas = Tick.getTicks(data, categorias)
 
         # Preparação da saída
         tableJson = {

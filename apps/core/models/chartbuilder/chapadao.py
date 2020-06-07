@@ -17,12 +17,7 @@ class Chapadao():
     def __resumo(self):
 
         resumo = {
-            "colors": [
-                Parameters.corGrafico["confirmados"], 
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "resumo"),
             "idDiv": 'chapadao-do-ceu-grafico-resumo',
             "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-chapadao-do-ceu"
@@ -33,10 +28,7 @@ class Chapadao():
     def __monitorados(self):
 
         monitorados = {
-            "colors": [
-                Parameters.corGrafico["monitorados"], 
-                Parameters.corGrafico["descartados"]
-            ],
+            "colors": Parameters.cores(Parameters, "monitorados"),
             "idDiv": 'chapadao-do-ceu-grafico-monitorados',
             "tipo_grafico": "monitorados",
             "data_atualizacao": False
@@ -47,17 +39,7 @@ class Chapadao():
     def __todas(self):
 
         todas = {
-            "colors": [
-                Parameters.corGrafico["confirmados"], 
-                Parameters.corGrafico["descartados"],
-                Parameters.corGrafico["investigados"],
-                Parameters.corGrafico["notificados"],
-                Parameters.corGrafico["isolados"],
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["monitorados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "todas"),
             "idDiv": 'chapadao-do-ceu-grafico-todas',
             "tipo_grafico": "todas",
             "data_atualizacao": False
