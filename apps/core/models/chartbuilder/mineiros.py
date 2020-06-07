@@ -7,7 +7,8 @@ class Mineiros():
     def __geral():
         geral = {
             "xTitle": 'Dia/Mês',
-            "yTitle": 'Número de casos'            
+            "yTitle": 'Número de casos',
+            "minY": 0 
         }
 
         return geral

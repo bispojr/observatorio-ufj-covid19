@@ -8,7 +8,8 @@ class Jatai():
 
         geral = {
             "xTitle": 'Dia/Mês',
-            "yTitle": 'Número de casos'            
+            "yTitle": 'Número de casos',
+            "minY": 0            
         }
 
         return geral
