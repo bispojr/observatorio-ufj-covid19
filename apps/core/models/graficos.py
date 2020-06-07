@@ -41,14 +41,16 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Chapadão do Céu"
         url_fonte = "http://www.chapadaodoceu.go.gov.br/"
-        tableJson, cards = DataTable.chapadao(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.chapadao(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": Chapadao.getValores(Chapadao),
             "tableJson": tableJson,
-            "cards": cards
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
         }
 
         return context
@@ -57,14 +59,17 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Jataí"
         url_fonte = "https://www.jatai.go.gov.br/"
-        tableJson, cards = DataTable.jatai(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.jatai(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": Jatai.getValores(Jatai),
             "tableJson": tableJson,
-            "cards": cards
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
+            
         }
 
         return context
@@ -73,14 +78,16 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Mineiros"
         url_fonte = "http://mineiros.go.gov.br/covid-19.php"
-        tableJson, cards = DataTable.mineiros(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.mineiros(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": Mineiros.getValores(Mineiros),
             "tableJson": tableJson,
-            "cards": cards
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
         }
         
         return context
@@ -89,14 +96,16 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Rio Verde"
         url_fonte = "https://www.rioverde.go.gov.br/covid19/"
-        tableJson, cards = DataTable.rioverde(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.rioverde(DataTable)
 
         context = {
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": RioVerde.getValores(RioVerde),
             "tableJson": tableJson,
-            "cards": cards
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
         }
         
         return context

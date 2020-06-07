@@ -7,6 +7,8 @@ from django.conf import settings
 import json
 
 from .card import Card
+from .tick import Tick
+from .parameters import Parameters
 
 class DataTable(): 
     
@@ -56,40 +58,46 @@ class DataTable():
         data_table = gviz_api.DataTable(description)
         data_table.LoadData(data)
 
+        # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksResumo = Tick.getTicks(data, categorias)
 
+        # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Descartados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
+        # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksTodas = Tick.getTicks(data, categorias)
 
+        # Preparação da saída
         tableJson = {
             "resumo": resumoJson,
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
 
-        cards = Card.getCards(data)
+        ticks = {
+            "resumo": json.dumps(ticksResumo),            
+            "monitorados": json.dumps(ticksMonitorados),
+            "todas": json.dumps(ticksTodas)
+        }
 
-        return tableJson, cards
+        cards, data_completa = Card.getCards(data)
+
+        return tableJson, ticks, cards, data_completa
 
     def jatai(self):
         
@@ -123,40 +131,46 @@ class DataTable():
         data_table = gviz_api.DataTable(description)
         data_table.LoadData(data)
 
+        # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksResumo = Tick.getTicks(data, categorias)
 
+        # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Notificados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
+        # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksTodas = Tick.getTicks(data, categorias)
 
+        # Preparação da saída
         tableJson = {
             "resumo": resumoJson,
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
 
-        cards = Card.getCards(data)
+        ticks = {
+            "resumo": json.dumps(ticksResumo),            
+            "monitorados": json.dumps(ticksMonitorados),
+            "todas": json.dumps(ticksTodas)
+        }
 
-        return tableJson, cards
+        cards, data_completa = Card.getCards(data)
+
+        return tableJson, ticks, cards, data_completa
 
     def mineiros(self):
         creds = self.credentials()
@@ -181,7 +195,7 @@ class DataTable():
             'Suspeitos': ("number", "Suspeitos"),
             'Notificados': ("number", "Notificados"),
             'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados (UTI)"),
+            'Internados': ("number", "Internados"),
             'Monitorados': ("number", "Monitorados"),
             'Recuperados': ("number", "Recuperados"),
             'Óbitos': ("number", "Óbitos")
@@ -190,40 +204,46 @@ class DataTable():
         data_table = gviz_api.DataTable(description)
         data_table.LoadData(data)
 
+        # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Internados",
-                "Recuperados", "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksResumo = Tick.getTicks(data, categorias)
 
+        # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Monitorados", "Descartados"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
+        # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Confirmados", "Descartados",
-                "Investigados", "Notificados", "Isolados",
-                "Internados", "Monitorados", "Recuperados",
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksTodas = Tick.getTicks(data, categorias)
 
+        # Preparação da saída
         tableJson = {
             "resumo": resumoJson,
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
 
-        cards = Card.getCards(data)
+        ticks = {
+            "resumo": json.dumps(ticksResumo),            
+            "monitorados": json.dumps(ticksMonitorados),
+            "todas": json.dumps(ticksTodas)
+        }
 
-        return tableJson, cards
+        cards, data_completa = Card.getCards(data)
+
+        return tableJson, ticks, cards, data_completa
 
     def rioverde(self):
         creds = self.credentials()
@@ -256,36 +276,43 @@ class DataTable():
         data_table = gviz_api.DataTable(description)
         data_table.LoadData(data)
 
+        # Resumo
+        categorias = Parameters.categorias(Parameters, "resumo", True)
         resumoJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Internados",
-                "Recuperados", "Confirmados",  "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksResumo = Tick.getTicks(data, categorias)
 
+        # Monitorados
+        categorias = Parameters.categorias(Parameters, "monitorados", True)
         monitoradosJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Descartados", "Monitorados",
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksMonitorados = Tick.getTicks(data, categorias)
 
+        # Todas
+        categorias = Parameters.categorias(Parameters, "todas", True)
         todasJson = data_table.ToJSon(
-            columns_order=(
-                "Data", "Descartados", "Investigados", "Isolados", 
-                "Internados", "Monitorados", "Recuperados", "Confirmados", 
-                "Óbitos"
-            ),
+            columns_order=tuple(categorias),
             order_by="Data"
         )
+        ticksTodas = Tick.getTicks(data, categorias)
 
+        # Preparação da saída
         tableJson = {
             "resumo": resumoJson,
             "monitorados": monitoradosJson,
             "todas": todasJson
         }
-        
-        cards = Card.getCards(data)
 
-        return tableJson, cards
+        ticks = {
+            "resumo": json.dumps(ticksResumo),            
+            "monitorados": json.dumps(ticksMonitorados),
+            "todas": json.dumps(ticksTodas)
+        }
+
+        cards, data_completa = Card.getCards(data)
+
+        return tableJson, ticks, cards, data_completa

@@ -33,6 +33,8 @@ class Card():
         data_card += " de " 
         data_card += mes[data_atualizacao.month-1]
 
+        data_completa = data_card + " de " + str(data_atualizacao.year)
+
         cards = {
             "data": data_card,
             "valores": [
@@ -63,4 +65,4 @@ class Card():
             ]
         }
 
-        return cards
+        return cards, data_completa
