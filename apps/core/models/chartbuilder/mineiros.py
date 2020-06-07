@@ -7,7 +7,8 @@ class Mineiros():
     def __geral():
         geral = {
             "xTitle": 'Dia/Mês',
-            "yTitle": 'Número de casos'            
+            "yTitle": 'Número de casos',
+            "minY": 0 
         }
 
         return geral
@@ -15,12 +16,7 @@ class Mineiros():
     def __resumo(self):
         
         resumo = {
-            "colors": [
-                Parameters.corGrafico["confirmados"], 
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "resumo"),
             "idDiv": 'mineiros-grafico-resumo',
             "tipo_grafico": "resumo",
             "data_atualizacao": "#data-atualizacao-mineiros"
@@ -31,10 +27,7 @@ class Mineiros():
     def __monitorados(self):
 
         monitorados = {
-            "colors": [
-                Parameters.corGrafico["monitorados"], 
-                Parameters.corGrafico["notificados"]
-            ],
+            "colors": Parameters.cores(Parameters, "monitorados"),
             "idDiv": 'mineiros-grafico-monitorados',
             "tipo_grafico": "monitorados",
             "data_atualizacao": False
@@ -45,17 +38,7 @@ class Mineiros():
     def __todas(self):
 
         todas = {
-            "colors": [
-                Parameters.corGrafico["confirmados"], 
-                Parameters.corGrafico["descartados"],
-                Parameters.corGrafico["investigados"],
-                Parameters.corGrafico["notificados"],
-                Parameters.corGrafico["isolados"],
-                Parameters.corGrafico["internados"],
-                Parameters.corGrafico["monitorados"],
-                Parameters.corGrafico["recuperados"],
-                Parameters.corGrafico["obitos"]
-            ],
+            "colors": Parameters.cores(Parameters, "todas"),
             "idDiv": 'mineiros-grafico-todas',
             "tipo_grafico": "todas",
             "data_atualizacao": False
