@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="container pt-4 px-5 pb-4 geral-bg">
+        <h1 class="pb-4">Boletim Epidemiológico (Login)</h1>
+        <form>
+            <div class="form-group">
+                <label for="campo-cidade">Cidade</label>
+                <select class="form-control" id="campo-cidade">
+                    <option>Chapadão do Céu</option>
+                    <option>Jataí</option>
+                    <option>Mineiros</option>
+                    <option>Rio Verde</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+    </div>
+{% endblock %}

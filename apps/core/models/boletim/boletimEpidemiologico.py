@@ -28,12 +28,22 @@ class BoletimEpidemiologico(models.Model):
         verbose_name="Uuid", default=uuid.uuid4, editable=False
     )
 
-
     def __str__(self):
         return self.cidade + ": " + self.data_atualizacao
-
 
     class Meta:
         unique_together = ('cidade', 'data_atualizacao')
         verbose_name = "Boletim"
         verbose_name_plural = "Boletins"
+
+    def getContext(self):
+        return self._contextLogin(self)
+
+    def _contextLogin(self):
+        context = {
+            "grupo": "geral",
+            "grupo_link": "boletim",
+            "script": "boletim",
+            "titulo": "Observatório UFJ Covid-19 - Boletim Epidemiológico (Login)"
+        }  
+        return context

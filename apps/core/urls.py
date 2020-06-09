@@ -1,10 +1,11 @@
 from django.urls import path, include
-from .views import ( home, grafico, comparacao, 
-                     como_sao_criados, tendencias,
-                     sobre, equipe, na_midia, colabore,
-                     noticias, api_brasil_estado, api_brasil_geral,
-                     quantidade_estado_goias, quantidade_geral_brasil
-                    )
+from .views import ( 
+    api_brasil_estado, api_brasil_geral,
+    boletim_login, como_sao_criados, colabore, 
+    comparacao, equipe, grafico, home, 
+    na_midia, noticias, quantidade_estado_goias, 
+    quantidade_geral_brasil, sobre, tendencias
+)
 
 app_name = "core"
 urlpatterns = [
@@ -24,6 +25,9 @@ urlpatterns = [
     path("na-midia/", na_midia, name="na-midia"),
     path("colabore/", colabore, name="colabore"),
     path("noticias/", noticias, name="noticia"),
+
+    # boletim
+    path("boletim/login/", boletim_login, name="boletim-login"),
 
     # https://brasil.io/api/dataset/covid19/caso/data/
     path("api_brasil_estado/", api_brasil_estado, name="api_brasil_estado"),
