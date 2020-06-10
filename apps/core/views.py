@@ -14,11 +14,48 @@ from .models import Tendencias
 from .models import Equipe
 from .models import Noticias
 
+from .form import BoletimEpidemiologicoForm
+
 import csv 
 from django.conf import settings
 from pprint import pprint
 from datetime import datetime
 from apps.core.models.boletimEpidemiologico import BoletimEpidemiologico
+
+
+def formBoletimEpidemiologico(request):
+	if request.method == 'POST':
+		form = BoletimEpidemiologicoForm(request.POST)
+		if form.is_valid():
+			cidade = form.cleaned_data['cidade']
+			data_atualizacao = form.cleaned_data['data_atualizacao']
+			fonte_oficial = form.cleaned_data['fonte_oficial']			
+			confirmados = form.cleaned_data['confirmados']			
+			recuperados = form.cleaned_data['recuperados']			
+			obitos = form.cleaned_data['obitos']			
+			suspeitos = form.cleaned_data['suspeitos']			
+			investigados = form.cleaned_data['investigados']			
+			descartados = form.cleaned_data['descartados']			
+			monitorados = form.cleaned_data['monitorados']			
+			notificados = form.cleaned_data['notificados']			
+			isolados = form.cleaned_data['isolados']			
+			internados = form.cleaned_data['internados']			
+			enfermaria = form.cleaned_data['enfermaria']			
+			uti = form.cleaned_data['uti']	
+
+			BoletimEpidemiologico(cidade = cidade, data_atualizacao = data_atualizacao, 
+			fonte_oficial = fonte_oficial, confirmados = confirmados, 
+			recuperados = recuperados, obitos = obitos, suspeitos = suspeitos, 
+			investigados = investigados, descartados = descartados, 
+			monitorados = monitorados, notificados = notificados, isolados = isolados, 
+			internados = internados, enfermaria = enfermaria, uti = uti).save()	
+	else:
+		form = BoletimEpidemiologicoForm()
+
+	url = "form.html"
+	context = {'form': form}
+
+	return render(request, url, context)
 
 def home(request):
 	url = "base.html"
