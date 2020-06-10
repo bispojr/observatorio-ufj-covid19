@@ -18,9 +18,9 @@ def noticias(request):
 
 	return render(request, url, context)
 
-@require_GET
-def tendencias(request, cidade):
-    informacoes = Tendencias.get_informações(Tendencias, cidade)
-    url = "tendencias/cidade.html"
+# @require_GET
+# def tendencias(request, cidade):
+#     informacoes = Tendencias.get_informações(Tendencias, cidade)
+#     url = "tendencias/cidade.html"
 
-    return render(request, url, informacoes)
+#     return render(request, url, informacoes)
