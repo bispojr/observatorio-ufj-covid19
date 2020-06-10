@@ -11,6 +11,7 @@ class Card():
         rec_num = ultimo_registro["Recuperados"]
         int_num = ultimo_registro["Internados"]
         obt_num = ultimo_registro["Óbitos"]
+        hora = ultimo_registro["Hora"]
 
         if ultimo_registro["Confirmados"] == None:
             conf_num = 0
@@ -21,7 +22,29 @@ class Card():
         if ultimo_registro["Óbitos"] == None:
             obt_num = 0
 
-        #Manipulação da data
+        #Manipulação da data dos cards
+        data_atualizacao = ultimo_registro["Data"]
+        mes = [
+            "jan", "fev", "mar", 
+            "abr", "mai", "jun", 
+            "jul", "ago", "set", 
+            "out", "nov", "dez"
+        ]
+        data_card = ""
+        if data_atualizacao.day < 10:
+            data_card += "0"
+        data_card += str(data_atualizacao.day)
+        data_card += " " 
+        data_card += mes[data_atualizacao.month-1]
+        data_card += " " 
+        data_card += str(data_atualizacao.year)[2:4]
+        data_card += " | "
+
+        hora = hora.split(":")
+        hora = hora[0] + "h" + hora[1]
+        data_card += hora
+
+        #Manipulação da data completa
         data_atualizacao = ultimo_registro["Data"]
         mes = [
             "janeiro", "fevereiro", "março", 
@@ -29,11 +52,10 @@ class Card():
             "julho", "agosto", "setembro", 
             "outubro", "novembro", "dezembro"
         ]
-        data_card = str(data_atualizacao.day)
-        data_card += " de " 
-        data_card += mes[data_atualizacao.month-1]
-
-        data_completa = data_card + " de " + str(data_atualizacao.year)
+        data_completa = str(data_atualizacao.day)
+        data_completa += " de " 
+        data_completa += mes[data_atualizacao.month-1]
+        data_completa += " de " + str(data_atualizacao.year)        
 
         cards = {
             "data": data_card,
