@@ -1,7 +1,7 @@
 from django.urls import path, include
 from .views import ( home, grafico, comparacao, 
-                     como_sao_criados, tendencias,
-                     sobre, equipe, na_midia, colabore,
+                     como_sao_criados, sobre, 
+                     equipe, na_midia, colabore,
                      noticias, api_brasil_estado, api_brasil_geral,
                      quantidade_estado_goias, quantidade_geral_brasil
                     )
@@ -16,7 +16,7 @@ urlpatterns = [
     path("como-sao-criados/", como_sao_criados, name="como-sao-criados"),
 
     # tendencias
-    path("tendencias/<str:cidade>/", tendencias, name="tendencias"),
+    #path("tendencias/<str:cidade>/", tendencias, name="tendencias"),
 
     # saiba mais
     path("sobre/", sobre, name="sobre"),
