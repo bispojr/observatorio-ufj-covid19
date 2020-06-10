@@ -41,7 +41,7 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Chapadão do Céu"
         url_fonte = "http://www.chapadaodoceu.go.gov.br/"
-        tableJson, ticks, cards, data_completa = DataTable.chapadao(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Chapadão do Céu")
 
         context = {
             "nome_fonte": nome_fonte,
@@ -59,7 +59,7 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Jataí"
         url_fonte = "https://www.jatai.go.gov.br/"
-        tableJson, ticks, cards, data_completa = DataTable.jatai(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Jataí")
 
         context = {
             "nome_fonte": nome_fonte,
@@ -78,7 +78,7 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Mineiros"
         url_fonte = "http://mineiros.go.gov.br/covid-19.php"
-        tableJson, ticks, cards, data_completa = DataTable.mineiros(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Mineiros")
 
         context = {
             "nome_fonte": nome_fonte,
@@ -96,7 +96,7 @@ class Graficos(models.Model):
         #Informações Específicas
         nome_fonte = "Secretaria de Saúde de Rio Verde"
         url_fonte = "https://www.rioverde.go.gov.br/covid19/"
-        tableJson, ticks, cards, data_completa = DataTable.rioverde(DataTable)
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Rio Verde")
 
         context = {
             "nome_fonte": nome_fonte,
