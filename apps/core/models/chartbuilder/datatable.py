@@ -26,166 +26,41 @@ class DataTable():
 
         return creds
     
-    def chapadao(self):
+    def cidade(self, cidade):
         creds = self.credentials()
         client = gspread.authorize(creds)
-        sheet = client.open("Chapadão do Céu").sheet1  # Open the spreadhseet
-
-        data = sheet.get_all_records()  # Get a list of all records
-
-        #Convertendo para o formato de data do Python
-        #Convertendo para Null os campos sem valor
-        for row in data:
-            row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
-            for val in row:
-                if row[val] == '-' or row[val] == '':
-                    row[val] = None
-
-        description = {
-            'Data': ("date", "Data"),
-            'Confirmados': ("number", "Confirmados"),
-            'Descartados': ("number", "Descartados"),
-            'Investigados': ("number", "Investigados"),
-            'Suspeitos': ("number", "Suspeitos"),
-            'Notificados': ("number", "Notificados"),
-            'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados"),
-            'Monitorados': ("number", "Monitorados"),
-            'Recuperados': ("number", "Recuperados"),
-            'Óbitos': ("number", "Óbitos")
-        }
-        # Loading it into gviz_api.DataTable
-        data_table = gviz_api.DataTable(description)
-        data_table.LoadData(data)
-
-        # Resumo
-        categorias = Parameters.categorias(Parameters, "resumo", True)
-        resumoJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksResumo = Tick.getTicks(data, categorias)
-
-        # Monitorados
-        categorias = Parameters.categorias(Parameters, "monitorados", True)
-        monitoradosJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksMonitorados = Tick.getTicks(data, categorias)
-
-        # Todas
-        categorias = Parameters.categorias(Parameters, "todas", True)
-        todasJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksTodas = Tick.getTicks(data, categorias)
-
-        # Preparação da saída
-        tableJson = {
-            "resumo": resumoJson,
-            "monitorados": monitoradosJson,
-            "todas": todasJson
-        }
-
-        ticks = {
-            "resumo": json.dumps(ticksResumo),            
-            "monitorados": json.dumps(ticksMonitorados),
-            "todas": json.dumps(ticksTodas)
-        }
-
-        cards, data_completa = Card.getCards(data)
-
-        return tableJson, ticks, cards, data_completa
-
-    def jatai(self):
         
-        creds = self.credentials()
-        client = gspread.authorize(creds)
-        sheet = client.open("Jataí").sheet1  # Open the spreadhseet
-
-        data = sheet.get_all_records()  # Get a list of all records
-
-        #Convertendo para o formato de data do Python
-        #Convertendo para Null os campos sem valor
-        for row in data:
+        if (
+            cidade != "Chapadão do Céu" or 
+            cidade != "Jataí" or
+            cidade != "Mineiros" or 
+            cidade != "Rio Verde"
+        ):
+            print("Cidade inexistente em nossa base de dados")
+        
+        # Open the spreadhseet
+        sheet = client.open(cidade).sheet1 
+        dados = sheet.get_all_records()  # Get a list of all records
+        
+        # Preparação dos dados
+        dados_preparados = []
+        for row in dados:
+            #Convertendo para o formato de data do Python
             row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
+
+            #Convertendo para Null os campos sem valor
             for val in row:
                 if row[val] == '-' or row[val] == '':
                     row[val] = None
-
-        description = {
-            'Data': ("date", "Data"),
-            'Confirmados': ("number", "Confirmados"),
-            'Descartados': ("number", "Descartados"),
-            'Investigados': ("number", "Investigados"),
-            'Notificados': ("number", "Notificados"),
-            'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados"),
-            'Monitorados': ("number", "Monitorados"),
-            'Recuperados': ("number", "Recuperados"),
-            'Óbitos': ("number", "Óbitos")
-        }
-        # Loading it into gviz_api.DataTable
-        data_table = gviz_api.DataTable(description)
-        data_table.LoadData(data)
-
-        # Resumo
-        categorias = Parameters.categorias(Parameters, "resumo", True)
-        resumoJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksResumo = Tick.getTicks(data, categorias)
-
-        # Monitorados
-        categorias = Parameters.categorias(Parameters, "monitorados", True)
-        monitoradosJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksMonitorados = Tick.getTicks(data, categorias)
-
-        # Todas
-        categorias = Parameters.categorias(Parameters, "todas", True)
-        todasJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksTodas = Tick.getTicks(data, categorias)
-
-        # Preparação da saída
-        tableJson = {
-            "resumo": resumoJson,
-            "monitorados": monitoradosJson,
-            "todas": todasJson
-        }
-
-        ticks = {
-            "resumo": json.dumps(ticksResumo),            
-            "monitorados": json.dumps(ticksMonitorados),
-            "todas": json.dumps(ticksTodas)
-        }
-
-        cards, data_completa = Card.getCards(data)
-
-        return tableJson, ticks, cards, data_completa
-
-    def mineiros(self):
-        creds = self.credentials()
-        client = gspread.authorize(creds)
-        sheet = client.open("Mineiros").sheet1  # Open the spreadhseet
-
-        data = sheet.get_all_records()  # Get a list of all records
-
-        #Convertendo para o formato de data do Python
-        #Convertendo para Null os campos sem valor
-        for row in data:
-            row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
-            for val in row:
-                if row[val] == '-' or row[val] == '':
-                    row[val] = None
+            dados_preparados.append(row)
+            
+            # Mantém apenas o registro mais atual do dia
+            if (
+                len(dados_preparados) > 1 and
+                dados_preparados[-1]["Data"] == dados_preparados[-2]["Data"]
+            ):
+                val = dados_preparados[-2]
+                dados_preparados.remove(val)
 
         description = {
             'Data': ("date", "Data"),
@@ -202,7 +77,7 @@ class DataTable():
         }
         # Loading it into gviz_api.DataTable
         data_table = gviz_api.DataTable(description)
-        data_table.LoadData(data)
+        data_table.LoadData(dados_preparados)
 
         # Resumo
         categorias = Parameters.categorias(Parameters, "resumo", True)
@@ -210,7 +85,7 @@ class DataTable():
             columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksResumo = Tick.getTicks(data, categorias)
+        ticksResumo = Tick.getTicks(dados_preparados, categorias)
 
         # Monitorados
         categorias = Parameters.categorias(Parameters, "monitorados", True)
@@ -218,7 +93,7 @@ class DataTable():
             columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksMonitorados = Tick.getTicks(data, categorias)
+        ticksMonitorados = Tick.getTicks(dados_preparados, categorias)
 
         # Todas
         categorias = Parameters.categorias(Parameters, "todas", True)
@@ -226,7 +101,7 @@ class DataTable():
             columns_order=tuple(categorias),
             order_by="Data"
         )
-        ticksTodas = Tick.getTicks(data, categorias)
+        ticksTodas = Tick.getTicks(dados_preparados, categorias)
 
         # Preparação da saída
         tableJson = {
@@ -241,78 +116,6 @@ class DataTable():
             "todas": json.dumps(ticksTodas)
         }
 
-        cards, data_completa = Card.getCards(data)
-
-        return tableJson, ticks, cards, data_completa
-
-    def rioverde(self):
-        creds = self.credentials()
-        client = gspread.authorize(creds)
-        sheet = client.open("Rio Verde").sheet1  # Open the spreadhseet
-
-        data = sheet.get_all_records()  # Get a list of all records
-
-        #Convertendo para o formato de data do Python
-        #Convertendo para Null os campos sem valor
-        for row in data:
-            row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
-            for val in row:
-                if row[val] == '-' or row[val] == '':
-                    row[val] = None
-
-        description = {
-            'Data': ("date", "Data"),
-            'Confirmados': ("number", "Confirmados"),
-            'Descartados': ("number", "Descartados"),
-            'Investigados': ("number", "Investigados"),
-            'Notificados': ("number", "Notificados"),
-            'Isolados': ("number", "Isolados"),
-            'Internados': ("number", "Internados"),
-            'Monitorados': ("number", "Monitorados"),
-            'Recuperados': ("number", "Recuperados"),
-            'Óbitos': ("number", "Óbitos")
-        }
-        # Loading it into gviz_api.DataTable
-        data_table = gviz_api.DataTable(description)
-        data_table.LoadData(data)
-
-        # Resumo
-        categorias = Parameters.categorias(Parameters, "resumo", True)
-        resumoJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksResumo = Tick.getTicks(data, categorias)
-
-        # Monitorados
-        categorias = Parameters.categorias(Parameters, "monitorados", True)
-        monitoradosJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksMonitorados = Tick.getTicks(data, categorias)
-
-        # Todas
-        categorias = Parameters.categorias(Parameters, "todas", True)
-        todasJson = data_table.ToJSon(
-            columns_order=tuple(categorias),
-            order_by="Data"
-        )
-        ticksTodas = Tick.getTicks(data, categorias)
-
-        # Preparação da saída
-        tableJson = {
-            "resumo": resumoJson,
-            "monitorados": monitoradosJson,
-            "todas": todasJson
-        }
-
-        ticks = {
-            "resumo": json.dumps(ticksResumo),            
-            "monitorados": json.dumps(ticksMonitorados),
-            "todas": json.dumps(ticksTodas)
-        }
-
-        cards, data_completa = Card.getCards(data)
+        cards, data_completa = Card.getCards(dados_preparados)
 
         return tableJson, ticks, cards, data_completa
