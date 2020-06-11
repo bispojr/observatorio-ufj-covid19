@@ -4,7 +4,7 @@
         {% for queryset in querysets %}
             <div class="col-lg-4 col-md-6 pb-4">
                 <div class="card h-100">
-                    <img src="{% static 'images/equipe-' %}{{ queryset.short }}.jpg" class="card-img-top rounded-circle w-75 mx-auto py-2" alt="Rosto - {{ queryset.nome }}">
+                    <img src="{% static 'images/equipe/' %}{{ queryset.short }}.jpg" class="card-img-top rounded-circle w-75 mx-auto py-2" alt="Rosto - {{ queryset.nome }}">
                     <div class="card-body">
                         <h5 class="card-title text-center">
                             <a href="{{ queryset.url }}" target="_blank" class="text-uppercase">
