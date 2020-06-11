@@ -31,6 +31,7 @@ class DataTable():
         client = gspread.authorize(creds)
         
         if (
+            cidade != "Caçu" and 
             cidade != "Chapadão do Céu" and 
             cidade != "Jataí" and
             cidade != "Mineiros" and 

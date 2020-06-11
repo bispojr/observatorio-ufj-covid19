@@ -20,6 +20,14 @@ class GraficosTestCase(TestCase):
     
     def test_pagina_chapadao(self):
         self.driver.get('http://127.0.0.1:8000/graficos/chapadao')
+        titulo = "Observatório UFJ Covid-19 - Gráficos (Caçu)"
+        assert titulo in self.driver.title
+        assert "Todas as categorias" in self.driver.page_source
+        assert "Monitorados" in self.driver.page_source
+        assert "Rede Social Oficial de " in self.driver.page_source
+    
+    def test_pagina_chapadao(self):
+        self.driver.get('http://127.0.0.1:8000/graficos/chapadao')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Chapadão do Céu)"
         assert titulo in self.driver.title
         assert "Todas as categorias" in self.driver.page_source

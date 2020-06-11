@@ -1,5 +1,6 @@
 from django.db import models
 
+from .chartbuilder.cacu import Cacu
 from .chartbuilder.chapadao import Chapadao
 from .chartbuilder.jatai import Jatai
 from .chartbuilder.mineiros import Mineiros
@@ -14,6 +15,8 @@ from unidecode import unidecode
 class Graficos(models.Model): 
     
     def getContext(self, cidade):
+        if cidade == "cacu":
+            return {**self._geral("Caçu"), **self._cacu(self)}
         if cidade == "chapadao":
             return {**self._geral("Chapadão do Céu"), **self._chapadao(self)}
         if cidade == "jatai":
@@ -38,6 +41,24 @@ class Graficos(models.Model):
             "titulo": "Observatório UFJ Covid-19 - Gráficos (" + cidade +")",
             "cidade": cidade,
             "nome_base": basename,
+        }
+
+        return context
+    
+    def _cacu(self):
+        #Informações Específicas
+        nome_fonte = "Rede Social Oficial da Prefeitura de Caçu"
+        url_fonte = "https://www.facebook.com/PrefeituraCacu/"
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Caçu")
+
+        context = {
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": Cacu.getValores(Cacu),
+            "tableJson": tableJson,
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
         }
 
         return context
