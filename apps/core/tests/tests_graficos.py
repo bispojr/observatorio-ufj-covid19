@@ -54,6 +54,15 @@ class GraficosTestCase(TestCase):
         assert "Monitorados" in self.driver.page_source
         assert "Secretaria de Saúde de Rio Verde" in self.driver.page_source
 
+    def test_titulo_santahelena(self):        
+        self.driver.get('http://127.0.0.1:8000/graficos/santahelena')
+        titulo = "Observatório UFJ Covid-19 - Gráficos (Santa Helena)"
+        assert titulo in self.driver.title
+        assert "Resumo" in self.driver.page_source
+        assert "Todas as categorias" in self.driver.page_source
+        assert "Monitorados" in self.driver.page_source
+        assert "Secretaria de Saúde de Santa Helena" in self.driver.page_source
+
     """ def test_titulo_comparacao(self):        
         self.driver.get('http://127.0.0.1:8000/comparacao')
         titulo = "Observatório UFJ Covid-19 - Comparação entre as cidades"
