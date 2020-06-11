@@ -4,7 +4,7 @@
         {% for parceiro in parceiros %}
             <div class="col-lg-4 col-md-6 pb-4">
                 <div class="card h-100">
-                    <img src="{% static 'images/equipe-' %}{{ parceiro.short }}.jpg" class="card-img-top rounded-circle w-75 mx-auto py-2" alt="Rosto - {{ parceiro.nome }}">
+                    <img src="{% static 'images/equipe/' %}{{ parceiro.short }}.jpg" class="card-img-top rounded-circle w-75 mx-auto py-2" alt="Rosto - {{ parceiro.nome }}">
                     <div class="card-body">
                         <h5 class="card-title text-center">
                             <a href="{{ parceiro.url }}" target="_blank" class="text-uppercase">
