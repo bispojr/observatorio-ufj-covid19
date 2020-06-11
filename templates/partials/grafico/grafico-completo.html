@@ -1,9 +1,14 @@
 {% load static %}
 <div class="container graficos-bg p-5">
-	<h1>Resumo</h1>
 	<div class="row">
 		<div class="col-lg-5 col-12">
-			<img src="{% static 'images/mapas/' %}{{ nome_base }}.svg" id="mapa-{{ nome_base }}" alt="Mapa da Cidade de {{  cidade }}"  style="width: 120%;" />
+			<img 
+				class="mt-n3"
+				src="{% static 'images/mapas/' %}{{ nome_base }}.svg" 
+				id="mapa-{{ nome_base }}" 
+				alt="Mapa da Cidade de {{  cidade }}"  
+				style="width: 100%;" 
+			/>
 		</div>
 		<div class="col-lg-7 col-12 px-5">
 			<div class="grafico" id="{{ nome_base }}-grafico-resumo"></div>

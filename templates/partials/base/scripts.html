@@ -35,6 +35,11 @@
   {% include "grafico/buildChart.html" %}
 {% endif %}
 
+{% if script == "graficos-santa-helena" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  {% include "grafico/buildChart.html" %}
+{% endif %}
+
 {% if script == "graficos-comparacao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildComparison.html" %}

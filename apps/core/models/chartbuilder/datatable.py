@@ -31,10 +31,11 @@ class DataTable():
         client = gspread.authorize(creds)
         
         if (
-            cidade != "Chapadão do Céu" or 
-            cidade != "Jataí" or
-            cidade != "Mineiros" or 
-            cidade != "Rio Verde"
+            cidade != "Chapadão do Céu" and 
+            cidade != "Jataí" and
+            cidade != "Mineiros" and 
+            cidade != "Rio Verde" and
+            cidade != "Santa Helena"
         ):
             print("Cidade inexistente em nossa base de dados")
         

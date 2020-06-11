@@ -23,17 +23,17 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == True 
         assert is_active_grafico == False  
-        assert  is_active_tendencias == False 
+        #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
 
     def test_pag_grafico_jatai(self):
@@ -41,17 +41,17 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == True  
-        assert  is_active_tendencias == False 
+        #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
     
     def test_pag_grafico_mineiros(self):
@@ -59,17 +59,17 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == True  
-        assert  is_active_tendencias == False 
+        #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
     
     def test_pag_grafico_rioverde(self):
@@ -77,17 +77,35 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == True  
-        assert  is_active_tendencias == False 
+        #assert  is_active_tendencias == False 
+        assert is_active_saiba_mais == False
+
+    def test_pag_grafico_santahelena(self):
+        self.driver.get('http://127.0.0.1:8000/graficos/santahelena/')
+
+        principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
+        grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
+
+        is_active_main = "active" in principal_element.get_attribute("class")
+        is_active_grafico = "active" in grafico_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
+
+        assert is_active_main == False 
+        assert is_active_grafico == True  
+        #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
 
     """ def test_pag_comparacao(self):
@@ -113,71 +131,71 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == True  
-        assert  is_active_tendencias == False 
+        #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
 
-    def test_pag_tendencias_jatai(self):
-        self.driver.get('http://127.0.0.1:8000/tendencias/jatai/')
+    # def test_pag_tendencias_jatai(self):
+    #     self.driver.get('http://127.0.0.1:8000/tendencias/jatai/')
 
-        principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
-        grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
-        saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
+    #     principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
+    #     grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
+    #     #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+    #     saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
-        is_active_main = "active" in principal_element.get_attribute("class")
-        is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
-        is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
+    #     is_active_main = "active" in principal_element.get_attribute("class")
+    #     is_active_grafico = "active" in grafico_element.get_attribute("class")
+    #     #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+    #     is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
-        assert is_active_main == False 
-        assert is_active_grafico == False 
-        assert  is_active_tendencias == True 
-        assert is_active_saiba_mais == False
+    #     assert is_active_main == False 
+    #     assert is_active_grafico == False 
+    #     #assert  is_active_tendencias == True 
+    #     assert is_active_saiba_mais == False
 
-    def test_pag_tendencias_rioverde(self):
-        self.driver.get('http://127.0.0.1:8000/tendencias/rioverde/')
+    # def test_pag_tendencias_rioverde(self):
+    #     self.driver.get('http://127.0.0.1:8000/tendencias/rioverde/')
 
-        principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
-        grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
-        saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
+    #     principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
+    #     grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
+    #     #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+    #     saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
-        is_active_main = "active" in principal_element.get_attribute("class")
-        is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
-        is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
+    #     is_active_main = "active" in principal_element.get_attribute("class")
+    #     is_active_grafico = "active" in grafico_element.get_attribute("class")
+    #     #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+    #     is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
-        assert is_active_main == False 
-        assert is_active_grafico == False 
-        assert  is_active_tendencias == True 
-        assert is_active_saiba_mais == False
+    #     assert is_active_main == False 
+    #     assert is_active_grafico == False 
+    #     #assert  is_active_tendencias == True 
+    #     assert is_active_saiba_mais == False
     
     def test_pag_sobre(self):
         self.driver.get('http://127.0.0.1:8000/sobre/')
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == False 
-        assert  is_active_tendencias == False
+        #assert  is_active_tendencias == False
         assert is_active_saiba_mais == True
     
     def test_pag_equipe(self):
@@ -185,17 +203,17 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == False 
-        assert  is_active_tendencias == False
+        #assert  is_active_tendencias == False
         assert is_active_saiba_mais == True
     
     def test_pag_na_midia(self):
@@ -203,17 +221,17 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == False 
-        assert  is_active_tendencias == False
+        #assert  is_active_tendencias == False
         assert is_active_saiba_mais == True
 
     def test_pag_colabore(self):
@@ -221,15 +239,15 @@ class NavbarTestCase(TestCase):
 
         principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
         grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
-        tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
         saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
 
         is_active_main = "active" in principal_element.get_attribute("class")
         is_active_grafico = "active" in grafico_element.get_attribute("class")
-        is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
         is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
 
         assert is_active_main == False 
         assert is_active_grafico == False 
-        assert  is_active_tendencias == False
+        #assert  is_active_tendencias == False
         assert is_active_saiba_mais == True
