@@ -80,9 +80,15 @@ class DataTable():
         data_table = gviz_api.DataTable(description)
         data_table.LoadData(dados_preparados)
 
+        # Preparados os dados para o gráfico de resumo
+        corte = len(dados_preparados) - 15
+        dados_preparados_resumo = dados_preparados[corte:]
+        data_table_resumo = gviz_api.DataTable(description)
+        data_table_resumo.LoadData(dados_preparados_resumo)
+
         # Resumo
         categorias = Parameters.categorias(Parameters, "resumo", True)
-        resumoJson = data_table.ToJSon(
+        resumoJson = data_table_resumo.ToJSon(
             columns_order=tuple(categorias),
             order_by="Data"
         )
