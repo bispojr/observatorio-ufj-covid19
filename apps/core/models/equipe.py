@@ -54,6 +54,13 @@ class Equipe():
                 "content": "Responsável pelos dados da cidade de Mineiros. Pesquisador na área de Computação em Névoa."
             },
             {
+                "nome":	"Prof. Paulo Freitas",
+                "short": "paulo",
+                "url": "http://lattes.cnpq.br/2235534471841773",
+                "plataforma": "Lattes",
+                "content": "Responsável pelos dados de Santa Helena. Pesquisador na área de Mecânica Estatística."
+            },
+            {
                 "nome":	"Prof. Marcelo Freitas",
                 "short": "marcelo",
                 "url": "http://lattes.cnpq.br/0972390630476077",
