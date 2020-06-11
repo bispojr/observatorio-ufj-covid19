@@ -119,6 +119,4 @@ class DataTable():
 
         cards, data_completa = Card.getCards(dados_preparados)
 
-        pprint(dados_preparados)
-
         return tableJson, ticks, cards, data_completa
