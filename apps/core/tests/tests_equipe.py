@@ -21,3 +21,11 @@ class EquipeTestCase(TestCase):
     def test_dyeimys(self):
         self.driver.get('http://127.0.0.1:8000/equipe')
         assert "Dyeimys Correa" in self.driver.page_source
+
+    def test_paulo(self):
+        self.driver.get('http://127.0.0.1:8000/equipe')
+        assert "Paulo Freitas" in self.driver.page_source
+
+    def test_esdras(self):
+        self.driver.get('http://127.0.0.1:8000/equipe')
+        assert "Esdras L. Bispo Jr." in self.driver.page_source
