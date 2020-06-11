@@ -18,12 +18,12 @@ class TendenciasTestCase(TestCase):
     def tearDown(self):
         self.driver.close()
     
-    def test_titulo_jatai(self):
-        self.driver.get('http://127.0.0.1:8000/tendencias/jatai')
-        titulo = "Observatório UFJ Covid-19 - Tendências (Jataí)"
-        assert titulo in self.driver.title
+    # def test_titulo_jatai(self):
+    #     self.driver.get('http://127.0.0.1:8000/tendencias/jatai')
+    #     titulo = "Observatório UFJ Covid-19 - Tendências (Jataí)"
+    #     assert titulo in self.driver.title
 
-    def test_titulo_rioverde(self):
-        self.driver.get('http://127.0.0.1:8000/tendencias/rioverde')
-        titulo = "Observatório UFJ Covid-19 - Tendências (Rio Verde)"
-        assert titulo in self.driver.title
+    # def test_titulo_rioverde(self):
+    #     self.driver.get('http://127.0.0.1:8000/tendencias/rioverde')
+    #     titulo = "Observatório UFJ Covid-19 - Tendências (Rio Verde)"
+    #     assert titulo in self.driver.title

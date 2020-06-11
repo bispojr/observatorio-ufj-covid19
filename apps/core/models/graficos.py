@@ -4,7 +4,10 @@ from .chartbuilder.chapadao import Chapadao
 from .chartbuilder.jatai import Jatai
 from .chartbuilder.mineiros import Mineiros
 from .chartbuilder.rioverde import RioVerde
+from .chartbuilder.santahelena import SantaHelena
+
 from .chartbuilder.datatable import DataTable
+
 
 from unidecode import unidecode
 
@@ -19,6 +22,8 @@ class Graficos(models.Model):
             return {**self._geral("Mineiros"), **self._mineiros(self)}
         if cidade == "rioverde":
             return {**self._geral("Rio Verde"), **self._rioverde(self)}
+        if cidade == "santahelena":
+            return {**self._geral("Santa Helena"), **self._santahelena(self)}
         
     def _geral(cidade):
 
@@ -102,6 +107,24 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": RioVerde.getValores(RioVerde),
+            "tableJson": tableJson,
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
+        }
+        
+        return context
+
+    def _santahelena(self):
+        #Informações Específicas
+        nome_fonte = "Secretaria de Saúde de Santa Helena"
+        url_fonte = "https://www.santahelena.go.gov.br/pagina/41"
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Santa Helena")
+
+        context = {
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": SantaHelena.getValores(SantaHelena),
             "tableJson": tableJson,
             "ticks": ticks,
             "cards": cards,
