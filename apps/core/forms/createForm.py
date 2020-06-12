@@ -1,7 +1,7 @@
 from django import forms
-from .models import BoletimEpidemiologico
+from ..models import BoletimEpidemiologico
 
-class BoletimEpidemiologicoForm(forms.Form):
+class CreateBoletimEpidemiologicoForm(forms.Form):
     cidade = forms.CharField(max_length=256)
     data_atualizacao = forms.DateTimeField()
     fonte_oficial = forms.URLField()

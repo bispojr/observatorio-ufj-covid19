@@ -14,7 +14,8 @@ from .models import Tendencias
 from .models import Equipe
 from .models import Noticias
 
-from .form import BoletimEpidemiologicoForm
+from .forms.createForm import CreateBoletimEpidemiologicoForm
+from .forms.deleteForm import DeleteBoletimEpidemiologicoForm
 
 import csv 
 from django.conf import settings
@@ -23,9 +24,9 @@ from datetime import datetime
 from apps.core.models.boletimEpidemiologico import BoletimEpidemiologico
 
 
-def formBoletimEpidemiologico(request):
+def createBoletimEpidemiologico(request):
 	if request.method == 'POST':
-		form = BoletimEpidemiologicoForm(request.POST)
+		form = CreateBoletimEpidemiologicoForm(request.POST)
 		if form.is_valid():
 			cidade = form.cleaned_data['cidade']
 			data_atualizacao = form.cleaned_data['data_atualizacao']
@@ -50,9 +51,29 @@ def formBoletimEpidemiologico(request):
 			monitorados = monitorados, notificados = notificados, isolados = isolados, 
 			internados = internados, enfermaria = enfermaria, uti = uti).save()	
 	else:
-		form = BoletimEpidemiologicoForm()
+		form = CreateBoletimEpidemiologicoForm()
 
-	url = "form.html"
+	url = "forms/createForm.html"
+	context = {'form': form}
+
+	return render(request, url, context)
+
+def deleteBoletimEpidemiologico(request):
+	if request.method == 'GET':
+		form  = DeleteBoletimEpidemiologicoForm(request.GET)
+		if form.is_valid():
+			cidade = form.cleaned_data['cidade']
+			data_atualizacao = form.cleaned_data['data_atualizacao']
+			try:
+				boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+				data_atualizacao = data_atualizacao)
+				boletim.delete()
+			except boletim.DoesNotExist:
+				return False
+	else:
+		form = DeleteBoletimEpidemiologicoForm()
+	
+	url = "forms/deleteForm.html"
 	context = {'form': form}
 
 	return render(request, url, context)
