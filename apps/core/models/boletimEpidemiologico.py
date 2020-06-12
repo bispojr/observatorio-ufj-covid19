@@ -4,6 +4,9 @@ import uuid
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 import datetime
 
+from ..forms.createForm import CreateBoletimEpidemiologicoForm
+from ..forms.deleteForm import DeleteBoletimEpidemiologicoForm
+
 class BoletimEpidemiologico(models.Model):
 
     cidade = models.CharField(max_length=256, verbose_name="Cidade")
@@ -40,98 +43,135 @@ class BoletimEpidemiologico(models.Model):
         verbose_name = "Boletim"
         verbose_name_plural = "Boletins"
 
-    def createBoletimEpidemiologico(request):
-        upload = BoletimEpidemiologico()
+    def get_create_boletim(self, request):
+        return self.__createBoletimEpidemiologico(self, request)
+    
+    def get_delete_boletim(self, request):
+        return self.__deleteBoletimEpidemiologico(self, request)
+
+    def get_read_boletim(self, request):
+        return self.__readBoletimEpidemiologico(self, request)
+    
+    def get_update_boletim(self, request):
+        return self.__updateBoletimEpidemiologico(self, request)
+
+    def __createBoletimEpidemiologico(self, request):
         if request.method == 'POST':
-            if (request.POST.get('cidade') and
-                request.POST.get('data_atualizacao') and
-                request.POST.get('fonte_oficial') and
-                request.POST.get('confirmados') and
-                request.POST.get('recuperados') and
-                request.POST.get('obitos') and
-                request.POST.get('suspeitos') and
-                request.POST.get('investigados') and
-                request.POST.get('descartados') and
-                request.POST.get('monitorados') and
-                request.POST.get('notificados') and
-                request.POST.get('isolados') and
-                request.POST.get('internados') and
-                request.POST.get('enfermaria') and
-                request.POST.get('uti')):
+            form = CreateBoletimEpidemiologicoForm(request.POST)
+            if form.is_valid():
+                cidade = form.cleaned_data['cidade']
+                data_atualizacao = form.cleaned_data['data_atualizacao']
+                fonte_oficial = form.cleaned_data['fonte_oficial']			
+                confirmados = form.cleaned_data['confirmados']			
+                recuperados = form.cleaned_data['recuperados']			
+                obitos = form.cleaned_data['obitos']			
+                suspeitos = form.cleaned_data['suspeitos']			
+                investigados = form.cleaned_data['investigados']			
+                descartados = form.cleaned_data['descartados']			
+                monitorados = form.cleaned_data['monitorados']			
+                notificados = form.cleaned_data['notificados']			
+                isolados = form.cleaned_data['isolados']			
+                internados = form.cleaned_data['internados']			
+                enfermaria = form.cleaned_data['enfermaria']			
+                uti = form.cleaned_data['uti']	
 
-                upload.cidade = request.POST.get('cidade')
-                upload.data_atualizacao = request.POST.get('data_atualizacao')
-                upload.fonte_oficial = request.POST.get('fonte_oficial')
-                upload.confirmados = request.POST.get('confirmados')
-                upload.recuperados = request.POST.get('recuperados')
-                upload.obitos = request.POST.get('obitos')
-                upload.suspeitos = request.POST.get('suspeitos')
-                upload.investigados = request.POST.get('investigados')
-                upload.descartados = request.POST.get('descartados')
-                upload.monitorados = request.POST.get('monitorados')
-                upload.notificados = request.POST.get('notificados')
-                upload.isolados = request.POST.get('isolados')
-                upload.internados = request.POST.get('internados')
-                upload.enfermaria = request.POST.get('enfermaria')
-                upload.uti = request.POST.get('uti')
+                BoletimEpidemiologico(cidade = cidade, data_atualizacao = data_atualizacao, 
+                fonte_oficial = fonte_oficial, confirmados = confirmados, 
+                recuperados = recuperados, obitos = obitos, suspeitos = suspeitos, 
+                investigados = investigados, descartados = descartados, 
+                monitorados = monitorados, notificados = notificados, isolados = isolados, 
+                internados = internados, enfermaria = enfermaria, uti = uti).save()	
+        else:
+            form = CreateBoletimEpidemiologicoForm()
 
-                return upload.save()
+        context = {'form': form}
 
-            else:
-                print("Ocorreu um erro durante a operação CREATE!")
+        return context
 
-    def readBoletimEpidemiologico(request):
-        try:
-            items = BoletimEpidemiologico.objects.all()
-            return items
-        except:
-            print("Não há objetos no banco!")
+    def __readBoletimEpidemiologico(self, request):
+        if request.method == 'GET':
+            form = DeleteBoletimEpidemiologicoForm(request.GET)
+            boletim = None
+            if form.is_valid():
+                cidade = form.cleaned_data['cidade']
+                data_atualizacao = form.cleaned_data['data_atualizacao']
+                boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+                data_atualizacao = data_atualizacao)
+        else:
+            form = DeleteBoletimEpidemiologicoForm()
 
-    def updateBoletimEpidemiologico(request, cidade, data_atualizacao):
-        try:
-            boletimSelect = BoletimEpidemiologico.objects.get(cidade = cidade, data_atualizacao = data_atualizacao)
-            if (request.POST.get('cidade') or
-                request.POST.get('data_atualizacao') or
-                request.POST.get('fonte_oficial') or
-                request.POST.get('confirmados') or
-                request.POST.get('recuperados') or
-                request.POST.get('obitos') or
-                request.POST.get('suspeitos') or
-                request.POST.get('investigados') or
-                request.POST.get('descartados') or
-                request.POST.get('monitorados') or
-                request.POST.get('notificados') or
-                request.POST.get('isolados') or
-                request.POST.get('internados') or
-                request.POST.get('enfermaria') or
-                request.POST.get('uti')):
+        context = {'form': form,
+                'boletim': boletim}
 
-                boletimSelect.cidade = request.POST.get('cidade')
-                boletimSelect.data_atualizacao = request.POST.get('data_atualizacao')
-                boletimSelect.fonte_oficial = request.POST.get('fonte_oficial')
-                boletimSelect.confirmados = request.POST.get('confirmados')
-                boletimSelect.recuperados = request.POST.get('recuperados')
-                boletimSelect.obitos = request.POST.get('obitos')
-                boletimSelect.suspeitos = request.POST.get('suspeitos')
-                boletimSelect.investigados = request.POST.get('investigados')
-                boletimSelect.descartados = request.POST.get('descartados')
-                boletimSelect.monitorados = request.POST.get('monitorados')
-                boletimSelect.notificados = request.POST.get('notificados')
-                boletimSelect.isolados = request.POST.get('isolados')
-                boletimSelect.internados = request.POST.get('internados')
-                boletimSelect.enfermaria = request.POST.get('enfermaria')
-                boletimSelect.uti = request.POST.get('uti')
+        return context
 
-                return boletimSelect
-        except:
-            print("Ocorreu um erro durante a operação de UPDATE!")
+    
+    def __updateBoletimEpidemiologico(self, request):	
+        boletim = None
+        if request.method == 'POST':
+            form = CreateBoletimEpidemiologicoForm(request.POST)
+            if form.is_valid():
+                cidade = form.cleaned_data['cidade']
+                data_atualizacao = form.cleaned_data['data_atualizacao']
+                fonte_oficial = form.cleaned_data['fonte_oficial']			
+                confirmados = form.cleaned_data['confirmados']			
+                recuperados = form.cleaned_data['recuperados']			
+                obitos = form.cleaned_data['obitos']			
+                suspeitos = form.cleaned_data['suspeitos']			
+                investigados = form.cleaned_data['investigados']			
+                descartados = form.cleaned_data['descartados']			
+                monitorados = form.cleaned_data['monitorados']			
+                notificados = form.cleaned_data['notificados']			
+                isolados = form.cleaned_data['isolados']			
+                internados = form.cleaned_data['internados']			
+                enfermaria = form.cleaned_data['enfermaria']			
+                uti = form.cleaned_data['uti']	
 
-    def deleteBoletimEpidemiologico(request, cidade, data_atualizacao):
-        try:
-            boletimDelete = BoletimEpidemiologico.objects.get(cidade = cidade, data_atualizacao = data_atualizacao)
-            boletimDelete.delete()
-            return ("Deletado com sucesso!")
-        except:
-            print("Ocorreu um erro durante a operação DELETE!")
-        
+                try:
+                    boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+                data_atualizacao = data_atualizacao)
+                    boletim.cidade = cidade 
+                    boletim.data_atualizacao = data_atualizacao
+                    boletim.fonte_oficial = fonte_oficial
+                    boletim.confirmados = confirmados
+                    boletim.recuperados = recuperados
+                    boletim.obitos = obitos
+                    boletim.suspeitos = suspeitos
+                    boletim.investigados = investigados
+                    boletim.descartados = descartados
+                    boletim.monitorados = monitorados
+                    boletim.notificados = notificados
+                    boletim.isolados = isolados
+                    boletim.internados = internados
+                    boletim.enfermaria = enfermaria
+                    boletim.uti = uti
+                    
+                    boletim.save()
+                except boletim.DoesNotExist:
+                    return False
+        else:
+            form = CreateBoletimEpidemiologicoForm()
+        context = {'form': form,
+                'boletim': boletim}
+
+        return context
+
+    def __deleteBoletimEpidemiologico(self, request):
+        if request.method == 'GET':
+            form  = DeleteBoletimEpidemiologicoForm(request.GET)
+            if form.is_valid():
+                cidade = form.cleaned_data['cidade']
+                data_atualizacao = form.cleaned_data['data_atualizacao']
+                try:
+                    boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+                    data_atualizacao = data_atualizacao)
+                    boletim.delete()
+                except boletim.DoesNotExist:
+                    return False
+        else:
+            form = DeleteBoletimEpidemiologicoForm()
+
+        context = {'form': form}
+
+        return context
 

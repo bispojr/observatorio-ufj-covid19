@@ -1,5 +1,4 @@
 from django import forms
-from ..models import BoletimEpidemiologico
 
 class DeleteBoletimEpidemiologicoForm(forms.Form):
     cidade = forms.CharField(max_length=256)

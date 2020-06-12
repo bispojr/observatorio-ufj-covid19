@@ -13,141 +13,35 @@ from .models import Colabore
 from .models import Tendencias
 from .models import Equipe
 from .models import Noticias
-
-from .forms.createForm import CreateBoletimEpidemiologicoForm
-from .forms.deleteForm import DeleteBoletimEpidemiologicoForm
-from .forms.readForm import ReadBoletimEpidemiologicoForm
-from .forms.updateForm import UpdateBoletimEpidemiologicoForm
-from .forms.updateForm2 import UpdateBoletimEpidemiologicoForm2
+from apps.core.models import BoletimEpidemiologico
 
 import csv 
 from django.conf import settings
 from pprint import pprint
 from datetime import datetime
-from apps.core.models.boletimEpidemiologico import BoletimEpidemiologico
 
 
 def createBoletimEpidemiologico(request):
-	if request.method == 'POST':
-		form = CreateBoletimEpidemiologicoForm(request.POST)
-		if form.is_valid():
-			cidade = form.cleaned_data['cidade']
-			data_atualizacao = form.cleaned_data['data_atualizacao']
-			fonte_oficial = form.cleaned_data['fonte_oficial']			
-			confirmados = form.cleaned_data['confirmados']			
-			recuperados = form.cleaned_data['recuperados']			
-			obitos = form.cleaned_data['obitos']			
-			suspeitos = form.cleaned_data['suspeitos']			
-			investigados = form.cleaned_data['investigados']			
-			descartados = form.cleaned_data['descartados']			
-			monitorados = form.cleaned_data['monitorados']			
-			notificados = form.cleaned_data['notificados']			
-			isolados = form.cleaned_data['isolados']			
-			internados = form.cleaned_data['internados']			
-			enfermaria = form.cleaned_data['enfermaria']			
-			uti = form.cleaned_data['uti']	
-
-			BoletimEpidemiologico(cidade = cidade, data_atualizacao = data_atualizacao, 
-			fonte_oficial = fonte_oficial, confirmados = confirmados, 
-			recuperados = recuperados, obitos = obitos, suspeitos = suspeitos, 
-			investigados = investigados, descartados = descartados, 
-			monitorados = monitorados, notificados = notificados, isolados = isolados, 
-			internados = internados, enfermaria = enfermaria, uti = uti).save()	
-	else:
-		form = CreateBoletimEpidemiologicoForm()
-
 	url = "forms/createForm.html"
-	context = {'form': form}
+	context = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
 	return render(request, url, context)
 
-def deleteBoletimEpidemiologico(request):
-	if request.method == 'GET':
-		form  = DeleteBoletimEpidemiologicoForm(request.GET)
-		if form.is_valid():
-			cidade = form.cleaned_data['cidade']
-			data_atualizacao = form.cleaned_data['data_atualizacao']
-			try:
-				boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
-				data_atualizacao = data_atualizacao)
-				boletim.delete()
-			except boletim.DoesNotExist:
-				return False
-	else:
-		form = DeleteBoletimEpidemiologicoForm()
-	
+def deleteBoletimEpidemiologico(request):	
 	url = "forms/deleteForm.html"
-	context = {'form': form}
+	context = BoletimEpidemiologico.get_delete_boletim(BoletimEpidemiologico, request)
 
 	return render(request, url, context)
 
 def readBoletimEpidemiologico(request):
-	if request.method == 'GET':
-		form = ReadBoletimEpidemiologicoForm(request.GET)
-		boletim = None
-		if form.is_valid():
-			cidade = form.cleaned_data['cidade']
-			data_atualizacao = form.cleaned_data['data_atualizacao']
-			boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
-			data_atualizacao = data_atualizacao)
-	else:
-		form = ReadBoletimEpidemiologicoForm()
-
 	url = "forms/readForm.html"
-	context = {'form': form,
-			'boletim': boletim}
+	context = BoletimEpidemiologico.get_read_boletim(BoletimEpidemiologico, request)
 
 	return render(request, url, context)
 
 def updateBoletimEpidemiologico(request):	
-	boletim = None
-	if request.method == 'POST':
-		form = UpdateBoletimEpidemiologicoForm(request.POST)
-		if form.is_valid():
-			cidade = form.cleaned_data['cidade']
-			data_atualizacao = form.cleaned_data['data_atualizacao']
-			fonte_oficial = form.cleaned_data['fonte_oficial']			
-			confirmados = form.cleaned_data['confirmados']			
-			recuperados = form.cleaned_data['recuperados']			
-			obitos = form.cleaned_data['obitos']			
-			suspeitos = form.cleaned_data['suspeitos']			
-			investigados = form.cleaned_data['investigados']			
-			descartados = form.cleaned_data['descartados']			
-			monitorados = form.cleaned_data['monitorados']			
-			notificados = form.cleaned_data['notificados']			
-			isolados = form.cleaned_data['isolados']			
-			internados = form.cleaned_data['internados']			
-			enfermaria = form.cleaned_data['enfermaria']			
-			uti = form.cleaned_data['uti']	
-
-			try:
-				boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
-			data_atualizacao = data_atualizacao)
-				boletim.cidade = cidade 
-				boletim.data_atualizacao = data_atualizacao
-				boletim.fonte_oficial = fonte_oficial
-				boletim.confirmados = confirmados
-				boletim.recuperados = recuperados
-				boletim.obitos = obitos
-				boletim.suspeitos = suspeitos
-				boletim.investigados = investigados
-				boletim.descartados = descartados
-				boletim.monitorados = monitorados
-				boletim.notificados = notificados
-				boletim.isolados = isolados
-				boletim.internados = internados
-				boletim.enfermaria = enfermaria
-				boletim.uti = uti
-				
-				boletim.save()
-			except boletim.DoesNotExist:
-				return False
-	else:
-		form = UpdateBoletimEpidemiologicoForm()
-
 	url = "forms/updateForm.html"
-	context = {'form': form,
-			'boletim': boletim}
+	context = BoletimEpidemiologico.get_update_boletim(BoletimEpidemiologico, request)
 
 	return render(request, url, context)	
 
