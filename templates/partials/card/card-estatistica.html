@@ -1,21 +1,21 @@
 <div class="container graficos-bg mb-2">
-	<div class="row px-4 px-lg-0">
+	<div class="row px-4 px-lg-0 justify-content-center">
 		<div class="
-			col-lg-2 mb-lg-0 mx-lg-0
-			col-md-12 
-			col-12 mb-1 mx-1
+			col-12
+			col-xl-2 
+			mb-lg-0 mx-lg-0 mb-2 mx-1
 			text-center">
 			<strong class="h1 py-0">{{ cidade }}</strong><br>
 			<span>{{ cards.data }}</span>
 		</div>
 		{% for card in cards.valores %}
 			<div 
-				class="mx-lg-2 my-lg-2	mb-lg-0	mx-2 mb-3" 
-				style="background-color: {{ card.cor }}; width: 200px; height: 72px; padding-left: 20px; padding-top: 10px;">
+				class="card-estatistico  mx-lg-2 my-lg-2 mb-lg-0	mx-2 mb-3" 
+				style="background-color: {{ card.cor }};">
 				<div class="row">
 					<div class="col text-center d-inline">
 						<i class="{{ card.icone }}" style="font-size: 30px;"></i>
-						<div style="">
+						<div>
 							{{ card.categoria }}
 						</div>
 					</div>

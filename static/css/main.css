@@ -32,6 +32,15 @@
 	font-size: 16px;
 }
 
+/* cards estatisticos */
+	.card-estatistico {
+		width: 200px; 
+		height: 72px; 
+		padding-left: 20px; 
+		padding-top: 10px;
+	}
+/* cards estatisticos*/
+
 /* estilos cards estatisticos */
 @media (min-width: 1900px) {
 	.col-md{
