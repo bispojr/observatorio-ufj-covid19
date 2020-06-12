@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.views.decorators.http import require_GET
 
 from apps.core.api import (quantidade_estado_goias, quantidade_geral_brasil, 
@@ -17,6 +17,8 @@ from .models import Noticias
 from .forms.createForm import CreateBoletimEpidemiologicoForm
 from .forms.deleteForm import DeleteBoletimEpidemiologicoForm
 from .forms.readForm import ReadBoletimEpidemiologicoForm
+from .forms.updateForm import UpdateBoletimEpidemiologicoForm
+from .forms.updateForm2 import UpdateBoletimEpidemiologicoForm2
 
 import csv 
 from django.conf import settings
@@ -96,6 +98,58 @@ def readBoletimEpidemiologico(request):
 			'boletim': boletim}
 
 	return render(request, url, context)
+
+def updateBoletimEpidemiologico(request):	
+	boletim = None
+	if request.method == 'POST':
+		form = UpdateBoletimEpidemiologicoForm(request.POST)
+		if form.is_valid():
+			cidade = form.cleaned_data['cidade']
+			data_atualizacao = form.cleaned_data['data_atualizacao']
+			fonte_oficial = form.cleaned_data['fonte_oficial']			
+			confirmados = form.cleaned_data['confirmados']			
+			recuperados = form.cleaned_data['recuperados']			
+			obitos = form.cleaned_data['obitos']			
+			suspeitos = form.cleaned_data['suspeitos']			
+			investigados = form.cleaned_data['investigados']			
+			descartados = form.cleaned_data['descartados']			
+			monitorados = form.cleaned_data['monitorados']			
+			notificados = form.cleaned_data['notificados']			
+			isolados = form.cleaned_data['isolados']			
+			internados = form.cleaned_data['internados']			
+			enfermaria = form.cleaned_data['enfermaria']			
+			uti = form.cleaned_data['uti']	
+
+			try:
+				boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+			data_atualizacao = data_atualizacao)
+				boletim.cidade = cidade 
+				boletim.data_atualizacao = data_atualizacao
+				boletim.fonte_oficial = fonte_oficial
+				boletim.confirmados = confirmados
+				boletim.recuperados = recuperados
+				boletim.obitos = obitos
+				boletim.suspeitos = suspeitos
+				boletim.investigados = investigados
+				boletim.descartados = descartados
+				boletim.monitorados = monitorados
+				boletim.notificados = notificados
+				boletim.isolados = isolados
+				boletim.internados = internados
+				boletim.enfermaria = enfermaria
+				boletim.uti = uti
+				
+				boletim.save()
+			except boletim.DoesNotExist:
+				return False
+	else:
+		form = UpdateBoletimEpidemiologicoForm()
+
+	url = "forms/updateForm.html"
+	context = {'form': form,
+			'boletim': boletim}
+
+	return render(request, url, context)	
 
 def home(request):
 	url = "base.html"
