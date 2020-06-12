@@ -12,12 +12,11 @@
 }
 
 .grafico{
-	height: 90%; 
-	width: 110%; 
+	width: 100%; 
 	min-height: 300px;
 	min-width: 300px; 
 	max-width: 110%;
-	max-height: 90%;" 
+	max-height: 90%;
 }
 
 .grafico-mini{
