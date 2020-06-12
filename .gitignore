@@ -2,3 +2,6 @@
 geckodriver.log
 google-credentials.json
 .env
+
+# configurações de editores
+.vscode

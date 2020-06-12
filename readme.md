@@ -36,6 +36,14 @@ Crie o ambiente virtual e instale os pacotes.
  
  pipenv install (para instalar as dependencias)
 ```
+* Crie um arquivo `.env`  e adicione as varíaveis de ambiente, utilize o [.env.example](.env.example) como referência.
+
+```bash
+# Utilize true em desenvolvimento, para servir os arquivos estáticos
+DEBUG = true
+SECRET_KEY = exemplo
+```
+
 * Execute as migrações do banco de dados:
 
 ```
