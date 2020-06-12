@@ -4,7 +4,8 @@ from .views import ( home, grafico, comparacao,
                      equipe, na_midia, colabore,
                      noticias, api_brasil_estado, api_brasil_geral,
                      quantidade_estado_goias, quantidade_geral_brasil,
-                     createBoletimEpidemiologico, deleteBoletimEpidemiologico
+                     createBoletimEpidemiologico, deleteBoletimEpidemiologico,
+                     readBoletimEpidemiologico
                     )
 
 app_name = "core"
@@ -39,5 +40,6 @@ urlpatterns = [
 
     #forms
     path("create/", createBoletimEpidemiologico, name="createForm"),
-    path("delete/", deleteBoletimEpidemiologico, name="deleteForm")
+    path("delete/", deleteBoletimEpidemiologico, name="deleteForm"),
+    path("read/", readBoletimEpidemiologico, name="readForm")
 ]

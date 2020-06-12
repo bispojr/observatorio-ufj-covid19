@@ -16,6 +16,7 @@ from .models import Noticias
 
 from .forms.createForm import CreateBoletimEpidemiologicoForm
 from .forms.deleteForm import DeleteBoletimEpidemiologicoForm
+from .forms.readForm import ReadBoletimEpidemiologicoForm
 
 import csv 
 from django.conf import settings
@@ -75,6 +76,24 @@ def deleteBoletimEpidemiologico(request):
 	
 	url = "forms/deleteForm.html"
 	context = {'form': form}
+
+	return render(request, url, context)
+
+def readBoletimEpidemiologico(request):
+	if request.method == 'GET':
+		form = ReadBoletimEpidemiologicoForm(request.GET)
+		boletim = None
+		if form.is_valid():
+			cidade = form.cleaned_data['cidade']
+			data_atualizacao = form.cleaned_data['data_atualizacao']
+			boletim = BoletimEpidemiologico.objects.get(cidade = cidade,
+			data_atualizacao = data_atualizacao)
+	else:
+		form = ReadBoletimEpidemiologicoForm()
+
+	url = "forms/readForm.html"
+	context = {'form': form,
+			'boletim': boletim}
 
 	return render(request, url, context)
 
