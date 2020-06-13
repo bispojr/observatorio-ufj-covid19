@@ -3,3 +3,9 @@ $(".list-group-item").hover(function(){
   }, function(){
   $(this).removeClass("active");
 });
+
+$("#mapa-mun-jatai").hover(function(){
+  $(this).css("fill", "black");
+  }, function(){
+
+});
