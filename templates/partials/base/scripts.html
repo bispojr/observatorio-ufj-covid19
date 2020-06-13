@@ -23,6 +23,7 @@
 {% if script == "graficos-chapadao-do-ceu" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "graficos-jatai" %}

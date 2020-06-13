@@ -2,13 +2,16 @@
 <div class="container graficos-bg pb-3 p-md-5">
 	<div class="row">
 		<div class="col-lg-5 col-12">
-			<img 
+			<div 
 				class="mt-n3"
-				src="{% static 'images/mapas/' %}{{ nome_base }}.svg" 
 				id="mapa-{{ nome_base }}" 
 				alt="Mapa da Cidade de {{  cidade }}"  
 				style="width: 100%;" 
-			/>
+			>
+				{% with "mapas/"|add:nome_base|add:".svg" as nome_completo_mapa %}
+					{% include nome_completo_mapa %}
+				{% endwith %}
+			</div>
 		</div>
 		<div class="col-lg-7 col-12">
 			<div class="grafico" id="{{ nome_base }}-grafico-resumo"></div>
