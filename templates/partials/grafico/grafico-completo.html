@@ -1,5 +1,5 @@
 {% load static %}
-<div class="container graficos-bg p-5">
+<div class="container graficos-bg pb-3 p-md-5">
 	<div class="row">
 		<div class="col-lg-5 col-12">
 			<img 
@@ -10,20 +10,22 @@
 				style="width: 100%;" 
 			/>
 		</div>
-		<div class="col-lg-7 col-12 px-5">
+		<div class="col-lg-7 col-12">
 			<div class="grafico" id="{{ nome_base }}-grafico-resumo"></div>
 		</div>
 	</div>
-	<div class="row pt-2 pt-lg-0">
-		<span>
-			Dados atualizados em <span id="data-atualizacao-{{ nome_base }}">30 de março de 2020</span>.<br>
-			<strong>Fonte:</strong> <a href="{{ url_fonte }}" target="_blank">
-				{{ nome_fonte }}
-				</a>.
-		</span>
+	<div class="row pt-3 pt-lg-0">
+		<div class="col-lg-5">
+			<span>
+				Dados atualizados em <span id="data-atualizacao-{{ nome_base }}">30 de março de 2020</span>.<br>
+				<strong>Fonte:</strong> <a href="{{ url_fonte }}" target="_blank">
+					{{ nome_fonte }}
+					</a>.
+			</span>
+		</div>
 	</div>
 </div>
-<div class="container graficos-bg p-5 mt-2">
+<div class="container graficos-bg mt-3 pb-3 pt-3 p-md-5">
 	<div class="row">
 		<div class="col-lg-6 col-12">
 			<h2>Todas as categorias</h2>

@@ -12,12 +12,11 @@
 }
 
 .grafico{
-	height: 90%; 
-	width: 110%; 
+	width: 100%; 
 	min-height: 300px;
 	min-width: 300px; 
 	max-width: 110%;
-	max-height: 90%;" 
+	max-height: 90%;
 }
 
 .grafico-mini{
@@ -32,6 +31,15 @@
 #navbarColor01{
 	font-size: 16px;
 }
+
+/* cards estatisticos */
+	.card-estatistico {
+		width: 200px; 
+		height: 72px; 
+		padding-left: 20px; 
+		padding-top: 10px;
+	}
+/* cards estatisticos*/
 
 /* estilos cards estatisticos */
 @media (min-width: 1900px) {
