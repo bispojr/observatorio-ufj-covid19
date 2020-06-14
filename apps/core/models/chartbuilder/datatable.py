@@ -35,6 +35,7 @@ class DataTable():
             cidade != "Chapadão do Céu" and 
             cidade != "Jataí" and
             cidade != "Mineiros" and 
+            cidade != "Montividiu" and
             cidade != "Rio Verde" and
             cidade != "Santa Helena"
         ):
