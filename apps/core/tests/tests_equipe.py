@@ -26,7 +26,7 @@ class EquipeTestCase(TestCase):
         assert "Dyeimys Correa" in self.driver.page_source
         assert "Edlaine Vilela" in self.driver.page_source
         assert "Esdras L. Bispo Jr." in self.driver.page_source
-        assert "Felipe Nedopetaslki" in self.driver.page_source
+        assert "Felipe Nedopetalski" in self.driver.page_source
         assert "Franciny Medeiros" in self.driver.page_source
         assert "Gabriel Santos" in self.driver.page_source
         assert "Joslaine Jeske" in self.driver.page_source
