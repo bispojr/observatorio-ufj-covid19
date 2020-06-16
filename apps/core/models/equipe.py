@@ -68,11 +68,25 @@ class Equipe():
                 "content": "Responsável pelas notícias em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais."
             },
             {
+                "nome":	"Profa. Críscilla Rezende",
+                "short": "criscilla",
+                "url": "http://lattes.cnpq.br/1242438238751189",
+                "plataforma": "Lattes",
+                "content": "Responsável pelos dados da cidade de Caçu. Especialista em Segurança e Integração de Redes."
+            },
+            {
+                "nome":	"Prof. Douglas Cedrim",
+                "short": "douglas",
+                "url": " http://lattes.cnpq.br/8621490090221615",
+                "plataforma": "Lattes",
+                "content": "Responsável pelos dados da cidade de Montividiu. Pesquisador do IF Goiano em Rio Verde."
+            },
+            {
                 "nome": "Prof. Zaqueu Souza",
                 "short": "zaqueu",
                 "url": "http://lattes.cnpq.br/8132493439297747",
                 "plataforma": "Lattes",
-                "content": "Colaborador-parceiro do Todos Contra o Corona. Professor de Engenharia Ambiental na Unifimes."
+                "content": "Responsável pelos dados de Chapadão do Céu. Professor de Engenharia Ambiental na Unifimes."
             },
             {
                 "nome":	"Profa. Edlaine Vilela",
