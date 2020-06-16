@@ -133,9 +133,9 @@ class Equipe():
             {
                 "nome": "Marcos Alves",
                 "short": "marcos",
-                "url": "https://www.linkedin.com/in/dyeimys/",
+                "url": "https://www.linkedin.com/in/marcosdourado23",
                 "plataforma": "LinkedIn",
-                "content": "Colaborador no desenvolvimento da página. Analista desenvolvedor na Run2biz."
+                "content": "Colaborador no desenvolvimento da página. Egresso do Curso de Ciências da Computação da UFJ."
             },
             {
                 "nome": "Gabriel Santos",
