@@ -24,7 +24,7 @@ class GraficosTestCase(TestCase):
         assert titulo in self.driver.title
         assert "Todas as categorias" in self.driver.page_source
         assert "Monitorados" in self.driver.page_source
-        assert "Rede Social Oficial de " in self.driver.page_source
+        assert "Rede Social Oficial da Prefeitura de Caçu" in self.driver.page_source
     
     def test_pagina_chapadao(self):
         self.driver.get('http://127.0.0.1:8000/graficos/chapadao')
@@ -49,6 +49,14 @@ class GraficosTestCase(TestCase):
         assert "Todas as categorias" in self.driver.page_source
         assert "Monitorados" in self.driver.page_source
         assert "Secretaria de Saúde de Mineiros" in self.driver.page_source
+
+    def test_titulo_montividiu(self):
+        self.driver.get('http://127.0.0.1:8000/graficos/montividiu')
+        titulo = "Observatório UFJ Covid-19 - Gráficos (Montividiu)"
+        assert titulo in self.driver.title
+        assert "Todas as categorias" in self.driver.page_source
+        assert "Monitorados" in self.driver.page_source
+        assert "Rede Social Oficial da Prefeitura de Montividiu" in self.driver.page_source
 
     def test_titulo_rioverde(self):        
         self.driver.get('http://127.0.0.1:8000/graficos/rioverde')

@@ -4,6 +4,7 @@ from .chartbuilder.cacu import Cacu
 from .chartbuilder.chapadao import Chapadao
 from .chartbuilder.jatai import Jatai
 from .chartbuilder.mineiros import Mineiros
+from .chartbuilder.montividiu import Montividiu
 from .chartbuilder.rioverde import RioVerde
 from .chartbuilder.santahelena import SantaHelena
 
@@ -23,6 +24,8 @@ class Graficos(models.Model):
             return {**self._geral("Jataí"), **self._jatai(self)}
         if cidade == "mineiros":
             return {**self._geral("Mineiros"), **self._mineiros(self)}
+        if cidade == "montividiu":
+            return {**self._geral("Montividiu"), **self._montividiu(self)}
         if cidade == "rioverde":
             return {**self._geral("Rio Verde"), **self._rioverde(self)}
         if cidade == "santahelena":
@@ -110,6 +113,24 @@ class Graficos(models.Model):
             "nome_fonte": nome_fonte,
             "url_fonte": url_fonte,
             "google_charts": Mineiros.getValores(Mineiros),
+            "tableJson": tableJson,
+            "ticks": ticks,
+            "cards": cards,
+            "data_completa": data_completa
+        }
+        
+        return context
+
+    def _montividiu(self):
+        #Informações Específicas
+        nome_fonte = "Rede Social Oficial da Prefeitura de Montividiu"
+        url_fonte = "https://www.facebook.com/prefeiturademontividiu/"
+        tableJson, ticks, cards, data_completa = DataTable.cidade(DataTable, "Montividiu")
+
+        context = {
+            "nome_fonte": nome_fonte,
+            "url_fonte": url_fonte,
+            "google_charts": Montividiu.getValores(Montividiu),
             "tableJson": tableJson,
             "ticks": ticks,
             "cards": cards,
