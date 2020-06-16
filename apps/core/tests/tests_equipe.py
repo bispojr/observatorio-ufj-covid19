@@ -33,6 +33,7 @@ class EquipeTestCase(TestCase):
         assert "Luiz Pascoal" in self.driver.page_source
         assert "Manuel Ferreira" in self.driver.page_source
         assert "Marcelo Freitas" in self.driver.page_source
+        assert "Marcos Alves" in self.driver.page_source
         assert "Márcio Lopes" in self.driver.page_source
         assert "Paulo Freitas" in self.driver.page_source
         assert "Zaqueu Souza" in self.driver.page_source
