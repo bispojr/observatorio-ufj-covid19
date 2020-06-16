@@ -107,6 +107,24 @@ class NavbarTestCase(TestCase):
         assert is_active_grafico == True  
         #assert  is_active_tendencias == False 
         assert is_active_saiba_mais == False
+
+    def test_pag_grafico_montividiu(self):
+        self.driver.get('http://127.0.0.1:8000/graficos/montividiu/')
+
+        principal_element = self.driver.find_element_by_xpath('//*[@id="navbarColor01"]/ul/li[1]')
+        grafico_element= self.driver.find_element_by_id("navbarDropdownGraficos")
+        #tendencia_element= self.driver.find_element_by_id("navbarDropdownTendencias")
+        saiba_mais_element= self.driver.find_element_by_id("navbarDropdownConhecaMais")
+
+        is_active_main = "active" in principal_element.get_attribute("class")
+        is_active_grafico = "active" in grafico_element.get_attribute("class")
+        #is_active_tendencias = "active" in tendencia_element.get_attribute("class")
+        is_active_saiba_mais = "active" in saiba_mais_element.get_attribute("class")
+
+        assert is_active_main == False 
+        assert is_active_grafico == True  
+        #assert  is_active_tendencias == False 
+        assert is_active_saiba_mais == False
     
     def test_pag_grafico_rioverde(self):
         self.driver.get('http://127.0.0.1:8000/graficos/rioverde/')
