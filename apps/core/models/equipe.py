@@ -131,6 +131,13 @@ class Equipe():
                 "content": "Colaborador no desenvolvimento da página. Analista desenvolvedor na Run2biz."
             },
             {
+                "nome": "Marcos Alves",
+                "short": "marcos",
+                "url": "https://www.linkedin.com/in/marcosdourado23",
+                "plataforma": "LinkedIn",
+                "content": "Colaborador no desenvolvimento da página. Egresso do Curso de Ciências da Computação da UFJ."
+            },
+            {
                 "nome": "Gabriel Santos",
                 "short": "gabriel",
                 "url": "https://www.linkedin.com/in/dev-gabriel-santos/",
