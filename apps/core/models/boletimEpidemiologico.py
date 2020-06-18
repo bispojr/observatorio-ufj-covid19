@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, IntegrityError
 import uuid
 
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
@@ -75,12 +75,15 @@ class BoletimEpidemiologico(models.Model):
                 enfermaria = form.cleaned_data['enfermaria']			
                 uti = form.cleaned_data['uti']	
 
-                BoletimEpidemiologico(cidade = cidade, data_atualizacao = data_atualizacao, 
-                fonte_oficial = fonte_oficial, confirmados = confirmados, 
-                recuperados = recuperados, obitos = obitos, suspeitos = suspeitos, 
-                investigados = investigados, descartados = descartados, 
-                monitorados = monitorados, notificados = notificados, isolados = isolados, 
-                internados = internados, enfermaria = enfermaria, uti = uti).save()	
+                try:
+                    BoletimEpidemiologico(cidade = cidade, data_atualizacao = data_atualizacao, 
+                    fonte_oficial = fonte_oficial, confirmados = confirmados, 
+                    recuperados = recuperados, obitos = obitos, suspeitos = suspeitos, 
+                    investigados = investigados, descartados = descartados, 
+                    monitorados = monitorados, notificados = notificados, isolados = isolados, 
+                    internados = internados, enfermaria = enfermaria, uti = uti).save()	
+                except IntegrityError as e:
+                    return ("Erro de integridade {}", e)
         else:
             form = CreateBoletimEpidemiologicoForm()
 
@@ -147,8 +150,10 @@ class BoletimEpidemiologico(models.Model):
                     boletim.uti = uti
                     
                     boletim.save()
+                except IntegrityError as e:
+                    return ("Erro de integridade {}", e)
                 except boletim.DoesNotExist:
-                    return False
+                    return ("O boletim não existe!")
         else:
             form = CreateBoletimEpidemiologicoForm()
         context = {'form': form,
