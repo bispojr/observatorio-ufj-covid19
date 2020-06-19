@@ -1,8 +1,9 @@
-from django.test import Client
+from django.test import RequestFactory
 from django.test import TestCase
 from ..models import BoletimEpidemiologico
 from ..forms.createForm import CreateBoletimEpidemiologicoForm
 from django.db import IntegrityError
+from pprint import pprint
 
 class BoletimTestCase(TestCase):
     
@@ -38,4 +39,56 @@ class BoletimTestCase(TestCase):
 
         self.assertEqual(dataUTI, data.uti)
 
-        
+    def test_factory_create(self):
+        rf = RequestFactory()
+        req = rf.post('/create/', {'cidade': 'Jataí', 
+        'data_atualizacao': '2020-06-15 00:00:00', 
+        'fonte_oficial': 'https://www.google.com/', 
+        'uti': 9})
+        a = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, req)
+
+        self.assertEqual(int(a['uti']),9)
+
+    def test_factory_update(self):
+        rf = RequestFactory()
+        req = rf.post('/update/', {'cidade': 'Jataí', 
+        'data_atualizacao': '2020-06-16 00:00:00', 
+        'fonte_oficial': 'https://www.google.com/', 
+        'uti': 6})
+
+        item = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, req)
+
+        self.assertEqual(int(item['uti']), 6)
+
+        req = rf.post('/create/', {'cidade': 'Jataí', 
+        'data_atualizacao': '2020-06-16 00:00:00', 
+        'fonte_oficial': 'https://www.google.com/', 
+        'uti': 9})
+
+        a = BoletimEpidemiologico.get_update_boletim(BoletimEpidemiologico, req)
+
+        self.assertEqual(int(a.uti), 9)
+
+    def test_factory_read(self):
+        rf = RequestFactory()
+        req = rf.post('/create/', {'cidade': 'Jataí', 
+        'data_atualizacao': '2020-06-15 00:00:00', 
+        'fonte_oficial': 'https://www.google.com/', 
+        'uti': 9})
+        BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, req)
+
+        a = BoletimEpidemiologico.get_read_boletim(BoletimEpidemiologico, req)
+
+        self.assertEqual(int(a.uti),9)
+
+    def test_factory_delete(self):
+        rf = RequestFactory()
+        req = rf.post('/create/', {'cidade': 'Jataí', 
+        'data_atualizacao': '2020-06-15 00:00:00', 
+        'fonte_oficial': 'https://www.google.com/', 
+        'uti': 9})
+        BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, req)
+
+        a = BoletimEpidemiologico.get_delete_boletim(BoletimEpidemiologico, req)
+
+        self.assertEqual(a, (1, {'core.BoletimEpidemiologico': 1}))
