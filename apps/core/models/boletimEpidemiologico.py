@@ -11,24 +11,40 @@ class BoletimEpidemiologico(models.Model):
 
     cidade = models.CharField(max_length=256, verbose_name="Cidade")
     data_atualizacao = models.DateTimeField(verbose_name="Data de atualização")
-    fonte_oficial = models.URLField(verbose_name="Fonte Oficial (URL)")
+    fonte_oficial_url = models.URLField(verbose_name="Fonte Oficial (URL)")
+    fonte_oficial_tipo = models.CharField(max_length=256, default="Prefeitura", verbose_name="Fonte Oficial (Tipo)")
 
     confirmados = models.PositiveIntegerField(verbose_name="Confirmados", null=True)
+    conf_reside = models.PositiveIntegerField(verbose_name="Confirmados que residem na cidade", null=True)
+    conf_nao_reside = models.PositiveIntegerField(verbose_name="Confirmados que não residem na cidade", null=True)
     recuperados = models.PositiveIntegerField(verbose_name="Recuperados", null=True)
     obitos = models.PositiveIntegerField(verbose_name="Óbitos", null=True)
+    isolados = models.PositiveIntegerField(verbose_name="Isolados", null=True)
+    iso_domiciliar = models.PositiveIntegerField(verbose_name="Isolados domiciliar", null=True)
+    iso_hospitalar = models.PositiveIntegerField(verbose_name="Isolados hospitalar", null=True)
+    iso_hosp_sus = models.PositiveIntegerField(verbose_name="Isolados hospitalar SUS", null=True)
+    iso_hosp_priv = models.PositiveIntegerField(verbose_name="Isolados hospitalar privado", null=True)
+    iso_hosp_sus_enf = models.PositiveIntegerField(verbose_name="Isolados hospitalar SUS enfermaria", null=True)
+    iso_hosp_priv_enf = models.PositiveIntegerField(verbose_name="Isolados hospitalar privado enfermaria", null=True)
+    iso_hosp_sus_uti = models.PositiveIntegerField(verbose_name="Isolados hospitalar SUS UTI", null=True)
+    iso_hosp_priv_uti = models.PositiveIntegerField(verbose_name="Isolados hospitalar privado UTI", null=True)
+
     suspeitos = models.PositiveIntegerField(verbose_name="Suspeitos", null=True)
-    investigados = models.PositiveIntegerField(
+    sus_isolados = models.PositiveIntegerField(verbose_name="Suspeitos isolados", null=True)
+    sus_iso_domiciliar = models.PositiveIntegerField(verbose_name="Suspeitos isolados domiciliar", null=True)
+    sus_iso_hospitalar = models.PositiveIntegerField(verbose_name="Suspeitos isolados hospitalar", null=True)
+    sus_investigados = models.PositiveIntegerField(
         verbose_name="Investigados/Análise Laboratorial", null=True)
+    
+    testados = models.PositiveIntegerField(verbose_name="Testados", null=True)
+    test_pcr = models.PositiveIntegerField(verbose_name="Testados RT-PCR", null=True)
+    test_rapido = models.PositiveIntegerField(verbose_name="Testados TR-Igm/Igg", null=True)
+
     descartados = models.PositiveIntegerField(
         verbose_name="Descartados/Excluídos/Negativos", null=True)
     
     monitorados = models.PositiveIntegerField(verbose_name="Monitorados", null=True)
     notificados = models.PositiveIntegerField(verbose_name="Notificados", null=True)
-    isolados = models.PositiveIntegerField(verbose_name="Isolados", null=True)
-
-    internados = models.PositiveIntegerField(verbose_name="Internados", null=True)
-    enfermaria = models.PositiveIntegerField(verbose_name="Enfermaria", null=True)
-    uti = models.PositiveIntegerField(verbose_name="UTI", null=True)
 
     uuid = models.UUIDField(
         verbose_name="Uuid", default=uuid.uuid4, editable=False
@@ -49,19 +65,19 @@ class BoletimEpidemiologico(models.Model):
 
         Args:(self, request)
 
-        Uma request do tipo POST é recebida pela função,
-        as informações da request são armazenadas em um 
-        dict (req) e então, caso não haja nenhum erro de 
-        integridade, o boletim é criado. Caso contrário,
-        uma mensagem de erro é retornada.
+        É recebido um dict com os valores que serão
+        adicionados ao banco de dados. Caso não haja
+        nenhum erro de integridade, os dados são 
+        inseridos no banco de dados.
 
-        Return: dict com os atributos do boletim
+        Return: Objeto criado no banco de dados
 
-        OBS1.: Não é possível criar um novo item no banco direto pela request
-        utilizando **request porque surge uma reclamação que não existe ID.
+        Exemplo:
 
-        OBS2.: Não é possível retornar o objeto boletim porque a função .save()
-        não tem retorno: https://docs.djangoproject.com/en/3.0/ref/models/instances/
+        BE = BoletimEpidemiologico()
+        Item = BE.get_create_boletim(BE, dict)
+
+        assert Item.name = 'Foo'
         """
         return self.__createBoletimEpidemiologico(self, request)
     
@@ -71,16 +87,21 @@ class BoletimEpidemiologico(models.Model):
 
         Args:(self, request)
 
-        A função recebe uma requisição, armazena os dados 
-        essenciais em um dict (req), busca no banco de dados 
-        se a query existe, se existir, deleta o objeto e 
-        retorna quantos objetos foram excluídos.
+        A função recebe um dict com o dados essenciais da
+        query que deseja apagar. É feito uma busca no 
+        banco de dados e se a query existir, o objeto é 
+        deletado e é retornado quantos objetos foram excluídos.
 
         Return: Quantidade de objetos excluídos.
         
         Exemplo de retorno: (1, {'core.BoletimEpidemiologico': 1})
         
         Neste caso, uma query do banco foi excluída.
+
+        BE = BoletimEpidemiologico()
+        Item = BE.get_delete_boletim(BE, dict)
+
+        assert Item.name = (1, {'core.BoletimEpidemiologico': 1})
         """
         return self.__deleteBoletimEpidemiologico(self, request)
 
@@ -90,11 +111,17 @@ class BoletimEpidemiologico(models.Model):
 
         Args:(self, request)
 
-        A função recebe uma requisição, armazena os dados 
-        essenciais em um dict (req), busca no banco de dados 
-        se a query existe e, se existir, retorna o objeto.
+        A função recebe um dict, é feito uma busca no 
+        banco de dados e se a query existir, retorna o objeto.
 
         Return: objeto com os atributos do boletim
+
+        Exemplo:
+
+        BE = BoletimEpidemiologico()
+        Item = BE.get_read_boletim(BE, dict)
+
+        assert Item.name = 'Foo'
         """
         return self.__readBoletimEpidemiologico(self, request)
     
@@ -104,117 +131,68 @@ class BoletimEpidemiologico(models.Model):
 
         Args:(self, request)
 
-        Uma requisição POST é recebida pelo argumento request,
-        as informações contidas na requisição são armazenadas 
-        em um dict (req), é feito uma busca no banco com os
-        dados da requisição e então, se não houver nenhum
-        erro de integridade, o boletim é atualizado.
+        É recebido um dict com os valores que serão
+        alterados no banco de dados. É feito uma 
+        busca no banco de dados com os valores recebidos.
+        Caso o objeto exista, ele é retornado.
+        Caso não haja nenhum erro de integridade, os dados são 
+        atualizados no banco de dados.
 
         Return: objeto com os atributos do boletim
+
+        Exemplo:
+
+        BE = BoletimEpidemiologico()
+        Item = BE.get_update_boletim(BE, dict)
         """
         return self.__updateBoletimEpidemiologico(self, request)
 
     def __createBoletimEpidemiologico(self, request):
-        req = {
-            'cidade': request.POST.get('cidade'),
-            'data_atualizacao' : request.POST.get('data_atualizacao'),
-            'fonte_oficial' : request.POST.get('fonte_oficial'),			
-            'confirmados' : request.POST.get('confirmados'),			
-            'recuperados' : request.POST.get('recuperados'),			
-            'obitos' : request.POST.get('obitos'),			
-            'suspeitos' : request.POST.get('suspeitos'),			
-            'investigados' : request.POST.get('investigados'),			
-            'descartados' : request.POST.get('descartados'),			
-            'monitorados' : request.POST.get('monitorados'),			
-            'notificados' : request.POST.get('notificados'),			
-            'isolados' : request.POST.get('isolados'),			
-            'internados' : request.POST.get('internados'),			
-            'enfermaria' : request.POST.get('enfermaria'),			
-            'uti' : request.POST.get('uti')
-        }
         try:
-            BoletimEpidemiologico(**req).save()	
+            BoletimEpidemiologico(**request).save()
+            boletim = BoletimEpidemiologico.objects.get(cidade = request['cidade'],
+        data_atualizacao = request['data_atualizacao'])
         except IntegrityError as e:
             return ("Erro de integridade {}", e)
+        except BoletimEpidemiologico.DoesNotExist:
+            return ("Boletim não existe")
         
-        return req
+        return boletim
 
     def __readBoletimEpidemiologico(self, request):
-        req = {
-            'cidade': request.POST.get('cidade'),
-            'data_atualizacao' : request.POST.get('data_atualizacao')
-        }
 
         try:
-            boletim = BoletimEpidemiologico.objects.get(cidade = req['cidade'],
-        data_atualizacao = req['data_atualizacao'])
+            boletim = BoletimEpidemiologico.objects.get(cidade = request['cidade'],
+        data_atualizacao = request['data_atualizacao'])
 
-        except boletim.DoesNotExist:
+        except BoletimEpidemiologico.DoesNotExist:
             return ("O Boletim não existe!")
 
         return boletim
     
-    def __updateBoletimEpidemiologico(self, request):	
-
-        req = {
-            'cidade': request.POST.get('cidade'),
-            'data_atualizacao' : request.POST.get('data_atualizacao'),
-            'fonte_oficial' : request.POST.get('fonte_oficial'),			
-            'confirmados' : request.POST.get('confirmados'),			
-            'recuperados' : request.POST.get('recuperados'),			
-            'obitos' : request.POST.get('obitos'),			
-            'suspeitos' : request.POST.get('suspeitos'),			
-            'investigados' : request.POST.get('investigados'),			
-            'descartados' : request.POST.get('descartados'),			
-            'monitorados' : request.POST.get('monitorados'),			
-            'notificados' : request.POST.get('notificados'),			
-            'isolados' : request.POST.get('isolados'),			
-            'internados' : request.POST.get('internados'),			
-            'enfermaria' : request.POST.get('enfermaria'),			
-            'uti' : request.POST.get('uti')
-        }
+    def __updateBoletimEpidemiologico(self, request):
 
         try:
-            boletim = BoletimEpidemiologico.objects.get(cidade = req['cidade'],
-        data_atualizacao = req['data_atualizacao'])
-        
-            boletim.cidade = req['cidade']
-            boletim.data_atualizacao = req['data_atualizacao']
-            boletim.fonte_oficial = req['fonte_oficial']
-            boletim.confirmados = req['confirmados']
-            boletim.recuperados = req['recuperados']
-            boletim.obitos = req['obitos']
-            boletim.suspeitos = req['suspeitos']
-            boletim.investigados = req['investigados']
-            boletim.descartados = req['descartados']
-            boletim.monitorados = req['monitorados']
-            boletim.notificados = req['notificados']
-            boletim.isolados = req['isolados']
-            boletim.internados = req['internados']
-            boletim.enfermaria = req['enfermaria']
-            boletim.uti = req['uti']
-            
-            boletim.save()
-        except IntegrityError as e:
-            return ("Erro de integridade {}", e)
-        except boletim.DoesNotExist:
-            return ("O Boletim não existe!")
+            BoletimEpidemiologico.objects.filter(cidade = request['cidade'],
+        data_atualizacao = request['data_atualizacao']).update(**request)
+            boletim = BoletimEpidemiologico.objects.get(cidade = request['cidade'],
+        data_atualizacao = request['data_atualizacao'])
 
+        except IntegrityError as e:
+            return ("Erro de integridade", e)
+        except BoletimEpidemiologico.DoesNotExist:
+            return ("Boletim não existe")
+        
         return boletim
 
     def __deleteBoletimEpidemiologico(self, request):
 
-        req = {
-            'cidade': request.POST.get('cidade'),
-            'data_atualizacao' : request.POST.get('data_atualizacao')
-        }
-
         try:
-            boletim = BoletimEpidemiologico.objects.get(cidade = req['cidade'],
-        data_atualizacao = req['data_atualizacao'])
+            boletim = BoletimEpidemiologico.objects.get(cidade = request['cidade'],
+        data_atualizacao = request['data_atualizacao'])
             result = boletim.delete()
 
-        except boletim.DoesNotExist:
+        except BoletimEpidemiologico.DoesNotExist:
             return ("O Boletim não existe!")
 
         return result
