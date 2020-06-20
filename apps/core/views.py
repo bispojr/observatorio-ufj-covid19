@@ -23,7 +23,7 @@ from django.conf import settings
 from pprint import pprint
 from datetime import datetime
 
-@require_http_methods(["GET", "POST"])
+@require_GET
 def createBoletimEpidemiologico(request):
 	url = "forms/createForm.html"
 	form = CreateBoletimEpidemiologicoForm(request.POST)
@@ -67,6 +67,7 @@ def createBoletimEpidemiologico(request):
 	context = {'form': form}
 	return render(request, url, context)
 
+@require_GET
 def deleteBoletimEpidemiologico(request):	
 	url = "forms/deleteForm.html"
 	form = DeleteBoletimEpidemiologicoForm(request.GET)
@@ -82,6 +83,7 @@ def deleteBoletimEpidemiologico(request):
 	context = {'form': form}
 	return render(request, url, context)
 
+@require_GET
 def readBoletimEpidemiologico(request):
 	url = "forms/readForm.html"
 	form = DeleteBoletimEpidemiologicoForm(request.GET)
@@ -98,6 +100,7 @@ def readBoletimEpidemiologico(request):
 
 	return render(request, url, context)
 
+@require_GET
 def updateBoletimEpidemiologico(request):	
 	url = "forms/updateForm.html"
 	form = CreateBoletimEpidemiologicoForm(request.POST)
