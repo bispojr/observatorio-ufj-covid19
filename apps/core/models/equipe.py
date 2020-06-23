@@ -1,4 +1,5 @@
-class Equipe:
+class Equipe():
+
     def getContext(self):
         return self.__contextEquipe(self)
 
@@ -9,15 +10,15 @@ class Equipe:
                 "short": "todoscontraocorona",
                 "url": "https://www.facebook.com/centrouniversitariodemineiros",
                 "plataforma": "Facebook",
-                "content": "Projeto de conscientização diária em relação ao combate ao Covid-19 promovido pela Unifimes.",
+                "content": "Projeto de conscientização diária em relação ao combate ao Covid-19 promovido pela Unifimes."
             },
             {
                 "nome": "Covid Goiás",
                 "short": "covid-goias",
                 "url": "https://covidgoias.ufg.br/",
                 "plataforma": "Link",
-                "content": "Observatório estadual conduzido pelo LAPIG-UFG com dados sobre o Covid-19 do estado de Goiás.",
-            },
+                "content": "Observatório estadual conduzido pelo LAPIG-UFG com dados sobre o Covid-19 do estado de Goiás."
+            }
         ]
         return parceiros
 
@@ -28,99 +29,120 @@ class Equipe:
                 "short": "esdras",
                 "url": "http://lattes.cnpq.br/1022072289836952",
                 "plataforma": "Lattes",
-                "content": "Idealizador do Observatório. Pesquisador na área de Educação e Inteligência Artificial",
+                "content": "Idealizador do Observatório. Pesquisador na área de Educação e Inteligência Artificial"
             },
             {
                 "nome": "Profa. Joslaine Jeske",
                 "short": "joslaine",
                 "url": "http://lattes.cnpq.br/2394348610492496",
                 "plataforma": "Lattes",
-                "content": "Responsável pelos dados da cidade de Rio Verde. Pesquisadora na área de Inteligência Artificial.",
+                "content": "Responsável pelos dados da cidade de Rio Verde. Pesquisadora na área de Inteligência Artificial."
             },
             {
                 "nome": "Profa. Franciny Medeiros",
                 "short": "franciny",
                 "url": "http://lattes.cnpq.br/2821748091466181",
                 "plataforma": "Lattes",
-                "content": "Responsável pelos dados de Jataí e pela comunicação. Pesquisadora na área de Engenharia de Software.",
+                "content": "Responsável pelos dados de Jataí e pela comunicação. Pesquisadora na área de Engenharia de Software."
             },
             {
                 "nome": "Prof. Márcio Lopes",
                 "short": "marcio",
                 "url": "http://lattes.cnpq.br/8846703586256426",
                 "plataforma": "Lattes",
-                "content": "Responsável pelos dados da cidade de Mineiros. Pesquisador na área de Computação em Névoa.",
+                "content": "Responsável pelos dados da cidade de Mineiros. Pesquisador na área de Computação em Névoa."
             },
             {
                 "nome": "Prof. Paulo Freitas",
                 "short": "paulo",
                 "url": "http://lattes.cnpq.br/2235534471841773",
                 "plataforma": "Lattes",
-                "content": "Responsável pelos dados de Santa Helena. Pesquisador na área de Mecânica Estatística.",
+                "content": "Responsável pelos dados de Santa Helena. Pesquisador na área de Mecânica Estatística."
             },
             {
                 "nome": "Prof. Marcelo Freitas",
                 "short": "marcelo",
                 "url": "http://lattes.cnpq.br/0972390630476077",
                 "plataforma": "Lattes",
-                "content": "Responsável pelas notícias em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais.",
+                "content": "Responsável pelas notícias em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais."
+            },
+            {
+                "nome": "Profa. Críscilla Rezende",
+                "short": "criscilla",
+                "url": "http://lattes.cnpq.br/1242438238751189",
+                "plataforma": "Lattes",
+                "content": "Responsável pelos dados da cidade de Caçu. Especialista em Segurança e Integração de Redes."
+            },
+            {
+                "nome": "Prof. Douglas Cedrim",
+                "short": "douglas",
+                "url": " http://lattes.cnpq.br/8621490090221615",
+                "plataforma": "Lattes",
+                "content": "Responsável pelos dados da cidade de Montividiu. Pesquisador do IF Goiano em Rio Verde."
             },
             {
                 "nome": "Prof. Zaqueu Souza",
                 "short": "zaqueu",
                 "url": "http://lattes.cnpq.br/8132493439297747",
                 "plataforma": "Lattes",
-                "content": "Colaborador-parceiro do Todos Contra o Corona. Professor de Engenharia Ambiental na Unifimes.",
+                "content": "Responsável pelos dados de Chapadão do Céu. Professor de Engenharia Ambiental na Unifimes."
             },
             {
                 "nome": "Profa. Edlaine Vilela",
                 "short": "edlaine",
                 "url": "http://lattes.cnpq.br/8767578610764666",
                 "plataforma": "Lattes",
-                "content": "Consultora sobre questões epidemiológicas. Professora de Medicina na UFJ.",
+                "content": "Consultora sobre questões epidemiológicas. Professora de Medicina na UFJ."
             },
             {
                 "nome": "Prof. Manuel Ferreira",
                 "short": "manuel",
                 "url": "http://lattes.cnpq.br/4498594723433539",
                 "plataforma": "Lattes",
-                "content": "Colaborador-parceiro do Covid-Goiás. Professor da área de Geoprocessamento na UFG.",
+                "content": "Colaborador-parceiro do Covid-Goiás. Professor da área de Geoprocessamento na UFG."
             },
             {
                 "nome": "Prof. Luiz Pascoal",
                 "short": "luiz",
                 "url": "http://lattes.cnpq.br/9189310566441445",
                 "plataforma": "Lattes",
-                "content": "Colaborador-parceiro do Covid-Goiás. Professor da área de Sistemas Distribuídos no SENAI.",
+                "content": "Colaborador-parceiro do Covid-Goiás. Professor da área de Sistemas Distribuídos no SENAI."
             },
             {
                 "nome": "Diego Costa",
                 "short": "diego",
                 "url": "https://www.diegocosta.dev/",
                 "plataforma": "Link",
-                "content": "Colaborador no desenvolvimento da página. Analista Programador na Unimed na cidade de Rio Verde.",
+                "content": "Colaborador no desenvolvimento da página. Analista Programador na Unimed na cidade de Rio Verde."
             },
             {
                 "nome": "Felipe Nedopetalski",
                 "short": "felipe",
                 "url": "https://www.linkedin.com/in/felipe-nedopetalski-91b93b154/",
                 "plataforma": "LinkedIn",
-                "content": "Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ.",
+                "content": "Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ."
             },
             {
                 "nome": "Dyeimys Correa",
                 "short": "dyeimys",
                 "url": "https://www.linkedin.com/in/dyeimys/",
                 "plataforma": "LinkedIn",
-                "content": "Colaborador no desenvolvimento da página. Analista desenvolvedor na Run2biz.",
+                "content": "Colaborador no desenvolvimento da página. Analista desenvolvedor na Run2biz."
+            },
+            {
+                "nome": "Marcos Alves",
+                "short": "marcos",
+                "url": "https://www.linkedin.com/in/marcosdourado23",
+                "plataforma": "LinkedIn",
+                "content": "Colaborador no desenvolvimento da página. Egresso do Curso de Ciências da Computação da UFJ."
             },
             {
                 "nome": "Gabriel Santos",
                 "short": "gabriel",
                 "url": "https://www.linkedin.com/in/dev-gabriel-santos/",
                 "plataforma": "LinkedIn",
-                "content": "Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ.",
-            },
+                "content": "Colaborador no desenvolvimento da página. Graduando em Ciências da Computação na UFJ."
+            }
         ]
         return participantes
 
@@ -131,6 +153,7 @@ class Equipe:
             "grupo_link": "saiba_mais",
             "titulo": "Observatório UFJ Covid-19 - Equipe",
             "parceiros": self.__parceiros(self),
-            "querysets": self.__participantes(self),
+            "querysets": self.__participantes(self)
         }
         return context
+
