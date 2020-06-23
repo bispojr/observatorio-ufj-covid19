@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "apps.core",
+    "apps.account",
     "django_nose"
 ]
 
@@ -126,3 +127,7 @@ STATICFILES_DIRS = (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+# Model from authentication
+AUTH_USER_MODEL = "account.User"

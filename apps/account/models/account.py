@@ -58,7 +58,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-
     def login(request):
         msg_return = ""
         is_logged = False
@@ -69,8 +68,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 u = User.objects.filter(email=email)
                 u_count = u.count()
                 if u_count == 1:
-                    session = auth.authenticate(email=email,
-                                                password=password)
+                    session = auth.authenticate(email=email, password=password)
                     if session:
                         auth.login(request, session)
                         is_logged = True
@@ -81,7 +79,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         except:
             return request, msg_return, is_logged
         return request, msg_return, is_logged
-
 
     # def logout(request):
     #     auth.logout(request)

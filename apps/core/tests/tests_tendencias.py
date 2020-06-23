@@ -8,16 +8,18 @@ from selenium.webdriver.firefox.options import Options
 
 # Create your tests here.
 
+
 class TendenciasTestCase(TestCase):
-    
     def setUp(self):
         options = Options()
         options.headless = True
-        self.driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
+        self.driver = webdriver.Firefox(
+            options=options, executable_path=GeckoDriverManager().install()
+        )
 
     def tearDown(self):
         self.driver.close()
-    
+
     # def test_titulo_jatai(self):
     #     self.driver.get('http://127.0.0.1:8000/tendencias/jatai')
     #     titulo = "Observatório UFJ Covid-19 - Tendências (Jataí)"

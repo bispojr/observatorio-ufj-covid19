@@ -3,6 +3,6 @@ from .views import login
 
 app_name = "account"
 urlpatterns = [
-    path("", login, name="login"),
+    path("login", login, name="login"),
     # path("logout/", logout, name="logout")
 ]

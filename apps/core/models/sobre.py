@@ -1,6 +1,4 @@
-
-class Sobre():
-
+class Sobre:
     def getContext(self):
         return self.__contextSobre(self)
 
@@ -9,6 +7,6 @@ class Sobre():
             "grupo": "geral",
             "grupo_link": "saiba_mais",
             "script": "geral",
-            "titulo": "Observatório UFJ Covid-19 - Sobre"
-            }
+            "titulo": "Observatório UFJ Covid-19 - Sobre",
+        }
         return context

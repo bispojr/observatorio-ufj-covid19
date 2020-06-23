@@ -8,15 +8,14 @@ from selenium.webdriver.firefox.options import Options
 
 # Create your tests here.
 
+
 class FailsTestCase(TestCase):
-    
     def setUp(self):
         options = Options()
         options.headless = True
-        self.driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
+        self.driver = webdriver.Firefox(
+            options=options, executable_path=GeckoDriverManager().install()
+        )
 
     def tearDown(self):
         self.driver.close()
-        
-
-    

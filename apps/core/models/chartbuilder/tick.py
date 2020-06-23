@@ -2,24 +2,25 @@ import datetime
 import math
 from pprint import pprint
 
-class Tick():
+
+class Tick:
     def getTicks(dados, cols):
-        
+
         listData = []
         for row in dados:
             listData.append(row["Data"])
 
-        #Criação do ticks X
+        # Criação do ticks X
         minX = min(listData)
         maxX = max(listData)
 
         # Converte em dias
-        diffDias = maxX-minX
+        diffDias = maxX - minX
         diffDias = math.ceil(diffDias.total_seconds() / (60 * 60 * 24))
 
         ticksX = []
-        stepX = math.ceil(diffDias/5)
-        offsetX = diffDias%stepX
+        stepX = math.ceil(diffDias / 5)
+        offsetX = diffDias % stepX
 
         if offsetX > 0:
             ticksX.append(minX)
@@ -35,26 +36,26 @@ class Tick():
             v.append(str(t.strftime("%d-%b-%Y")))
 
         ticksX = v
-    
-        #Criação do ticks Y
+
+        # Criação do ticks Y
         minY = 0
 
         i = 1
         maxY = -1
-        numCols = len(cols) -1
+        numCols = len(cols) - 1
         while i <= numCols:
             listCol = []
             for row in dados:
-                val = row[ cols[i] ]
+                val = row[cols[i]]
                 if val == None:
                     val = 0
                 listCol.append(val)
-            #pprint(listCol)
+            # pprint(listCol)
             maxY = max(max(listCol), maxY)
-            i += 1         
+            i += 1
 
         ticksY = []
-        stepY = math.ceil((maxY-minY)/5)
+        stepY = math.ceil((maxY - minY) / 5)
 
         stepGold = [1, 5, 10, 20, 50, 100, 200, 500]
         i = 0
@@ -64,7 +65,7 @@ class Tick():
                 stepY = stepGold[i]
                 break
             i += 1
-       
+
         lastValue = 0
         i = minY
         while i < maxY:
@@ -74,9 +75,6 @@ class Tick():
 
         ticksY.append(lastValue + stepY)
 
-        ticks = {
-            "tickX": ticksX,
-            "tickY": ticksY
-        }
+        ticks = {"tickX": ticksX, "tickY": ticksY}
 
         return ticks
