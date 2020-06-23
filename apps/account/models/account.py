@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
     instead of usernames. The default that's used is "UserManager"
     """
 
-    def _create_user(self, email, password, **extra_fields):
+    def create_user(self, email, password, **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
@@ -34,7 +34,7 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         if extra_fields.get("is_superuser") is not True:
             raise ValueError("Superuser must have is_superuser=True.")
-        return self._create_user(email, password, **extra_fields)
+        return self.create_user(email, password, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):

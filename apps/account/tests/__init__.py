@@ -1,1 +1,2 @@
-from .authentication.tests_login import LogInTest
+from .authentication.manager import UsersManagersTests
+from .authentication.authenticate import AuthenticateTests
