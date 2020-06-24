@@ -5,12 +5,11 @@ from ...models import UserManager
 
 class UsersManagersTests(TestCase):
     """Test if model has work OK to create User and SuperUser."""
+
     def test_create_user(self, email, password):
         """Return the User model that is active in this project."""
         User = get_user_model()
-        user = User.objects.create_user(
-            email=email, password=password
-        )
+        user = User.objects.create_user(email=email, password=password)
 
         """Fail if the two objects are unequal by determined."""
         self.assertEqual(user.email, "user@user.com")
@@ -49,4 +48,3 @@ class UsersManagersTests(TestCase):
             User.objects.create_superuser(
                 email="super@user.com", password="super_pass", is_superuser=False
             )
-

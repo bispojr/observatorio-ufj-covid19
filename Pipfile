@@ -92,6 +92,7 @@ PyYAML = "==5.1"
 Pillow = "==7.1.2"
 psycopg2-binary = "==2.8.5"
 Unidecode = "==1.1.1"
+black = "*"
 
 [requires]
 python_version = "3.8"

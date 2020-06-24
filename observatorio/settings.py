@@ -131,3 +131,11 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 # Model from authentication
 AUTH_USER_MODEL = "account.User"
+
+# args login url
+LOGIN_REDIRECT = "/"
+LOGIN_URL = "/login"
+
+# autenticacao
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"

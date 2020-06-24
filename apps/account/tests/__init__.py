@@ -1,1 +1,1 @@
-from .authentication.auth import SignInTest
+from .authentication.auth import SignInTest, SignInViewTest
