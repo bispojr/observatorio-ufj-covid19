@@ -23,42 +23,13 @@ from django.conf import settings
 from pprint import pprint
 from datetime import datetime
 
+
 @require_GET
 def createBoletimEpidemiologico(request):
 	url = "forms/createForm.html"
 	form = CreateBoletimEpidemiologicoForm(request.POST)
 	if form.is_valid():
-		req = {
-            'cidade': form.cleaned_data['cidade'],
-            'data_atualizacao' : form.cleaned_data['data_atualizacao'],
-            'fonte_oficial_url' : form.cleaned_data['fonte_oficial_url'],			
-            'fonte_oficial_tipo' : form.cleaned_data['fonte_oficial_tipo'],			
-            'confirmados' : form.cleaned_data['confirmados'],			
-            'conf_reside' : form.cleaned_data['conf_reside'],			
-            'conf_nao_reside' : form.cleaned_data['conf_nao_reside'],			
-            'recuperados' : form.cleaned_data['recuperados'],			
-            'obitos' : form.cleaned_data['obitos'],			
-            'isolados' : form.cleaned_data['isolados'],			
-            'iso_domiciliar' : form.cleaned_data['iso_domiciliar'],			
-            'iso_hospitalar' : form.cleaned_data['iso_hospitalar'],			
-            'iso_hosp_sus' : form.cleaned_data['iso_hosp_sus'],			
-            'iso_hosp_priv' : form.cleaned_data['iso_hosp_priv'],			
-            'iso_hosp_sus_enf' : form.cleaned_data['iso_hosp_sus_enf'],			
-            'iso_hosp_priv_enf' : form.cleaned_data['iso_hosp_priv_enf'],			
-            'iso_hosp_sus_uti' : form.cleaned_data['iso_hosp_sus_uti'],			
-            'iso_hosp_priv_uti' : form.cleaned_data['iso_hosp_priv_uti'],			
-            'suspeitos' : form.cleaned_data['suspeitos'],			
-            'sus_isolados' : form.cleaned_data['sus_isolados'],			
-            'sus_iso_domiciliar' : form.cleaned_data['sus_iso_domiciliar'],
-            'sus_iso_hospitalar' : form.cleaned_data['sus_iso_hospitalar'],
-            'sus_investigados' : form.cleaned_data['sus_investigados'],
-            'testados' : form.cleaned_data['testados'],
-            'test_pcr' : form.cleaned_data['test_pcr'],
-            'test_rapido' : form.cleaned_data['test_rapido'],
-            'descartados' : form.cleaned_data['descartados'],
-            'monitorados' : form.cleaned_data['monitorados'],
-            'notificados' : form.cleaned_data['notificados']
-        }
+		req = BoletimEpidemiologico.cleanDataForm(BoletimEpidemiologico, form)
 		try:
 			BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, req)
 		except BoletimEpidemiologico.DoesNotExist:
@@ -105,37 +76,7 @@ def updateBoletimEpidemiologico(request):
 	url = "forms/updateForm.html"
 	form = CreateBoletimEpidemiologicoForm(request.POST)
 	if form.is_valid():
-		req = {
-            'cidade': form.cleaned_data['cidade'],
-            'data_atualizacao' : form.cleaned_data['data_atualizacao'],
-            'fonte_oficial_url' : form.cleaned_data['fonte_oficial_url'],			
-            'fonte_oficial_tipo' : form.cleaned_data['fonte_oficial_tipo'],			
-            'confirmados' : form.cleaned_data['confirmados'],			
-            'conf_reside' : form.cleaned_data['conf_reside'],			
-            'conf_nao_reside' : form.cleaned_data['conf_nao_reside'],			
-            'recuperados' : form.cleaned_data['recuperados'],			
-            'obitos' : form.cleaned_data['obitos'],			
-            'isolados' : form.cleaned_data['isolados'],			
-            'iso_domiciliar' : form.cleaned_data['iso_domiciliar'],			
-            'iso_hospitalar' : form.cleaned_data['iso_hospitalar'],			
-            'iso_hosp_sus' : form.cleaned_data['iso_hosp_sus'],			
-            'iso_hosp_priv' : form.cleaned_data['iso_hosp_priv'],			
-            'iso_hosp_sus_enf' : form.cleaned_data['iso_hosp_sus_enf'],			
-            'iso_hosp_priv_enf' : form.cleaned_data['iso_hosp_priv_enf'],			
-            'iso_hosp_sus_uti' : form.cleaned_data['iso_hosp_sus_uti'],			
-            'iso_hosp_priv_uti' : form.cleaned_data['iso_hosp_priv_uti'],			
-            'suspeitos' : form.cleaned_data['suspeitos'],			
-            'sus_isolados' : form.cleaned_data['sus_isolados'],			
-            'sus_iso_domiciliar' : form.cleaned_data['sus_iso_domiciliar'],
-            'sus_iso_hospitalar' : form.cleaned_data['sus_iso_hospitalar'],
-            'sus_investigados' : form.cleaned_data['sus_investigados'],
-            'testados' : form.cleaned_data['testados'],
-            'test_pcr' : form.cleaned_data['test_pcr'],
-            'test_rapido' : form.cleaned_data['test_rapido'],
-            'descartados' : form.cleaned_data['descartados'],
-            'monitorados' : form.cleaned_data['monitorados'],
-            'notificados' : form.cleaned_data['notificados']
-        }
+		req = BoletimEpidemiologico.cleanDataForm(BoletimEpidemiologico, form)
 		try:
 			BoletimEpidemiologico.get_update_boletim(BoletimEpidemiologico, req)
 		except BoletimEpidemiologico.DoesNotExist:

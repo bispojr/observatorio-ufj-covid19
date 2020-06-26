@@ -202,3 +202,86 @@ class BoletimEpidemiologico(models.Model):
 
         return result
 
+    def cleanDataFactory(self, request):
+        """
+        Função para limpar os dados recebidos de uma
+        RequestFactory.
+
+        Args: request de uma RequestFactory
+
+        Return: dict com os dados limpos
+        """
+        req = {
+            'cidade': request.POST.get('cidade'),
+            'data_atualizacao' : request.POST.get('data_atualizacao'),
+            'fonte_oficial_url' : request.POST.get('fonte_oficial_url'),			
+            'fonte_oficial_tipo' : request.POST.get('fonte_oficial_tipo'),			
+            'confirmados' : request.POST.get('confirmados'),			
+            'conf_reside' : request.POST.get('conf_reside'),			
+            'conf_nao_reside' : request.POST.get('conf_nao_reside'),			
+            'recuperados' : request.POST.get('recuperados'),			
+            'obitos' : request.POST.get('obitos'),			
+            'isolados' : request.POST.get('isolados'),			
+            'iso_domiciliar' : request.POST.get('iso_domiciliar'),			
+            'iso_hospitalar' : request.POST.get('iso_hospitalar'),			
+            'iso_hosp_sus' : request.POST.get('iso_hosp_sus'),			
+            'iso_hosp_priv' : request.POST.get('iso_hosp_priv'),			
+            'iso_hosp_sus_enf' : request.POST.get('iso_hosp_sus_enf'),			
+            'iso_hosp_priv_enf' : request.POST.get('iso_hosp_priv_enf'),			
+            'iso_hosp_sus_uti' : request.POST.get('iso_hosp_sus_uti'),			
+            'iso_hosp_priv_uti' : request.POST.get('iso_hosp_priv_uti'),			
+            'suspeitos' : request.POST.get('suspeitos'),			
+            'sus_isolados' : request.POST.get('sus_isolados'),			
+            'sus_iso_domiciliar' : request.POST.get('sus_iso_domiciliar'),
+            'sus_iso_hospitalar' : request.POST.get('sus_iso_hospitalar'),
+            'sus_investigados' : request.POST.get('sus_investigados'),
+            'testados' : request.POST.get('testados'),
+            'test_pcr' : request.POST.get('test_pcr'),
+            'test_rapido' : request.POST.get('test_rapido'),
+            'descartados' : request.POST.get('descartados'),
+            'monitorados' : request.POST.get('monitorados'),
+            'notificados' : request.POST.get('notificados'),
+        }
+        return req
+
+    def cleanDataForm(self, form):
+        """
+        Função para limpar os dados recebidos de um form.
+
+        Args: form gerado pelo Django
+
+        Return: dict com os dados limpos
+        """
+        req = {
+            'cidade': form.cleaned_data['cidade'],
+            'data_atualizacao' : form.cleaned_data['data_atualizacao'],
+            'fonte_oficial_url' : form.cleaned_data['fonte_oficial_url'],			
+            'fonte_oficial_tipo' : form.cleaned_data['fonte_oficial_tipo'],			
+            'confirmados' : form.cleaned_data['confirmados'],			
+            'conf_reside' : form.cleaned_data['conf_reside'],			
+            'conf_nao_reside' : form.cleaned_data['conf_nao_reside'],			
+            'recuperados' : form.cleaned_data['recuperados'],			
+            'obitos' : form.cleaned_data['obitos'],			
+            'isolados' : form.cleaned_data['isolados'],			
+            'iso_domiciliar' : form.cleaned_data['iso_domiciliar'],			
+            'iso_hospitalar' : form.cleaned_data['iso_hospitalar'],			
+            'iso_hosp_sus' : form.cleaned_data['iso_hosp_sus'],			
+            'iso_hosp_priv' : form.cleaned_data['iso_hosp_priv'],			
+            'iso_hosp_sus_enf' : form.cleaned_data['iso_hosp_sus_enf'],			
+            'iso_hosp_priv_enf' : form.cleaned_data['iso_hosp_priv_enf'],			
+            'iso_hosp_sus_uti' : form.cleaned_data['iso_hosp_sus_uti'],			
+            'iso_hosp_priv_uti' : form.cleaned_data['iso_hosp_priv_uti'],			
+            'suspeitos' : form.cleaned_data['suspeitos'],			
+            'sus_isolados' : form.cleaned_data['sus_isolados'],			
+            'sus_iso_domiciliar' : form.cleaned_data['sus_iso_domiciliar'],
+            'sus_iso_hospitalar' : form.cleaned_data['sus_iso_hospitalar'],
+            'sus_investigados' : form.cleaned_data['sus_investigados'],
+            'testados' : form.cleaned_data['testados'],
+            'test_pcr' : form.cleaned_data['test_pcr'],
+            'test_rapido' : form.cleaned_data['test_rapido'],
+            'descartados' : form.cleaned_data['descartados'],
+            'monitorados' : form.cleaned_data['monitorados'],
+            'notificados' : form.cleaned_data['notificados']
+        }
+
+        return req
