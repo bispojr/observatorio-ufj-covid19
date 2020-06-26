@@ -1,4 +1,5 @@
 from django.db import models, IntegrityError
+from django.core.exceptions import ValidationError
 import uuid
 
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
@@ -153,9 +154,11 @@ class BoletimEpidemiologico(models.Model):
             boletim = BoletimEpidemiologico.objects.get(cidade = request['cidade'],
         data_atualizacao = request['data_atualizacao'])
         except IntegrityError as e:
-            return ("Erro de integridade {}", e)
+            return "Erro de integridade {}".format(e)
         except BoletimEpidemiologico.DoesNotExist:
-            return ("Boletim não existe")
+            return "Boletim não existe"
+        except ValidationError as e:
+            return "Erro de validação {}".format(e)
         
         return boletim
 
@@ -179,9 +182,11 @@ class BoletimEpidemiologico(models.Model):
         data_atualizacao = request['data_atualizacao'])
 
         except IntegrityError as e:
-            return ("Erro de integridade", e)
+            return "Erro de integridade {}".format(e)
         except BoletimEpidemiologico.DoesNotExist:
-            return ("Boletim não existe")
+            return "Boletim não existe"
+        except ValidationError as e:
+            return "Erro de validação {}".format(e)
         
         return boletim
 
