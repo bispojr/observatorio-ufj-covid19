@@ -134,8 +134,21 @@ AUTH_USER_MODEL = "account.User"
 
 # args login url
 LOGIN_REDIRECT = "/"
-LOGIN_URL = "/login"
+LOGIN_URL = "/account/login"
 
 # autenticacao
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
+
+# During development only
+if DEBUG == True:
+    # Emulate smtp actions
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    # smtp user email
+    EMAIL_HOST = config('EMAIL_HOST')
+    EMAIL_PORT = config('EMAIL_PORT')
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
