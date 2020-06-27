@@ -6,15 +6,19 @@ app_name = "account"
 urlpatterns = [
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", LogoutView.as_view(), name="logout"),
+
     # to render a template html customized pass
     # template='template.html' into .as_view(),
     # so like: method.as_view(template_name='template.html')
     # By default has used adm reset django
+
     # samples:
-    # template_name='registration/password_reset.html'
-    # template_name='registration/password_reset_done.html'
-    # template_name='registration/password_reset_confirm.html'
-    # template_name='registration/password_reset_complete.html'
+    # template_name='reset/password_reset.html'
+    # template_name='reset/password_reset_done.html'
+    # template_name='reset/password_reset_confirm.html'
+    # template_name='reset/password_reset_complete.html'
+    # https://simpleisbetterthancomplex.com/tutorial/2016/09/19/how-to-create-password-reset-view.html
+
     path(
         "password-reset/", auth_views.PasswordResetView.as_view(), name="password_reset"
     ),
