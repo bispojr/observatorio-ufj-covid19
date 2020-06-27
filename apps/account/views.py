@@ -20,26 +20,20 @@ class LoginView(View):
         if user is not None:
             if user.is_active:
                 login(request, user)
-
-                # when in test
-                return {"authenticated": True}
-
-                # when in production
-                # return redirect('account:dashboard')
+                return render(request, 'index.html', status=200)
             else:
                 return HttpResponse('Usuário Inativo.')
         else:
-            return HttpResponseRedirect(settings.LOGIN_URL)
-
-        # return render(request, "index.html")
+            return render(request, 'registration/login.html', status=401)
 
 
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(settings.LOGIN_URL)
+        return render(request, 'registration/login.html', status=200)
 
 
 class dashboardView(View):
     def get(self, request):
         pass
+
