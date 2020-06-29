@@ -127,6 +127,7 @@ class BoletimEpidemiologico(models.Model):
         return self.__readBoletimEpidemiologico(self, request)
     
     def get_update_boletim(self, request):
+
         """
         Função UPDATE do boletim epidemiologico.
 
@@ -147,6 +148,20 @@ class BoletimEpidemiologico(models.Model):
         Item = BE.get_update_boletim(BE, dict)
         """
         return self.__updateBoletimEpidemiologico(self, request)
+
+    def get_dump_privado(self):
+        """
+        Gera um dump dos dados do banco de dados e 
+        cria um arquivo txt com a QuerySet.
+
+        Args:
+            BoletimEpidemiologico
+
+        Return:
+            QuerySet com os dados do banco de dados.
+        """
+
+        return self.__dumpPrivado(self)
 
     def __createBoletimEpidemiologico(self, request):
         try:
@@ -245,6 +260,7 @@ class BoletimEpidemiologico(models.Model):
         return req
 
     def cleanDataForm(self, form):
+        
         """
         Função para limpar os dados recebidos de um form.
 
@@ -285,3 +301,13 @@ class BoletimEpidemiologico(models.Model):
         }
 
         return req
+
+    def __dumpPrivado(self):
+        try:
+            boletim = BoletimEpidemiologico.objects.values()
+            with open("ultimoDump.text", "w", encoding='utf8') as f:
+                f.write(str(boletim))
+        except BoletimEpidemiologico.DoesNotExist:
+            return ("O Boletim não existe!")
+
+        return boletim

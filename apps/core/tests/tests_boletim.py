@@ -533,3 +533,5 @@ class BoletimTestCase(TestCase):
         self.assertEqual(a, 
         "Erro de validação ['O valor “{}” tem um formato inválido. Deve estar no formato YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ].']".format(request2['data_atualizacao']))
 
+    def test_dump(self):
+        BoletimEpidemiologico.get_dump_privado(BoletimEpidemiologico)
