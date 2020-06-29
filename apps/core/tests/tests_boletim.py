@@ -65,37 +65,7 @@ class BoletimTestCase(TestCase):
         'fonte_oficial_tipo': 'Instagram',
         'obitos': 9})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         a = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         self.assertEqual(int(a.obitos),9)
@@ -112,37 +82,7 @@ class BoletimTestCase(TestCase):
         'fonte_oficial_tipo': 'Instagram', 
         'obitos': 6})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
 
         item = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
@@ -179,37 +119,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : 5,
         'notificados' : 5})
 
-        request2 = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request2 = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
 
         a = BoletimEpidemiologico.get_update_boletim(BoletimEpidemiologico, request2)
 
@@ -255,37 +165,7 @@ class BoletimTestCase(TestCase):
         'fonte_oficial_tipo': 'Instagram', 
         'obitos': 9})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         a = BoletimEpidemiologico.get_read_boletim(BoletimEpidemiologico, request)
@@ -304,37 +184,7 @@ class BoletimTestCase(TestCase):
         'fonte_oficial_tipo': 'Instagram',
         'obitos': 9})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         a = BoletimEpidemiologico.get_delete_boletim(BoletimEpidemiologico, request)
@@ -377,37 +227,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : -5,
         'notificados' : -5})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
 
         a = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
@@ -449,37 +269,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : 5,
         'notificados' : 5})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         a = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         self.assertEqual(a, 
@@ -521,37 +311,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : 5,
         'notificados' : 5})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         a = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         self.assertEqual(a, 
@@ -593,38 +353,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : 5,
         'notificados' : 5})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
-
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
         item = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 
         self.assertEqual(int(item.obitos), 9)
@@ -731,37 +460,7 @@ class BoletimTestCase(TestCase):
         'monitorados' : 5,
         'notificados' : 5})
 
-        request = {
-            'cidade': req.POST.get('cidade'),
-            'data_atualizacao' : req.POST.get('data_atualizacao'),
-            'fonte_oficial_url' : req.POST.get('fonte_oficial_url'),			
-            'fonte_oficial_tipo' : req.POST.get('fonte_oficial_tipo'),			
-            'confirmados' : req.POST.get('confirmados'),			
-            'conf_reside' : req.POST.get('conf_reside'),			
-            'conf_nao_reside' : req.POST.get('conf_nao_reside'),			
-            'recuperados' : req.POST.get('recuperados'),			
-            'obitos' : req.POST.get('obitos'),			
-            'isolados' : req.POST.get('isolados'),			
-            'iso_domiciliar' : req.POST.get('iso_domiciliar'),			
-            'iso_hospitalar' : req.POST.get('iso_hospitalar'),			
-            'iso_hosp_sus' : req.POST.get('iso_hosp_sus'),			
-            'iso_hosp_priv' : req.POST.get('iso_hosp_priv'),			
-            'iso_hosp_sus_enf' : req.POST.get('iso_hosp_sus_enf'),			
-            'iso_hosp_priv_enf' : req.POST.get('iso_hosp_priv_enf'),			
-            'iso_hosp_sus_uti' : req.POST.get('iso_hosp_sus_uti'),			
-            'iso_hosp_priv_uti' : req.POST.get('iso_hosp_priv_uti'),			
-            'suspeitos' : req.POST.get('suspeitos'),			
-            'sus_isolados' : req.POST.get('sus_isolados'),			
-            'sus_iso_domiciliar' : req.POST.get('sus_iso_domiciliar'),
-            'sus_iso_hospitalar' : req.POST.get('sus_iso_hospitalar'),
-            'sus_investigados' : req.POST.get('sus_investigados'),
-            'testados' : req.POST.get('testados'),
-            'test_pcr' : req.POST.get('test_pcr'),
-            'test_rapido' : req.POST.get('test_rapido'),
-            'descartados' : req.POST.get('descartados'),
-            'monitorados' : req.POST.get('monitorados'),
-            'notificados' : req.POST.get('notificados'),
-        }
+        request = BoletimEpidemiologico.cleanDataFactory(BoletimEpidemiologico, req)
 
         item = BoletimEpidemiologico.get_create_boletim(BoletimEpidemiologico, request)
 

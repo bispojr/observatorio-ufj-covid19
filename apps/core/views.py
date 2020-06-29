@@ -119,23 +119,70 @@ def home(request):
 			date = datetime.strptime(str_date, '%d/%m/%Y').date()
 			row[0] =  date
 
-			registro = {
-				"cidade": "mineiros",
-				"data_atualizacao": row[0],
-				"fonte_oficial": "http://www.google.com",
-				"confirmados": row[4],
-				"recuperados": row[7],
-				"obitos": row[6],
-				"suspeitos": None,
-				"investigados":  row[3],
-				"descartados": int(row[3]) + int(row[5]),
-				"monitorados": row[2],
-				"notificados": row[1],
-				"isolados": row[10],
-				"internados": int(row[9]) + int(row[8]),
-				"enfermaria": row[9],
-				"uti": row[8]
-			}
+			registro={}
+			# registro = {
+			# 	"cidade": "Jataí",
+			# 	"data_atualizacao": row[0],
+			# 	"fonte_oficial_url": "http://www.google.com",
+			# 	"fonte_oficial_tipo": "indefinido",
+			# 	"confirmados": row[1],
+			# 	"descartados": row[2],
+			# 	"sus_investigados": row[3],
+			# 	"notificados": row[4],
+			# 	"isolados": row[5],
+			# 	"iso_hospitalar": row[6],
+			# 	"monitorados": row[7],
+			# 	"recuperados": row[8],
+			# 	"obitos": row[9],
+			# }
+			# registro = {
+			# 	"cidade": "Mineiros",
+			# 	"data_atualizacao": row[0],
+			# 	"fonte_oficial_url": "http://www.google.com",
+			# 	"fonte_oficial_tipo": "indefinido",
+			# 	"notificados": row[1],
+			# 	"monitorados": row[2],
+			# 	"descartados": int(row[3])+int(row[5]),
+			# 	"confirmados": row[4],
+			# 	"obitos": row[6],
+			# 	"recuperados": row[7],
+			# 	"iso_hosp_sus_uti": row[8],
+			# 	"iso_hosp_sus_enf": row[9],
+			# 	"iso_hospitalar": int(row[8]) + int(row[9]),
+			# 	"iso_domiciliar": row[10],
+			# 	"sus_investigados": row[11],
+			# }
+			# registro = {
+			# 	"cidade": "Chapadão do Ceu",
+			# 	"data_atualizacao": row[0],
+			# 	"fonte_oficial_url": "http://www.google.com",
+			# 	"fonte_oficial_tipo": "indefinido",
+			# 	"confirmados": row[1],
+			# 	"descartados": row[2],
+			# 	"sus_investigados": row[3],
+			# 	"suspeitos": row[4],
+			# 	"notificados": row[5],
+			# 	"isolados": row[6],
+			# 	"iso_hospitalar": row[7],
+			# 	"monitorados": row[8],
+			# 	"recuperados": row[9],
+			# 	"obitos": row[10],
+			# }
+			# registro = {
+			# 	"cidade": "Rio Verde",
+			# 	"data_atualizacao": row[0],
+			# 	"fonte_oficial_url": "http://www.google.com",
+			# 	"fonte_oficial_tipo": "indefinido",
+			# 	"confirmados": row[1],
+			# 	"descartados": row[2],
+			# 	"sus_investigados": row[3],
+			# 	"notificados": row[4],
+			# 	"isolados": row[5],
+			# 	"iso_hospitalar": row[6],
+			# 	"monitorados": row[7],
+			# 	"recuperados": row[8],
+			# 	"obitos": row[9],
+			# }
 
 			insercao = BoletimEpidemiologico(**registro)
 			insercao.save()
