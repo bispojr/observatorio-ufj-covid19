@@ -1,3 +1,18 @@
+"""
+Este arquivo realiza um dump do banco de dados
+e salva em um arquivo chamado: dumpPrivado.json
+
+Para utilizar este arquivo basta estar no diretório
+raiz do projeto e digitar o comando:
+
+python dumpPrivado.py
+
+O arquivo será criado com o dump dos dados que estão
+no banco.
+
+Dados como contenttypes e auth não estão no dump.
+"""
+
 import django
 from django.conf import settings
 import observatorio.settings as config
