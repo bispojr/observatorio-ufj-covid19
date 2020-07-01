@@ -11,6 +11,14 @@ O arquivo será criado com o dump dos dados que estão
 no banco.
 
 Dados como contenttypes e auth não estão no dump.
+
+É possível realizar esta ação diretamente no terminal
+pelo seguinte comando:
+
+python manage.py dumpdata --exclude auth --exclude contenttypes --indent 4 > dump.json
+
+Um arquivo json com nome dump.json será criado com as mesmas
+informações.
 """
 
 import django
