@@ -1,6 +1,8 @@
 from django.db import models, IntegrityError
 from django.core.exceptions import ValidationError
 import uuid
+from django.core import management
+from django.core.management.commands import dumpdata
 
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 import datetime
@@ -53,7 +55,6 @@ class BoletimEpidemiologico(models.Model):
 
     def __str__(self):
         return self.cidade + ": " + str(self.data_atualizacao)
-
 
     class Meta:
         unique_together = ('cidade', 'data_atualizacao')
@@ -149,7 +150,7 @@ class BoletimEpidemiologico(models.Model):
         """
         return self.__updateBoletimEpidemiologico(self, request)
 
-    def get_dump_privado(self):
+
         """
         Gera um dump dos dados do banco de dados e 
         cria um arquivo txt com a QuerySet.
@@ -302,12 +303,4 @@ class BoletimEpidemiologico(models.Model):
 
         return req
 
-    def __dumpPrivado(self):
-        try:
-            boletim = BoletimEpidemiologico.objects.values()
-            with open("ultimoDump.text", "w", encoding='utf8') as f:
-                f.write(str(boletim))
-        except BoletimEpidemiologico.DoesNotExist:
-            return ("O Boletim não existe!")
-
-        return boletim
+        
