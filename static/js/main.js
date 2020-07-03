@@ -7,72 +7,37 @@ $(".list-group-item").hover(function(){
 // Animação do Mapa
 //$("#mapa-rotulo-jatai").hide();
 
-$("#mapa-mun-jatai").hover(function(){
-    $("#mapa-rotulo-chapadao").hide();
-    $("#mapa-mun-chapadao-do-ceu").css("fill", "#179999");
+var cidade_out = ["jatai", "cacu", "mineiros", "montividiu", "rio-verde", "santa-helena"];
+var cidade_in = "chapadao-do-ceu";
+var cor_ativa = "#1a5f5f";
+var cor_inativa = "#179999";
 
-    $("#mapa-rotulo-jatai").show();
-    $(this).css("fill", "#1a5f5f");
-  }, function(){
-    $("#mapa-rotulo-jatai").hide()
-    $(this).css("fill", "#179999");
+for(var i in cidade_out){
 
-    $("#mapa-rotulo-chapadao").show();
-    $("#mapa-mun-chapadao-do-ceu").css("fill", "#1a5f5f");
-});
+  (function(){
+    var mapa_mun_cid_out = "#mapa-mun-" + cidade_out[i];
+    var mapa_rot_cid_out = "#mapa-rotulo-" + cidade_out[i];
 
-$("#mapa-mun-cacu").hover(function(){
-  $("#mapa-rotulo-chapadao").hide();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#179999");
+    var mapa_mun_cid_in = "#mapa-mun-" + cidade_in;
+    var mapa_rot_cid_in = "#mapa-rotulo-" + cidade_in;
 
-  $("#mapa-rotulo-cacu").show();
-  $(this).css("fill", "#1a5f5f");
-}, function(){
-  $("#mapa-rotulo-cacu").hide();
-  $(this).css("fill", "#179999");
+    $(mapa_mun_cid_out).hover(function(){
+        
+        $(mapa_rot_cid_in).hide();
+        $(mapa_mun_cid_in).css("fill", cor_inativa);
 
-  $("#mapa-rotulo-chapadao").show();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#1a5f5f");
-});
+        $(mapa_rot_cid_out).show();
+        $(this).css("fill", cor_ativa);
 
-$("#mapa-mun-mineiros").hover(function(){
-  $("#mapa-rotulo-chapadao").hide();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#179999");
+      }, function(){
+        
+        $(mapa_rot_cid_out).hide()
+        $(this).css("fill", cor_inativa);
 
-  $("#mapa-rotulo-mineiros").show();
-  $(this).css("fill", "#1a5f5f");
-}, function(){
-  $("#mapa-rotulo-mineiros").hide();
-  $(this).css("fill", "#179999");
+        $(mapa_rot_cid_in).show();
+        $(mapa_mun_cid_in).css("fill", cor_ativa);
 
-  $("#mapa-rotulo-chapadao").show();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#1a5f5f");
-});
+    });
+  })();
 
-$("#mapa-mun-rio-verde").hover(function(){
-  $("#mapa-rotulo-chapadao").hide();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#179999");
-
-  $("#mapa-rotulo-rio-verde").show();
-  $(this).css("fill", "#1a5f5f");
-}, function(){
-  $("#mapa-rotulo-rio-verde").hide();
-  $(this).css("fill", "#179999");
-
-  $("#mapa-rotulo-chapadao").show();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#1a5f5f");
-});
-
-$("#mapa-mun-santa-helena").hover(function(){
-  $("#mapa-rotulo-chapadao").hide();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#179999");
-
-  $("#mapa-rotulo-santa-helena").show();
-  $(this).css("fill", "#1a5f5f");
-}, function(){
-  $("#mapa-rotulo-santa-helena").hide();
-  $(this).css("fill", "#179999");
-
-  $("#mapa-rotulo-chapadao").show();
-  $("#mapa-mun-chapadao-do-ceu").css("fill", "#1a5f5f");
-});
+}

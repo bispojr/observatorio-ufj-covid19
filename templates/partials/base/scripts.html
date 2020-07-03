@@ -18,6 +18,7 @@
 {% if script == "graficos-cacu" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "graficos-chapadao-do-ceu" %}
@@ -29,26 +30,31 @@
 {% if script == "graficos-jatai" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if  script == "graficos-mineiros" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "graficos-rio-verde" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "graficos-santa-helena" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildChart.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "graficos-comparacao" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   {% include "grafico/buildComparison.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
 {% endif %}
 
 {% if script == "tendencias" %}
