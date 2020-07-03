@@ -5,12 +5,15 @@ from .views import ( home, grafico, comparacao,
                      noticias, api_brasil_estado, api_brasil_geral,
                      quantidade_estado_goias, quantidade_geral_brasil,
                      createBoletimEpidemiologico, deleteBoletimEpidemiologico,
-                     readBoletimEpidemiologico, updateBoletimEpidemiologico
+                     readBoletimEpidemiologico, updateBoletimEpidemiologico,
+                     principalBoletimEpidemiologico
                     )
 
 app_name = "core"
 urlpatterns = [
     path("", home, name="home"),
+
+    path("dados/", principalBoletimEpidemiologico, name="principalBoletimEpidemiologico"),
 
     # graficos
     path("graficos/<str:cidade>/", grafico, name="grafico"),

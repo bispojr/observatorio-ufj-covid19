@@ -76,7 +76,12 @@ def updateBoletimEpidemiologico(request):
 @require_GET
 def principalBoletimEpidemiologico(request):
 	url = "base.html"
-	context = Home.getContext(Home)
+	context = {
+            "grupo": "geral",
+            "script": "geral",
+            "grupo_link": "principal",
+            "titulo": "Observatório UFJ Covid-19 - Principal"
+        }
 
 	jatai = {"header": [], "data": []}
 	with open(settings.BASE_DIR + '/dados/mineiros-dados-20-05-25.csv') as csv_file:
