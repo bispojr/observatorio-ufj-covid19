@@ -9,16 +9,41 @@ from selenium.webdriver.firefox.options import Options
 # Create your tests here.
 
 class GraficosTestCase(TestCase):
-    
+    """
+    Classe de testes para os gráficos.
+
+    methods:
+        - setUp
+        - tearDown
+        - test_pagina_cacu
+        - test_pagina_chapadao
+        - test_titulo_jatai
+        - test_titulo_mineiros
+        - test_titulo_montividiu
+        - test_titulo_rioverde
+        - test_titulo_santahelena
+        - test_titulo_comoSaoCriados
+    """
     def setUp(self):
+        """
+        Função para fazer o setUp dos drivers que serão utilizados
+        nos testes
+        """
         options = Options()
         options.headless = True
         self.driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
 
     def tearDown(self):
+        """
+        Função para fechar o drive quando o teste acabar
+        """
         self.driver.close()
     
     def test_pagina_cacu(self):
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """
         self.driver.get('http://127.0.0.1:8000/graficos/cacu/')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Caçu)"
         assert titulo in self.driver.title
@@ -27,6 +52,10 @@ class GraficosTestCase(TestCase):
         assert "Rede Social Oficial da Prefeitura de Caçu" in self.driver.page_source
     
     def test_pagina_chapadao(self):
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """
         self.driver.get('http://127.0.0.1:8000/graficos/chapadao')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Chapadão do Céu)"
         assert titulo in self.driver.title
@@ -35,6 +64,10 @@ class GraficosTestCase(TestCase):
         assert "Secretaria de Saúde de Chapadão do Céu" in self.driver.page_source
     
     def test_titulo_jatai(self):
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """
         self.driver.get('http://127.0.0.1:8000/graficos/jatai')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Jataí)"
         assert titulo in self.driver.title
@@ -43,6 +76,10 @@ class GraficosTestCase(TestCase):
         assert "Secretaria de Saúde de Jataí" in self.driver.page_source
     
     def test_titulo_mineiros(self):
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """
         self.driver.get('http://127.0.0.1:8000/graficos/mineiros')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Mineiros)"
         assert titulo in self.driver.title
@@ -51,6 +88,10 @@ class GraficosTestCase(TestCase):
         assert "Secretaria de Saúde de Mineiros" in self.driver.page_source
 
     def test_titulo_montividiu(self):
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """
         self.driver.get('http://127.0.0.1:8000/graficos/montividiu')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Montividiu)"
         assert titulo in self.driver.title
@@ -58,7 +99,11 @@ class GraficosTestCase(TestCase):
         assert "Monitorados" in self.driver.page_source
         assert "Rede Social Oficial da Prefeitura de Montividiu" in self.driver.page_source
 
-    def test_titulo_rioverde(self):        
+    def test_titulo_rioverde(self):   
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """     
         self.driver.get('http://127.0.0.1:8000/graficos/rioverde')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Rio Verde)"
         assert titulo in self.driver.title
@@ -66,7 +111,11 @@ class GraficosTestCase(TestCase):
         assert "Monitorados" in self.driver.page_source
         assert "Secretaria de Saúde de Rio Verde" in self.driver.page_source
 
-    def test_titulo_santahelena(self):        
+    def test_titulo_santahelena(self):    
+        """
+        Função para testar se título e page source
+        contém os dados essenciais.
+        """    
         self.driver.get('http://127.0.0.1:8000/graficos/santahelena')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Santa Helena)"
         assert titulo in self.driver.title
@@ -79,7 +128,10 @@ class GraficosTestCase(TestCase):
         titulo = "Observatório UFJ Covid-19 - Comparação entre as cidades"
         assert titulo in self.driver.title """
 
-    def test_titulo_comoSaoCriados(self):        
+    def test_titulo_comoSaoCriados(self):    
+        """
+        Função para testar se título está correto.
+        """    
         self.driver.get('http://127.0.0.1:8000/como-sao-criados')
         titulo = "Observatório UFJ Covid-19 - Como são criados?"
         assert titulo in self.driver.title
