@@ -14,8 +14,38 @@ from .chartbuilder.datatable import DataTable
 from unidecode import unidecode
 
 class Graficos(models.Model): 
+    """
+    Classe para criar o context para os gráficos
+
+    methods:
+        getContext
+    """
     
     def getContext(self, cidade):
+        """
+        Retorna o contexto da página contendo os dados
+        da cidade:
+            - grupo
+            - grupo_link
+            - titulo
+            - script
+            - cidade
+            - nome_base
+            - nome_fonte
+            - url_fonte
+            - google_charts
+            - tableJson
+            - ticks
+            - cards
+            - data_completa
+        
+        args:
+            self
+            cidade
+        
+        return:
+            Dict com os dados do contexto da página.
+        """
         if cidade == "cacu":
             return {**self._geral("Caçu"), **self._cacu(self)}
         if cidade == "chapadao":
