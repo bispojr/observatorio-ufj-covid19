@@ -3,9 +3,25 @@ from .parameters import Parameters
 import json
 
 class Jatai(): 
-
+    """
+    Classe para gerar os gráficos da cidade 
+    de Jataí.
+    """
     def __geral():
+        """
+        Função privada para gerar os títulos dos 
+        eixos X e Y do gráfico e também para 
+        que não haja números negativos.
 
+        args:
+            None
+        
+        return:
+            Dict com os valores:
+                - xTitle
+                - yTitle
+                - minY
+        """
         geral = {
             "xTitle": 'Dia/Mês',
             "yTitle": 'Número de casos',
@@ -15,6 +31,24 @@ class Jatai():
         return geral
 
     def __resumo(self):
+        """
+        Função privada para configurar o 
+        gráfico de resumo, atualizando as 
+        variáveis: cores, ID da <div>, 
+        tipo do gráfico e a
+        data de atualização do gráfico.
+
+        args:
+            self
+        
+        return:
+            Concatenação dos valores gerais com os
+            seguintes valores atualizados:
+                - colors
+                - idDiv
+                - tipo_grafico
+                - data_atualizacao
+        """
         resumo = {
             "colors": Parameters.cores(Parameters, "resumo"),
             "idDiv": 'jatai-grafico-resumo',
@@ -25,7 +59,23 @@ class Jatai():
         return {**self.__geral(), **resumo}
 
     def __monitorados(self):
+        """
+        Função privada para configurar o gráfico de 
+        monitorados, atualizando os valores:
+        cores, ID da <div>, o tipo do gráfico 
+        e a data de atualização do gráfico.
 
+        args:
+            self
+
+        return:
+            Concatenação dos valores gerais com os
+            seguintes valores atualizados:
+                - colors
+                - idDiv
+                - tipo_grafico
+                - data_atualizacao
+        """
         monitorados = {
             "colors": Parameters.cores(Parameters, "monitorados"),
             "idDiv": 'jatai-grafico-monitorados',
@@ -36,7 +86,23 @@ class Jatai():
         return {**self.__geral(), **monitorados}
     
     def __todas(self):
+        """
+        Função para configurar o gráfico de todos
+        os dados de Jataí, atualizando os valores:
+        cores, ID da <div>, tipo do gráfico e a 
+        data de atualização.
 
+        args:
+            self
+        
+        return:
+            Concatenação dos valores gerais com os
+            seguintes valores atualizados:
+                - colors
+                - idDiv
+                - tipo_grafico
+                - data_atualizacao
+        """
         todas = {
             "colors": Parameters.cores(Parameters, "todas"),
             "idDiv": 'jatai-grafico-todas',
@@ -47,6 +113,20 @@ class Jatai():
         return {**self.__geral(), **todas}
 
     def getValores(self):
+        """
+        Função para agrupar os dados da 
+        funções que atualizam os dados dos gráficos
+        de resumo, monitorados e todos os dados.
+
+        args:
+            self
+
+        return:
+            JSON com os valores:
+                - resumo
+                - monitorados
+                - todas
+        """
         parametros = {
             "resumo": self.__resumo(self),
             "monitorados": self.__monitorados(self),
