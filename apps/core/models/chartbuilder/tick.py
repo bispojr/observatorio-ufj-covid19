@@ -3,7 +3,25 @@ import math
 from pprint import pprint
 
 class Tick():
+    """
+    Classe para criar os pontos no gráfico
+
+    methods:
+        getTicks
+    """
     def getTicks(dados, cols):
+        """
+        Função para gerar os pontos de um gráfico
+
+        args:
+            dados
+            cols
+
+        return:
+            Dict com os pontos para o gráfico
+                - tickX
+                - tickY
+        """
         
         listData = []
         for row in dados:
