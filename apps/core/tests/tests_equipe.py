@@ -9,16 +9,34 @@ from selenium.webdriver.firefox.options import Options
 # Create your tests here.
 
 class EquipeTestCase(TestCase):
+    """
+    Classe de testes para as equipes.
+
+    methods:
+        - setUp
+        - tearDown
+        - test_equipe
+    """
     
     def setUp(self):
+        """
+        Função para fazer o setUp dos drivers que serão utilizados
+        nos testes
+        """
         options = Options()
         options.headless = True
         self.driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
 
     def tearDown(self):
+        """
+        Função para fechar o drive quando o teste acabar
+        """
         self.driver.close()
 
     def test_equipe(self):
+        """
+        Função para testar se os nomes estão na página de Equipe.
+        """
         self.driver.get('http://127.0.0.1:8000/equipe')
         assert "Críscilla Rezende" in self.driver.page_source
         assert "Diego Costa" in self.driver.page_source
