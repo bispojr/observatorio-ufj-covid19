@@ -1,7 +1,27 @@
 
 class Equipe():
+    """
+    Classe para criar o context da página Equipe
 
+    methods:
+        getContext
+    """
     def getContext(self):
+        """
+        Retorna o contexto da página contendo:
+            - script
+            - grupo
+            - grupo_link
+            - titulo 
+            - parceiros
+            - querysets
+        
+        args:
+            self
+        
+        return:
+            Dict com os dados do contexto da página.
+        """
         return self.__contextEquipe(self)
     
     def __parceiros(self):
