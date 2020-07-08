@@ -11,8 +11,26 @@ from .tick import Tick
 from .parameters import Parameters
 
 class DataTable(): 
+    """
+    Classe para receber e formatar os dados 
+    colocados nas planilhas do Google Drive.
+
+    methods:
+        - credentials
+        - cidade
+    """
     
     def credentials():
+        """
+        Função para coletar as credenciais das planilhas
+        do Google Drive e retornar em JSON
+
+        args:
+            None
+
+        return:
+            creds: JSON com as credenciais das planilhas.
+        """
         scope = [
             "https://spreadsheets.google.com/feeds",
             'https://www.googleapis.com/auth/spreadsheets',
@@ -27,6 +45,20 @@ class DataTable():
         return creds
     
     def cidade(self, cidade):
+        """
+        Função para preparar os dados das planilhas 
+        para serem utilizados pelos objetos da página.
+
+        args:
+            - self
+            - cidade
+        
+        return:
+            - tableJson: dados da tabela em formato JSON
+            - ticks: JSON com os dados para serem utilizados nos ticks
+            - cards: Dict com os valores para os Cards
+            - data_completa: String com a data completa
+        """
         creds = self.credentials()
         client = gspread.authorize(creds)
         
