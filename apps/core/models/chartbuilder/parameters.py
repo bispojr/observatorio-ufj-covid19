@@ -3,7 +3,14 @@ from django.db import models
 import json
 
 class Parameters(): 
+    """
+    Classe para configurar os valores que serão utilizados
+    pelos gráficos assim como suas categorias.
 
+    methods:
+        - cores
+        - categorias
+    """
     corGrafico = { 
         "Confirmados": "red",
         "Descartados": "pink",
@@ -17,6 +24,16 @@ class Parameters():
     }
 
     def cores(self, tipo):
+        """
+        Função para adicionar as cores nas categorias
+
+        args:
+            self
+            tipo
+        
+        return:
+            cores: concatenação das cores com as categorias.
+        """
         cores = []
         
         for cat in self.categorias(self, tipo):
@@ -25,6 +42,18 @@ class Parameters():
         return cores
 
     def categorias(self, tipo, comData = False):
+        """
+        Função para configurar as categorias que serão utilizadas
+        nos gráficos e cards.
+
+        args:
+            self
+            tipo('resumo','monitorados','todas')
+            comData (default = False)
+
+        return:
+            lista com os dados.
+        """
         categorias = []
         if(tipo == "resumo"):
             categorias = [
