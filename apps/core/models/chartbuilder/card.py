@@ -2,8 +2,25 @@ import datetime
 from pprint import pprint
 
 class Card():
+    """
+    Classe para gerar dados de um Card
+
+    methods:
+        - getCards
+    """
 
     def getCards(data):
+        """
+        Função para configurar os dados que irão para os Cards.
+        
+        args:
+            data - dados formatados pela classe
+            DataTable
+        
+        return:
+            - cards: Dict com os valores para os Cards
+            - data_completa: string com a data de atualização completa
+        """
 
         ultimo_registro = data[-1]
         
