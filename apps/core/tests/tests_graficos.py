@@ -18,8 +18,8 @@ class GraficosTestCase(TestCase):
     def tearDown(self):
         self.driver.close()
     
-    def test_pagina_chapadao(self):
-        self.driver.get('http://127.0.0.1:8000/graficos/chapadao')
+    def test_pagina_cacu(self):
+        self.driver.get('http://127.0.0.1:8000/graficos/cacu/')
         titulo = "Observatório UFJ Covid-19 - Gráficos (Caçu)"
         assert titulo in self.driver.title
         assert "Todas as categorias" in self.driver.page_source
