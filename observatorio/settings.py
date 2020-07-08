@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "apps.core",
+    "apps.account",
     "django_nose"
 ]
 
@@ -69,17 +70,26 @@ WSGI_APPLICATION = 'observatorio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # config database heroku
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-
+if config('IN_PRODUCTION') == 'True':
+    # point to mysql production
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    # point to mysql development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'observatorio',
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'PORT': '3306'
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,3 +136,28 @@ STATICFILES_DIRS = (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+# Model from authentication
+AUTH_USER_MODEL = "account.User"
+
+# args login url
+LOGIN_REDIRECT = "/"
+LOGIN_URL = "/account/login"
+
+# autenticacao
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"
+
+# During development only
+if DEBUG == 'True':
+    # Emulate smtp actions
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    # smtp user email
+    EMAIL_HOST = config('EMAIL_HOST')
+    EMAIL_PORT = config('EMAIL_PORT')
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')

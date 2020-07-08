@@ -1,12 +1,11 @@
-
 class Equipe():
 
     def getContext(self):
         return self.__contextEquipe(self)
-    
+
     def __parceiros(self):
         parceiros = [
-            {  
+            {
                 "nome": "#TodosContraoCorona",
                 "short": "todoscontraocorona",
                 "url": "https://www.facebook.com/centrouniversitariodemineiros",
@@ -14,7 +13,7 @@ class Equipe():
                 "content": "Projeto de conscientização diária em relação ao combate ao Covid-19 promovido pela Unifimes."
             },
             {
-                "nome":	"Covid Goiás",
+                "nome": "Covid Goiás",
                 "short": "covid-goias",
                 "url": "https://covidgoias.ufg.br/",
                 "plataforma": "Link",
@@ -40,42 +39,42 @@ class Equipe():
                 "content": "Responsável pelos dados da cidade de Rio Verde. Pesquisadora na área de Inteligência Artificial."
             },
             {
-                "nome":	"Profa. Franciny Medeiros",
+                "nome": "Profa. Franciny Medeiros",
                 "short": "franciny",
                 "url": "http://lattes.cnpq.br/2821748091466181",
                 "plataforma": "Lattes",
                 "content": "Responsável pelos dados de Jataí e pela comunicação. Pesquisadora na área de Engenharia de Software."
             },
             {
-                "nome":	"Prof. Márcio Lopes",
+                "nome": "Prof. Márcio Lopes",
                 "short": "marcio",
                 "url": "http://lattes.cnpq.br/8846703586256426",
                 "plataforma": "Lattes",
                 "content": "Responsável pelos dados da cidade de Mineiros. Pesquisador na área de Computação em Névoa."
             },
             {
-                "nome":	"Prof. Paulo Freitas",
+                "nome": "Prof. Paulo Freitas",
                 "short": "paulo",
                 "url": "http://lattes.cnpq.br/2235534471841773",
                 "plataforma": "Lattes",
                 "content": "Responsável pelos dados de Santa Helena. Pesquisador na área de Mecânica Estatística."
             },
             {
-                "nome":	"Prof. Marcelo Freitas",
+                "nome": "Prof. Marcelo Freitas",
                 "short": "marcelo",
                 "url": "http://lattes.cnpq.br/0972390630476077",
                 "plataforma": "Lattes",
                 "content": "Responsável pelas notícias em relação ao Covid-19. Pesquisa sobre Sistemas Operacionais."
             },
             {
-                "nome":	"Profa. Críscilla Rezende",
+                "nome": "Profa. Críscilla Rezende",
                 "short": "criscilla",
                 "url": "http://lattes.cnpq.br/1242438238751189",
                 "plataforma": "Lattes",
                 "content": "Responsável pelos dados da cidade de Caçu. Especialista em Segurança e Integração de Redes."
             },
             {
-                "nome":	"Prof. Douglas Cedrim",
+                "nome": "Prof. Douglas Cedrim",
                 "short": "douglas",
                 "url": " http://lattes.cnpq.br/8621490090221615",
                 "plataforma": "Lattes",
@@ -89,7 +88,7 @@ class Equipe():
                 "content": "Responsável pelos dados de Chapadão do Céu. Professor de Engenharia Ambiental na Unifimes."
             },
             {
-                "nome":	"Profa. Edlaine Vilela",
+                "nome": "Profa. Edlaine Vilela",
                 "short": "edlaine",
                 "url": "http://lattes.cnpq.br/8767578610764666",
                 "plataforma": "Lattes",
@@ -104,14 +103,14 @@ class Equipe():
             },
             {
                 "nome": "Prof. Luiz Pascoal",
-                "short" :"luiz",
+                "short": "luiz",
                 "url": "http://lattes.cnpq.br/9189310566441445",
                 "plataforma": "Lattes",
                 "content": "Colaborador-parceiro do Covid-Goiás. Professor da área de Sistemas Distribuídos no SENAI."
             },
             {
                 "nome": "Diego Costa",
-                "short" :"diego",
+                "short": "diego",
                 "url": "https://www.diegocosta.dev/",
                 "plataforma": "Link",
                 "content": "Colaborador no desenvolvimento da página. Analista Programador na Unimed na cidade de Rio Verde."
@@ -158,4 +157,3 @@ class Equipe():
         }
         return context
 
-        

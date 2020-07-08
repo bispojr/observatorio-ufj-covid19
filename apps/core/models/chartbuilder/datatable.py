@@ -10,8 +10,9 @@ from .card import Card
 from .tick import Tick
 from .parameters import Parameters
 
-class DataTable(): 
-    
+
+class DataTable():
+
     def credentials():
         scope = [
             "https://spreadsheets.google.com/feeds",
@@ -20,47 +21,47 @@ class DataTable():
             "https://www.googleapis.com/auth/drive"
         ]
 
-        #dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
-        #creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
+        # dictJson = json.loads(settings.CREDENTIALS_GOOGLE_DRIVE)
+        # creds = ServiceAccountCredentials.from_json_keyfile_dict(dictJson, scope)
         creds = ServiceAccountCredentials.from_json_keyfile_name("google-credentials.json", scope)
 
         return creds
-    
+
     def cidade(self, cidade):
         creds = self.credentials()
         client = gspread.authorize(creds)
-        
+
         if (
-            cidade != "Caçu" and 
-            cidade != "Chapadão do Céu" and 
-            cidade != "Jataí" and
-            cidade != "Mineiros" and 
-            cidade != "Montividiu" and
-            cidade != "Rio Verde" and
-            cidade != "Santa Helena"
+                cidade != "Caçu" and
+                cidade != "Chapadão do Céu" and
+                cidade != "Jataí" and
+                cidade != "Mineiros" and
+                cidade != "Montividiu" and
+                cidade != "Rio Verde" and
+                cidade != "Santa Helena"
         ):
             print("Cidade inexistente em nossa base de dados")
-        
+
         # Open the spreadhseet
-        sheet = client.open(cidade).sheet1 
+        sheet = client.open(cidade).sheet1
         dados = sheet.get_all_records()  # Get a list of all records
-        
+
         # Preparação dos dados
         dados_preparados = []
         for row in dados:
-            #Convertendo para o formato de data do Python
+            # Convertendo para o formato de data do Python
             row["Data"] = datetime.strptime(row["Data"], '%d/%m/%Y')
 
-            #Convertendo para Null os campos sem valor
+            # Convertendo para Null os campos sem valor
             for val in row:
                 if row[val] == '-' or row[val] == '':
                     row[val] = None
             dados_preparados.append(row)
-            
+
             # Mantém apenas o registro mais atual do dia
             if (
-                len(dados_preparados) > 1 and
-                dados_preparados[-1]["Data"] == dados_preparados[-2]["Data"]
+                    len(dados_preparados) > 1 and
+                    dados_preparados[-1]["Data"] == dados_preparados[-2]["Data"]
             ):
                 val = dados_preparados[-2]
                 dados_preparados.remove(val)
@@ -120,7 +121,7 @@ class DataTable():
         }
 
         ticks = {
-            "resumo": json.dumps(ticksResumo),            
+            "resumo": json.dumps(ticksResumo),
             "monitorados": json.dumps(ticksMonitorados),
             "todas": json.dumps(ticksTodas)
         }

@@ -5,3 +5,4 @@ google-credentials.json
 
 # configurações de editores
 .vscode
+.idea/*

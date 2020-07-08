@@ -6,10 +6,11 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
+
 # Create your tests here.
 
 class EquipeTestCase(TestCase):
-    
+
     def setUp(self):
         options = Options()
         options.headless = True
@@ -40,4 +41,3 @@ class EquipeTestCase(TestCase):
 
         assert "#TodosContraoCorona" in self.driver.page_source
         assert "Covid Goiás" in self.driver.page_source
-        

@@ -2,9 +2,10 @@ from django.db import models
 
 import json
 
-class Parameters(): 
 
-    corGrafico = { 
+class Parameters:
+
+    corGrafico = {
         "Confirmados": "red",
         "Descartados": "pink",
         "Investigados": "yellow",
@@ -13,36 +14,37 @@ class Parameters():
         "Internados": "blue",
         "Monitorados": "brown",
         "Recuperados": "purple",
-        "Óbitos": "black"
+        "Óbitos": "black",
     }
 
     def cores(self, tipo):
         cores = []
-        
+
         for cat in self.categorias(self, tipo):
             cores.append(self.corGrafico[cat])
-        
+
         return cores
 
-    def categorias(self, tipo, comData = False):
+    def categorias(self, tipo, comData=False):
         categorias = []
-        if(tipo == "resumo"):
+        if tipo == "resumo":
+            categorias = ["Confirmados", "Recuperados", "Internados", "Óbitos"]
+        if tipo == "monitorados":
+            categorias = ["Monitorados", "Descartados"]
+        if tipo == "todas":
             categorias = [
-                "Confirmados", "Recuperados",
-                "Internados", "Óbitos"
+                "Confirmados",
+                "Descartados",
+                "Investigados",
+                "Notificados",
+                "Isolados",
+                "Internados",
+                "Monitorados",
+                "Recuperados",
+                "Óbitos",
             ]
-        if(tipo == "monitorados"):
-            categorias = [
-                "Monitorados", "Descartados"
-            ]
-        if(tipo == "todas"):
-            categorias = [
-                "Confirmados", "Descartados", "Investigados",
-                "Notificados", "Isolados","Internados",
-                "Monitorados", "Recuperados", "Óbitos"
-            ]
-        
+
         if comData == True:
             categorias.insert(0, "Data")
-        
+
         return categorias

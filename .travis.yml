@@ -11,7 +11,10 @@ branches:
 before_install:
   - openssl aes-256-cbc -K $encrypted_749dcc9e92f7_key -iv $encrypted_749dcc9e92f7_iv -in google-credentials-travis.json -out google-credentials.json -d
   - openssl aes-256-cbc -K $encrypted_3c84dcdc6bbe_key -iv $encrypted_3c84dcdc6bbe_iv -in .env-travis -out .env -d
+  - mysql -e 'CREATE DATABASE observatorio character set utf8;'
 
+services:
+  - mysql
 
 addons:
   firefox: latest

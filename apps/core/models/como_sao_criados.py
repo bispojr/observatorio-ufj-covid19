@@ -1,6 +1,4 @@
-
-class ComoSaoCriados():
-
+class ComoSaoCriados:
     def getContext(self):
         return self.__contextComoSaoCriados(self)
 
@@ -9,6 +7,6 @@ class ComoSaoCriados():
             "grupo": "geral",
             "grupo_link": "graficos",
             "script": "geral",
-            "titulo": "Observatório UFJ Covid-19 - Como são criados?"
-        }  
+            "titulo": "Observatório UFJ Covid-19 - Como são criados?",
+        }
         return context

@@ -2,15 +2,11 @@ from .parameters import Parameters
 
 import json
 
-class RioVerde(): 
-    
+
+class RioVerde:
     def __geral():
 
-        geral = {
-            "xTitle": 'Dia/Mês',
-            "yTitle": 'Número de casos',
-            "minY": 0
-        }
+        geral = {"xTitle": "Dia/Mês", "yTitle": "Número de casos", "minY": 0}
 
         return geral
 
@@ -18,9 +14,9 @@ class RioVerde():
 
         resumo = {
             "colors": Parameters.cores(Parameters, "resumo"),
-            "idDiv": 'rio-verde-grafico-resumo',
+            "idDiv": "rio-verde-grafico-resumo",
             "tipo_grafico": "resumo",
-            "data_atualizacao": "#data-atualizacao-rio-verde"
+            "data_atualizacao": "#data-atualizacao-rio-verde",
         }
 
         return {**self.__geral(), **resumo}
@@ -29,9 +25,9 @@ class RioVerde():
 
         monitorados = {
             "colors": Parameters.cores(Parameters, "monitorados"),
-            "idDiv": 'rio-verde-grafico-monitorados',
+            "idDiv": "rio-verde-grafico-monitorados",
             "tipo_grafico": "monitorados",
-            "data_atualizacao": False
+            "data_atualizacao": False,
         }
 
         return {**self.__geral(), **monitorados}
@@ -40,18 +36,18 @@ class RioVerde():
 
         todas = {
             "colors": Parameters.cores(Parameters, "todas"),
-            "idDiv": 'rio-verde-grafico-todas',
+            "idDiv": "rio-verde-grafico-todas",
             "tipo_grafico": "todas",
-            "data_atualizacao": False
+            "data_atualizacao": False,
         }
 
         return {**self.__geral(), **todas}
 
     def getValores(self):
         parametros = {
-            'resumo': self.__resumo(self),
+            "resumo": self.__resumo(self),
             "monitorados": self.__monitorados(self),
-            "todas": self.__todas(self)
+            "todas": self.__todas(self),
         }
 
         parametros = json.dumps(parametros)
