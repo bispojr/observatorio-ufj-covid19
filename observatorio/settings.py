@@ -70,17 +70,26 @@ WSGI_APPLICATION = 'observatorio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # config database heroku
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-
+if config('IN_PRODUCTION') == 'True':
+    # point to mysql production
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    # point to mysql development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'observatorio',
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'PORT': '3306'
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -141,7 +150,7 @@ LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
 
 # During development only
-if DEBUG == True:
+if DEBUG == 'True':
     # Emulate smtp actions
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 else:

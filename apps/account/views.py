@@ -30,4 +30,4 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return render(request, "registration/login.html", status=200)
+        return render(request, "/", status=200)

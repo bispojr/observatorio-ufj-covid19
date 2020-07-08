@@ -58,32 +58,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-    def login(request):
-        msg_return = ""
-        is_logged = False
-        try:
-            email = request.POST.get("email", "")
-            password = request.POST.get("password", "")
-            if request.method == "POST":
-                u = User.objects.filter(email=email)
-                u_count = u.count()
-                if u_count == 1:
-                    session = auth.authenticate(email=email, password=password)
-                    if session:
-                        auth.login(request, session)
-                        is_logged = True
-                    else:
-                        msg_return = "invalid_credentials"
-                else:
-                    msg_return = "not_found"
-        except:
-            return request, msg_return, is_logged
-        return request, msg_return, is_logged
-
-    # def logout(request):
-    #     auth.logout(request)
-    #     return redirect("accounts:login")
-
     class Meta:
         verbose_name = "User"
         verbose_name_plural = "Users"
