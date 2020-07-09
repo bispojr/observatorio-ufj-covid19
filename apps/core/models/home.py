@@ -7,7 +7,7 @@ class Home():
         getContext
     """
     def getContext(self):
-         """
+        """
         Retorna o contexto da página contendo:
             - grupo
             - grupo_link
