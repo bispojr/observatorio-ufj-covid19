@@ -55,6 +55,11 @@
   {% include "grafico/buildComparison.html" %}
 {% endif %}
 
+{% if script == "media-movel" %}
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  {% include "media_movel/buildChart.html" %}
+{% endif %}
+
 {% if script == "tendencias" %}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{% static 'js/tendencias/buildProjection.js' %}"></script>

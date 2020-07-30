@@ -1,0 +1,95 @@
+<script>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var parametros = '{{ google_charts }}';
+        parametros = decodeURI(parametros);
+        parametros = String(parametros).replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+        parametros = JSON.parse(parametros);
+        
+        buildChart(parametros.resumo);
+        buildChart(parametros.todas);
+        buildChart(parametros.monitorados);
+    }
+    
+    function buildChart(param) {
+
+        var tableJson = '';
+        var ticks = '';
+
+        switch(param.tipo_grafico){
+            case "resumo":
+                tableJson = '{{ tableJson.resumo }}';
+                ticks = '{{ ticks.resumo }}';
+                break;
+            case "monitorados":
+                tableJson = '{{ tableJson.monitorados }}';
+                ticks = '{{ ticks.monitorados }}';
+                break;
+            case "todas":
+                tableJson = '{{ tableJson.todas }}';
+                ticks = '{{ ticks.todas }}';
+                break;
+        }
+        
+        tableJson = decodeURI(tableJson);
+        tableJson = String(tableJson)
+                    .replace(/&quot;/g, '"')
+                    .replace(/&amp;/g, '&');
+        tableJson = JSON.parse(tableJson);
+        
+        var data = new google.visualization.DataTable(tableJson);
+
+        ticks = decodeURI(ticks);
+        ticks = String(ticks)
+                    .replace(/&quot;/g, '"')
+                    .replace(/&amp;/g, '&');
+        ticks = JSON.parse(ticks);
+        
+        
+        var ticksX = ticks.ticksX;
+        var ticksY = ticks.ticksY;
+
+        //Option
+
+        var options = {
+            seriesType: 'bars',
+            series: {1: {type: 'line'}},
+            legend: { position: 'top' , maxLines: 2},
+            isStacked: true,
+            colors: param.colors,
+            pointSize: 5,
+            animation:{
+            duration: 1000,
+            startup: true,
+            },
+            hAxis: {
+                title: param.xTitle,
+                format: 'd/M',
+                //viewWindow: {min: minX, max: maxX},
+                ticks: ticksX
+                //gridlines: {count: stepX}
+            },
+            vAxis: {    
+                title: param.yTitle,
+                ticks: ticksY,
+                viewWindow: { min: param.minY }
+            }
+            
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById(param.idDiv));
+        chart.draw(data, options);
+
+
+        //Data de atualização informada em cada página
+        if(param.data_atualizacao != false){
+            var data_completa = '{{ data_completa }}';
+            $(param.data_atualizacao).text(data_completa);
+        }
+    }
+
+    window.onload = drawChart;
+    window.onresize = drawChart;
+</script>
