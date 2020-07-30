@@ -19,9 +19,25 @@
 							{{ card.categoria }}
 						</div>
 					</div>
-					<div class="col text-center d-inline" style="font-size: 40px; margin-left: -35px; margin-top: -3px;">
-						{{ card.numero }}
-					</div>
+						{% if card.categoria == "Situação" %}
+							<div class="col text-center d-inline" 
+							style="font-size: 20px; margin-left: -35px; margin-top: 10px; 
+							padding-right: 30px; padding-left: 30px;">
+								{{ card.numero }}
+							</div>
+						{% elif card.categoria != "Var. (15d)" %}
+							<div class="col text-center d-inline" style="font-size: 40px; margin-left: -35px; margin-top: -3px;">
+								{{ card.numero }}
+							</div>
+						{% endif %}
+
+						{% if card.categoria == "Var. (15d)" %}
+							<div class="col text-center d-inline" 
+							style="font-size: 30px; margin-left: -35px; margin-top: 5px; 
+							padding-right: 30px; padding-left: 30px;">
+								{{ card.numero }}
+							</div>
+						{% endif %}
 				</div>
 			</div>
 		{% endfor %}
