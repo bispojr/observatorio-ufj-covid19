@@ -38,7 +38,29 @@
 					-->
 		          	<a class="dropdown-item" href="{% url 'core:como-sao-criados' %}">Como são criados?</a>
 		        </div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle mr-2 
+				{% if grupo_link == "media-movel" %}
+					active
+				{% endif %}
+				" href="#" id="navbarDropdownGraficos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		        	Média Móvel
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownGraficos">
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="cacu" %}">Caçu</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="chapadao" %}">Chapadão do Céu</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="jatai" %}">Jataí</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="mineiros" %}">Mineiros</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="montividiu" %}">Montividiu</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="rioverde" %}">Rio Verde</a>
+					<a class="dropdown-item" href="{% url 'core:media-movel' cidade="santahelena" %}">Santa Helena</a>
+					<!--<div class="dropdown-divider"></div>
+					
+		          	<a class="dropdown-item" href="{% url 'core:como-sao-criados' %}">Como são criados?</a>-->
+		        </div>
       		</li>
+			  
       		<!--<li class="nav-item mr-2 {% if page.permalink == "/noticias" %} active {% endif %}">
         		<a class="nav-link" href="/noticias">Notícias</a>
       		</li>-->

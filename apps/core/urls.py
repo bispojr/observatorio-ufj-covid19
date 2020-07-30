@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import ( home, grafico, comparacao, 
-                     como_sao_criados, sobre, 
+                     como_sao_criados, media_movel, sobre, 
                      equipe, na_midia, colabore,
                      noticias, api_brasil_estado, api_brasil_geral,
                      quantidade_estado_goias, quantidade_geral_brasil
@@ -14,6 +14,9 @@ urlpatterns = [
     path("graficos/<str:cidade>/", grafico, name="grafico"),
     path("comparacao/", comparacao, name="comparacao"),
     path("como-sao-criados/", como_sao_criados, name="como-sao-criados"),
+
+    # media movel
+    path("media-movel/<str:cidade>/", media_movel, name="media-movel"),
 
     # tendencias
     #path("tendencias/<str:cidade>/", tendencias, name="tendencias"),
