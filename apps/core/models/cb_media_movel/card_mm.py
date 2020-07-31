@@ -14,7 +14,7 @@ class CardMM():
 
         situacao = ""
         cor_situacao = ""
-        if abs(variacao) < 15:
+        if abs(variacao) <= 15:
             situacao = "Estável"
             cor_situacao = "orange"
         elif variacao > 15:
