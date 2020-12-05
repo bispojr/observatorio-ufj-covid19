@@ -150,7 +150,7 @@ class BoletimEpidemiologico(models.Model):
         """
         return self.__updateBoletimEpidemiologico(self, request)
 
-
+    def __dumpPrivado(self)
         """
         Gera um dump dos dados do banco de dados e 
         cria um arquivo txt com a QuerySet.
